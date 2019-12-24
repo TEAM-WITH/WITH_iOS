@@ -7,6 +7,9 @@ PODS:
     - Kingfisher/Core (= 5.12.0)
   - Kingfisher/Core (5.12.0)
   - SnapKit (5.0.1)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
   - SwiftLint (0.38.0)
 
 DEPENDENCIES:
@@ -14,6 +17,7 @@ DEPENDENCIES:
   - FMDB (~> 2.7.5)
   - Kingfisher (~> 5.0)
   - SnapKit (~> 5.0.0)
+  - Socket.IO-Client-Swift (~> 15.2.0)
   - SwiftLint (~> 0.38.0)
 
 SPEC REPOS:
@@ -22,6 +26,8 @@ SPEC REPOS:
     - FMDB
     - Kingfisher
     - SnapKit
+    - Socket.IO-Client-Swift
+    - Starscream
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -29,8 +35,10 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
 
-PODFILE CHECKSUM: 427bc09eddd811e3237142ae6502ad416f1844bb
+PODFILE CHECKSUM: 548c92106238b0ccc69ef03c604958eadd41723f
 
 COCOAPODS: 1.8.4
