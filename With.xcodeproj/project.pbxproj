@@ -20,6 +20,7 @@
 		06CFDD7D23B1F2E60030BABB /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD7C23B1F2E60030BABB /* SocketIOManager.swift */; };
 		06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD7F23B1F37F0030BABB /* BaseAPI.swift */; };
 		06CFDD8223B1F6F00030BABB /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */; };
+		06CFDD8423B249450030BABB /* ChatBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */; };
 		8F915AC69B73DB2F7A722B57 /* Pods_With.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203121F49D0F6F9796C12600 /* Pods_With.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		06CFDD7C23B1F2E60030BABB /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		06CFDD7F23B1F37F0030BABB /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
+		06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		203121F49D0F6F9796C12600 /* Pods_With.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_With.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B37FA1ABF5A30B973C5CCC3 /* Pods-With.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-With.debug.xcconfig"; path = "Target Support Files/Pods-With/Pods-With.debug.xcconfig"; sourceTree = "<group>"; };
 		E9D4A0C6AA5F539FDB1A8ABF /* Pods-With.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-With.release.xcconfig"; path = "Target Support Files/Pods-With/Pods-With.release.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */,
+				06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -302,8 +305,8 @@
 				0458B93E23B211B100CEBFDA /* MateCollectionViewCell.swift in Sources */,
 				0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */,
 				06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */,
+				06CFDD8423B249450030BABB /* ChatBubbleTableViewCell.swift in Sources */,
 				06CFDD8223B1F6F00030BABB /* ChatRoomViewController.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
