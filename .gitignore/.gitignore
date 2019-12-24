@@ -10,7 +10,8 @@
 #           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
 Pods/
 .DS_Store
-*/UserInterfaceState.xcuserstate
+With.xcworkspace/xcuserdata/
+
 ### Firebase ###
 .idea
 **/node_modules/*
