@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
 
    // var mateArray = []
     @IBOutlet weak var mateCollectionView: UICollectionView!
+    @IBOutlet weak var recommendCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollection()

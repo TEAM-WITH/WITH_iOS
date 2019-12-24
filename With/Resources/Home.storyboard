@@ -126,7 +126,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="M9L-lP-1mv"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="15" minimumInteritemSpacing="10" id="ipz-cx-0E5">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="10" id="ipz-cx-0E5">
                                                     <size key="itemSize" width="100" height="100"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -171,6 +171,10 @@
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="100" height="100"/>
+                                                        <connections>
+                                                            <outlet property="recommendImage" destination="1Eq-Mr-ehy" id="EGJ-jp-VyX"/>
+                                                            <outlet property="recommendLabel" destination="Gat-de-6eT" id="iQD-YS-Gxj"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -229,6 +233,7 @@
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="mateCollectionView" destination="4cZ-nP-gjD" id="4qZ-yI-RrG"/>
+                        <outlet property="recommendCollectionView" destination="GHB-8S-K4r" id="5bb-z6-OD1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtc-vn-SZW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

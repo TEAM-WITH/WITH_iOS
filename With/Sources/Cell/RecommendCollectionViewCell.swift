@@ -9,5 +9,6 @@
 import UIKit
 
 class RecommendCollectionViewCell: UICollectionViewCell {
-    
+    @IBOutlet weak var recommendImage: UIImageView!
+    @IBOutlet weak var recommendLabel: UILabel!
 }
