@@ -9,8 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-   // var mateArray = []
+//     var mateArray = []
     @IBOutlet weak var mateCollectionView: UICollectionView!
     @IBOutlet weak var recommendCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -21,18 +20,34 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     func setCollection() {
+        // mate, recommend datasource
         self.mateCollectionView.dataSource = self
+        self.recommendCollectionView.dataSource = self
     }
 }
-
+// 개수에 관한 collection
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //    return mateImage.count
+        //    return mateImage.count
+        if collectionView == mateCollectionView {
+//            var count = mateArray.count
+//            if count > 6 {
+//                count = 6
+//            }
+//            return count
+        }else if collectionView == recommendCollectionView {
+        }
         return 6
     }
+    // 다중 collection view
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MateCollectionViewCell", for: indexPath)as! MateCollectionViewCell
-   //    cell.mateImage.image = mateArray[indexPath.row]
-        return cell
+        if collectionView == mateCollectionView {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MateCell", for: indexPath) as! MateCollectionViewCell
+            return cell
+        }else if collectionView == recommendCollectionView{
+       let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendCell", for: indexPath) as! RecommendCollectionViewCell
+            return cell
+        }
+        return UICollectionViewCell()
     }
 }
