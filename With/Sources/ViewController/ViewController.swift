@@ -13,4 +13,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func nextVC(_ sender: Any) {
+        let storyName = "Chat"
+        let vcName = "Chat"
+        let testStoryBoard = UIStoryboard(name: storyName, bundle: nil)
+        let nextVC = testStoryBoard.instantiateViewController(withIdentifier: vcName)
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: true)
+    }
+
 }
