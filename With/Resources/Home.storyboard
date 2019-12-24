@@ -178,6 +178,91 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uC2-V7-eUI">
+                                                <rect key="frame" x="20" y="618" width="335" height="375"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="375" id="dvl-oM-dtY"/>
+                                                    <constraint firstAttribute="width" constant="335" id="zEP-b3-eW2"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5e1-v1-T5J">
+                                                    <size key="itemSize" width="160" height="115"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecentCell" id="hSn-cI-cBe" customClass="RecentCollectionViewCell" customModule="W_th" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="115"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hIN-Yx-dY4">
+                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="115"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6jF-Rn-GQp">
+                                                                    <rect key="frame" x="16" y="16" width="40" height="40"/>
+                                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김은별" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzs-Nk-IM1">
+                                                                    <rect key="frame" x="107" y="19" width="37" height="17"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="37" id="UT6-Oj-k0O"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내일 에펠탑 앞에서  맥주 마실 사람 구해요 " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeC-jP-53C">
+                                                                    <rect key="frame" x="16" y="68" width="128" height="28.666666666666671"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2A-ho-t2X">
+                                                                    <rect key="frame" x="120.33333333333333" y="38" width="23.666666666666671" height="19"/>
+                                                                    <color key="backgroundColor" red="0.38951697945594788" green="0.53480809926986694" blue="0.82527261972427368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </view>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유럽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilb-Oh-CCr">
+                                                                    <rect key="frame" x="124.33333333333333" y="42" width="15.666666666666671" height="11"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="11" id="V86-nR-FmD"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NeC-jP-53C" secondAttribute="bottom" constant="3" id="56w-Q5-Ok5"/>
+                                                                <constraint firstAttribute="trailing" secondItem="NeC-jP-53C" secondAttribute="trailing" constant="16" id="7hy-IH-Btj"/>
+                                                                <constraint firstItem="uzs-Nk-IM1" firstAttribute="leading" secondItem="6jF-Rn-GQp" secondAttribute="trailing" constant="51" id="7p6-JI-ge0"/>
+                                                                <constraint firstItem="s2A-ho-t2X" firstAttribute="top" secondItem="ilb-Oh-CCr" secondAttribute="top" constant="-4" id="ATd-Tz-udI"/>
+                                                                <constraint firstItem="NeC-jP-53C" firstAttribute="leading" secondItem="hIN-Yx-dY4" secondAttribute="leading" constant="16" id="HOW-rE-4h4"/>
+                                                                <constraint firstAttribute="trailing" secondItem="uzs-Nk-IM1" secondAttribute="trailing" constant="16" id="QfY-ZF-DKJ"/>
+                                                                <constraint firstItem="NeC-jP-53C" firstAttribute="top" secondItem="6jF-Rn-GQp" secondAttribute="bottom" constant="12" id="TW4-ys-WHO"/>
+                                                                <constraint firstItem="ilb-Oh-CCr" firstAttribute="top" secondItem="uzs-Nk-IM1" secondAttribute="bottom" constant="6" id="Yxc-sQ-wa0"/>
+                                                                <constraint firstItem="uzs-Nk-IM1" firstAttribute="top" secondItem="hIN-Yx-dY4" secondAttribute="top" constant="19" id="Zck-s7-tzm"/>
+                                                                <constraint firstItem="s2A-ho-t2X" firstAttribute="leading" secondItem="ilb-Oh-CCr" secondAttribute="leading" constant="-4" id="Zzg-vw-dde"/>
+                                                                <constraint firstItem="6jF-Rn-GQp" firstAttribute="leading" secondItem="hIN-Yx-dY4" secondAttribute="leading" constant="16" id="g6L-So-F2a"/>
+                                                                <constraint firstItem="s2A-ho-t2X" firstAttribute="bottom" secondItem="ilb-Oh-CCr" secondAttribute="bottom" constant="4" id="gEj-g5-l1s"/>
+                                                                <constraint firstItem="ilb-Oh-CCr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6jF-Rn-GQp" secondAttribute="trailing" constant="5" id="hJI-6e-Ggm"/>
+                                                                <constraint firstAttribute="bottom" secondItem="6jF-Rn-GQp" secondAttribute="bottom" constant="59" id="kVD-Op-5h1"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ilb-Oh-CCr" secondAttribute="trailing" constant="20" id="oSN-99-Tpi"/>
+                                                                <constraint firstItem="s2A-ho-t2X" firstAttribute="trailing" secondItem="ilb-Oh-CCr" secondAttribute="trailing" constant="4" id="uKK-or-iUq"/>
+                                                                <constraint firstItem="6jF-Rn-GQp" firstAttribute="top" secondItem="hIN-Yx-dY4" secondAttribute="top" constant="16" id="yYf-JC-vuM"/>
+                                                            </constraints>
+                                                        </collectionViewCellContentView>
+                                                        <size key="customSize" width="160" height="115"/>
+                                                        <connections>
+                                                            <outlet property="recentCountryLabel" destination="ilb-Oh-CCr" id="xDF-aH-YGd"/>
+                                                            <outlet property="recentCountryboxColor" destination="s2A-ho-t2X" id="Yra-Eo-PeR"/>
+                                                            <outlet property="recentNameLabel" destination="uzs-Nk-IM1" id="JVZ-d6-Io0"/>
+                                                            <outlet property="recentProImage" destination="6jF-Rn-GQp" id="Y0j-Uz-gpw"/>
+                                                            <outlet property="recentWriteLabel" destination="NeC-jP-53C" id="CE3-c6-Bl7"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -191,6 +276,7 @@
                                             <constraint firstItem="ahS-0W-6wY" firstAttribute="leading" secondItem="Zkp-DM-cxe" secondAttribute="leading" constant="34" id="Mm6-Uz-rte"/>
                                             <constraint firstItem="GHB-8S-K4r" firstAttribute="top" secondItem="x9i-RM-ngq" secondAttribute="bottom" constant="16" id="Prg-iC-QBg"/>
                                             <constraint firstItem="3MG-r5-KOr" firstAttribute="top" secondItem="Zkp-DM-cxe" secondAttribute="top" constant="90" id="U5O-q7-ftE"/>
+                                            <constraint firstAttribute="trailing" secondItem="uC2-V7-eUI" secondAttribute="trailing" constant="20" id="WJ3-CQ-ZLe"/>
                                             <constraint firstItem="GHB-8S-K4r" firstAttribute="leading" secondItem="Zkp-DM-cxe" secondAttribute="leading" constant="20" id="We9-FY-fnE"/>
                                             <constraint firstItem="4Tk-Nn-CEw" firstAttribute="top" secondItem="Zkp-DM-cxe" secondAttribute="top" constant="80" id="ZYb-M1-KgB"/>
                                             <constraint firstAttribute="bottom" secondItem="ahS-0W-6wY" secondAttribute="bottom" constant="424" id="agW-P6-iK5"/>
@@ -201,6 +287,8 @@
                                             <constraint firstItem="DNK-Fw-f05" firstAttribute="leading" secondItem="Zkp-DM-cxe" secondAttribute="leading" constant="20" id="lVV-Fc-929"/>
                                             <constraint firstItem="DNK-Fw-f05" firstAttribute="top" secondItem="Zkp-DM-cxe" secondAttribute="top" constant="190" id="meT-zI-VW2"/>
                                             <constraint firstAttribute="trailing" secondItem="GHB-8S-K4r" secondAttribute="trailing" id="o01-ro-Yqp"/>
+                                            <constraint firstItem="uC2-V7-eUI" firstAttribute="leading" secondItem="Zkp-DM-cxe" secondAttribute="leading" constant="20" id="smV-J7-8n9"/>
+                                            <constraint firstItem="uC2-V7-eUI" firstAttribute="top" secondItem="geP-2Z-F4B" secondAttribute="bottom" constant="16" id="uBt-no-Cnz"/>
                                             <constraint firstAttribute="trailing" secondItem="4cZ-nP-gjD" secondAttribute="trailing" id="vpp-PL-Ta8"/>
                                             <constraint firstItem="3MG-r5-KOr" firstAttribute="top" secondItem="4Tk-Nn-CEw" secondAttribute="bottom" constant="-50" id="xED-wp-JHk"/>
                                             <constraint firstItem="3MG-r5-KOr" firstAttribute="top" secondItem="4Tk-Nn-CEw" secondAttribute="bottom" constant="-50" id="yQc-nZ-Aun"/>
@@ -233,12 +321,13 @@
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="mateCollectionView" destination="4cZ-nP-gjD" id="4qZ-yI-RrG"/>
+                        <outlet property="recentCollectonView" destination="uC2-V7-eUI" id="oSw-VY-zbO"/>
                         <outlet property="recommendCollectionView" destination="GHB-8S-K4r" id="5bb-z6-OD1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtc-vn-SZW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-504" y="-46.551724137931039"/>
+            <point key="canvasLocation" x="-504.80000000000001" y="-46.551724137931039"/>
         </scene>
     </scenes>
 </document>

@@ -11,6 +11,7 @@
 		0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B93923B1F9BC00CEBFDA /* HomeViewController.swift */; };
 		0458B93E23B211B100CEBFDA /* MateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */; };
 		0458B94023B2403400CEBFDA /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */; };
+		04D4371D23B26B9F00574AF2 /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */; };
 		06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5723B09C930030BABB /* AppDelegate.swift */; };
 		06CFDD5A23B09C930030BABB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5923B09C930030BABB /* SceneDelegate.swift */; };
 		06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5B23B09C930030BABB /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		0458B93923B1F9BC00CEBFDA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateCollectionViewCell.swift; sourceTree = "<group>"; };
 		0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecommendCollectionViewCell.swift; path = With/Sources/Cell/RecommendCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentCollectionViewCell.swift; path = With/Sources/Cell/RecentCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		06CFDD5423B09C930030BABB /* W!th.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "W!th.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CFDD5723B09C930030BABB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06CFDD5923B09C930030BABB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			children = (
 				0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */,
 				0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */,
+				04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */,
 				06CFDD5A23B09C930030BABB /* SceneDelegate.swift in Sources */,
 				0458B93E23B211B100CEBFDA /* MateCollectionViewCell.swift in Sources */,
+				04D4371D23B26B9F00574AF2 /* RecentCollectionViewCell.swift in Sources */,
 				0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */,
 				0458B94023B2403400CEBFDA /* RecommendCollectionViewCell.swift in Sources */,
 			);
