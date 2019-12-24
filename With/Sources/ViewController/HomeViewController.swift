@@ -10,13 +10,28 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+   // var mateArray = []
+    @IBOutlet weak var mateCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setCollection()
     }
-    
+}
 
-    
+extension HomeViewController {
+    func setCollection() {
+        self.mateCollectionView.dataSource = self
+    }
+}
 
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    //    return mateImage.count
+        return 6
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MateCollectionViewCell", for: indexPath)as! MateCollectionViewCell
+   //    cell.mateImage.image = mateArray[indexPath.row]
+        return cell
+    }
 }
