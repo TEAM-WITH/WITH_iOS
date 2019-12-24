@@ -1,0 +1,53 @@
+disable_rules:
+    - trailing_whitespace    # 코드끝 공백
+    - vertical_whitespace  # 두칸이상 여백
+    - switch_case_alignment
+    - opening_brace    # 중괄호 열 때 앞에여백
+    - identifier_name    # 이름 최소 글자수
+    - nesting    # deep level
+    - function_parameter_count
+    
+opt_in_rules: # some rules are only opt-in 기본룰 아닌것 활성화
+    - empty_count
+    - colon    # 콜론 옆에 여백이 무조건 있어야함
+    - comma    # 콤마 옆에 공백
+    
+included:
+    - With
+
+excluded:
+    - Carthage
+    - Pods
+    - AppDelegate.swift
+    - SceneDelegate.swift
+
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+  
+# Type bodies should not span too many lines. 한줄에 가능한 코드수 설정
+type_body_length:
+  - 300 # warning
+  - 400 # error
+  
+# or they can set both explicitly
+file_length:
+  warning: 500
+  error: 1200
+  
+#유형 이름에는 영숫자 문자만 포함해야 하며 대문자로 시작하며 길이는 4 ~ 40자 사이여야 한다
+type_name:
+min_length: 4 # only warning
+max_length: # warning and error
+  warning: 40
+  error: 50
+
+# 이름의 최소글자수 지정, 예외지정
+identifier_name:
+min_length: 2 # only min_length
+error: 1 # only error
+excluded: # excluded via string array
+  - id
+  - URL
+
+line_length: 250
