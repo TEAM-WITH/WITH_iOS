@@ -11,31 +11,36 @@ import SocketIO
 
 class SocketIOManager: NSObject {
     static let shared = SocketIOManager()
-    var manager = SocketManager(socketURL: URL(string: "http://localhost:9000")!, config: [.log(true), .compress])
+    private static let socketURL = URL(string: BaseAPI.socketURL)
+    var manager = SocketManager(socketURL: socketURL!, config: [.log(true), .compress])
     var socket: SocketIOClient!
     override init() {
         super.init()
-//        socket = self.manager.socket(forNamespace: "/test")
+        //        socket = self.manager.socket(forNamespace: "/test")
         socket = self.manager.defaultSocket
-        
-        socket.on("test") { dataArray, ack in
-            print(dataArray)
-        }
     }
-
-    func establishConnection() {
+    func establishConnection(room: String, completion: @escaping () -> Void) {
+        socket = self.manager.socket(forNamespace: "/"+room)
         socket.connect()
+        completion()
     }
-    
     func closeConnection() {
         socket.disconnect()
     }
-   
-    func sendMessage(message: String, nickname: String) {
-        socket.emit("event",  ["message" : "This is a test message"])
-        socket.emit("event1", [["name" : "ns"], ["email" : "@naver.com"]])
-        socket.emit("event2", ["name" : "ns", "email" : "@naver.com"])
-        socket.emit("msg", ["nick": nickname, "msg" : message])
-        
+    // 메시지 보내기
+    func sendMessage(message: String, senderNickname nickname: String) {
+        socket.emit("messagedetection", [
+            "senderNickname": nickname,
+            "message": message
+        ])
     }
+    // 유저 입장
+    func receiveUserJoinedChat() {
+        socket.on("userjoinedthechat") { dataArray, ack in
+            dataArray[0] as? NSDictionary
+            
+            
+        }
+    }
+    
 }
