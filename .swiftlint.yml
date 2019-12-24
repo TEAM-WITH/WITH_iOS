@@ -1,5 +1,4 @@
 disable_rules:
-    - trailing_whitespace    # 코드끝 공백
     - vertical_whitespace  # 두칸이상 여백
     - switch_case_alignment
     - opening_brace    # 중괄호 열 때 앞에여백

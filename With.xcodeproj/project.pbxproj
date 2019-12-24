@@ -13,6 +13,7 @@
 		06CFDD5F23B09C930030BABB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD5D23B09C930030BABB /* Main.storyboard */; };
 		06CFDD6123B09C960030BABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD6023B09C960030BABB /* Assets.xcassets */; };
 		06CFDD6423B09C960030BABB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD6223B09C960030BABB /* LaunchScreen.storyboard */; };
+		06CFDD7123B1B9260030BABB /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD6F23B1B9260030BABB /* Chat.storyboard */; };
 		8F915AC69B73DB2F7A722B57 /* Pods_With.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203121F49D0F6F9796C12600 /* Pods_With.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		06CFDD6023B09C960030BABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06CFDD6323B09C960030BABB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06CFDD6523B09C960030BABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06CFDD7023B1B9260030BABB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		203121F49D0F6F9796C12600 /* Pods_With.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_With.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B37FA1ABF5A30B973C5CCC3 /* Pods-With.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-With.debug.xcconfig"; path = "Target Support Files/Pods-With/Pods-With.debug.xcconfig"; sourceTree = "<group>"; };
 		E9D4A0C6AA5F539FDB1A8ABF /* Pods-With.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-With.release.xcconfig"; path = "Target Support Files/Pods-With/Pods-With.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,9 +75,10 @@
 		06CFDD6B23B09C9D0030BABB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				06CFDD5D23B09C930030BABB /* Main.storyboard */,
 				06CFDD6023B09C960030BABB /* Assets.xcassets */,
 				06CFDD6223B09C960030BABB /* LaunchScreen.storyboard */,
+				06CFDD5D23B09C930030BABB /* Main.storyboard */,
+				06CFDD6F23B1B9260030BABB /* Chat.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			files = (
 				06CFDD6423B09C960030BABB /* LaunchScreen.storyboard in Resources */,
 				06CFDD6123B09C960030BABB /* Assets.xcassets in Resources */,
+				06CFDD7123B1B9260030BABB /* Chat.storyboard in Resources */,
 				06CFDD5F23B09C930030BABB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +275,14 @@
 				06CFDD6323B09C960030BABB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		06CFDD6F23B1B9260030BABB /* Chat.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06CFDD7023B1B9260030BABB /* Base */,
+			);
+			name = Chat.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
