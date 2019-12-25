@@ -14,5 +14,4 @@ class RecentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var recentNameLabel: UILabel!
     @IBOutlet weak var recentCountryboxColor: UIView!
     @IBOutlet weak var recentCountryLabel: UILabel!
-    
 }

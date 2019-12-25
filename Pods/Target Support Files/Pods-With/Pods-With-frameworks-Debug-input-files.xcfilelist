@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-With/Pods-With-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework
 ${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

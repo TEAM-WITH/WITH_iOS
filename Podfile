@@ -11,4 +11,6 @@ target 'With' do
     pod 'Kingfisher', '~> 5.0'
     pod 'SnapKit', '~> 5.0.0'
     pod 'FMDB', '~> 2.7.5'
+    pod 'CHIPageControl', '~> 0.1.3'
+
 end
