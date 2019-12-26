@@ -13,7 +13,6 @@
 		0458B94023B2403400CEBFDA /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */; };
 		04D4371D23B26B9F00574AF2 /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */; };
 		06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5723B09C930030BABB /* AppDelegate.swift */; };
-		06CFDD5A23B09C930030BABB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5923B09C930030BABB /* SceneDelegate.swift */; };
 		06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5B23B09C930030BABB /* ViewController.swift */; };
 		06CFDD5F23B09C930030BABB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD5D23B09C930030BABB /* Main.storyboard */; };
 		06CFDD6123B09C960030BABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD6023B09C960030BABB /* Assets.xcassets */; };
@@ -22,6 +21,12 @@
 		06CFDD7D23B1F2E60030BABB /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD7C23B1F2E60030BABB /* SocketIOManager.swift */; };
 		06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD7F23B1F37F0030BABB /* BaseAPI.swift */; };
 		06CFDD8223B1F6F00030BABB /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */; };
+		06CFDD8423B249450030BABB /* ChatBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */; };
+		06CFDD8623B2AFD70030BABB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD8523B2AFD70030BABB /* GoogleService-Info.plist */; };
+		06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8923B37CCC0030BABB /* UIColor+Extension.swift */; };
+		06CFDD8C23B3937A0030BABB /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */; };
+		06CFDD9323B4664A0030BABB /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD9223B4664A0030BABB /* SF-Pro-Display-Medium.otf */; };
+		06CFDD9523B4673C0030BABB /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD9423B4673C0030BABB /* UILabel+Extension.swift */; };
 		8F915AC69B73DB2F7A722B57 /* Pods_With.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203121F49D0F6F9796C12600 /* Pods_With.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,8 +37,8 @@
 		0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecommendCollectionViewCell.swift; path = With/Sources/Cell/RecommendCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentCollectionViewCell.swift; path = With/Sources/Cell/RecentCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		06CFDD5423B09C930030BABB /* W!th.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "W!th.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		06CFDD5423B09C930030BABB /* W!TH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "W!TH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CFDD5723B09C930030BABB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		06CFDD5923B09C930030BABB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		06CFDD5B23B09C930030BABB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		06CFDD5E23B09C930030BABB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06CFDD6023B09C960030BABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +48,13 @@
 		06CFDD7C23B1F2E60030BABB /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		06CFDD7F23B1F37F0030BABB /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
+		06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleTableViewCell.swift; sourceTree = "<group>"; };
+		06CFDD8523B2AFD70030BABB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		06CFDD8723B2B3E80030BABB /* W!th.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "W!th.entitlements"; sourceTree = "<group>"; };
+		06CFDD8923B37CCC0030BABB /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		06CFDD9223B4664A0030BABB /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Medium.otf"; path = "../../../../Downloads/SF-Font-Pro/SanFranciscoPro/Library/Fonts/SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		06CFDD9423B4673C0030BABB /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		203121F49D0F6F9796C12600 /* Pods_With.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_With.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B37FA1ABF5A30B973C5CCC3 /* Pods-With.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-With.debug.xcconfig"; path = "Target Support Files/Pods-With/Pods-With.debug.xcconfig"; sourceTree = "<group>"; };
 		E9D4A0C6AA5F539FDB1A8ABF /* Pods-With.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-With.release.xcconfig"; path = "Target Support Files/Pods-With/Pods-With.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +78,7 @@
 				0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */,
 				0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */,
 				04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */,
+				06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -83,7 +96,7 @@
 		06CFDD5523B09C930030BABB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				06CFDD5423B09C930030BABB /* W!th.app */,
+				06CFDD5423B09C930030BABB /* W!TH.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +104,8 @@
 		06CFDD5623B09C930030BABB /* With */ = {
 			isa = PBXGroup;
 			children = (
+				06CFDD8723B2B3E80030BABB /* W!th.entitlements */,
+				06CFDD8523B2AFD70030BABB /* GoogleService-Info.plist */,
 				06CFDD6523B09C960030BABB /* Info.plist */,
 				06CFDD6B23B09C9D0030BABB /* Resources */,
 				06CFDD6C23B09CA30030BABB /* Sources */,
@@ -101,6 +116,7 @@
 		06CFDD6B23B09C9D0030BABB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				06CFDD8D23B3963B0030BABB /* Fonts */,
 				06CFDD6023B09C960030BABB /* Assets.xcassets */,
 				06CFDD6223B09C960030BABB /* LaunchScreen.storyboard */,
 				06CFDD5D23B09C930030BABB /* Main.storyboard */,
@@ -113,10 +129,10 @@
 		06CFDD6C23B09CA30030BABB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				06CFDD8823B37CB50030BABB /* Extension */,
 				06CFDD7B23B1F2BC0030BABB /* Socket */,
 				06CFDD7A23B1F2AF0030BABB /* Service */,
 				06CFDD5723B09C930030BABB /* AppDelegate.swift */,
-				06CFDD5923B09C930030BABB /* SceneDelegate.swift */,
 				0458B93C23B20C3C00CEBFDA /* Cell */,
 				06CFDD6D23B09D2D0030BABB /* ViewController */,
 			);
@@ -129,6 +145,7 @@
 				06CFDD5B23B09C930030BABB /* ViewController.swift */,
 				0458B93923B1F9BC00CEBFDA /* HomeViewController.swift */,
 				06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */,
+				06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -147,6 +164,23 @@
 				06CFDD7C23B1F2E60030BABB /* SocketIOManager.swift */,
 			);
 			path = Socket;
+			sourceTree = "<group>";
+		};
+		06CFDD8823B37CB50030BABB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				06CFDD8923B37CCC0030BABB /* UIColor+Extension.swift */,
+				06CFDD9423B4673C0030BABB /* UILabel+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		06CFDD8D23B3963B0030BABB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				06CFDD9223B4664A0030BABB /* SF-Pro-Display-Medium.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		584CD228CA161DA093F20C9E /* Pods */ = {
@@ -186,7 +220,7 @@
 			);
 			name = With;
 			productName = With;
-			productReference = 06CFDD5423B09C930030BABB /* W!th.app */;
+			productReference = 06CFDD5423B09C930030BABB /* W!TH.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -232,6 +266,8 @@
 				06CFDD6123B09C960030BABB /* Assets.xcassets in Resources */,
 				06CFDD7123B1B9260030BABB /* Chat.storyboard in Resources */,
 				06CFDD5F23B09C930030BABB /* Main.storyboard in Resources */,
+				06CFDD8623B2AFD70030BABB /* GoogleService-Info.plist in Resources */,
+				06CFDD9323B4664A0030BABB /* SF-Pro-Display-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,14 +340,16 @@
 				06CFDD7D23B1F2E60030BABB /* SocketIOManager.swift in Sources */,
 				06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */,
 				06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */,
-				06CFDD5A23B09C930030BABB /* SceneDelegate.swift in Sources */,
+				06CFDD9523B4673C0030BABB /* UILabel+Extension.swift in Sources */,
+				06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */,
+				06CFDD8C23B3937A0030BABB /* ChatListViewController.swift in Sources */,
 				0458B93E23B211B100CEBFDA /* MateCollectionViewCell.swift in Sources */,
 				04D4371D23B26B9F00574AF2 /* RecentCollectionViewCell.swift in Sources */,
 				0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */,
 				06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */,
+				06CFDD8423B249450030BABB /* ChatBubbleTableViewCell.swift in Sources */,
 				06CFDD8223B1F6F00030BABB /* ChatRoomViewController.swift in Sources */,
 				0458B94023B2403400CEBFDA /* RecommendCollectionViewCell.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +433,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -449,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -464,15 +502,17 @@
 			baseConfigurationReference = 4B37FA1ABF5A30B973C5CCC3 /* Pods-With.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "With/W!th.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z2CV7TB8R;
 				INFOPLIST_FILE = With/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ns.With;
-				PRODUCT_NAME = "W!th";
+				PRODUCT_NAME = "W!TH";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -483,15 +523,17 @@
 			baseConfigurationReference = E9D4A0C6AA5F539FDB1A8ABF /* Pods-With.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "With/W!th.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z2CV7TB8R;
 				INFOPLIST_FILE = With/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ns.With;
-				PRODUCT_NAME = "W!th";
+				PRODUCT_NAME = "W!TH";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
