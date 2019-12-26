@@ -13,7 +13,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
     @IBAction func nextVC(_ sender: Any) {
         let storyName = "Home"
         let vcName = "Home"
