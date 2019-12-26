@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextVC(_ sender: Any) {
-        let storyName = "Home"
-        let vcName = "Home"
+        let storyName = "Chat"
+        let vcName = "Chat"
         let testStoryBoard = UIStoryboard(name: storyName, bundle: nil)
         let nextVC = testStoryBoard.instantiateViewController(withIdentifier: vcName)
         nextVC.modalPresentationStyle = .fullScreen
