@@ -25,8 +25,8 @@
 		06CFDD8623B2AFD70030BABB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD8523B2AFD70030BABB /* GoogleService-Info.plist */; };
 		06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8923B37CCC0030BABB /* UIColor+Extension.swift */; };
 		06CFDD8C23B3937A0030BABB /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */; };
-		06CFDD9323B4664A0030BABB /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD9223B4664A0030BABB /* SF-Pro-Display-Medium.otf */; };
 		06CFDD9523B4673C0030BABB /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD9423B4673C0030BABB /* UILabel+Extension.swift */; };
+		06CFDD9723B4A1B30030BABB /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD9623B4A1B30030BABB /* SF-Pro-Display-Medium.otf */; };
 		8F915AC69B73DB2F7A722B57 /* Pods_With.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203121F49D0F6F9796C12600 /* Pods_With.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,8 +53,8 @@
 		06CFDD8723B2B3E80030BABB /* W!th.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "W!th.entitlements"; sourceTree = "<group>"; };
 		06CFDD8923B37CCC0030BABB /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
-		06CFDD9223B4664A0030BABB /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Medium.otf"; path = "../../../../Downloads/SF-Font-Pro/SanFranciscoPro/Library/Fonts/SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		06CFDD9423B4673C0030BABB /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		06CFDD9623B4A1B30030BABB /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		203121F49D0F6F9796C12600 /* Pods_With.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_With.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B37FA1ABF5A30B973C5CCC3 /* Pods-With.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-With.debug.xcconfig"; path = "Target Support Files/Pods-With/Pods-With.debug.xcconfig"; sourceTree = "<group>"; };
 		E9D4A0C6AA5F539FDB1A8ABF /* Pods-With.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-With.release.xcconfig"; path = "Target Support Files/Pods-With/Pods-With.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		06CFDD8D23B3963B0030BABB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				06CFDD9223B4664A0030BABB /* SF-Pro-Display-Medium.otf */,
+				06CFDD9623B4A1B30030BABB /* SF-Pro-Display-Medium.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 				06CFDD7123B1B9260030BABB /* Chat.storyboard in Resources */,
 				06CFDD5F23B09C930030BABB /* Main.storyboard in Resources */,
 				06CFDD8623B2AFD70030BABB /* GoogleService-Info.plist in Resources */,
-				06CFDD9323B4664A0030BABB /* SF-Pro-Display-Medium.otf in Resources */,
+				06CFDD9723B4A1B30030BABB /* SF-Pro-Display-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
