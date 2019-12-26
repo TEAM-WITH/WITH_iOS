@@ -61,7 +61,6 @@ extension HomeViewController: UICollectionViewDataSource {
         else if collectionView == recentCollectonView {
             return 3
         }
-        
         return 0
     }
     // 다중 collection view
