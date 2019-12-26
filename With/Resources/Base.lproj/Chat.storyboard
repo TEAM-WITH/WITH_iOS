@@ -437,7 +437,12 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4xP-eM-Wz7">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="WmW-1u-uMB"/>
+                                    <navigationItem title="Title" id="WmW-1u-uMB">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Gm4-CS-IIM"/>
+                                        <barButtonItem key="rightBarButtonItem" image="alarm" id="s5h-FY-i9B">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95l-RX-bb8">
@@ -581,6 +586,10 @@
                         <outlet property="chatAreaView" destination="MWV-HS-lOL" id="d9I-u7-K8r"/>
                         <outlet property="chatTableView" destination="3Rs-fi-blv" id="TvQ-fe-nym"/>
                         <outlet property="chatTextView" destination="rlI-br-lSw" id="T6s-I2-3R3"/>
+                        <outlet property="noticeDateLabel" destination="HkW-ZD-Ea0" id="qaU-ot-nbJ"/>
+                        <outlet property="noticeImage" destination="jNr-nq-rLT" id="2pu-DD-AD5"/>
+                        <outlet property="noticeRegionLabel" destination="03R-Vb-9rS" id="L59-pa-tBB"/>
+                        <outlet property="noticeTitleLabel" destination="Rr3-ZJ-fjz" id="jHs-8M-t55"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFr-lE-D5s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -588,4 +597,7 @@
             <point key="canvasLocation" x="1044" y="107.88177339901478"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="alarm" width="24" height="24"/>
+    </resources>
 </document>

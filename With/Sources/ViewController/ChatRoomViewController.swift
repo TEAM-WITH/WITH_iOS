@@ -22,6 +22,10 @@ class ChatRoomViewController: UIViewController {
     let chat10 = Chat(type: .otherInvite, nickName: "you")
     let chat11 = Chat(type: .complete, nickName: "you")
     
+    @IBOutlet weak var noticeImage: UIImageView!
+    @IBOutlet weak var noticeRegionLabel: UILabel!
+    @IBOutlet weak var noticeTitleLabel: UILabel!
+    @IBOutlet weak var noticeDateLabel: UILabel!
     @IBOutlet weak var chatAreaView: UIView!
     @IBOutlet weak var chatTextView: UITextView!
     var testList: [Chat] = []
@@ -60,6 +64,10 @@ class ChatRoomViewController: UIViewController {
         self.chatAreaView.layer.borderWidth = 1
         chatTextView.labelKern(kerningValue: -0.78)
         chatTextView.labelParagraphStyle(paragraphValue: 3)
+    }
+    // MARK: - NoticeView 설정
+    func setNoticeView() {
+        self.noticeDateLabel.labelKern(kerningValue: -0.06)
     }
 }
 

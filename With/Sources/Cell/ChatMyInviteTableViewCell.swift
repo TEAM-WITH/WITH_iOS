@@ -14,7 +14,10 @@ class ChatMyInviteTableViewCell: UITableViewCell {
     @IBOutlet weak var msgLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = .none
+        msgLabel.labelKern(kerningValue: -0.84)
+        msgLabel.labelParagraphStyle(paragraphValue: 5.5)
+        msgLabel.textAlignment = .center
     
     }
 
@@ -25,4 +28,3 @@ class ChatMyInviteTableViewCell: UITableViewCell {
     }
 
 }
-

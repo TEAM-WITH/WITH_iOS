@@ -13,7 +13,8 @@ class ChatDateTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = .none
+        self.dateLabel.labelKern(kerningValue: -0.06)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
