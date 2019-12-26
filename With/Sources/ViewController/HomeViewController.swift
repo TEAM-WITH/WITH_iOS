@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CHIPageControl
+
 class HomeViewController: UIViewController,UIScrollViewDelegate {
     //     var mateArray = []
     @IBOutlet weak var mateCollectionView: UICollectionView!
