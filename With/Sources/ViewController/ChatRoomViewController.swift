@@ -44,11 +44,11 @@ extension ChatRoomViewController: UITableViewDataSource {
 extension ChatRoomViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          let chat = testList[indexPath.row]
-        let approximateWidthOfText = view.frame.width - 19 - 103
-        let size = CGSize(width: approximateWidthOfText, height: 1000)
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)]
+        let approximateWidthOfText = view.frame.width - 16 - 103
+        let size = CGSize(width: approximateWidthOfText, height: 1200)
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
         let estimatedFrame = NSString(string: chat.message).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-        return estimatedFrame.height + 7 + 7 + 4
+        return estimatedFrame.height + 13 + 13
     }
 }
 
