@@ -18,6 +18,8 @@
 		04F3624B23B4F3BA005B56CB /* RegionFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */; };
 		04F3624D23B50939005B56CB /* SemiRegionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */; };
 		04F3624F23B51011005B56CB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624E23B51011005B56CB /* Country.swift */; };
+		050CCBC123B6374A0004D543 /* Estimate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050CCBC023B6374A0004D543 /* Estimate.storyboard */; };
+		050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CCBC223B637810004D543 /* EstimateViewController.swift */; };
 		06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5723B09C930030BABB /* AppDelegate.swift */; };
 		06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5B23B09C930030BABB /* ViewController.swift */; };
 		06CFDD5F23B09C930030BABB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD5D23B09C930030BABB /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 		04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFilterViewController.swift; sourceTree = "<group>"; };
 		04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiRegionCollectionViewCell.swift; sourceTree = "<group>"; };
 		04F3624E23B51011005B56CB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		050CCBC023B6374A0004D543 /* Estimate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Estimate.storyboard; sourceTree = "<group>"; };
+		050CCBC223B637810004D543 /* EstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
 		06CFDD5423B09C930030BABB /* W!TH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "W!TH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CFDD5723B09C930030BABB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06CFDD5B23B09C930030BABB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				06CFDD6F23B1B9260030BABB /* Chat.storyboard */,
 				0458B93723B1F96F00CEBFDA /* Home.storyboard */,
 				04D4374223B4B75C00574AF2 /* RegionFilter.storyboard */,
+				050CCBC023B6374A0004D543 /* Estimate.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 				06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */,
 				06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */,
 				04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */,
+				050CCBC223B637810004D543 /* EstimateViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				06CFDD6423B09C960030BABB /* LaunchScreen.storyboard in Resources */,
 				0458B93823B1F96F00CEBFDA /* Home.storyboard in Resources */,
 				06CFDD6123B09C960030BABB /* Assets.xcassets in Resources */,
+				050CCBC123B6374A0004D543 /* Estimate.storyboard in Resources */,
 				06CFDD7123B1B9260030BABB /* Chat.storyboard in Resources */,
 				06CFDD5F23B09C930030BABB /* Main.storyboard in Resources */,
 				06CFDD8623B2AFD70030BABB /* GoogleService-Info.plist in Resources */,
@@ -398,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06CFDD7D23B1F2E60030BABB /* SocketIOManager.swift in Sources */,
+				050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */,
 				06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */,
 				06CFDDA123B5425D0030BABB /* ChatMyInviteTableViewCell.swift in Sources */,
 				06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */,
