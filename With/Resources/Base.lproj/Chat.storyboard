@@ -29,7 +29,7 @@
                                     <navigationItem title="채팅" id="JXo-0a-Sf5"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JLB-0p-ScG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JLB-0p-ScG">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -104,10 +104,18 @@
                                                         <constraint firstAttribute="height" constant="20" id="e60-iv-xyU"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRv-I0-XuW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                                    <color key="backgroundColor" red="0.73725490199999999" green="0.75686274509999996" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="LoE-31-8gO"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="GpB-gm-nJb" firstAttribute="top" secondItem="KUq-5F-6rX" secondAttribute="bottom" constant="33" id="1eB-pd-e1N"/>
                                                 <constraint firstItem="Cgg-vM-QzS" firstAttribute="bottom" secondItem="GpB-gm-nJb" secondAttribute="bottom" constant="3" id="1f9-Ie-0RK"/>
+                                                <constraint firstItem="nRv-I0-XuW" firstAttribute="leading" secondItem="hej-7n-N2e" secondAttribute="leading" id="295-pB-fU1"/>
                                                 <constraint firstItem="Cgg-vM-QzS" firstAttribute="trailing" secondItem="GpB-gm-nJb" secondAttribute="trailing" constant="3" id="4nu-yz-w2X"/>
                                                 <constraint firstItem="7o2-69-EnQ" firstAttribute="top" secondItem="hej-7n-N2e" secondAttribute="top" constant="20" id="GfP-js-3Xv"/>
                                                 <constraint firstItem="nS7-aj-mXN" firstAttribute="top" secondItem="dwW-fW-Vez" secondAttribute="bottom" constant="10" id="J8T-nl-bPQ"/>
@@ -115,8 +123,10 @@
                                                 <constraint firstItem="nS7-aj-mXN" firstAttribute="leading" secondItem="dwW-fW-Vez" secondAttribute="leading" id="NCk-Cr-IXJ"/>
                                                 <constraint firstItem="CWs-pO-1GI" firstAttribute="top" secondItem="7o2-69-EnQ" secondAttribute="bottom" constant="6" id="NqV-JE-zeS"/>
                                                 <constraint firstItem="CWs-pO-1GI" firstAttribute="centerX" secondItem="7o2-69-EnQ" secondAttribute="centerX" id="Pih-Zm-g7V"/>
+                                                <constraint firstAttribute="trailing" secondItem="nRv-I0-XuW" secondAttribute="trailing" id="UBF-i2-NgN"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="GpB-gm-nJb" secondAttribute="trailing" constant="2" id="UEh-H5-rWc"/>
                                                 <constraint firstItem="nyt-KF-xWh" firstAttribute="centerY" secondItem="dwW-fW-Vez" secondAttribute="centerY" id="UYm-lW-h8M"/>
+                                                <constraint firstItem="nRv-I0-XuW" firstAttribute="top" secondItem="hej-7n-N2e" secondAttribute="top" id="cHN-kT-DN2"/>
                                                 <constraint firstItem="KUq-5F-6rX" firstAttribute="leading" secondItem="nyt-KF-xWh" secondAttribute="trailing" constant="36" id="fUe-IW-hHH"/>
                                                 <constraint firstItem="Cgg-vM-QzS" firstAttribute="leading" secondItem="GpB-gm-nJb" secondAttribute="leading" constant="-3" id="jUa-un-sYD"/>
                                                 <constraint firstItem="dwW-fW-Vez" firstAttribute="top" secondItem="hej-7n-N2e" secondAttribute="topMargin" constant="21" id="kwe-Vm-j6L"/>
@@ -556,9 +566,15 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4xP-eM-Wz7">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="Title" id="WmW-1u-uMB">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Gm4-CS-IIM"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Gm4-CS-IIM">
+                                            <connections>
+                                                <action selector="cancelButtonClick:" destination="IDh-F4-IaN" id="tes-hq-4Sv"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="alarm" id="s5h-FY-i9B">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </barButtonItem>
@@ -733,6 +749,7 @@
                         <outlet property="noticeImage" destination="jNr-nq-rLT" id="2pu-DD-AD5"/>
                         <outlet property="noticeRegionLabel" destination="03R-Vb-9rS" id="L59-pa-tBB"/>
                         <outlet property="noticeTitleLabel" destination="Rr3-ZJ-fjz" id="jHs-8M-t55"/>
+                        <outlet property="noticeView" destination="95l-RX-bb8" id="ZAm-QB-ILG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFr-lE-D5s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

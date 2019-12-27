@@ -11,6 +11,7 @@ import Alamofire
 class ChatRoomViewController: UIViewController {
     
     @IBOutlet weak var chatViewBottomLayout: NSLayoutConstraint!
+    @IBOutlet weak var noticeView: UIView!
     @IBOutlet weak var noticeImage: UIImageView!
     @IBOutlet weak var noticeRegionLabel: UILabel!
     @IBOutlet weak var noticeTitleLabel: UILabel!
@@ -38,6 +39,9 @@ class ChatRoomViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         unregisterForKeyboardNotifications()
+    }
+    @IBAction func cancelButtonClick(_ sender: Any) {
+        self.dismiss(animated: true)
     }
     @IBAction func sendButtonClick(_ sender: Any) {
         let text = self.chatTextView.text
@@ -131,6 +135,7 @@ class ChatRoomViewController: UIViewController {
     // MARK: - NoticeView 설정
     func setNoticeView() {
         self.noticeDateLabel.labelKern(kerningValue: -0.06)
+        self.noticeView.dropShadow()
     }
 }
 
