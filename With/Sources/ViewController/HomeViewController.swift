@@ -15,25 +15,25 @@ class HomeViewController: UIViewController,UIScrollViewDelegate {
     @IBOutlet weak var recentCollectonView: UICollectionView!
     @IBOutlet weak var eventScrollView: UIScrollView!
     @IBOutlet weak var eventPageControl: UIPageControl!
-    let eventImagesArray = ["1","2","3"]
+//    let eventImagesArray = ["1","2","3"]
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollection()
         //   setBanner()
-        eventPageControl.numberOfPages = eventImagesArray.count
-        for num in 0..<eventImagesArray.count{
-            let imageView = UIImageView()
-            imageView.contentMode = .scaleToFill
-            imageView.image = UIImage(named: eventImagesArray[num])
-            let xPos = CGFloat(num)*self.view.bounds.size.width
-            imageView.frame = CGRect(x: xPos, y: 0, width: view.frame.size.width, height:eventScrollView.frame.size.height)
-            eventScrollView.contentSize.width = view.frame.size.width*CGFloat(num+1)
-            eventScrollView.addSubview(imageView)
-        }
+        eventPageControl.numberOfPages = 3
+        //        for num in 0..<eventImagesArray.count{
+        //            let imageView = UIImageView()
+        //            imageView.contentMode = .scaleToFill
+        //            imageView.image = UIImage(named: eventImagesArray[num])
+        //            let xPos = CGFloat(num)*self.eventScrollView.frame.size.width
+        //            imageView.frame = CGRect(x: xPos, y: 0, width: eventScrollView.frame.frame.size.width, height:eventScrollView.frame.size.height)
+        //            eventScrollView.contentSize.width = eventScrollView.frame.size.width*CGFloat(num+1)
+        //            eventScrollView.addSubview(imageView)
+        //        }
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x/scrollView.frame.width
-        eventPageControl.currentPage = Int(page)
+        self.eventPageControl.currentPage = Int(page)
     }
 }
 extension HomeViewController {
