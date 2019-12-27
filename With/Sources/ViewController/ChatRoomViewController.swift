@@ -53,8 +53,8 @@ class ChatRoomViewController: UIViewController {
     @IBAction func inviteButtonClick(_ sender: Any) {
         let date = Date()
         let ns = dateFommatter.string(from: date)
-        userCompare()
-        let otherChat = Chat(type: .other, message: "hi", date: ns)
+//        userCompare()
+        let otherChat = Chat(type: .myInvite, message: "hi", date: ns)
         self.chatList.append(otherChat)
         self.updateChat(count: self.chatList.count) {
             print("Send Message")
