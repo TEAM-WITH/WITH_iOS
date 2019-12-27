@@ -12,7 +12,13 @@ class ChatCompleteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var msgImage: UIImageView!
     @IBOutlet weak var msgLabel: UILabel!
-    
+    @IBOutlet weak var timeLabel: UILabel!
+    var hide = false {
+        willSet {
+            self.hide = newValue
+            self.timeLabel.isHidden = newValue
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none

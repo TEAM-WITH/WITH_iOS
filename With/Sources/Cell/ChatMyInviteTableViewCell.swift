@@ -10,8 +10,14 @@ import UIKit
 
 class ChatMyInviteTableViewCell: UITableViewCell {
     @IBOutlet weak var msgImage: UIImageView!
-    
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var msgLabel: UILabel!
+    var hide = false {
+        willSet {
+            self.hide = newValue
+            self.timeLabel.isHidden = newValue
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none

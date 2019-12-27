@@ -9,9 +9,15 @@
 import UIKit
 
 class ChatOtherInviteTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var msgImage: UIImageView!
     @IBOutlet weak var msgLabel: UILabel!
+    var hide = false {
+        willSet {
+            self.hide = newValue
+            self.timeLabel.isHidden = newValue
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
@@ -25,7 +31,8 @@ class ChatOtherInviteTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func acceptButtonClick(_ sender: Any) {
+    @IBAction func acceptButtonClick(_ sender: UIButton) {
+        sender.backgroundColor = UIColor.acceptBtColor
+        sender.isEnabled = false
     }
-    
 }
