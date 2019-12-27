@@ -9,17 +9,6 @@
 import UIKit
 import Alamofire
 class ChatRoomViewController: UIViewController {
-    let chat1 = Chat(type: .mine, nickName: "my", message: "hihi", date: "00:01")
-    let chat2 = Chat(type: .mine, nickName: "my", message: "hey~~~", date: "00:01")
-    let chat3 = Chat(type: .other, nickName: "your", message: "hihi", date: "00:01")
-    let chat4 = Chat(type: .other, nickName: "your", message: "merry", date: "00:01")
-    let chat5 = Chat(type: .other, nickName: "your", message: "...", date: "00:02")
-    let chat6 = Chat(type: .other, nickName: "your", message: "hoo... nononononononononononononononononononononononononononono", date: "00:02")
-    let chat7 = Chat(type: .date, message: "2020.02.10")
-    let chat8 = Chat(type: .otherProfile, nickName: "you")
-    let chat9 = Chat(type: .myInvite, nickName: "you")
-    let chat10 = Chat(type: .otherInvite, nickName: "you")
-    let chat11 = Chat(type: .complete, nickName: "you", date: "00:05")
     
     @IBOutlet weak var chatViewBottomLayout: NSLayoutConstraint!
     @IBOutlet weak var noticeImage: UIImageView!
@@ -28,12 +17,9 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet weak var noticeDateLabel: UILabel!
     @IBOutlet weak var chatAreaView: UIView!
     @IBOutlet weak var chatTextView: UITextView!
-    var testList: [Chat] = []
     var chatList: [Chat] = []
     var keyboardHeight: CGFloat = 0
-//    var isProfile = false
     @IBOutlet weak var chatTableView: UITableView!
-    
     let dateFommatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mm"
@@ -45,12 +31,10 @@ class ChatRoomViewController: UIViewController {
         self.chatTableView.dataSource = self
         self.chatTableView.delegate = self
         self.chatTextView.delegate = self
-//        testList = [chat1, chat2, chat3, chat4, chat5, chat6, chat7, chat8, chat9, chat10, chat11]
         setChatView()
         setNoticeView()
         initGestureRecognizer()
         registerForKeyboardNotifications()
-        
     }
     override func viewWillDisappear(_ animated: Bool) {
         unregisterForKeyboardNotifications()
@@ -60,30 +44,43 @@ class ChatRoomViewController: UIViewController {
         //        self.socket.emit("test", text)
         //        self.testList.append(Chat(type: .mine, message: text)
         let date = Date()
-        let ns = dateFommatter.string(from: date)
-        self.testList.append(Chat(type: .mine, message: text, date: ns))
-        self.updateChat(count: self.testList.count) {
+        let nowHour = dateFommatter.string(from: date)
+        self.chatList.append(Chat(type: .mine, message: text, date: nowHour))
+        self.updateChat(count: self.chatList.count) {
             print("Send Message")
         }
     }
     @IBAction func inviteButtonClick(_ sender: Any) {
         let date = Date()
         let ns = dateFommatter.string(from: date)
+        userCompare()
         let otherChat = Chat(type: .other, message: "hi", date: ns)
-        self.testList.append(otherChat)
-        self.updateChat(count: self.testList.count) {
+        self.chatList.append(otherChat)
+        self.updateChat(count: self.chatList.count) {
             print("Send Message")
         }
     }
     // MARK: - 다른유저가 입력할시 비교
-//    func userCompare(otherType: ChatType) -> Bool {
-//
-//    }
+    func userCompare() {
+        //다음셀의 타입이 mine이면 프로필삽입
+        
+        let otherProfile = Chat(type: .otherProfile, nickName: "hihi")
+        let beforeChat = self.chatList[self.chatList.count - 1]
+        
+        if beforeChat.type != .mine {
+            return
+        }
+        
+        self.chatList.append(otherProfile)
+        self.updateChat(count: self.chatList.count) {
+            print("create profile")
+        }
+    }
     // MARK: - 유저의 채팅시간비교
     func dateCompare(curIdx: Int) {
         guard curIdx != 0 else { return }
-        let before = testList[curIdx-1]
-        let cur = testList[curIdx]
+        let before = chatList[curIdx-1]
+        let cur = chatList[curIdx]
         guard before.date == cur.date else { return }
         guard before.type == cur.type else { return }
         let indexPath = IndexPath( row: curIdx-1, section: 0 )
@@ -105,27 +102,19 @@ class ChatRoomViewController: UIViewController {
         default:
             return
         }
-        testList[curIdx].hide = false
-        testList[curIdx-1].hide = true
+        chatList[curIdx].hide = false
+        chatList[curIdx-1].hide = true
         
         return
     }
     // MARK: - Chat Update
     func updateChat( count: Int, completion: @escaping () -> Void ) {
-//
-//            let indexPath = (count ..< self.testList.count).map{ IndexPath(row: $0, section: 0) }
-//            self.chatTableView.beginUpdates()
-//            self.chatTableView.insertRows(at: indexPath, with: .none)
-//            self.chatTableView.endUpdates()
-//            self.chatTableView.scrollToRow(at: IndexPath( row: count-1, section: 0 ), at: .bottom, animated: false)
-//
-  
-            let indexPath = IndexPath( row: count-1, section: 0 )
-            self.chatTableView.beginUpdates()
-            self.chatTableView.insertRows(at: [indexPath], with: .none)
-            self.chatTableView.endUpdates()
-            self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-//        }
+        
+        let indexPath = IndexPath( row: count-1, section: 0 )
+        self.chatTableView.beginUpdates()
+        self.chatTableView.insertRows(at: [indexPath], with: .none)
+        self.chatTableView.endUpdates()
+        self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         
         dateCompare(curIdx: count-1)
         
@@ -147,10 +136,10 @@ class ChatRoomViewController: UIViewController {
 
 extension ChatRoomViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testList.count
+        return chatList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let chat = testList[indexPath.row]
+        let chat = chatList[indexPath.row]
         if chat.type == .date {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! ChatDateTableViewCell
             cell.dateLabel.text = chat.message
@@ -184,7 +173,7 @@ extension ChatRoomViewController: UITableViewDataSource {
 // MARK: - TableView Delegate
 extension ChatRoomViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let chat = testList[indexPath.row]
+        let chat = chatList[indexPath.row]
         if chat.type == .otherProfile {
             return 42
         } else if chat.type == .date {
@@ -210,6 +199,7 @@ extension ChatRoomViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         let size = CGSize(width: view.frame.width, height: .infinity)
         var estimatedSize = textView.sizeThatFits(size)
+        print(estimatedSize)
         if estimatedSize.height > 75 {
             return
         } else if estimatedSize.height < 32 {
@@ -269,8 +259,8 @@ extension ChatRoomViewController {
         self.chatViewBottomLayout.constant = self.keyboardHeight
         //키보드 높이만큼 inset조정 + 여유공간
         self.chatTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight + 25, right: 0)
-        if !testList.isEmpty {
-            self.chatTableView.scrollToRow(at: IndexPath(row: testList.count-1, section: 0), at: .bottom, animated: false)
+        if !chatList.isEmpty {
+            self.chatTableView.scrollToRow(at: IndexPath(row: chatList.count-1, section: 0), at: .bottom, animated: false)
         }
         
         self.view.setNeedsLayout()

@@ -597,7 +597,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jD7-Lb-gpy">
-                                                <rect key="frame" x="298" y="8" width="26" height="26"/>
+                                                <rect key="frame" x="288" y="-2" width="46" height="46"/>
                                                 <connections>
                                                     <action selector="sendButtonClick:" destination="IDh-F4-IaN" eventType="touchUpInside" id="oZl-4w-of2"/>
                                                 </connections>
@@ -618,11 +618,11 @@
                                             <constraint firstItem="kNZ-0S-rlj" firstAttribute="leading" secondItem="MWV-HS-lOL" secondAttribute="leading" constant="11" id="CtM-R9-sCe"/>
                                             <constraint firstItem="y4Z-JR-9I0" firstAttribute="centerY" secondItem="kNZ-0S-rlj" secondAttribute="centerY" id="GCs-FV-eQc"/>
                                             <constraint firstAttribute="bottom" secondItem="9ik-wG-7JU" secondAttribute="bottom" constant="7" id="Htn-eR-oHe"/>
-                                            <constraint firstItem="jD7-Lb-gpy" firstAttribute="width" secondItem="9ik-wG-7JU" secondAttribute="width" id="PyK-xF-BQV"/>
+                                            <constraint firstItem="jD7-Lb-gpy" firstAttribute="width" secondItem="9ik-wG-7JU" secondAttribute="width" constant="20" id="PyK-xF-BQV"/>
                                             <constraint firstItem="kNZ-0S-rlj" firstAttribute="top" secondItem="MWV-HS-lOL" secondAttribute="top" constant="7" id="Xg0-M6-Hkn"/>
                                             <constraint firstItem="y4Z-JR-9I0" firstAttribute="centerX" secondItem="kNZ-0S-rlj" secondAttribute="centerX" id="bLC-Yp-QaC"/>
                                             <constraint firstItem="y4Z-JR-9I0" firstAttribute="width" secondItem="kNZ-0S-rlj" secondAttribute="width" id="paP-C2-vhE"/>
-                                            <constraint firstItem="jD7-Lb-gpy" firstAttribute="height" secondItem="9ik-wG-7JU" secondAttribute="height" id="xk1-7e-6Z8"/>
+                                            <constraint firstItem="jD7-Lb-gpy" firstAttribute="height" secondItem="9ik-wG-7JU" secondAttribute="height" constant="20" id="xk1-7e-6Z8"/>
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="가나다라마바사" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rlI-br-lSw">
