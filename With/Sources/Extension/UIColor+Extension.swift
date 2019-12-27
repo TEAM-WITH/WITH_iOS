@@ -13,4 +13,10 @@ extension UIColor {
     @nonobjc class var mainOrange: UIColor {
         return UIColor(red: 253.0 / 255.0, green: 159.0 / 255.0, blue: 8.0 / 255.0, alpha: 1.0)
     }
+    @nonobjc class var chatViewBorderGray: UIColor {
+      return UIColor(red: 188.0 / 255.0, green: 193.0 / 255.0, blue: 206.0 / 255.0, alpha: 1.0)
+    }
+    @nonobjc class var acceptBtColor: UIColor {
+      return UIColor(red: 188.0 / 255.0, green: 193.0 / 255.0, blue: 206.0 / 255.0, alpha: 1.0)
+    }
 }

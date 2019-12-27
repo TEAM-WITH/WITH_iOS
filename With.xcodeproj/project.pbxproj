@@ -31,8 +31,14 @@
 		06CFDD8623B2AFD70030BABB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD8523B2AFD70030BABB /* GoogleService-Info.plist */; };
 		06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8923B37CCC0030BABB /* UIColor+Extension.swift */; };
 		06CFDD8C23B3937A0030BABB /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */; };
-		06CFDD9523B4673C0030BABB /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD9423B4673C0030BABB /* UILabel+Extension.swift */; };
+		06CFDD9523B4673C0030BABB /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD9423B4673C0030BABB /* UITextView+Extension.swift */; };
 		06CFDD9723B4A1B30030BABB /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD9623B4A1B30030BABB /* SF-Pro-Display-Medium.otf */; };
+		06CFDD9923B4CD920030BABB /* ChatDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD9823B4CD920030BABB /* ChatDateTableViewCell.swift */; };
+		06CFDD9B23B4CD9D0030BABB /* ChatProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD9A23B4CD9D0030BABB /* ChatProfileTableViewCell.swift */; };
+		06CFDD9D23B5399E0030BABB /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD9C23B5399E0030BABB /* UILabel+Extension.swift */; };
+		06CFDDA123B5425D0030BABB /* ChatMyInviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDDA023B5425D0030BABB /* ChatMyInviteTableViewCell.swift */; };
+		06CFDDA323B542C10030BABB /* ChatCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDDA223B542C10030BABB /* ChatCompleteTableViewCell.swift */; };
+		06CFDDA523B5454C0030BABB /* ChatOtherInviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDDA423B5454C0030BABB /* ChatOtherInviteTableViewCell.swift */; };
 		8F915AC69B73DB2F7A722B57 /* Pods_With.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203121F49D0F6F9796C12600 /* Pods_With.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +70,14 @@
 		06CFDD8723B2B3E80030BABB /* W!th.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "W!th.entitlements"; sourceTree = "<group>"; };
 		06CFDD8923B37CCC0030BABB /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
-		06CFDD9423B4673C0030BABB /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		06CFDD9423B4673C0030BABB /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		06CFDD9623B4A1B30030BABB /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		06CFDD9823B4CD920030BABB /* ChatDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDateTableViewCell.swift; sourceTree = "<group>"; };
+		06CFDD9A23B4CD9D0030BABB /* ChatProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatProfileTableViewCell.swift; sourceTree = "<group>"; };
+		06CFDD9C23B5399E0030BABB /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		06CFDDA023B5425D0030BABB /* ChatMyInviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMyInviteTableViewCell.swift; sourceTree = "<group>"; };
+		06CFDDA223B542C10030BABB /* ChatCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCompleteTableViewCell.swift; sourceTree = "<group>"; };
+		06CFDDA423B5454C0030BABB /* ChatOtherInviteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatOtherInviteTableViewCell.swift; sourceTree = "<group>"; };
 		203121F49D0F6F9796C12600 /* Pods_With.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_With.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B37FA1ABF5A30B973C5CCC3 /* Pods-With.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-With.debug.xcconfig"; path = "Target Support Files/Pods-With/Pods-With.debug.xcconfig"; sourceTree = "<group>"; };
 		E9D4A0C6AA5F539FDB1A8ABF /* Pods-With.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-With.release.xcconfig"; path = "Target Support Files/Pods-With/Pods-With.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +105,11 @@
 				04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */,
 				06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */,
 				04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */,
+				06CFDD9823B4CD920030BABB /* ChatDateTableViewCell.swift */,
+				06CFDD9A23B4CD9D0030BABB /* ChatProfileTableViewCell.swift */,
+				06CFDDA423B5454C0030BABB /* ChatOtherInviteTableViewCell.swift */,
+				06CFDDA023B5425D0030BABB /* ChatMyInviteTableViewCell.swift */,
+				06CFDDA223B542C10030BABB /* ChatCompleteTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -195,7 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				06CFDD8923B37CCC0030BABB /* UIColor+Extension.swift */,
-				06CFDD9423B4673C0030BABB /* UILabel+Extension.swift */,
+				06CFDD9423B4673C0030BABB /* UITextView+Extension.swift */,
+				06CFDD9C23B5399E0030BABB /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -365,8 +383,11 @@
 			files = (
 				06CFDD7D23B1F2E60030BABB /* SocketIOManager.swift in Sources */,
 				06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */,
+				06CFDDA123B5425D0030BABB /* ChatMyInviteTableViewCell.swift in Sources */,
 				06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */,
-				06CFDD9523B4673C0030BABB /* UILabel+Extension.swift in Sources */,
+				06CFDD9923B4CD920030BABB /* ChatDateTableViewCell.swift in Sources */,
+				06CFDDA323B542C10030BABB /* ChatCompleteTableViewCell.swift in Sources */,
+				06CFDD9523B4673C0030BABB /* UITextView+Extension.swift in Sources */,
 				06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */,
 				045A549323B5D75500D2ADAD /* CountryCellTableViewCell.swift in Sources */,
 				045A549423B5D75500D2ADAD /* RegionCollectionViewCell.swift in Sources */,
@@ -376,7 +397,10 @@
 				04F3624F23B51011005B56CB /* Country.swift in Sources */,
 				0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */,
 				04F3624B23B4F3BA005B56CB /* RegionFilterViewController.swift in Sources */,
+				06CFDDA523B5454C0030BABB /* ChatOtherInviteTableViewCell.swift in Sources */,
 				06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */,
+				06CFDD9D23B5399E0030BABB /* UILabel+Extension.swift in Sources */,
+				06CFDD9B23B4CD9D0030BABB /* ChatProfileTableViewCell.swift in Sources */,
 				06CFDD8423B249450030BABB /* ChatBubbleTableViewCell.swift in Sources */,
 				06CFDD8223B1F6F00030BABB /* ChatRoomViewController.swift in Sources */,
 				04F3624D23B50939005B56CB /* SemiRegionCollectionViewCell.swift in Sources */,
