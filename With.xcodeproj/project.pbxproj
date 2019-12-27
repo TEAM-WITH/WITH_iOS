@@ -46,10 +46,10 @@
 		0458B93723B1F96F00CEBFDA /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0458B93923B1F9BC00CEBFDA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateCollectionViewCell.swift; sourceTree = "<group>"; };
-		0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecommendCollectionViewCell.swift; path = With/Sources/Cell/RecommendCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecommendCollectionViewCell.swift; path = With/Sources/Cell/Home/RecommendCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		045A549123B5D75400D2ADAD /* CountryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCellTableViewCell.swift; sourceTree = "<group>"; };
 		045A549223B5D75400D2ADAD /* RegionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionCollectionViewCell.swift; sourceTree = "<group>"; };
-		04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentCollectionViewCell.swift; path = With/Sources/Cell/RecentCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentCollectionViewCell.swift; path = With/Sources/Cell/Home/RecentCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		04D4374223B4B75C00574AF2 /* RegionFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegionFilter.storyboard; sourceTree = "<group>"; };
 		04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFilterViewController.swift; sourceTree = "<group>"; };
 		04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiRegionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -98,13 +98,8 @@
 		0458B93C23B20C3C00CEBFDA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				045A549123B5D75400D2ADAD /* CountryCellTableViewCell.swift */,
-				045A549223B5D75400D2ADAD /* RegionCollectionViewCell.swift */,
-				0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */,
-				0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */,
-				04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */,
+				0462C20F23B600C3001FBC1C /* Home */,
 				06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */,
-				04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */,
 				06CFDD9823B4CD920030BABB /* ChatDateTableViewCell.swift */,
 				06CFDD9A23B4CD9D0030BABB /* ChatProfileTableViewCell.swift */,
 				06CFDDA423B5454C0030BABB /* ChatOtherInviteTableViewCell.swift */,
@@ -120,6 +115,27 @@
 				04F3624E23B51011005B56CB /* Country.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0462C20F23B600C3001FBC1C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */,
+				0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */,
+				04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */,
+				0462C21023B600F3001FBC1C /* RegionFilter */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0462C21023B600F3001FBC1C /* RegionFilter */ = {
+			isa = PBXGroup;
+			children = (
+				045A549123B5D75400D2ADAD /* CountryCellTableViewCell.swift */,
+				045A549223B5D75400D2ADAD /* RegionCollectionViewCell.swift */,
+				04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */,
+			);
+			path = RegionFilter;
 			sourceTree = "<group>";
 		};
 		06CFDD4B23B09C930030BABB = {
