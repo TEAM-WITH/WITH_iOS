@@ -11,10 +11,10 @@
 		0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B93923B1F9BC00CEBFDA /* HomeViewController.swift */; };
 		0458B93E23B211B100CEBFDA /* MateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */; };
 		0458B94023B2403400CEBFDA /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */; };
-		045BC04723B5CF0500E17913 /* CountryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045BC04623B5CF0500E17913 /* CountryCellTableViewCell.swift */; };
+		045A549323B5D75500D2ADAD /* CountryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A549123B5D75400D2ADAD /* CountryCellTableViewCell.swift */; };
+		045A549423B5D75500D2ADAD /* RegionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A549223B5D75400D2ADAD /* RegionCollectionViewCell.swift */; };
 		04D4371D23B26B9F00574AF2 /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */; };
 		04D4374323B4B75C00574AF2 /* RegionFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D4374223B4B75C00574AF2 /* RegionFilter.storyboard */; };
-		04F3624923B4F2FA005B56CB /* RegionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624823B4F2FA005B56CB /* RegionCollectionViewCell.swift */; };
 		04F3624B23B4F3BA005B56CB /* RegionFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */; };
 		04F3624D23B50939005B56CB /* SemiRegionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */; };
 		04F3624F23B51011005B56CB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624E23B51011005B56CB /* Country.swift */; };
@@ -41,10 +41,10 @@
 		0458B93923B1F9BC00CEBFDA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateCollectionViewCell.swift; sourceTree = "<group>"; };
 		0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecommendCollectionViewCell.swift; path = With/Sources/Cell/RecommendCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
-		045BC04623B5CF0500E17913 /* CountryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCellTableViewCell.swift; sourceTree = "<group>"; };
+		045A549123B5D75400D2ADAD /* CountryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCellTableViewCell.swift; sourceTree = "<group>"; };
+		045A549223B5D75400D2ADAD /* RegionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionCollectionViewCell.swift; sourceTree = "<group>"; };
 		04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentCollectionViewCell.swift; path = With/Sources/Cell/RecentCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		04D4374223B4B75C00574AF2 /* RegionFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegionFilter.storyboard; sourceTree = "<group>"; };
-		04F3624823B4F2FA005B56CB /* RegionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegionCollectionViewCell.swift; path = With/Resources/RegionCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFilterViewController.swift; sourceTree = "<group>"; };
 		04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiRegionCollectionViewCell.swift; sourceTree = "<group>"; };
 		04F3624E23B51011005B56CB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -86,13 +86,13 @@
 		0458B93C23B20C3C00CEBFDA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				045A549123B5D75400D2ADAD /* CountryCellTableViewCell.swift */,
+				045A549223B5D75400D2ADAD /* RegionCollectionViewCell.swift */,
 				0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */,
 				0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */,
 				04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */,
 				06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */,
-				04F3624823B4F2FA005B56CB /* RegionCollectionViewCell.swift */,
 				04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */,
-				045BC04623B5CF0500E17913 /* CountryCellTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -363,14 +363,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				045BC04723B5CF0500E17913 /* CountryCellTableViewCell.swift in Sources */,
 				06CFDD7D23B1F2E60030BABB /* SocketIOManager.swift in Sources */,
 				06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */,
 				06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */,
 				06CFDD9523B4673C0030BABB /* UILabel+Extension.swift in Sources */,
 				06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */,
+				045A549323B5D75500D2ADAD /* CountryCellTableViewCell.swift in Sources */,
+				045A549423B5D75500D2ADAD /* RegionCollectionViewCell.swift in Sources */,
 				06CFDD8C23B3937A0030BABB /* ChatListViewController.swift in Sources */,
-				04F3624923B4F2FA005B56CB /* RegionCollectionViewCell.swift in Sources */,
 				0458B93E23B211B100CEBFDA /* MateCollectionViewCell.swift in Sources */,
 				04D4371D23B26B9F00574AF2 /* RecentCollectionViewCell.swift in Sources */,
 				04F3624F23B51011005B56CB /* Country.swift in Sources */,

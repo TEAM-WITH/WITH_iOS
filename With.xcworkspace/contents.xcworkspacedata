@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:With/Sources/Cell/CountryCellTableViewCell.swift">
+      location = "group:/Users/mac/Desktop/WITH_iOS/With/Sources/Cell/CountryCellTableViewCell.swift">
    </FileRef>
    <FileRef
       location = "group:With.xcodeproj">

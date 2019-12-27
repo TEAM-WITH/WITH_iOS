@@ -11,15 +11,12 @@ import UIKit
 class RegionFilterViewController: UIViewController {
     @IBOutlet weak var regionCollectionView: UICollectionView!
     @IBOutlet weak var semiRegionCollectionView: UICollectionView!
-    
     @IBOutlet weak var countryTableView: UITableView!
     //var countryList: [Country]=[]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        setCountryData()
 //        countryTableView.reloadData()
-        
 //        self.countryTableView.dataSource = self
         self.regionCollectionView.dataSource = self
         self.semiRegionCollectionView.dataSource = self
@@ -53,17 +50,13 @@ extension RegionFilterViewController: UICollectionViewDataSource {
     }
 }
 extension RegionFilterViewController: UITableViewDelegate{
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //destination view controller
 //        let dvc = storyboard?.instantiateViewController(withIdentifier: "CountryTableViewController")as! CountryTableViewController
-        
 //        let country = countryList[indexPath.row]
-        
 //        dvc.albumImg = music.albumImg
 //        dvc.musicTitle = music.musicTitle
 //        dvc.singer = music.singer
-        
 //        navigationController?.pushViewController(dvc, animated: true)
     }
 }
