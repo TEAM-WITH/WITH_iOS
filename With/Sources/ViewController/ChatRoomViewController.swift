@@ -9,7 +9,6 @@
 import UIKit
 import Alamofire
 class ChatRoomViewController: UIViewController {
-    
     let chat1 = Chat(type: .mine, nickName: "my", message: "hihi")
     let chat2 = Chat(type: .mine, nickName: "my", message: "hey~~~")
     let chat3 = Chat(type: .other, nickName: "your", message: "hihi")
@@ -22,6 +21,7 @@ class ChatRoomViewController: UIViewController {
     let chat10 = Chat(type: .otherInvite, nickName: "you")
     let chat11 = Chat(type: .complete, nickName: "you")
     
+    @IBOutlet weak var chatViewBottomLayout: NSLayoutConstraint!
     @IBOutlet weak var noticeImage: UIImageView!
     @IBOutlet weak var noticeRegionLabel: UILabel!
     @IBOutlet weak var noticeTitleLabel: UILabel!
@@ -30,6 +30,7 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet weak var chatTextView: UITextView!
     var testList: [Chat] = []
     var chatList: [Chat] = []
+    var keyboardHeight: CGFloat = 0
     @IBOutlet weak var chatTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,11 @@ class ChatRoomViewController: UIViewController {
         self.chatTextView.delegate = self
         testList = [chat1, chat2, chat3, chat4, chat5, chat6, chat7, chat8, chat9, chat10, chat11]
         setChatView()
+        initGestureRecognizer()
+        registerForKeyboardNotifications()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        unregisterForKeyboardNotifications()
     }
     @IBAction func sendButtonClick(_ sender: Any) {
         let text = self.chatTextView.text
@@ -87,7 +93,6 @@ extension ChatRoomViewController: UITableViewDataSource {
             return cell
         } else if chat.type == .myInvite {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyInviteCell", for: indexPath) as! ChatMyInviteTableViewCell
-            
             return cell
         } else if chat.type == .otherInvite {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OtherInviteCell", for: indexPath) as! ChatOtherInviteTableViewCell
@@ -112,11 +117,11 @@ extension ChatRoomViewController: UITableViewDelegate {
             return 42
         } else if chat.type == .date {
             return 55
-        } else if chat.type == .myInvite{
+        } else if chat.type == .myInvite {
             return 177
-        } else if chat.type == .otherInvite{
+        } else if chat.type == .otherInvite {
             return 215
-        } else if chat.type == .complete{
+        } else if chat.type == .complete {
             return 177
         } else {
             let approximateWidthOfText = view.frame.width - 36 - 131
@@ -147,82 +152,76 @@ extension ChatRoomViewController: UITextViewDelegate {
 }
 
 extension ChatRoomViewController {
-//
-//
-//    
-//    //GestureRecognizer 생성
-//    func initGestureRecognizer() {
-//        let textFieldTap = UITapGestureRecognizer(target: self, action: #selector(handleTapTextField(_:)))
-//        view.addGestureRecognizer(textFieldTap)
-//    }
-//
-//    // 다른 위치 탭했을 때 키보드 없어지는 코드
-//    @objc func handleTapTextField(_ sender: UITapGestureRecognizer) {
-//        self.view.endEditing(true)
-//    }
-//
-//
-//    // observer생성
-//    func registerForKeyboardNotifications() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-//
-//    //observer해제
-//    func unregisterForKeyboardNotifications() {
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-//
-//    // keyboard가 보여질 때 어떤 동작을 수행
-//    @objc func keyboardWillShow(_ notification: NSNotification) {
-//
-//        //키보드의 동작시간 얻기
-//        guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double else { return }
-//
-//        //키보드의 애니메이션종류 얻기
-//        guard let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else { return }
-//
-//        //키보드의 크기 얻기
-//        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-//
-//        //iOS11이상부터는 노치가 존재하기때문에 safeArea값을 고려
-//        if #available(iOS 11.0, *) {
-//            keyboardHeight = keyboardFrame.cgRectValue.height - self.view.safeAreaInsets.bottom
-//        } else {
-//            keyboardHeight = keyboardFrame.cgRectValue.height
-//        }
-//
-//        self.botViewLayout.constant = -self.keyboardHeight
-//        //키보드 높이만큼 inset조정
-//        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
-//        if myChat.count > 0 {
-//            self.tableView.scrollToRow(at: IndexPath(row: myChat.count-1, section: 0), at: .bottom, animated: false)
-//        }
-//
-//        self.view.setNeedsLayout()
-//        UIView.animate(withDuration: duration, delay: 0.0, options: .init(rawValue: curve), animations: {
-//            //animation처럼 보이게하기
-//            self.view.layoutIfNeeded()
-//        })
-//
-//
-//    }
-//
-//    // keyboard가 사라질 때 어떤 동작을 수행
-//    @objc func keyboardWillHide(_ notification: NSNotification) {
-//        guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double else {return}
-//        guard let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else {return}
-//
-//        // 원래대로 돌아가도록
-//        self.botViewLayout.constant = 0
-//        self.tableView.contentInset = .zero
-//        self.view.setNeedsLayout()
-//        UIView.animate(withDuration: duration, delay: 0.0, options: .init(rawValue: curve), animations: {
-//            self.view.layoutIfNeeded()
-//        })
-//
-//    }
+    //GestureRecognizer 생성
+    func initGestureRecognizer() {
+        let textFieldTap = UITapGestureRecognizer(target: self, action: #selector(handleTapTextField(_:)))
+        view.addGestureRecognizer(textFieldTap)
+    }
+
+    // 다른 위치 탭했을 때 키보드 없어지는 코드
+    @objc func handleTapTextField(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+
+    // observer생성
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    //observer해제
+    func unregisterForKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    // keyboard가 보여질 때 어떤 동작을 수행
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+
+        //키보드의 동작시간 얻기
+        guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double else { return }
+
+        //키보드의 애니메이션종류 얻기
+        guard let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else { return }
+
+        //키보드의 크기 얻기
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        //iOS11이상부터는 노치가 존재하기때문에 safeArea값을 고려
+        if #available(iOS 11.0, *) {
+            keyboardHeight = keyboardFrame.cgRectValue.height - self.view.safeAreaInsets.bottom
+        } else {
+            keyboardHeight = keyboardFrame.cgRectValue.height
+        }
+
+        self.chatViewBottomLayout.constant = self.keyboardHeight
+        //키보드 높이만큼 inset조정 + 여유공간
+        self.chatTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight + 25, right: 0)
+        if !testList.isEmpty {
+            self.chatTableView.scrollToRow(at: IndexPath(row: testList.count-1, section: 0), at: .bottom, animated: false)
+        }
+
+        self.view.setNeedsLayout()
+        UIView.animate(withDuration: duration, delay: 0.0, options: .init(rawValue: curve), animations: {
+            //animation처럼 보이게하기
+            self.view.layoutIfNeeded()
+        })
+    }
+
+    // keyboard가 사라질 때 어떤 동작을 수행
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double else {return}
+        guard let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else {return}
+
+        // 원래대로 돌아가도록
+        self.chatViewBottomLayout.constant = 0
+        self.chatTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 25, right: 0)
+        self.view.setNeedsLayout()
+        UIView.animate(withDuration: duration, delay: 0.0, options: .init(rawValue: curve), animations: {
+            self.view.layoutIfNeeded()
+        })
+
+    }
 }
 
 struct Chat {
