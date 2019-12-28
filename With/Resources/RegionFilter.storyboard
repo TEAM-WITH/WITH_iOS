@@ -98,30 +98,35 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Se9-jg-DwQ">
-                                <rect key="frame" x="0.0" y="290" width="375" height="44"/>
+                                <rect key="frame" x="20" y="290" width="355" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="enz-qp-jLW"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="YcU-W2-JKF">
-                                    <size key="itemSize" width="56" height="44"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YcU-W2-JKF">
+                                    <size key="itemSize" width="45" height="44"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SemiRegionCell" id="XuP-cv-FMK" customClass="SemiRegionCollectionViewCell" customModule="W_TH" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="56" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0Dw-kU-0W0">
-                                            <rect key="frame" x="0.0" y="0.0" width="56" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Si-f1-J95">
-                                                    <rect key="frame" x="6" y="8" width="44" height="30"/>
-                                                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="0.0" y="8" width="44" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="dyy-wi-592"/>
+                                                        <constraint firstAttribute="height" constant="30" id="iqx-em-L7n"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <state key="normal" title="전체">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
@@ -130,10 +135,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="5Si-f1-J95" firstAttribute="centerY" secondItem="0Dw-kU-0W0" secondAttribute="centerY" id="96y-YN-kzs"/>
+                                                <constraint firstItem="5Si-f1-J95" firstAttribute="leading" secondItem="0Dw-kU-0W0" secondAttribute="leading" id="Ozb-KV-iwf"/>
                                                 <constraint firstItem="5Si-f1-J95" firstAttribute="centerX" secondItem="0Dw-kU-0W0" secondAttribute="centerX" id="uvv-qH-fep"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="56" height="44"/>
+                                        <size key="customSize" width="45" height="44"/>
                                         <connections>
                                             <outlet property="semiRegionBtn" destination="5Si-f1-J95" id="TFH-FP-yRI"/>
                                         </connections>
@@ -190,7 +196,6 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Mxh-HX-D4T" secondAttribute="bottom" id="5y8-62-uni"/>
                             <constraint firstItem="YCQ-2b-Or3" firstAttribute="leading" secondItem="ulL-ml-7GK" secondAttribute="leading" constant="20" id="6gX-Wy-uAm"/>
-                            <constraint firstItem="Se9-jg-DwQ" firstAttribute="leading" secondItem="ulL-ml-7GK" secondAttribute="leading" id="AnW-68-Yvy"/>
                             <constraint firstItem="Mxh-HX-D4T" firstAttribute="leading" secondItem="ulL-ml-7GK" secondAttribute="leading" id="DDp-2I-Rww"/>
                             <constraint firstItem="Mxh-HX-D4T" firstAttribute="trailing" secondItem="ulL-ml-7GK" secondAttribute="trailing" id="EHT-ck-Zni"/>
                             <constraint firstItem="THF-s5-n6h" firstAttribute="leading" secondItem="YCQ-2b-Or3" secondAttribute="leading" id="Kfi-BB-zCh"/>
@@ -201,6 +206,8 @@
                             <constraint firstItem="4Bp-T1-yTc" firstAttribute="trailing" secondItem="ulL-ml-7GK" secondAttribute="trailing" id="ZqL-m8-hIU"/>
                             <constraint firstItem="Se9-jg-DwQ" firstAttribute="top" secondItem="THF-s5-n6h" secondAttribute="bottom" constant="113" id="dig-Qu-ps3"/>
                             <constraint firstItem="4Bp-T1-yTc" firstAttribute="leading" secondItem="ulL-ml-7GK" secondAttribute="leading" constant="21" id="lzu-aR-FYx"/>
+                            <constraint firstItem="Se9-jg-DwQ" firstAttribute="trailing" secondItem="ulL-ml-7GK" secondAttribute="trailing" id="mTi-65-5ff"/>
+                            <constraint firstItem="Se9-jg-DwQ" firstAttribute="leading" secondItem="ulL-ml-7GK" secondAttribute="leading" constant="20" id="wyh-BJ-0ta"/>
                             <constraint firstItem="Mxh-HX-D4T" firstAttribute="top" secondItem="THF-s5-n6h" secondAttribute="bottom" constant="182" id="xJH-VH-Mfh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ulL-ml-7GK"/>

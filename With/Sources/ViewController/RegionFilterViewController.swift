@@ -31,7 +31,8 @@ extension RegionFilterViewController: UICollectionViewDataSource {
         if collectionView == regionCollectionView {
                  return 6
              }else if collectionView == semiRegionCollectionView {
-                 return 10
+                 return 4
+            
         }
             return 0
     }
@@ -65,28 +66,24 @@ extension RegionFilterViewController: UICollectionViewDelegate {
         cell.regionLabel.textColor = UIColor.black
         cell.regionLine.backgroundColor = UIColor.orange
         cell.regionLine.isHidden = false
-
-            
-        }}
+        }else if collectionView == semiRegionCollectionView {
+            let cell = collectionView.cellForItem(at: indexPath) as! SemiRegionCollectionViewCell
+            cell.semiRegionBtn.backgroundColor = UIColor.orange
+        }
+    }
     // 선택안될때
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == regionCollectionView {
         let cell = collectionView.cellForItem(at: indexPath) as! RegionCollectionViewCell
         cell.regionLabel.textColor = UIColor.lightGray
         cell.regionLine.isHidden = true
-        }else {
-            semicollectionView(collectionView, didSelectItemAt: indexPath)
-        }
-    }
-    
-    // 선택안될때
-    func semicollectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if collectionView == semiRegionCollectionView {
+        }else if collectionView == semiRegionCollectionView {
         let cell = collectionView.cellForItem(at: indexPath) as! SemiRegionCollectionViewCell
- //       cell.semiRegionBtn.textColor = UIColor.orange
-}
-    }
+        cell.semiRegionBtn.backgroundColor = UIColor.white
         }
+    }
+}
+    // 선택안될때
 
 extension RegionFilterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
