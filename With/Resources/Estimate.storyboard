@@ -218,14 +218,14 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vmx-GY-tqg" kind="show" id="UTg-mV-JAn"/>
+                                    <segue destination="vmx-GY-tqg" kind="show" id="peP-hL-GQq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEM-6P-Nnx">
                                 <rect key="frame" x="44" y="553" width="287" height="59"/>
                                 <state key="normal" image="badBtn"/>
                                 <connections>
-                                    <segue destination="vmx-GY-tqg" kind="show" id="KHs-Jt-eWv"/>
+                                    <segue destination="vmx-GY-tqg" kind="show" id="16E-D4-VMX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -331,7 +331,7 @@
         <image name="img" width="375" height="812"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KHs-Jt-eWv"/>
+        <segue reference="peP-hL-GQq"/>
         <segue reference="q4d-ML-AqU"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -49,37 +49,41 @@ extension RegionFilterViewController: UICollectionViewDataSource {
        // }
         return UICollectionViewCell()
     }
+    
+    func semicollectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == semiRegionCollectionView {
+        let cell = collectionView.cellForItem(at: indexPath) as! SemiRegionCollectionViewCell
+       // cell.semiRegionBtn.textColor = UIColor.black
+        }
+    }
 }
 extension RegionFilterViewController: UICollectionViewDelegate {
     // 선택될때
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if collectionView == regionCollectionView {
         let cell = collectionView.cellForItem(at: indexPath) as! RegionCollectionViewCell
         cell.regionLabel.textColor = UIColor.black
         cell.regionLine.backgroundColor = UIColor.orange
+        cell.regionLine.isHidden = false
+
+            
         }}
     // 선택안될때
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == regionCollectionView {
         let cell = collectionView.cellForItem(at: indexPath) as! RegionCollectionViewCell
         cell.regionLabel.textColor = UIColor.lightGray
-        cell.regionLine.backgroundColor = UIColor.lightGray
-    }
-        }
-    func semicollectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == semiRegionCollectionView {
-        let cell = collectionView.cellForItem(at: indexPath) as! SemiRegionCollectionViewCell
-        cell.semiRegionLabel.textColor = UIColor.black
-        cell.semiRegionImage.backgroundColor = UIColor.orange
+        cell.regionLine.isHidden = true
+        }else {
+            semicollectionView(collectionView, didSelectItemAt: indexPath)
         }
     }
+    
     // 선택안될때
     func semicollectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == semiRegionCollectionView {
         let cell = collectionView.cellForItem(at: indexPath) as! SemiRegionCollectionViewCell
-        cell.semiRegionLabel.textColor = UIColor.orange
-        cell.semiRegionImage.backgroundColor = UIColor.white
+ //       cell.semiRegionBtn.textColor = UIColor.orange
 }
     }
         }

@@ -10,6 +10,7 @@ import UIKit
 
 class SemiRegionCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var semiRegionImage: UIImageView!
-    @IBOutlet weak var semiRegionLabel: UILabel!
+
+    @IBOutlet weak var semiRegionBtn: UIButton!
+
 }
