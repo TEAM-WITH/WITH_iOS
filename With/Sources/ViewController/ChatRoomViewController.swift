@@ -36,6 +36,7 @@ class ChatRoomViewController: UIViewController {
         setNoticeView()
         initGestureRecognizer()
         registerForKeyboardNotifications()
+    
     }
     override func viewWillDisappear(_ animated: Bool) {
         unregisterForKeyboardNotifications()
@@ -86,7 +87,6 @@ class ChatRoomViewController: UIViewController {
         let before = chatList[curIdx-1]
         let cur = chatList[curIdx]
         guard before.date == cur.date else { return }
-        guard before.type == cur.type else { return }
         let indexPath = IndexPath( row: curIdx-1, section: 0 )
         
         switch before.type {
@@ -119,9 +119,7 @@ class ChatRoomViewController: UIViewController {
         self.chatTableView.insertRows(at: [indexPath], with: .none)
         self.chatTableView.endUpdates()
         self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-        
-        dateCompare(curIdx: count-1)
-        
+        self.dateCompare(curIdx: count-1) 
         completion()
     }
     // MARK: - ChatView 설정
@@ -155,6 +153,11 @@ extension ChatRoomViewController: UITableViewDataSource {
             return cell
         } else if chat.type == .myInvite {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyInviteCell", for: indexPath) as! ChatMyInviteTableViewCell
+            
+            cell.timeLabel.text = chat.date
+            cell.timeLabel.labelKern(kerningValue: -0.06)
+            cell.hide = chat.hide ?? false
+            
             return cell
         } else if chat.type == .otherInvite {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OtherInviteCell", for: indexPath) as! ChatOtherInviteTableViewCell
