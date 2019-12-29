@@ -11,7 +11,6 @@ target 'With' do
     pod 'Kingfisher', '~> 5.0'
     pod 'SnapKit', '~> 5.0.0'
     pod 'FMDB', '~> 2.7.5'
-    pod 'Socket.IO-Client-Swift', '~> 15.2.0'
     pod 'Firebase/Analytics'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'

@@ -86,9 +86,6 @@ PODS:
   - nanopb/encode (0.3.9011)
   - Protobuf (3.11.2)
   - SnapKit (5.0.1)
-  - Socket.IO-Client-Swift (15.2.0):
-    - Starscream (~> 3.1)
-  - Starscream (3.1.1)
   - SwiftLint (0.38.0)
 
 DEPENDENCIES:
@@ -99,7 +96,6 @@ DEPENDENCIES:
   - FMDB (~> 2.7.5)
   - Kingfisher (~> 5.0)
   - SnapKit (~> 5.0.0)
-  - Socket.IO-Client-Swift (~> 15.2.0)
   - SwiftLint (~> 0.38.0)
 
 SPEC REPOS:
@@ -122,8 +118,6 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SnapKit
-    - Socket.IO-Client-Swift
-    - Starscream
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -145,10 +139,8 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: dd1aaea7140debfe4dd0683fb8ef208e527ae153
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
-  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
 
-PODFILE CHECKSUM: 1b4bd0786e674087c9b236d7ca3f8b223de4a9ab
+PODFILE CHECKSUM: bc54c9df23afdaa0fd3ae25aa139b07df0754883
 
 COCOAPODS: 1.8.4
