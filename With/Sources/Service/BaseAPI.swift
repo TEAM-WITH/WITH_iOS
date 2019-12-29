@@ -11,5 +11,5 @@ import Foundation
 struct BaseAPI {
     static let baseURL = ""
     static let socketURL = ""
-    
+    static let signUpURL = "/auth/signup"
 }
