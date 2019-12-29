@@ -18,10 +18,16 @@
 		04F3624B23B4F3BA005B56CB /* RegionFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */; };
 		04F3624D23B50939005B56CB /* SemiRegionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */; };
 		04F3624F23B51011005B56CB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624E23B51011005B56CB /* Country.swift */; };
+		050CCBC123B6374A0004D543 /* Estimate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050CCBC023B6374A0004D543 /* Estimate.storyboard */; };
+		050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CCBC223B637810004D543 /* EstimateViewController.swift */; };
 		06C1C93923B7C55A00DD4F9D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93823B7C55A00DD4F9D /* UserService.swift */; };
 		06C1C93B23B8875400DD4F9D /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93A23B8875400DD4F9D /* SignUpModel.swift */; };
 		06C1C93D23B8BB6500DD4F9D /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93C23B8BB6500DD4F9D /* ResponseResult.swift */; };
 		06C1C93F23B8C48400DD4F9D /* SignUpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93E23B8C48400DD4F9D /* SignUpResult.swift */; };
+		06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */; };
+		06C1C92E23B6AACF00DD4F9D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */; };
+		06C1C93023B6D3A700DD4F9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06C1C92F23B6D3A700DD4F9D /* GoogleService-Info.plist */; };
+		06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */; };
 		06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5723B09C930030BABB /* AppDelegate.swift */; };
 		06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5B23B09C930030BABB /* ViewController.swift */; };
 		06CFDD5F23B09C930030BABB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD5D23B09C930030BABB /* Main.storyboard */; };
@@ -32,7 +38,6 @@
 		06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD7F23B1F37F0030BABB /* BaseAPI.swift */; };
 		06CFDD8223B1F6F00030BABB /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */; };
 		06CFDD8423B249450030BABB /* ChatBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */; };
-		06CFDD8623B2AFD70030BABB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD8523B2AFD70030BABB /* GoogleService-Info.plist */; };
 		06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8923B37CCC0030BABB /* UIColor+Extension.swift */; };
 		06CFDD8C23B3937A0030BABB /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */; };
 		06CFDD9523B4673C0030BABB /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD9423B4673C0030BABB /* UITextView+Extension.swift */; };
@@ -50,18 +55,24 @@
 		0458B93723B1F96F00CEBFDA /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0458B93923B1F9BC00CEBFDA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateCollectionViewCell.swift; sourceTree = "<group>"; };
-		0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecommendCollectionViewCell.swift; path = With/Sources/Cell/RecommendCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecommendCollectionViewCell.swift; path = With/Sources/Cell/Home/RecommendCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		045A549123B5D75400D2ADAD /* CountryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCellTableViewCell.swift; sourceTree = "<group>"; };
 		045A549223B5D75400D2ADAD /* RegionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionCollectionViewCell.swift; sourceTree = "<group>"; };
-		04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentCollectionViewCell.swift; path = With/Sources/Cell/RecentCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentCollectionViewCell.swift; path = With/Sources/Cell/Home/RecentCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		04D4374223B4B75C00574AF2 /* RegionFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegionFilter.storyboard; sourceTree = "<group>"; };
 		04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFilterViewController.swift; sourceTree = "<group>"; };
 		04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiRegionCollectionViewCell.swift; sourceTree = "<group>"; };
 		04F3624E23B51011005B56CB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		050CCBC023B6374A0004D543 /* Estimate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Estimate.storyboard; sourceTree = "<group>"; };
+		050CCBC223B637810004D543 /* EstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
 		06C1C93823B7C55A00DD4F9D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		06C1C93A23B8875400DD4F9D /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		06C1C93C23B8BB6500DD4F9D /* ResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResult.swift; sourceTree = "<group>"; };
 		06C1C93E23B8C48400DD4F9D /* SignUpResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResult.swift; sourceTree = "<group>"; };
+		06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
+		06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		06C1C92F23B6D3A700DD4F9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		06CFDD5423B09C930030BABB /* W!TH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "W!TH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CFDD5723B09C930030BABB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06CFDD5B23B09C930030BABB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +85,6 @@
 		06CFDD7F23B1F37F0030BABB /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleTableViewCell.swift; sourceTree = "<group>"; };
-		06CFDD8523B2AFD70030BABB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		06CFDD8723B2B3E80030BABB /* W!th.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "W!th.entitlements"; sourceTree = "<group>"; };
 		06CFDD8923B37CCC0030BABB /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
@@ -106,18 +116,14 @@
 		0458B93C23B20C3C00CEBFDA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				045A549123B5D75400D2ADAD /* CountryCellTableViewCell.swift */,
-				045A549223B5D75400D2ADAD /* RegionCollectionViewCell.swift */,
-				0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */,
-				0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */,
-				04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */,
+				0462C20F23B600C3001FBC1C /* Home */,
 				06CFDD8323B249450030BABB /* ChatBubbleTableViewCell.swift */,
-				04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */,
 				06CFDD9823B4CD920030BABB /* ChatDateTableViewCell.swift */,
 				06CFDD9A23B4CD9D0030BABB /* ChatProfileTableViewCell.swift */,
 				06CFDDA423B5454C0030BABB /* ChatOtherInviteTableViewCell.swift */,
 				06CFDDA023B5425D0030BABB /* ChatMyInviteTableViewCell.swift */,
 				06CFDDA223B542C10030BABB /* ChatCompleteTableViewCell.swift */,
+				06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -131,6 +137,27 @@
 				06C1C93E23B8C48400DD4F9D /* SignUpResult.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0462C20F23B600C3001FBC1C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0458B93D23B211B100CEBFDA /* MateCollectionViewCell.swift */,
+				0458B93F23B2403400CEBFDA /* RecommendCollectionViewCell.swift */,
+				04D4371C23B26B9F00574AF2 /* RecentCollectionViewCell.swift */,
+				0462C21023B600F3001FBC1C /* RegionFilter */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0462C21023B600F3001FBC1C /* RegionFilter */ = {
+			isa = PBXGroup;
+			children = (
+				045A549123B5D75400D2ADAD /* CountryCellTableViewCell.swift */,
+				045A549223B5D75400D2ADAD /* RegionCollectionViewCell.swift */,
+				04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */,
+			);
+			path = RegionFilter;
 			sourceTree = "<group>";
 		};
 		06CFDD4B23B09C930030BABB = {
@@ -155,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				06CFDD8723B2B3E80030BABB /* W!th.entitlements */,
-				06CFDD8523B2AFD70030BABB /* GoogleService-Info.plist */,
+				06C1C92F23B6D3A700DD4F9D /* GoogleService-Info.plist */,
 				06CFDD6523B09C960030BABB /* Info.plist */,
 				06CFDD6B23B09C9D0030BABB /* Resources */,
 				06CFDD6C23B09CA30030BABB /* Sources */,
@@ -173,6 +200,7 @@
 				06CFDD6F23B1B9260030BABB /* Chat.storyboard */,
 				0458B93723B1F96F00CEBFDA /* Home.storyboard */,
 				04D4374223B4B75C00574AF2 /* RegionFilter.storyboard */,
+				050CCBC023B6374A0004D543 /* Estimate.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -180,10 +208,10 @@
 		06CFDD6C23B09CA30030BABB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				06CFDD5723B09C930030BABB /* AppDelegate.swift */,
 				06CFDD8823B37CB50030BABB /* Extension */,
 				06CFDD7B23B1F2BC0030BABB /* Socket */,
 				06CFDD7A23B1F2AF0030BABB /* Service */,
-				06CFDD5723B09C930030BABB /* AppDelegate.swift */,
 				045A548E23B5D13600D2ADAD /* Model */,
 				0458B93C23B20C3C00CEBFDA /* Cell */,
 				06CFDD6D23B09D2D0030BABB /* ViewController */,
@@ -199,6 +227,8 @@
 				06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */,
 				06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */,
 				04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */,
+				050CCBC223B637810004D543 /* EstimateViewController.swift */,
+				06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -226,6 +256,7 @@
 				06CFDD8923B37CCC0030BABB /* UIColor+Extension.swift */,
 				06CFDD9423B4673C0030BABB /* UITextView+Extension.swift */,
 				06CFDD9C23B5399E0030BABB /* UILabel+Extension.swift */,
+				06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -317,12 +348,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D4374323B4B75C00574AF2 /* RegionFilter.storyboard in Resources */,
+				06C1C93023B6D3A700DD4F9D /* GoogleService-Info.plist in Resources */,
 				06CFDD6423B09C960030BABB /* LaunchScreen.storyboard in Resources */,
 				0458B93823B1F96F00CEBFDA /* Home.storyboard in Resources */,
 				06CFDD6123B09C960030BABB /* Assets.xcassets in Resources */,
+				050CCBC123B6374A0004D543 /* Estimate.storyboard in Resources */,
 				06CFDD7123B1B9260030BABB /* Chat.storyboard in Resources */,
 				06CFDD5F23B09C930030BABB /* Main.storyboard in Resources */,
-				06CFDD8623B2AFD70030BABB /* GoogleService-Info.plist in Resources */,
 				06CFDD9723B4A1B30030BABB /* SF-Pro-Display-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06CFDD7D23B1F2E60030BABB /* SocketIOManager.swift in Sources */,
+				050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */,
 				06C1C93923B7C55A00DD4F9D /* UserService.swift in Sources */,
 				06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */,
 				06CFDDA123B5425D0030BABB /* ChatMyInviteTableViewCell.swift in Sources */,
@@ -406,13 +439,16 @@
 				06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */,
 				045A549323B5D75500D2ADAD /* CountryCellTableViewCell.swift in Sources */,
 				045A549423B5D75500D2ADAD /* RegionCollectionViewCell.swift in Sources */,
+				06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */,
 				06CFDD8C23B3937A0030BABB /* ChatListViewController.swift in Sources */,
 				06C1C93F23B8C48400DD4F9D /* SignUpResult.swift in Sources */,
 				0458B93E23B211B100CEBFDA /* MateCollectionViewCell.swift in Sources */,
 				04D4371D23B26B9F00574AF2 /* RecentCollectionViewCell.swift in Sources */,
 				04F3624F23B51011005B56CB /* Country.swift in Sources */,
+				06C1C92E23B6AACF00DD4F9D /* UIView+Extension.swift in Sources */,
 				0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */,
 				04F3624B23B4F3BA005B56CB /* RegionFilterViewController.swift in Sources */,
+				06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */,
 				06CFDDA523B5454C0030BABB /* ChatOtherInviteTableViewCell.swift in Sources */,
 				06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */,
 				06CFDD9D23B5399E0030BABB /* UILabel+Extension.swift in Sources */,
