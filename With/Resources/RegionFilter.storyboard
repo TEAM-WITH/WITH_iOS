@@ -117,31 +117,47 @@
                                             <rect key="frame" x="0.0" y="0.0" width="45" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Si-f1-J95">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-JE-amF">
                                                     <rect key="frame" x="0.0" y="8" width="44" height="30"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전체" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFO-Zc-XRB">
+                                                            <rect key="frame" x="0.0" y="7" width="44" height="15"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="DZ4-jL-leQ"/>
+                                                                <constraint firstAttribute="width" constant="44" id="uhN-0P-YxW"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                            <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="dyy-wi-592"/>
-                                                        <constraint firstAttribute="height" constant="30" id="iqx-em-L7n"/>
+                                                        <constraint firstAttribute="height" constant="30" id="pNh-8H-NcR"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                    <state key="normal" title="전체">
-                                                        <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="7"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                            <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                </button>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5Si-f1-J95" firstAttribute="centerY" secondItem="0Dw-kU-0W0" secondAttribute="centerY" id="96y-YN-kzs"/>
-                                                <constraint firstItem="5Si-f1-J95" firstAttribute="leading" secondItem="0Dw-kU-0W0" secondAttribute="leading" id="Ozb-KV-iwf"/>
-                                                <constraint firstItem="5Si-f1-J95" firstAttribute="centerX" secondItem="0Dw-kU-0W0" secondAttribute="centerX" id="uvv-qH-fep"/>
+                                                <constraint firstItem="HFO-Zc-XRB" firstAttribute="centerY" secondItem="0Dw-kU-0W0" secondAttribute="centerY" id="Fu2-zc-2hy"/>
+                                                <constraint firstItem="5ch-JE-amF" firstAttribute="leading" secondItem="0Dw-kU-0W0" secondAttribute="leading" id="VfV-mA-Ceg"/>
+                                                <constraint firstAttribute="trailing" secondItem="5ch-JE-amF" secondAttribute="trailing" id="YLd-ZR-tuX"/>
+                                                <constraint firstItem="HFO-Zc-XRB" firstAttribute="centerX" secondItem="0Dw-kU-0W0" secondAttribute="centerX" id="kZH-Db-kNy"/>
+                                                <constraint firstItem="5ch-JE-amF" firstAttribute="centerY" secondItem="0Dw-kU-0W0" secondAttribute="centerY" id="vta-nA-sQp"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="45" height="44"/>
                                         <connections>
-                                            <outlet property="semiRegionBtn" destination="5Si-f1-J95" id="TFH-FP-yRI"/>
+                                            <outlet property="semiRegionLabel" destination="HFO-Zc-XRB" id="xFq-zU-B4c"/>
+                                            <outlet property="semiRegionView" destination="5ch-JE-amF" id="trO-BV-Ep6"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

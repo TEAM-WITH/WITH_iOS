@@ -9,8 +9,7 @@
 import UIKit
 
 class SemiRegionCollectionViewCell: UICollectionViewCell {
-    
-
-    @IBOutlet weak var semiRegionBtn: UIButton!
-
+   
+    @IBOutlet weak var semiRegionView: UIView!
+    @IBOutlet weak var semiRegionLabel: UILabel!
 }
