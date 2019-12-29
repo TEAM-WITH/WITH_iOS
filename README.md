@@ -2,20 +2,26 @@
 
 __2019.12.21 ~ 2020.01.03__
 
+### iOS
 
+* 김남수
+* 권준
 
 
 
 ## Work Flow
 
-
+<div>
+<img src="./READMEImg/mainHome.png" width="200" height="350">
+<img src="./READMEImg/regionFilter.png" width="200" height="350">
+<img src="./READMEImg/review.png" width="200" height="350">
+</div>
 
 ## 개발 환경 및 라이브러리
 
 * Alamofire
 * SwiftLint
-*  Kingfisher
-*  Socket.IO-Client-Swift
+* Kingfisher
 *  Firebase
 
 
@@ -23,10 +29,17 @@ __2019.12.21 ~ 2020.01.03__
 ## 기능
 
 * 홈
-  * 게시글 필터
-  * 마이페이지
+  * 메인화면
+  * 게시글 필터화면
+  * 후기글 작성화면
+  
 * 채팅
-* 마이페이지
+
+  * 채팅방 레이아웃
+
+  * 채팅목록
+
+    
 
 ## 실행 화면
 
@@ -34,6 +47,7 @@ __2019.12.21 ~ 2020.01.03__
 
 ## 개발간 문제점
 
+* 소스트리의 미숙한 사용
 * socketio, firebase 사이에서의 고민
 * iOS13 푸쉬 알람 버그
 * 채팅말풍선 알고리즘
@@ -42,12 +56,11 @@ __2019.12.21 ~ 2020.01.03__
   * cellForRowAt에서 설정시 이상현상발생
   * 셀이 생성될때 초기화시 정상적인 출력
   * 동적인 셀크기를 할당할때 위치가 맞지않음
-* 
+* CollectionView에서 동적으로 길어지는 Label길이에 대응하는 셀의 크기 맞추기
+* 한 ViewController에 여러개의 CollectionView가 존재할때 구분하는 방법
+* select와 deselect를 이용한 이벤트 처리하기
 
-### iOS
 
-* 김남수
-* 권준
 
 ### 기획
 
