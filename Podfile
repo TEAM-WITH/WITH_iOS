@@ -14,5 +14,7 @@ target 'With' do
     pod 'Firebase/Analytics'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
+    pod 'Firebase/Database'
+    pod 'Firebase/Storage'
 
 end
