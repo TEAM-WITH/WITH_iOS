@@ -7,15 +7,13 @@ __2019.12.21 ~ 2020.01.03__
 * 김남수
 * 권준
 
-
+</br>
 
 ## Work Flow
 
-<div>
-<img src="./READMEImg/mainHome.png" width="200" height="350">
-<img src="./READMEImg/regionFilter.png" width="200" height="350">
-<img src="./READMEImg/review.png" width="200" height="350">
-</div>
+
+
+</br>
 
 ## 개발 환경 및 라이브러리
 
@@ -25,6 +23,8 @@ __2019.12.21 ~ 2020.01.03__
 *  Firebase
 
 
+
+</br>
 
 ## 기능
 
@@ -39,11 +39,22 @@ __2019.12.21 ~ 2020.01.03__
 
   * 채팅목록
 
-    
+
+
+
+</br>
 
 ## 실행 화면
 
+<div>
+<img src="./READMEImg/mainHome.png" width="200" height="350">
+<img src="./READMEImg/regionFilter.png" width="200" height="350">
+<img src="./READMEImg/review.png" width="200" height="350">
+</div>
 
+
+
+</br>
 
 ## 개발간 문제점
 
@@ -61,6 +72,8 @@ __2019.12.21 ~ 2020.01.03__
 * select와 deselect를 이용한 이벤트 처리하기
 
 
+
+</br>
 
 ### 기획
 
