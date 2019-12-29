@@ -8,8 +8,7 @@
 
 import UIKit
 
-class RegionCollectionViewCell: UICollectionViewCell{
+class RegionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var regionLabel: UILabel!
     @IBOutlet weak var regionLine: UIView!
-    
 }

@@ -13,6 +13,8 @@ class RegionFilterViewController: UIViewController {
     @IBOutlet weak var semiRegionCollectionView: UICollectionView!
     @IBOutlet weak var countryTableView: UITableView!
     //var countryList: [Country]=[]
+    let test = ["유럽", "아프리카", "남아메리카", "가나다라마바사"]
+    let test1 = ["유럽전체", "동유럽", "북유럽"]
     override func viewDidLoad() {
         super.viewDidLoad()
         //        setCountryData()
@@ -29,20 +31,22 @@ class RegionFilterViewController: UIViewController {
 extension RegionFilterViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == regionCollectionView {
-            return 6
+            return test.count
         } else if collectionView == semiRegionCollectionView {
-            return 4
+            return test1.count
         }
         return 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == regionCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegionCell", for: indexPath) as! RegionCollectionViewCell
+            cell.regionLabel.text = test[indexPath.item]
             return cell
         } else if collectionView == semiRegionCollectionView {
             let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SemiRegionCell", for: indexPath) as! SemiRegionCollectionViewCell
             cell.semiRegionView.layer.borderWidth = 1
             cell.semiRegionView.layer.borderColor = UIColor.orange.cgColor
+            cell.semiRegionLabel.text = test1[indexPath.item]
             return cell
         }
         //else if collectionView == countryTableView{
@@ -64,13 +68,14 @@ extension RegionFilterViewController: UICollectionViewDelegate {
         if collectionView == regionCollectionView {
             let cell = collectionView.cellForItem(at: indexPath) as! RegionCollectionViewCell
             cell.regionLabel.textColor = UIColor.black
+            cell.regionLine.frame.size.height = 1
             cell.regionLine.backgroundColor = UIColor.orange
             cell.regionLine.isHidden = false
         } else if collectionView == semiRegionCollectionView {
             let cell = collectionView.cellForItem(at: indexPath) as! SemiRegionCollectionViewCell
             cell.semiRegionView.layer.backgroundColor = UIColor.orange.cgColor
             cell.semiRegionLabel.textColor = UIColor.white
-            NSLog("Selected")
+        
         }
     }
     // 선택안될때
@@ -84,10 +89,27 @@ extension RegionFilterViewController: UICollectionViewDelegate {
             
             cell.semiRegionView.layer.backgroundColor = UIColor.white.cgColor
             cell.semiRegionLabel.textColor = UIColor.orange
-            NSLog("Selected")
+           
         }
     }
 }
+
+extension RegionFilterViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == regionCollectionView {
+        let attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
+        let estimatedSize = NSString(string: test[indexPath.item] ?? "").size(withAttributes: attributes)
+            return CGSize(width: estimatedSize.width+2, height: 44)
+        } else if collectionView == semiRegionCollectionView {
+            let attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
+            let estimatedSize = NSString(string: test1[indexPath.item] ?? "").size(withAttributes: attributes)
+            return CGSize(width: estimatedSize.width+22, height: 44)
+        }
+        return CGSize(width: 100, height: 200)
+    }
+}
+
+
 // 선택안될때
 
 extension RegionFilterViewController: UITableViewDataSource {
