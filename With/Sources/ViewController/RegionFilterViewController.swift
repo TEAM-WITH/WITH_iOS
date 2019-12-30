@@ -45,7 +45,7 @@ extension RegionFilterViewController: UICollectionViewDataSource {
         } else if collectionView == semiRegionCollectionView {
             let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SemiRegionCell", for: indexPath) as! SemiRegionCollectionViewCell
             cell.semiRegionView.layer.borderWidth = 1
-            cell.semiRegionView.layer.borderColor = UIColor.orange.cgColor
+            cell.semiRegionView.layer.borderColor = UIColor(red: 49/255, green: 26/255, blue: 128/255, alpha: 1).cgColor
             cell.semiRegionLabel.text = test1[indexPath.item]
             return cell
         }
@@ -69,11 +69,11 @@ extension RegionFilterViewController: UICollectionViewDelegate {
             let cell = collectionView.cellForItem(at: indexPath) as! RegionCollectionViewCell
             cell.regionLabel.textColor = UIColor.black
             cell.regionLine.frame.size.height = 1
-            cell.regionLine.backgroundColor = UIColor.orange
+            cell.regionLine.backgroundColor = UIColor(red: 49/255, green: 26/255, blue: 128/255, alpha: 1)
             cell.regionLine.isHidden = false
         } else if collectionView == semiRegionCollectionView {
             let cell = collectionView.cellForItem(at: indexPath) as! SemiRegionCollectionViewCell
-            cell.semiRegionView.layer.backgroundColor = UIColor.orange.cgColor
+            cell.semiRegionView.layer.backgroundColor = UIColor(red: 49/255, green: 26/255, blue: 128/255, alpha: 1).cgColor
             cell.semiRegionLabel.textColor = UIColor.white
         
         }
@@ -88,7 +88,7 @@ extension RegionFilterViewController: UICollectionViewDelegate {
             let cell = collectionView.cellForItem(at: indexPath) as! SemiRegionCollectionViewCell
             
             cell.semiRegionView.layer.backgroundColor = UIColor.white.cgColor
-            cell.semiRegionLabel.textColor = UIColor.orange
+            cell.semiRegionLabel.textColor = UIColor(red: 49/255, green: 26/255, blue: 128/255, alpha: 1)
            
         }
     }

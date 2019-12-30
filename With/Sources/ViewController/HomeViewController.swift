@@ -17,6 +17,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var eventPageControl: UIPageControl!
     @IBOutlet weak var withMateView: UIView!
     @IBOutlet weak var recommendTopLayout: NSLayoutConstraint!
+    
+    @IBOutlet weak var recentLabel: UILabel!
     let dummy = Mate(img: UIImage(), userName: "hihi")
     var mateList: [Mate] = []
     let originRecommendTopValue: CGFloat = 254
@@ -51,16 +53,19 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     func setRecentCollectionView() {
         if self.mateList.count > 4 {
             self.recentCollectionViewHeight = 375
+            recentLabel.isHighlighted = true
         } else if self.mateList.count > 2 {
             self.recentCollectionViewHeight = 245
+            recentLabel.isHighlighted = true
         } else if !self.mateList.isEmpty {
             self.recentCollectionViewHeight = 115
+            recentLabel.isHidden = false
+    
         }
-        self.recentCollectonView.translatesAutoresizingMaskIntoConstraints = false
+    self.recentCollectonView.translatesAutoresizingMaskIntoConstraints = false
         self.recentCollectonView.heightAnchor.constraint(equalToConstant: recentCollectionViewHeight).isActive = true
         self.view.layoutIfNeeded()
     }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x/scrollView.frame.width
         self.eventPageControl.currentPage = Int(page)
@@ -88,7 +93,8 @@ extension HomeViewController: UICollectionViewDataSource {
         } else if collectionView == recommendCollectionView {
             return 6
         } else if collectionView == recentCollectonView {
-            return mateList.count
+    
+              return mateList.count
         }
         return 0
     }

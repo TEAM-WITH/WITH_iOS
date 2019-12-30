@@ -362,11 +362,23 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 최근 본 게시물이 없네요 지금 동행을 구하러 가볼까요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYu-ae-dGm">
+                                                <rect key="frame" x="18" y="835" width="339" height="170"/>
+                                                <color key="backgroundColor" red="0.94117647058823528" green="0.92156862745098034" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="339" id="BvQ-gz-ptc"/>
+                                                    <constraint firstAttribute="height" constant="170" id="e1i-T7-FYR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="geP-2Z-F4B" firstAttribute="top" secondItem="GHB-8S-K4r" secondAttribute="bottom" constant="60" id="3eD-nt-qpi"/>
                                             <constraint firstAttribute="trailing" secondItem="ahS-0W-6wY" secondAttribute="trailing" constant="254" id="6Xq-3P-fkw"/>
+                                            <constraint firstItem="QYu-ae-dGm" firstAttribute="centerX" secondItem="uC2-V7-eUI" secondAttribute="centerX" id="7zl-ya-DQv"/>
                                             <constraint firstItem="jer-8Y-Ugz" firstAttribute="top" secondItem="Rak-kA-OBf" secondAttribute="bottom" constant="8" id="Fkl-rl-Mmq"/>
                                             <constraint firstItem="Rak-kA-OBf" firstAttribute="top" secondItem="ahS-0W-6wY" secondAttribute="bottom" constant="16" id="HVM-nh-WVQ"/>
                                             <constraint firstItem="Phn-VJ-Sdt" firstAttribute="leading" secondItem="Zkp-DM-cxe" secondAttribute="leading" id="HhB-z0-SlE"/>
@@ -375,6 +387,7 @@
                                             <constraint firstItem="bxM-kv-Sz8" firstAttribute="centerX" secondItem="Zkp-DM-cxe" secondAttribute="centerX" id="NEZ-c1-3aa"/>
                                             <constraint firstItem="GHB-8S-K4r" firstAttribute="top" secondItem="x9i-RM-ngq" secondAttribute="bottom" constant="16" id="Prg-iC-QBg"/>
                                             <constraint firstAttribute="trailing" secondItem="12Z-FW-7Hf" secondAttribute="trailing" id="QBd-mO-ZYt"/>
+                                            <constraint firstItem="QYu-ae-dGm" firstAttribute="top" secondItem="uC2-V7-eUI" secondAttribute="top" id="QDM-Jq-ipW"/>
                                             <constraint firstItem="bRx-dd-YOh" firstAttribute="height" secondItem="bxM-kv-Sz8" secondAttribute="height" id="QLb-xZ-xeU"/>
                                             <constraint firstItem="Okj-qp-IZX" firstAttribute="top" secondItem="Phn-VJ-Sdt" secondAttribute="top" constant="90" id="TOs-3V-spd"/>
                                             <constraint firstItem="x9i-RM-ngq" firstAttribute="leading" secondItem="Zkp-DM-cxe" secondAttribute="leading" constant="20" id="Tve-ed-Eqd"/>
@@ -430,6 +443,7 @@
                         <outlet property="eventScrollView" destination="Rak-kA-OBf" id="2Od-MF-I0M"/>
                         <outlet property="mateCollectionView" destination="4cZ-nP-gjD" id="4qZ-yI-RrG"/>
                         <outlet property="recentCollectonView" destination="uC2-V7-eUI" id="oSw-VY-zbO"/>
+                        <outlet property="recentLabel" destination="QYu-ae-dGm" id="C5W-v6-Hde"/>
                         <outlet property="recommendCollectionView" destination="GHB-8S-K4r" id="5bb-z6-OD1"/>
                         <outlet property="recommendTopLayout" destination="pB9-DX-5lW" id="TlR-2X-pNN"/>
                         <outlet property="withMateView" destination="12Z-FW-7Hf" id="yPM-Y2-gTf"/>
