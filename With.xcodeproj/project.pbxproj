@@ -20,6 +20,7 @@
 		04F3624F23B51011005B56CB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624E23B51011005B56CB /* Country.swift */; };
 		050CCBC123B6374A0004D543 /* Estimate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050CCBC023B6374A0004D543 /* Estimate.storyboard */; };
 		050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CCBC223B637810004D543 /* EstimateViewController.swift */; };
+		06BBC30523B9C768000DAE1C /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30423B9C768000DAE1C /* LoginResult.swift */; };
 		06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */; };
 		06C1C92E23B6AACF00DD4F9D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */; };
 		06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */; };
@@ -65,6 +66,7 @@
 		04F3624E23B51011005B56CB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		050CCBC023B6374A0004D543 /* Estimate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Estimate.storyboard; sourceTree = "<group>"; };
 		050CCBC223B637810004D543 /* EstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
+		06BBC30423B9C768000DAE1C /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				04F3624E23B51011005B56CB /* Country.swift */,
 				06C1C93A23B8875400DD4F9D /* SignUpModel.swift */,
 				06C1C93C23B8BB6500DD4F9D /* ResponseResult.swift */,
+				06BBC30423B9C768000DAE1C /* LoginResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */,
 				06CFDDA123B5425D0030BABB /* ChatMyInviteTableViewCell.swift in Sources */,
 				06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */,
+				06BBC30523B9C768000DAE1C /* LoginResult.swift in Sources */,
 				06C1C93B23B8875400DD4F9D /* SignUpModel.swift in Sources */,
 				06CFDD9923B4CD920030BABB /* ChatDateTableViewCell.swift in Sources */,
 				06C1C93D23B8BB6500DD4F9D /* ResponseResult.swift in Sources */,
