@@ -27,8 +27,8 @@
 		06C1C93923B7C55A00DD4F9D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93823B7C55A00DD4F9D /* UserService.swift */; };
 		06C1C93B23B8875400DD4F9D /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93A23B8875400DD4F9D /* SignUpModel.swift */; };
 		06C1C93D23B8BB6500DD4F9D /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93C23B8BB6500DD4F9D /* ResponseResult.swift */; };
-		06C1C93F23B8C48400DD4F9D /* SignUpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93E23B8C48400DD4F9D /* SignUpResult.swift */; };
 		06C1C94123B8E65600DD4F9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06C1C94023B8E65600DD4F9D /* GoogleService-Info.plist */; };
+		06C1C94323B8F3CF00DD4F9D /* ServiceTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C94223B8F3CF00DD4F9D /* ServiceTestViewController.swift */; };
 		06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5723B09C930030BABB /* AppDelegate.swift */; };
 		06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFDD5B23B09C930030BABB /* ViewController.swift */; };
 		06CFDD5F23B09C930030BABB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CFDD5D23B09C930030BABB /* Main.storyboard */; };
@@ -73,8 +73,8 @@
 		06C1C93823B7C55A00DD4F9D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		06C1C93A23B8875400DD4F9D /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		06C1C93C23B8BB6500DD4F9D /* ResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResult.swift; sourceTree = "<group>"; };
-		06C1C93E23B8C48400DD4F9D /* SignUpResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResult.swift; sourceTree = "<group>"; };
 		06C1C94023B8E65600DD4F9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		06C1C94223B8F3CF00DD4F9D /* ServiceTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTestViewController.swift; sourceTree = "<group>"; };
 		06CFDD5423B09C930030BABB /* W!TH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "W!TH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CFDD5723B09C930030BABB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06CFDD5B23B09C930030BABB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +136,6 @@
 				04F3624E23B51011005B56CB /* Country.swift */,
 				06C1C93A23B8875400DD4F9D /* SignUpModel.swift */,
 				06C1C93C23B8BB6500DD4F9D /* ResponseResult.swift */,
-				06C1C93E23B8C48400DD4F9D /* SignUpResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,6 +230,7 @@
 				04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */,
 				050CCBC223B637810004D543 /* EstimateViewController.swift */,
 				06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */,
+				06C1C94223B8F3CF00DD4F9D /* ServiceTestViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -444,8 +444,8 @@
 				045A549323B5D75500D2ADAD /* CountryCellTableViewCell.swift in Sources */,
 				045A549423B5D75500D2ADAD /* RegionCollectionViewCell.swift in Sources */,
 				06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */,
+				06C1C94323B8F3CF00DD4F9D /* ServiceTestViewController.swift in Sources */,
 				06CFDD8C23B3937A0030BABB /* ChatListViewController.swift in Sources */,
-				06C1C93F23B8C48400DD4F9D /* SignUpResult.swift in Sources */,
 				0458B93E23B211B100CEBFDA /* MateCollectionViewCell.swift in Sources */,
 				04D4371D23B26B9F00574AF2 /* RecentCollectionViewCell.swift in Sources */,
 				04F3624F23B51011005B56CB /* Country.swift in Sources */,

@@ -11,7 +11,11 @@ __2019.12.21 ~ 2020.01.03__
 
 ## Work Flow
 
-
+<div>
+<img src="./READMEImg/workFlow_main.png" width="350" height="400">
+<img src="./READMEImg/workFlow_post.png" width="350" height="400">
+<img src="./READMEImg/workFlow_chat.png" width="350" height="400">
+</div>
 
 </br>
 
@@ -69,7 +73,27 @@ __2019.12.21 ~ 2020.01.03__
   * 동적인 셀크기를 할당할때 위치가 맞지않음
 * CollectionView에서 동적으로 길어지는 Label길이에 대응하는 셀의 크기 맞추기
 * 한 ViewController에 여러개의 CollectionView가 존재할때 구분하는 방법
-* select와 deselect를 이용한 이벤트 처리하기
+
+``` swift
+func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    if collectionView == mateCollectionView {
+        .
+        .
+        .
+        return cell
+    } else if collectionView == recommendCollectionView {
+        .
+        .
+        .
+        return cell
+    } else if collectionView == recentCollectonView {
+        .
+        .
+        .
+        return cell
+    }
+}
+```
 
 
 
