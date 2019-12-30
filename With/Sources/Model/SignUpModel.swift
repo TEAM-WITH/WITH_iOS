@@ -11,13 +11,22 @@ import Foundation
 struct SignUpModel {
     var userId: String
     var password: String
-    var salt: String
     var name: String?
-    var birth: Date?
-    var gender: Bool
-    var userImg: String
-    var hashTag: String?
-    var intro: String?
-    var like: Int?
-    var active: Bool
+    var birth: String?
+    var gender: Int
+    var userImg: Data?
 }
+
+/*
+ var userId: String
+ var password: String
+ var salt: String
+ var name: String?
+ var birth: Date?
+ var gender: Bool
+ var userImg: String
+ var hashTag: String?
+ var intro: String?
+ var like: Int?
+ var active: Bool
+ */
