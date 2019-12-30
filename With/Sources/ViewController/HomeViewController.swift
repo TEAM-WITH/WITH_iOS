@@ -8,29 +8,59 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,UIScrollViewDelegate {
+class HomeViewController: UIViewController, UIScrollViewDelegate {
     //     var mateArray = []
     @IBOutlet weak var mateCollectionView: UICollectionView!
     @IBOutlet weak var recommendCollectionView: UICollectionView!
     @IBOutlet weak var recentCollectonView: UICollectionView!
     @IBOutlet weak var eventScrollView: UIScrollView!
     @IBOutlet weak var eventPageControl: UIPageControl!
-//    let eventImagesArray = ["1","2","3"]
+    @IBOutlet weak var withMateView: UIView!
+    @IBOutlet weak var recommendTopLayout: NSLayoutConstraint!
+    let dummy = Mate(img: UIImage(), userName: "hihi")
+    var mateList: [Mate] = []
+    let originRecommendTopValue: CGFloat = 254
+    var recentCollectionViewHeight: CGFloat = 0
+    // 임의데이터실험 나중에삭제해두댐
+    struct Mate {
+        var img: UIImage
+        var userName: String
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollection()
-        //   setBanner()
         eventPageControl.numberOfPages = 3
-        //        for num in 0..<eventImagesArray.count{
-        //            let imageView = UIImageView()
-        //            imageView.contentMode = .scaleToFill
-        //            imageView.image = UIImage(named: eventImagesArray[num])
-        //            let xPos = CGFloat(num)*self.eventScrollView.frame.size.width
-        //            imageView.frame = CGRect(x: xPos, y: 0, width: eventScrollView.frame.frame.size.width, height:eventScrollView.frame.size.height)
-        //            eventScrollView.contentSize.width = eventScrollView.frame.size.width*CGFloat(num+1)
-        //            eventScrollView.addSubview(imageView)
-        //        }
+        mateList.append(dummy)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        setMateView()
+        setRecentCollectionView()
+    }
+    func setMateView() {
+        if self.mateList.isEmpty {
+            self.withMateView.isHidden = true
+            self.recommendTopLayout.constant = 50
+            self.view.layoutIfNeeded()
+        } else {
+            self.withMateView.isHidden = false
+            self.recommendTopLayout.constant = originRecommendTopValue
+            self.view.layoutIfNeeded()
+        }
+    }
+//375, 115, 15
+    func setRecentCollectionView() {
+        if self.mateList.count > 4 {
+            self.recentCollectionViewHeight = 375
+        } else if self.mateList.count > 2 {
+            self.recentCollectionViewHeight = 245
+        } else if !self.mateList.isEmpty {
+            self.recentCollectionViewHeight = 115
+        }
+        self.recentCollectonView.translatesAutoresizingMaskIntoConstraints = false
+        self.recentCollectonView.heightAnchor.constraint(equalToConstant: recentCollectionViewHeight).isActive = true
+        self.view.layoutIfNeeded()
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x/scrollView.frame.width
         self.eventPageControl.currentPage = Int(page)
@@ -55,11 +85,10 @@ extension HomeViewController: UICollectionViewDataSource {
             //            }
             //            return count
             return 6
-        }else if collectionView == recommendCollectionView {
+        } else if collectionView == recommendCollectionView {
             return 6
-        }
-        else if collectionView == recentCollectonView {
-            return 3
+        } else if collectionView == recentCollectonView {
+            return mateList.count
         }
         return 0
     }
@@ -68,21 +97,13 @@ extension HomeViewController: UICollectionViewDataSource {
         if collectionView == mateCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MateCell", for: indexPath) as! MateCollectionViewCell
             return cell
-        }else if collectionView == recommendCollectionView{
+        } else if collectionView == recommendCollectionView {
             let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendCell", for: indexPath) as! RecommendCollectionViewCell
             return cell
-        }else if collectionView == recentCollectonView{
+        } else if collectionView == recentCollectonView {
             let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentCell", for: indexPath) as! RecentCollectionViewCell
             return cell
         }
         return UICollectionViewCell()
     }
-    /*
-     func setBanner() {
-     let banner1 = Banner(bannerName: "mainImage")
-     let banner2 = Banner(bannerName: "mainImage02")
-     let banner3 = Banner(bannerName: "mainImage03")
-     
-     appDelegate.bannerList = [banner1, banner2, banner3]
-     }*/
 }
