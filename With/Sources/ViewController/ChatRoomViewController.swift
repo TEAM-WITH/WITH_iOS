@@ -36,7 +36,14 @@ class ChatRoomViewController: UIViewController {
         setNoticeView()
         initGestureRecognizer()
         registerForKeyboardNotifications()
-    
+        
+        let dummy1 = Chat(type: .mine, nickName: "n", message: "hi", date: "4:49")
+        let dummy2 = Chat(type: .mine, nickName: "n", message: "hi", date: "4:49")
+        let dummy3 = Chat(type: .other, nickName: "n", message: "hi", date: "4:49")
+        chatList.append(dummy1)
+        chatList.append(dummy2)
+        chatList.append(dummy3)
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         unregisterForKeyboardNotifications()
@@ -143,6 +150,10 @@ extension ChatRoomViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let chat = chatList[indexPath.row]
+        if indexPath.item > 0 {
+            self.dateCompare(curIdx: indexPath.item)
+        }
+        
         if chat.type == .date {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! ChatDateTableViewCell
             cell.dateLabel.text = chat.message
