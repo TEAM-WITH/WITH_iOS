@@ -33,8 +33,10 @@ class ChatRoomViewController: UIViewController {
         return formatter
     }()
     var ref: DatabaseReference!
-    let user = 4
-    
+    var isInvite = false
+    let other = "4"
+    let roomId = "1_4"
+    var unSeenCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.chatTableView.dataSource = self
@@ -44,47 +46,38 @@ class ChatRoomViewController: UIViewController {
         setNoticeView()
         initGestureRecognizer()
         registerForKeyboardNotifications()
-    
         
-        setFirebase()
-        firebaseEventObserver()
     }
     override func viewWillDisappear(_ animated: Bool) {
+        self.ref.removeAllObservers()
         unregisterForKeyboardNotifications()
-        ref.removeAllObservers()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        firebaseEventObserver(roomId: roomId)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        setFirebase()
     }
     @IBAction func cancelButtonClick(_ sender: Any) {
         self.dismiss(animated: true)
     }
     @IBAction func sendButtonClick(_ sender: Any) {
         guard let text = self.chatTextView.text else { return }
-        //        self.socket.emit("test", text)
-        //        self.testList.append(Chat(type: .mine, message: text)
-        
-        sendChat(user1: "1", user2: "4", msg: text) { bool in
-            
+        sendChat(other: other, msg: text) { bool in
             if bool {
-                let date = Date()
-                let nowHour = self.dateFommatter.string(from: date)
-//                self.chatList.append(Chat(type: .mine, userIdx: 0, message: text, date: nowHour))
-                
-                self.updateChat() {
+                self.updateChat {
                     print("Send Message")
                 }
             } else {
                 self.simpleAlert(title: "전송 실패", msg: "전송에 실패하였습니다.")
             }
+            self.chatTextView.text = ""
         }
     }
     @IBAction func inviteButtonClick(_ sender: Any) {
-        let date = Date()
-        let ns = dateFommatter.string(from: date)
-//        userCompare()
-        let otherChat = Chat(type: .myInvite, userIdx: 0, message: "hi", date: ns)
-        self.chatList.append(otherChat)
-        self.updateChat() {
-            print("Send Message")
-        }
+        
+        let floatAlert = self.storyboard?.instantiateViewController(withIdentifier: "Invite") as! InviteViewController
+        self.present(floatAlert, animated: true)
     }
     // MARK: - 다른유저가 입력할시 비교
     func userCompare() {
@@ -114,7 +107,7 @@ class ChatRoomViewController: UIViewController {
             self.chatList[index].hide = false
         }
     }
-            
+    
     // MARK: - 유저의 채팅시간비교
     func dateCompare(curIdx: Int) {
         guard curIdx != 0 else { return }
@@ -137,7 +130,7 @@ class ChatRoomViewController: UIViewController {
         case .otherComplete:
             let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatCompleteTableViewCell
             cell.hide = true
-        
+            
         default:
             return
         }
@@ -148,13 +141,11 @@ class ChatRoomViewController: UIViewController {
     }
     // MARK: - Chat Update
     func updateChat( completion: @escaping () -> Void ) {
+        self.chatTableView.reloadData()
         guard self.chatList.count > 0 else { return }
-        var indexPath = IndexPath( row: self.chatList.count-1, section: 0 )
-//        self.chatTableView.beginUpdates()
-//        self.chatTableView.insertRows(at: [indexPath], with: .none)
-//        self.chatTableView.endUpdates()
+        let indexPath = IndexPath( row: self.chatList.count-1, section: 0 )
         self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-        self.dateCompare(curIdx: self.chatList.count-1) 
+        self.dateCompare(curIdx: self.chatList.count-1)
         completion()
     }
     // MARK: - ChatView 설정

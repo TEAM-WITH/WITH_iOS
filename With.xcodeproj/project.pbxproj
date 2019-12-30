@@ -23,6 +23,9 @@
 		06BBC30723B9EADC000DAE1C /* ChatRoomViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */; };
 		06BBC30923BA0D93000DAE1C /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30823BA0D93000DAE1C /* ChatModel.swift */; };
 		06BBC30B23BA1631000DAE1C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30A23BA1631000DAE1C /* UIViewController+Extension.swift */; };
+		06BBC30D23BA8CCE000DAE1C /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30C23BA8CCE000DAE1C /* InviteViewController.swift */; };
+		06BBC30F23BAA3EE000DAE1C /* InviteViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30E23BAA3EE000DAE1C /* InviteViewController+Extension.swift */; };
+		06BBC31123BAA58F000DAE1C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC31023BAA58F000DAE1C /* UserInfo.swift */; };
 		06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */; };
 		06C1C92E23B6AACF00DD4F9D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */; };
 		06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */; };
@@ -71,6 +74,9 @@
 		06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatRoomViewController+Extension.swift"; sourceTree = "<group>"; };
 		06BBC30823BA0D93000DAE1C /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		06BBC30A23BA1631000DAE1C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		06BBC30C23BA8CCE000DAE1C /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		06BBC30E23BAA3EE000DAE1C /* InviteViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InviteViewController+Extension.swift"; sourceTree = "<group>"; };
+		06BBC31023BAA58F000DAE1C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 				06C1C93A23B8875400DD4F9D /* SignUpModel.swift */,
 				06C1C93C23B8BB6500DD4F9D /* ResponseResult.swift */,
 				06BBC30823BA0D93000DAE1C /* ChatModel.swift */,
+				06BBC31023BAA58F000DAE1C /* UserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -228,6 +235,7 @@
 		06CFDD6D23B09D2D0030BABB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				06BBC30C23BA8CCE000DAE1C /* InviteViewController.swift */,
 				06CFDD5B23B09C930030BABB /* ViewController.swift */,
 				0458B93923B1F9BC00CEBFDA /* HomeViewController.swift */,
 				06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */,
@@ -265,6 +273,7 @@
 				06CFDD9C23B5399E0030BABB /* UILabel+Extension.swift */,
 				06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */,
 				06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */,
+				06BBC30E23BAA3EE000DAE1C /* InviteViewController+Extension.swift */,
 				06BBC30A23BA1631000DAE1C /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
@@ -434,7 +443,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06BBC31123BAA58F000DAE1C /* UserInfo.swift in Sources */,
 				06BBC30723B9EADC000DAE1C /* ChatRoomViewController+Extension.swift in Sources */,
+				06BBC30F23BAA3EE000DAE1C /* InviteViewController+Extension.swift in Sources */,
 				06CFDD7D23B1F2E60030BABB /* SocketIOManager.swift in Sources */,
 				050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */,
 				06C1C93923B7C55A00DD4F9D /* UserService.swift in Sources */,
@@ -461,6 +472,7 @@
 				0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */,
 				04F3624B23B4F3BA005B56CB /* RegionFilterViewController.swift in Sources */,
 				06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */,
+				06BBC30D23BA8CCE000DAE1C /* InviteViewController.swift in Sources */,
 				06CFDDA523B5454C0030BABB /* ChatOtherInviteTableViewCell.swift in Sources */,
 				06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */,
 				06CFDD9D23B5399E0030BABB /* UILabel+Extension.swift in Sources */,
