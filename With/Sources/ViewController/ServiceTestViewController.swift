@@ -9,22 +9,25 @@
 import UIKit
 
 class ServiceTestViewController: UIViewController {
-
+    var user1: SignUpModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let dateFommatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "ko")
+            formatter.dateFormat = "yyyy-MM-dd"
+            return formatter
+        }()
+        
+//        guard var birth = dateFommatter.date(from: "1996-02-10") else { return }
+//        birth.addTimeInterval(60*60*24)
+        user1 = SignUpModel(userId: "nsns", password: "123", name: "남수", birth: "1996-02-10", gender: -1)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func sendRequest(_ sender: Any) {
+        UserService.shared.postSignUpRequest(userData: user1) { data in
+            print(data)
+        }
     }
-    */
-
+    
 }

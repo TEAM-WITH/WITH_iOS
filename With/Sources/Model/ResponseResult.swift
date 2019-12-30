@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol ResponseResult: Codable {
-    var status: Int { get set }
-    var success: Bool { get set }
-    var message: String { get set }
+struct ResponseResult<T: Codable>: Codable {
+    var success: Bool
+    var message: String
+    var data: [T]?
 }
