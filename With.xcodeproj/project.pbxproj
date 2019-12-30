@@ -20,6 +20,9 @@
 		04F3624F23B51011005B56CB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624E23B51011005B56CB /* Country.swift */; };
 		050CCBC123B6374A0004D543 /* Estimate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050CCBC023B6374A0004D543 /* Estimate.storyboard */; };
 		050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CCBC223B637810004D543 /* EstimateViewController.swift */; };
+		06BBC30723B9EADC000DAE1C /* ChatRoomViewController+Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Firebase.swift */; };
+		06BBC30923BA0D93000DAE1C /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30823BA0D93000DAE1C /* ChatModel.swift */; };
+		06BBC30B23BA1631000DAE1C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30A23BA1631000DAE1C /* UIViewController+Extension.swift */; };
 		06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */; };
 		06C1C92E23B6AACF00DD4F9D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */; };
 		06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */; };
@@ -65,6 +68,9 @@
 		04F3624E23B51011005B56CB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		050CCBC023B6374A0004D543 /* Estimate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Estimate.storyboard; sourceTree = "<group>"; };
 		050CCBC223B637810004D543 /* EstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
+		06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatRoomViewController+Firebase.swift"; sourceTree = "<group>"; };
+		06BBC30823BA0D93000DAE1C /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		06BBC30A23BA1631000DAE1C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 				04F3624E23B51011005B56CB /* Country.swift */,
 				06C1C93A23B8875400DD4F9D /* SignUpModel.swift */,
 				06C1C93C23B8BB6500DD4F9D /* ResponseResult.swift */,
+				06BBC30823BA0D93000DAE1C /* ChatModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -257,6 +264,8 @@
 				06CFDD9423B4673C0030BABB /* UITextView+Extension.swift */,
 				06CFDD9C23B5399E0030BABB /* UILabel+Extension.swift */,
 				06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */,
+				06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Firebase.swift */,
+				06BBC30A23BA1631000DAE1C /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -425,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06BBC30723B9EADC000DAE1C /* ChatRoomViewController+Firebase.swift in Sources */,
 				06CFDD7D23B1F2E60030BABB /* SocketIOManager.swift in Sources */,
 				050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */,
 				06C1C93923B7C55A00DD4F9D /* UserService.swift in Sources */,
@@ -442,9 +452,11 @@
 				06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */,
 				06C1C94323B8F3CF00DD4F9D /* ServiceTestViewController.swift in Sources */,
 				06CFDD8C23B3937A0030BABB /* ChatListViewController.swift in Sources */,
+				06BBC30B23BA1631000DAE1C /* UIViewController+Extension.swift in Sources */,
 				0458B93E23B211B100CEBFDA /* MateCollectionViewCell.swift in Sources */,
 				04D4371D23B26B9F00574AF2 /* RecentCollectionViewCell.swift in Sources */,
 				04F3624F23B51011005B56CB /* Country.swift in Sources */,
+				06BBC30923BA0D93000DAE1C /* ChatModel.swift in Sources */,
 				06C1C92E23B6AACF00DD4F9D /* UIView+Extension.swift in Sources */,
 				0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */,
 				04F3624B23B4F3BA005B56CB /* RegionFilterViewController.swift in Sources */,

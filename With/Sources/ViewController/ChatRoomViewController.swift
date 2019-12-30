@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Firebase
 class ChatRoomViewController: UIViewController {
     
     @IBOutlet weak var chatViewBottomLayout: NSLayoutConstraint!
@@ -26,6 +27,12 @@ class ChatRoomViewController: UIViewController {
         formatter.dateFormat = "hh:mm"
         return formatter
     }()
+    let fullDateFommatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 dd일 hh:mm"
+        return formatter
+    }()
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,23 +50,35 @@ class ChatRoomViewController: UIViewController {
         chatList.append(dummy1)
         chatList.append(dummy2)
         chatList.append(dummy3)
+        dateAllCompare()
+       
         
+        setFirebase()
+        firebaseEventObserver()
     }
     override func viewWillDisappear(_ animated: Bool) {
         unregisterForKeyboardNotifications()
+        ref.removeAllObservers()
     }
     @IBAction func cancelButtonClick(_ sender: Any) {
         self.dismiss(animated: true)
     }
     @IBAction func sendButtonClick(_ sender: Any) {
-        let text = self.chatTextView.text
+        guard let text = self.chatTextView.text else { return }
         //        self.socket.emit("test", text)
         //        self.testList.append(Chat(type: .mine, message: text)
         let date = Date()
         let nowHour = dateFommatter.string(from: date)
         self.chatList.append(Chat(type: .mine, message: text, date: nowHour))
-        self.updateChat(count: self.chatList.count) {
-            print("Send Message")
+        sendChat(user1: "a", user2: "b", msg: text) { bool in
+            
+            if bool {
+                self.updateChat(count: self.chatList.count) {
+                    print("Send Message")
+                }
+            } else {
+                self.simpleAlert(title: "전송 실패", msg: "전송에 실패하였습니다.")
+            }
         }
     }
     @IBAction func inviteButtonClick(_ sender: Any) {
@@ -88,12 +107,24 @@ class ChatRoomViewController: UIViewController {
             print("create profile")
         }
     }
+    func dateAllCompare() {
+        for index in 1..<self.chatList.count {
+            let before = self.chatList[index-1]
+            let cur = self.chatList[index]
+            guard before.date == cur.date else { continue }
+            guard before.type == cur.type else { continue }
+            self.chatList[index-1].hide = true
+            self.chatList[index].hide = false
+        }
+    }
+            
     // MARK: - 유저의 채팅시간비교
     func dateCompare(curIdx: Int) {
         guard curIdx != 0 else { return }
         let before = chatList[curIdx-1]
         let cur = chatList[curIdx]
         guard before.date == cur.date else { return }
+        guard before.type == cur.type else { return }
         let indexPath = IndexPath( row: curIdx-1, section: 0 )
         
         switch before.type {
@@ -150,9 +181,6 @@ extension ChatRoomViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let chat = chatList[indexPath.row]
-        if indexPath.item > 0 {
-            self.dateCompare(curIdx: indexPath.item)
-        }
         
         if chat.type == .date {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! ChatDateTableViewCell
