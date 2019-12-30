@@ -68,7 +68,7 @@ class ChatRoomViewController: UIViewController {
                 let nowHour = self.dateFommatter.string(from: date)
 //                self.chatList.append(Chat(type: .mine, userIdx: 0, message: text, date: nowHour))
                 
-                self.updateChat(count: self.chatList.count) {
+                self.updateChat() {
                     print("Send Message")
                 }
             } else {
@@ -82,7 +82,7 @@ class ChatRoomViewController: UIViewController {
 //        userCompare()
         let otherChat = Chat(type: .myInvite, userIdx: 0, message: "hi", date: ns)
         self.chatList.append(otherChat)
-        self.updateChat(count: self.chatList.count) {
+        self.updateChat() {
             print("Send Message")
         }
     }
@@ -98,10 +98,11 @@ class ChatRoomViewController: UIViewController {
         }
         
         self.chatList.append(otherProfile)
-        self.updateChat(count: self.chatList.count) {
+        self.updateChat() {
             print("create profile")
         }
     }
+    //채팅의 모든 날짜비교
     func dateAllCompare() {
         guard !self.chatList.isEmpty else { return }
         for index in 1..<self.chatList.count {
@@ -133,7 +134,7 @@ class ChatRoomViewController: UIViewController {
         case .otherInvite:
             let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatOtherInviteTableViewCell
             cell.hide = true
-        case .complete:
+        case .otherComplete:
             let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatCompleteTableViewCell
             cell.hide = true
         
@@ -146,8 +147,8 @@ class ChatRoomViewController: UIViewController {
         return
     }
     // MARK: - Chat Update
-    func updateChat( count: Int, completion: @escaping () -> Void ) {
-        guard count > 0 else { return }
+    func updateChat( completion: @escaping () -> Void ) {
+        guard self.chatList.count > 0 else { return }
         var indexPath = IndexPath( row: self.chatList.count-1, section: 0 )
 //        self.chatTableView.beginUpdates()
 //        self.chatTableView.insertRows(at: [indexPath], with: .none)
@@ -191,14 +192,26 @@ extension ChatRoomViewController: UITableViewDataSource {
             
             cell.timeLabel.text = chat.date
             cell.timeLabel.labelKern(kerningValue: -0.06)
+            cell.meetTimeLabel.text = "20년 02월 02일"
+            cell.nameLabel.text = "김루희"
             cell.hide = chat.hide ?? false
             
             return cell
         } else if chat.type == .otherInvite {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OtherInviteCell", for: indexPath) as! ChatOtherInviteTableViewCell
+            cell.timeLabel.text = chat.date
+            cell.timeLabel.labelKern(kerningValue: -0.06)
+            cell.meetTimeLabel.text = "20년 02월 02일"
+            cell.nameLabel.text = "김은별"
+            cell.hide = chat.hide ?? false
             return cell
-        } else if chat.type == .complete {
+        } else if chat.type == .otherComplete {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteCell", for: indexPath) as! ChatCompleteTableViewCell
+            cell.timeLabel.text = chat.date
+            cell.timeLabel.labelKern(kerningValue: -0.06)
+            cell.meetTimeLabel.text = "20년 02월 02일"
+            cell.nameLabel.text = "김은별"
+            cell.hide = chat.hide ?? false
             return cell
         }
         let cellid = chat.type == .mine ? "MyChatCell" : "YourChatCell"
@@ -222,11 +235,11 @@ extension ChatRoomViewController: UITableViewDelegate {
         } else if chat.type == .date {
             return 55
         } else if chat.type == .myInvite {
-            return 177
+            return 203
         } else if chat.type == .otherInvite {
-            return 215
-        } else if chat.type == .complete {
-            return 177
+            return 245
+        } else if chat.type == .otherComplete {
+            return 203
         } else {
             let approximateWidthOfText = view.frame.width - 36 - 131
             let size = CGSize(width: approximateWidthOfText, height: 1200)

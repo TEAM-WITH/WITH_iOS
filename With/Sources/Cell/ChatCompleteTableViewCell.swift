@@ -10,9 +10,12 @@ import UIKit
 
 class ChatCompleteTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var msgImage: UIImageView!
-    @IBOutlet weak var msgLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var meetTimeLabel: UILabel!
+    @IBOutlet weak var view: UIView!
+    
     var hide = false {
         willSet {
             self.hide = newValue
@@ -22,9 +25,16 @@ class ChatCompleteTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        msgLabel.labelKern(kerningValue: -0.84)
-        msgLabel.labelParagraphStyle(paragraphValue: 5.5)
-        msgLabel.textAlignment = .center
+        meetTimeLabel.labelKern(kerningValue: -0.84)
+        meetTimeLabel.labelParagraphStyle(paragraphValue: 5.5)
+        meetTimeLabel.textAlignment = .center
+        nameLabel.labelKern(kerningValue: -0.84)
+        nameLabel.labelParagraphStyle(paragraphValue: 5.5)
+        nameLabel.textAlignment = .center
+        self.view.layer.borderWidth = 1
+        self.view.layer.borderColor = UIColor.acceptBtColor.cgColor
+        self.view.layer.cornerRadius = 6
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

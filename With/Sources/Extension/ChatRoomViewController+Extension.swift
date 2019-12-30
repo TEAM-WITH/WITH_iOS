@@ -29,13 +29,18 @@ extension ChatRoomViewController {
                     var type = self.typeChange(useridx: userIdx, typeNum: typeNum)
                     
                     guard let tempDate = self.fullDateFommatter.date(from: dateString) else { return }
+                    
                     let date = self.dateFommatter.string(from: tempDate)
                     let chat = Chat(type: type, userIdx: userIdx, message: msg, date: date)
+                    print(date)
                     self.chatList.append(chat)
                 }
             }
             self.dateAllCompare()
             self.chatTableView.reloadData()
+            self.updateChat() {
+                print("read msg")
+            }
         }
     }
     
@@ -76,7 +81,7 @@ extension ChatRoomViewController {
             case 3:
                 return .otherInvite
             case 4:
-                return .complete
+                return .otherComplete
             default:
                 return .date
                 
@@ -92,7 +97,7 @@ extension ChatRoomViewController {
             case 3:
                 return .myInvite
             case 4:
-                return .complete
+                return .otherComplete
             default:
                 return .date
             }

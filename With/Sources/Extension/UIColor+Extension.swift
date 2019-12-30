@@ -19,4 +19,7 @@ extension UIColor {
     @nonobjc class var acceptBtColor: UIColor {
       return UIColor(red: 188.0 / 255.0, green: 193.0 / 255.0, blue: 206.0 / 255.0, alpha: 1.0)
     }
+    @nonobjc class var mainPurple: UIColor {
+      return UIColor(red: 49.0 / 255.0, green: 26.0 / 255.0, blue: 128.0 / 255.0, alpha: 1.0)
+    }
 }

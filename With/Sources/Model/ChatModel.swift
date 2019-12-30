@@ -28,7 +28,7 @@ enum ChatType: Int {
     case other = 1
     case myInvite = 2
     case otherInvite = 3
-    case complete = 4
+    case otherComplete = 4
     case otherProfile = 5
     case date = 6
 }
