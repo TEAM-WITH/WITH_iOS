@@ -16,8 +16,8 @@ class ViewController: UIViewController {
         ref = Database.database().reference()
     }
     @IBAction func nextVC(_ sender: Any) {
-        let storyName = "Home"
-        let vcName = "Home"
+        let storyName = "Estimate"
+        let vcName = "Estimate"
         let testStoryBoard = UIStoryboard(name: storyName, bundle: nil)
         let nextVC = testStoryBoard.instantiateViewController(withIdentifier: vcName)
         nextVC.modalPresentationStyle = .fullScreen

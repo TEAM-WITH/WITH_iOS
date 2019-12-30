@@ -17,6 +17,7 @@ class EstimateViewController: UIViewController {
     @IBOutlet weak var funBtn: UIButton!
     @IBOutlet weak var sosoBtn: UIButton!
     @IBOutlet weak var withBtn2: UIButton!
+    @IBOutlet weak var changeName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,7 +25,7 @@ class EstimateViewController: UIViewController {
     @IBAction func pressBtn(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
-              withBtn.layer.cornerRadius = 10
+            withBtn.layer.cornerRadius = 10
             sender.backgroundColor = UIColor.init(red: 253/255, green: 159/255, blue: 8/255, alpha: 1)
         }else {
             withBtn.layer.cornerRadius = 10
@@ -32,30 +33,36 @@ class EstimateViewController: UIViewController {
         }
     }
     @IBAction func pressfunBtn(_ sender: UIButton) { sender.isSelected = !sender.isSelected
-               if sender.isSelected {
-                funBtn.layer.cornerRadius = 10
-                   sender.backgroundColor = UIColor.init(red: 253/255, green: 159/255, blue: 8/255, alpha: 1)
-               }else {
-                funBtn.layer.cornerRadius = 10
-                   sender.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.3)
-               }
+        if sender.isSelected {
+            funBtn.layer.cornerRadius = 10
+            sender.backgroundColor = UIColor.init(red: 253/255, green: 159/255, blue: 8/255, alpha: 1)
+        }else {
+            funBtn.layer.cornerRadius = 10
+            sender.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.3)
+        }
     }
     @IBAction func presssosoBtn(_ sender: UIButton) { sender.isSelected = !sender.isSelected
-               if sender.isSelected {
-                sosoBtn.layer.cornerRadius = 10
-                   sender.backgroundColor = UIColor.init(red: 253/255, green: 159/255, blue: 8/255, alpha: 1)
-               }else {
-                sosoBtn.layer.cornerRadius = 10
-                   sender.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.3)
-               }
+        if sender.isSelected {
+            sosoBtn.layer.cornerRadius = 10
+            sender.backgroundColor = UIColor.init(red: 253/255, green: 159/255, blue: 8/255, alpha: 1)
+        }else {
+            sosoBtn.layer.cornerRadius = 10
+            sender.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.3)
+        }
     }
     @IBAction func withBtn2(_ sender: UIButton) { sender.isSelected = !sender.isSelected
-                  if sender.isSelected {
-                   withBtn2.layer.cornerRadius = 10
-                      sender.backgroundColor = UIColor.init(red: 253/255, green: 159/255, blue: 8/255, alpha: 1)
-                  }else {
-                   withBtn2.layer.cornerRadius = 10
-                      sender.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.3)
-                  }
-       }
+        let storyName = "RegionFilter"
+        let vcName = "RegionFilter"
+        let testStoryBoard = UIStoryboard(name: storyName, bundle: nil)
+        let nextVC = testStoryBoard.instantiateViewController(withIdentifier: vcName)
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: true)
+        if sender.isSelected {
+            withBtn2.layer.cornerRadius = 10
+            sender.backgroundColor = UIColor.init(red: 253/255, green: 159/255, blue: 8/255, alpha: 1)
+        }else {
+            withBtn2.layer.cornerRadius = 10
+            sender.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.3)
+        }
+    }
 }
