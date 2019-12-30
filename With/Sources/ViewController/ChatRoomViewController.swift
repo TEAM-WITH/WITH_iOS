@@ -33,6 +33,7 @@ class ChatRoomViewController: UIViewController {
         return formatter
     }()
     var ref: DatabaseReference!
+    let user = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +44,7 @@ class ChatRoomViewController: UIViewController {
         setNoticeView()
         initGestureRecognizer()
         registerForKeyboardNotifications()
-        
-        let dummy1 = Chat(type: .mine, nickName: "n", message: "hi", date: "4:49")
-        let dummy2 = Chat(type: .mine, nickName: "n", message: "hi", date: "4:49")
-        let dummy3 = Chat(type: .other, nickName: "n", message: "hi", date: "4:49")
-        chatList.append(dummy1)
-        chatList.append(dummy2)
-        chatList.append(dummy3)
-        dateAllCompare()
-       
+    
         
         setFirebase()
         firebaseEventObserver()
@@ -67,12 +60,14 @@ class ChatRoomViewController: UIViewController {
         guard let text = self.chatTextView.text else { return }
         //        self.socket.emit("test", text)
         //        self.testList.append(Chat(type: .mine, message: text)
-        let date = Date()
-        let nowHour = dateFommatter.string(from: date)
-        self.chatList.append(Chat(type: .mine, message: text, date: nowHour))
-        sendChat(user1: "a", user2: "b", msg: text) { bool in
+        
+        sendChat(user1: "1", user2: "4", msg: text) { bool in
             
             if bool {
+                let date = Date()
+                let nowHour = self.dateFommatter.string(from: date)
+//                self.chatList.append(Chat(type: .mine, userIdx: 0, message: text, date: nowHour))
+                
                 self.updateChat(count: self.chatList.count) {
                     print("Send Message")
                 }
@@ -85,7 +80,7 @@ class ChatRoomViewController: UIViewController {
         let date = Date()
         let ns = dateFommatter.string(from: date)
 //        userCompare()
-        let otherChat = Chat(type: .myInvite, message: "hi", date: ns)
+        let otherChat = Chat(type: .myInvite, userIdx: 0, message: "hi", date: ns)
         self.chatList.append(otherChat)
         self.updateChat(count: self.chatList.count) {
             print("Send Message")
@@ -95,7 +90,7 @@ class ChatRoomViewController: UIViewController {
     func userCompare() {
         //다음셀의 타입이 mine이면 프로필삽입
         
-        let otherProfile = Chat(type: .otherProfile, nickName: "hihi")
+        let otherProfile = Chat(type: .otherProfile, userIdx: 0, nickName: "hihi")
         let beforeChat = self.chatList[self.chatList.count - 1]
         
         if beforeChat.type != .mine {
@@ -108,6 +103,7 @@ class ChatRoomViewController: UIViewController {
         }
     }
     func dateAllCompare() {
+        guard !self.chatList.isEmpty else { return }
         for index in 1..<self.chatList.count {
             let before = self.chatList[index-1]
             let cur = self.chatList[index]
@@ -151,13 +147,13 @@ class ChatRoomViewController: UIViewController {
     }
     // MARK: - Chat Update
     func updateChat( count: Int, completion: @escaping () -> Void ) {
-        
-        let indexPath = IndexPath( row: count-1, section: 0 )
-        self.chatTableView.beginUpdates()
-        self.chatTableView.insertRows(at: [indexPath], with: .none)
-        self.chatTableView.endUpdates()
+        guard count > 0 else { return }
+        var indexPath = IndexPath( row: self.chatList.count-1, section: 0 )
+//        self.chatTableView.beginUpdates()
+//        self.chatTableView.insertRows(at: [indexPath], with: .none)
+//        self.chatTableView.endUpdates()
         self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-        self.dateCompare(curIdx: count-1) 
+        self.dateCompare(curIdx: self.chatList.count-1) 
         completion()
     }
     // MARK: - ChatView 설정
@@ -331,22 +327,4 @@ extension ChatRoomViewController {
         })
         
     }
-}
-
-struct Chat {
-    var type: ChatType
-    var nickName: String?
-    var message: String?
-    var date: String?
-    var hide: Bool = false
-}
-
-enum ChatType {
-    case mine
-    case other
-    case myInvite
-    case otherInvite
-    case complete
-    case otherProfile
-    case date
 }

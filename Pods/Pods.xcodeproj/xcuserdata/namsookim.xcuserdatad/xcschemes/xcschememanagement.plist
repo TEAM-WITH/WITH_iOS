@@ -173,7 +173,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>26</integer>
+			<integer>24</integer>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>

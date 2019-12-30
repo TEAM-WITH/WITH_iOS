@@ -723,7 +723,7 @@
                                             <constraint firstItem="jD7-Lb-gpy" firstAttribute="height" secondItem="9ik-wG-7JU" secondAttribute="height" constant="20" id="xk1-7e-6Z8"/>
                                         </constraints>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="가나다라마바사" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rlI-br-lSw">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rlI-br-lSw">
                                         <rect key="frame" x="70" y="14" width="235" height="31"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>

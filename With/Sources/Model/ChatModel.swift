@@ -13,3 +13,22 @@ struct ChatModel {
     var type: Int
     var userIdx: Int
 }
+
+struct Chat {
+    var type: ChatType
+    var userIdx: Int
+    var nickName: String?
+    var message: String?
+    var date: String? 
+    var hide: Bool = false
+}
+
+enum ChatType: Int {
+    case mine = 0
+    case other = 1
+    case myInvite = 2
+    case otherInvite = 3
+    case complete = 4
+    case otherProfile = 5
+    case date = 6
+}

@@ -20,7 +20,7 @@
 		04F3624F23B51011005B56CB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624E23B51011005B56CB /* Country.swift */; };
 		050CCBC123B6374A0004D543 /* Estimate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050CCBC023B6374A0004D543 /* Estimate.storyboard */; };
 		050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CCBC223B637810004D543 /* EstimateViewController.swift */; };
-		06BBC30723B9EADC000DAE1C /* ChatRoomViewController+Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Firebase.swift */; };
+		06BBC30723B9EADC000DAE1C /* ChatRoomViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */; };
 		06BBC30923BA0D93000DAE1C /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30823BA0D93000DAE1C /* ChatModel.swift */; };
 		06BBC30B23BA1631000DAE1C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30A23BA1631000DAE1C /* UIViewController+Extension.swift */; };
 		06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */; };
@@ -68,7 +68,7 @@
 		04F3624E23B51011005B56CB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		050CCBC023B6374A0004D543 /* Estimate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Estimate.storyboard; sourceTree = "<group>"; };
 		050CCBC223B637810004D543 /* EstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
-		06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatRoomViewController+Firebase.swift"; sourceTree = "<group>"; };
+		06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatRoomViewController+Extension.swift"; sourceTree = "<group>"; };
 		06BBC30823BA0D93000DAE1C /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		06BBC30A23BA1631000DAE1C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 				06CFDD9423B4673C0030BABB /* UITextView+Extension.swift */,
 				06CFDD9C23B5399E0030BABB /* UILabel+Extension.swift */,
 				06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */,
-				06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Firebase.swift */,
+				06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */,
 				06BBC30A23BA1631000DAE1C /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
@@ -434,7 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06BBC30723B9EADC000DAE1C /* ChatRoomViewController+Firebase.swift in Sources */,
+				06BBC30723B9EADC000DAE1C /* ChatRoomViewController+Extension.swift in Sources */,
 				06CFDD7D23B1F2E60030BABB /* SocketIOManager.swift in Sources */,
 				050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */,
 				06C1C93923B7C55A00DD4F9D /* UserService.swift in Sources */,
