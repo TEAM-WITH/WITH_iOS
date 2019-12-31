@@ -27,6 +27,8 @@
 		05DDBE1023BB6A3000DCDBD5 /* RecommenBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0F23BB6A3000DCDBD5 /* RecommenBoardModel.swift */; };
 		05DDBE1223BB6AC500DCDBD5 /* RecentBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE1123BB6AC500DCDBD5 /* RecentBoardModel.swift */; };
 		05DDBE1423BB6CE700DCDBD5 /* WithMateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE1323BB6CE700DCDBD5 /* WithMateService.swift */; };
+		05DDBE1623BB704500DCDBD5 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DDBE1523BB704500DCDBD5 /* LogIn.storyboard */; };
+		05DDBE1823BB711C00DCDBD5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE1723BB711C00DCDBD5 /* LogInViewController.swift */; };
 		06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */; };
 		06C1C92E23B6AACF00DD4F9D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */; };
 		06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */; };
@@ -79,6 +81,8 @@
 		05DDBE0F23BB6A3000DCDBD5 /* RecommenBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommenBoardModel.swift; sourceTree = "<group>"; };
 		05DDBE1123BB6AC500DCDBD5 /* RecentBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentBoardModel.swift; sourceTree = "<group>"; };
 		05DDBE1323BB6CE700DCDBD5 /* WithMateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithMateService.swift; sourceTree = "<group>"; };
+		05DDBE1523BB704500DCDBD5 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
+		05DDBE1723BB711C00DCDBD5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -147,9 +151,9 @@
 			children = (
 				04F3624E23B51011005B56CB /* CountryModel.swift */,
 				05DDBE0D23BB694C00DCDBD5 /* WithMateModel.swift */,
+				06C1C93A23B8875400DD4F9D /* SignUpModel.swift */,
 				05DDBE0F23BB6A3000DCDBD5 /* RecommenBoardModel.swift */,
 				05DDBE1123BB6AC500DCDBD5 /* RecentBoardModel.swift */,
-				06C1C93A23B8875400DD4F9D /* SignUpModel.swift */,
 				06C1C93C23B8BB6500DD4F9D /* ResponseResult.swift */,
 				05DDBE0923BA45E100DCDBD5 /* RegionModel.swift */,
 			);
@@ -218,6 +222,7 @@
 				0458B93723B1F96F00CEBFDA /* Home.storyboard */,
 				04D4374223B4B75C00574AF2 /* RegionFilter.storyboard */,
 				050CCBC023B6374A0004D543 /* Estimate.storyboard */,
+				05DDBE1523BB704500DCDBD5 /* LogIn.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				050CCBC223B637810004D543 /* EstimateViewController.swift */,
 				06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */,
 				06C1C94223B8F3CF00DD4F9D /* ServiceTestViewController.swift */,
+				05DDBE1723BB711C00DCDBD5 /* LogInViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 				06CFDD6423B09C960030BABB /* LaunchScreen.storyboard in Resources */,
 				06C1C94123B8E65600DD4F9D /* GoogleService-Info.plist in Resources */,
 				0458B93823B1F96F00CEBFDA /* Home.storyboard in Resources */,
+				05DDBE1623BB704500DCDBD5 /* LogIn.storyboard in Resources */,
 				06CFDD6123B09C960030BABB /* Assets.xcassets in Resources */,
 				050CCBC123B6374A0004D543 /* Estimate.storyboard in Resources */,
 				06CFDD7123B1B9260030BABB /* Chat.storyboard in Resources */,
@@ -474,6 +481,7 @@
 				06C1C92E23B6AACF00DD4F9D /* UIView+Extension.swift in Sources */,
 				0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */,
 				04F3624B23B4F3BA005B56CB /* RegionFilterViewController.swift in Sources */,
+				05DDBE1823BB711C00DCDBD5 /* LogInViewController.swift in Sources */,
 				06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */,
 				06CFDDA523B5454C0030BABB /* ChatOtherInviteTableViewCell.swift in Sources */,
 				05DDBE1223BB6AC500DCDBD5 /* RecentBoardModel.swift in Sources */,
