@@ -92,15 +92,17 @@ class ChatRoomViewController: UIViewController {
         self.present(floatAlert, animated: true)
     }
     // MARK: - 다른유저가 입력할시 비교
-    func userCompare(userIdx: Int) -> Bool {
+    func userCompare() -> Bool {
         //다음셀의 타입이 mine이면 프로필삽입
         guard self.chatList.count > 1 else { return false }
         
         let index = self.chatList.count-1
+        let cur = self.chatList[index]
         let before = self.chatList[index-1]
-        guard before.type != .otherProfile else { return false }
-        guard before.userIdx != userIdx else { return false }
-       
+        
+        guard before.type != .otherProfile || cur.type != .otherProfile else { return false }
+        guard before.userIdx != cur.userIdx else { return false }
+        
         return true
     }
     //채팅의 모든 날짜비교
@@ -231,9 +233,15 @@ extension ChatRoomViewController: UITableViewDataSource {
             cell.meetTimeLabel.text = chat.meetDate
             cell.nameLabel.text = otherName
             if UserInfo.shared.getUserIdx() == chat.userIdx {
+                print("님의")
                 cell.youAndITypeLabel.text = "님의"
+                cell.view.translatesAutoresizingMaskIntoConstraints = false
+                cell.view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 129).isActive = true
             } else {
+                print("님이")
                 cell.youAndITypeLabel.text = "님이"
+                cell.view.translatesAutoresizingMaskIntoConstraints = false
+                cell.view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
             }
             cell.hide = chat.hide ?? false
             return cell
