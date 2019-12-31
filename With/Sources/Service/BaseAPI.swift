@@ -11,7 +11,8 @@ import Foundation
 struct BaseAPI {
     static let baseURL = "http://18.222.189.150:3000"
     static let socketURL = ""
-    static let signUpURL = "/auth/signup"
+    static let signUpURL = baseURL+"/auth/signup"
+    static let logInURL = baseURL+"/auth/signin"
     static let regionCodeURL = baseURL+"/home/regions/"
     static let recentBoardURL = baseURL+"/home/boards/"
     static let recommendBoardURL = baseURL+"/home/recommendations"

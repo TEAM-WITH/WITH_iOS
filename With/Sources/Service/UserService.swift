@@ -42,8 +42,21 @@ struct UserService {
         }, usingThreshold: UInt64.init(), to: url, method: .post, headers: header) { result in
             switch result {
             case .success(let upload, _, _):
-                upload.responseJSON { _ in
-                    completion(true)
+                upload.responseJSON { response in
+                    do {
+                        guard let data = response.data else { return }
+                        guard let object = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else { return }
+                        guard let success = object["success"] as? Bool else { return }
+                        if success {
+                            print("성공")
+                            completion(true)
+                        }else {
+                            print("통신성공 회원가입실패")
+                            completion(false)
+                        }
+                    } catch(let err) {
+                        print(err)
+                    }
                 }
             case .failure(_):
                 print("fail")
@@ -51,5 +64,46 @@ struct UserService {
             }
         }
 
+    }
+    
+    func postLoginRequest(userId: String, pw: String, completion: @escaping (LoginResult?) -> Void) {
+        let url = BaseAPI.logInURL
+        let header: HTTPHeaders = [
+              "Content-Type": "application/json"
+          ]
+        let body: Parameters = [
+            "userId": userId,
+            "password": pw
+        ]
+        Alamofire.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { response in
+            
+            switch response.result {
+            case .success:
+                guard let data = response.data else { return }
+                do{
+                    let decoder = JSONDecoder()
+                    
+                    let object = try decoder.decode(LoginResult.self, from: data)
+                    if object.success {
+                        
+                        
+                        guard let token = object.data?.token else { return }
+                        guard let userIdx = object.data?.userIdx else { return }
+                        UserInfo.shared.setUserInfo(token: token, userIdx: userIdx)
+                        
+                        completion(object)
+                    }else {
+                        completion(object)
+                    }
+                    
+                }catch(let err){
+                    print(err.localizedDescription)
+                    completion(nil)
+                }
+                
+            case .failure:
+                completion(nil)
+            }
+        }
     }
 }

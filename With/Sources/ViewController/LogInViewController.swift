@@ -17,14 +17,23 @@ class LogInViewController: UIViewController {
     
     }
     @IBAction func pressLogin(_ sender: Any) {
-        guard let userId = idTextField else { return  }
-        guard let password = passwordTextField else { return }
-        LogInService.shared.login(userId: userId, password: password){ data in
-            let user_data = data as! Dataclass
-            UserDefaults.standard.set(user_data.userIdx, forkey: "token")
-            UserDefaults.standard.set(user_data.name, forKey:"name")
-            self.present(main,animated: true)
+        guard let userId = idTextField.text else { return  }
+        guard let password = passwordTextField.text else { return }
+        UserService.shared.postLoginRequest(userId: userId, pw: password) { completionData in
+            guard let state = completionData?.success else { return }
+            guard let msg = completionData?.message else { return }
+            
+            if state {
+             print(completionData?.success)
+               print(completionData?.message)
+             print("login Success")
+                //상겅찰;
+            } else {
+                self.simpleAlert(title: "로그인 실패", msg: msg)
+                print("실패")
+            }
         }
     }
+    @IBAction func pressSignUp(_ sender: Any) {
+    }
 }
-
