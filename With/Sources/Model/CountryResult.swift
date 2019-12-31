@@ -7,7 +7,7 @@
 //
 
 import UIKit
-struct Country {
+struct CountryResult {
     var countryImage: UIImage?
     var countryTitle: String
     init(title: String, image: String) {
