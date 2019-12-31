@@ -35,12 +35,17 @@ extension ChatRoomViewController {
                 
                 
                 self.chatList.append(chat)
-                let indexPath = IndexPath(row: self.chatList.count-1, section: 0)
+                var indexPath = IndexPath(row: self.chatList.count-1, section: 0)
                 self.chatTableView.insertRows(at: [indexPath], with: .none)
                 self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
 //                self.updateChat()
                 self.dateCompare()
-//                self.userCompare(userIdx: userIdx)
+                if self.userCompare(userIdx: userIdx) {
+                    let otherProfile = Chat(type: .otherProfile, userIdx: self.otherId, nickName: self.otherName)
+                    self.chatList.append(otherProfile)
+                    indexPath = IndexPath(row: self.chatList.count-1, section: 0)
+                    self.chatTableView.insertRows(at: [indexPath], with: .none)
+                }
                 
             }
             

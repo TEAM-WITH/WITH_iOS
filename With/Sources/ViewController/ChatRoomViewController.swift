@@ -92,17 +92,16 @@ class ChatRoomViewController: UIViewController {
         self.present(floatAlert, animated: true)
     }
     // MARK: - 다른유저가 입력할시 비교
-    func userCompare(userIdx: Int) {
+    func userCompare(userIdx: Int) -> Bool {
         //다음셀의 타입이 mine이면 프로필삽입
-        guard self.chatList.count > 1 else { return }
+        guard self.chatList.count > 1 else { return false }
         
         let index = self.chatList.count-1
         let before = self.chatList[index-1]
-        guard before.type != .otherProfile else { return }
-        guard before.userIdx != userIdx else { return }
-        let otherProfile = Chat(type: .otherProfile, userIdx: otherId, nickName: otherName)
-        self.chatList.append(otherProfile)
-        self.chatTableView.insertRows(at: [IndexPath(row: index-1, section: 0)], with: .none)
+        guard before.type != .otherProfile else { return false }
+        guard before.userIdx != userIdx else { return false }
+       
+        return true
     }
     //채팅의 모든 날짜비교
 //    func dateAllCompare() {
@@ -121,17 +120,23 @@ class ChatRoomViewController: UIViewController {
     func dateCompare() {
         guard self.chatList.count > 1 else { return }
         let index = self.chatList.count - 1
-        
-        
-        for index in 1..<self.chatList.count {
-            let before = self.chatList[index-1]
-            let cur = self.chatList[index]
-            guard before.date == cur.date else { continue }
-            guard before.userIdx == cur.userIdx else { continue }
-            self.chatList[index-1].hide = true
-            self.chatList[index].hide = false
-        }
-        
+        let before = self.chatList[index-1]
+        let cur = self.chatList[index]
+        guard before.date == cur.date else { return }
+        guard before.userIdx == cur.userIdx else { return }
+        self.chatList[index-1].hide = true
+        self.chatList[index].hide = false
+        self.chatTableView.reloadData()
+//
+//        for index in 1..<self.chatList.count {
+//            let before = self.chatList[index-1]
+//            let cur = self.chatList[index]
+//            guard before.date == cur.date else { continue }
+//            guard before.userIdx == cur.userIdx else { continue }
+//            self.chatList[index-1].hide = true
+//            self.chatList[index].hide = false
+//        }
+//
 //        guard self.chatList.count > 1 else { return }
 //        let index = self.chatList.count-1
 //        let before = chatList[index-1]
