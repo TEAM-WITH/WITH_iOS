@@ -13,6 +13,7 @@ class ChatOtherInviteTableViewCell: UITableViewCell {
     @IBOutlet weak var msgImage: UIImageView!
     @IBOutlet weak var meetTimeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var view: UIView!
     
     var hide = false {
@@ -45,3 +46,4 @@ class ChatOtherInviteTableViewCell: UITableViewCell {
         sender.isEnabled = false
     }
 }
+// 파베통신코드짜기

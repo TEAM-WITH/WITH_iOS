@@ -12,15 +12,18 @@ class InviteViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var titleLabel: UILabel!
     var ref: DatabaseReference!
-    let user2 = "4"
+    let user2 = "11"
+    let roomId = "12_11"
     let dateFommatter: DateFormatter = {
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "yyyy년 MM월 dd일"
         return formatter
     }()
     let fullDateFommatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월 dd일 hh:mm"
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
         return formatter
     }()
     override func viewDidLoad() {
@@ -45,7 +48,7 @@ class InviteViewController: UIViewController {
     }
     @IBAction func inviteButtonClick(_ sender: Any) {
         let date = dateFommatter.string(from: self.datePicker.date)
-        self.sendInvite(other: user2, date: date) { bool in
+        self.sendInvite(date: date) { bool in
             if bool {
                 self.dismiss(animated: true)
             } else {

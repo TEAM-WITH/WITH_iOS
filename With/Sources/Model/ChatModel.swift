@@ -21,6 +21,7 @@ struct Chat {
     var message: String?
     var date: String? 
     var hide: Bool = false
+    var meetDate: String?
 }
 
 enum ChatType: Int {

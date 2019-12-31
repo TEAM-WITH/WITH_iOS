@@ -24,18 +24,27 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
     let dateFommatter: DateFormatter = {
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "hh:mm"
         return formatter
     }()
     let fullDateFommatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월 dd일 hh:mm"
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
+        return formatter
+    }()
+    let monthFommatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy년 MM월 dd일"
         return formatter
     }()
     var ref: DatabaseReference!
     var isInvite = false
-    let other = "4"
-    let roomId = "1_4"
+    let other = 11
+    let otherName = "위드위드"
+    let roomId = "12_11"
     var unSeenCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,11 +72,9 @@ class ChatRoomViewController: UIViewController {
     }
     @IBAction func sendButtonClick(_ sender: Any) {
         guard let text = self.chatTextView.text else { return }
-        sendChat(other: other, msg: text) { bool in
+        sendChat(msg: text) { bool in
             if bool {
-                self.updateChat {
-                    print("Send Message")
-                }
+                self.updateChat()
             } else {
                 self.simpleAlert(title: "전송 실패", msg: "전송에 실패하였습니다.")
             }
@@ -82,18 +89,26 @@ class ChatRoomViewController: UIViewController {
     // MARK: - 다른유저가 입력할시 비교
     func userCompare() {
         //다음셀의 타입이 mine이면 프로필삽입
+        guard !self.chatList.isEmpty else { return }
         
-        let otherProfile = Chat(type: .otherProfile, userIdx: 0, nickName: "hihi")
-        let beforeChat = self.chatList[self.chatList.count - 1]
-        
-        if beforeChat.type != .mine {
-            return
+        for index in 1..<self.chatList.count {
+            let before = self.chatList[index-1]
+            let cur = self.chatList[index]
+            guard before.userIdx != cur.userIdx else { return }
+            let otherProfile = Chat(type: .otherProfile, userIdx: other, nickName: otherName)
+            self.chatList.append(otherProfile)
+            self.updateChat()
         }
         
-        self.chatList.append(otherProfile)
-        self.updateChat() {
-            print("create profile")
-        }
+//        let otherProfile = Chat(type: .otherProfile, userIdx: 0, nickName: "hihi")
+//        let beforeChat = self.chatList[self.chatList.count - 1]
+//
+//        if beforeChat.type != .mine {
+//            return
+//        }
+//
+//        self.chatList.append(otherProfile)
+//        self.updateChat()
     }
     //채팅의 모든 날짜비교
     func dateAllCompare() {
@@ -102,7 +117,7 @@ class ChatRoomViewController: UIViewController {
             let before = self.chatList[index-1]
             let cur = self.chatList[index]
             guard before.date == cur.date else { continue }
-            guard before.type == cur.type else { continue }
+            guard before.userIdx == cur.userIdx else { continue }
             self.chatList[index-1].hide = true
             self.chatList[index].hide = false
         }
@@ -114,7 +129,7 @@ class ChatRoomViewController: UIViewController {
         let before = chatList[curIdx-1]
         let cur = chatList[curIdx]
         guard before.date == cur.date else { return }
-        guard before.type == cur.type else { return }
+        guard before.userIdx == cur.userIdx else { return }
         let indexPath = IndexPath( row: curIdx-1, section: 0 )
         
         switch before.type {
@@ -140,13 +155,12 @@ class ChatRoomViewController: UIViewController {
         return
     }
     // MARK: - Chat Update
-    func updateChat( completion: @escaping () -> Void ) {
+    func updateChat() {
         self.chatTableView.reloadData()
         guard self.chatList.count > 0 else { return }
         let indexPath = IndexPath( row: self.chatList.count-1, section: 0 )
         self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         self.dateCompare(curIdx: self.chatList.count-1)
-        completion()
     }
     // MARK: - ChatView 설정
     func setChatView() {
@@ -183,7 +197,7 @@ extension ChatRoomViewController: UITableViewDataSource {
             
             cell.timeLabel.text = chat.date
             cell.timeLabel.labelKern(kerningValue: -0.06)
-            cell.meetTimeLabel.text = "20년 02월 02일"
+            cell.meetTimeLabel.text = chat.meetDate
             cell.nameLabel.text = "김루희"
             cell.hide = chat.hide ?? false
             
@@ -192,16 +206,17 @@ extension ChatRoomViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OtherInviteCell", for: indexPath) as! ChatOtherInviteTableViewCell
             cell.timeLabel.text = chat.date
             cell.timeLabel.labelKern(kerningValue: -0.06)
-            cell.meetTimeLabel.text = "20년 02월 02일"
-            cell.nameLabel.text = "김은별"
+            cell.meetTimeLabel.text = chat.meetDate
+            cell.nameLabel.text = otherName
+            cell.acceptButton.addTarget(self, action: #selector(acceptRequest), for: .touchUpInside)
             cell.hide = chat.hide ?? false
             return cell
         } else if chat.type == .otherComplete {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteCell", for: indexPath) as! ChatCompleteTableViewCell
             cell.timeLabel.text = chat.date
             cell.timeLabel.labelKern(kerningValue: -0.06)
-            cell.meetTimeLabel.text = "20년 02월 02일"
-            cell.nameLabel.text = "김은별"
+            cell.meetTimeLabel.text = chat.meetDate
+            cell.nameLabel.text = otherName
             cell.hide = chat.hide ?? false
             return cell
         }
