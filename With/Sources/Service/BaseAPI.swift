@@ -13,4 +13,7 @@ struct BaseAPI {
     static let socketURL = ""
     static let signUpURL = "/auth/signup"
     static let regionCodeURL = baseURL+"/home/regions/"
+    static let recentBoardURL = baseURL+"/home/boards/"
+    static let recommendBoardURL = baseURL+"/home/recommendations"
+    static let withMateURL = baseURL+"/home/mates"
 }
