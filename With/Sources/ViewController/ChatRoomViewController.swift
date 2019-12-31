@@ -83,6 +83,8 @@ class ChatRoomViewController: UIViewController {
                 self.simpleAlert(title: "전송 실패", msg: "전송에 실패하였습니다.")
             }
             self.chatTextView.text = ""
+            self.dynamicChatTextView()
+            
         }
     }
     @IBAction func inviteButtonClick(_ sender: Any) {
@@ -193,6 +195,22 @@ class ChatRoomViewController: UIViewController {
         self.noticeDateLabel.labelKern(kerningValue: -0.06)
         self.noticeView.dropShadow()
     }
+    
+    func dynamicChatTextView() {
+        let size = CGSize(width: self.view.frame.width, height: .infinity)
+        var estimatedSize = self.chatTextView.sizeThatFits(size)
+        print(estimatedSize)
+        if estimatedSize.height > 75 {
+            return
+        } else if estimatedSize.height < 32 {
+            estimatedSize.height = 31
+        }
+        self.chatTextView.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = estimatedSize.height
+            }
+        }
+    }
 }
 
 extension ChatRoomViewController: UITableViewDataSource {
@@ -289,19 +307,7 @@ extension ChatRoomViewController: UITableViewDelegate {
 // MARK: - TextView 동적 사이즈 변경
 extension ChatRoomViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        let size = CGSize(width: view.frame.width, height: .infinity)
-        var estimatedSize = textView.sizeThatFits(size)
-        print(estimatedSize)
-        if estimatedSize.height > 75 {
-            return
-        } else if estimatedSize.height < 32 {
-            estimatedSize.height = 31
-        }
-        textView.constraints.forEach { (constraint) in
-            if constraint.firstAttribute == .height {
-                constraint.constant = estimatedSize.height
-            }
-        }
+        dynamicChatTextView()
     }
 }
 

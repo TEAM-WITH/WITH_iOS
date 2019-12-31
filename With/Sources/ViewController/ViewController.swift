@@ -20,5 +20,4 @@ class ViewController: UIViewController {
         nextVC.modalPresentationStyle = .fullScreen
         self.present(nextVC, animated: true)
     }
-
 }
