@@ -18,6 +18,7 @@ class RegionFilterViewController: UIViewController {
     var beforeValue = 0
     var semiBeforeValue = 0
     var semiCurValue = 0
+    var countryDataset: [CountryModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         setRegionName()
@@ -33,6 +34,17 @@ class RegionFilterViewController: UIViewController {
         self.semiRegionCollectionView.delegate = self
         self.regionCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
         self.semiRegionCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
+        
+        setDefaultCountry(regionCode: regionSet[0].region.code)
+    }
+    
+    func setDefaultCountry(regionCode: String) {
+        CountryService.shared.getCountryRequest(regionCode: regionCode) { data in
+            if let countrySet = data {
+                self.countryDataset = countrySet
+                self.countryTableView.reloadData()
+            }
+        }
     }
 }
 
@@ -81,16 +93,33 @@ extension RegionFilterViewController: UICollectionViewDelegate {
                 self.regionSet[self.defaultValue].data[index].isClick = false
             }
             self.regionSet[self.defaultValue].data[0].isClick = true
-        
+            
+            let regionCode = self.regionSet[self.defaultValue].region.code
+                  CountryService.shared.getCountryRequest(regionCode: regionCode) { data in
+                      if let countrySet = data {
+                          self.countryDataset = countrySet
+                          self.countryTableView.reloadData()
+                      }
+                  }
             
             self.semiRegionCollectionView.reloadData()
             self.semiRegionCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
+            
         } else if collectionView == self.semiRegionCollectionView {
           
             semiCurValue = indexPath.item
             self.regionSet[self.defaultValue].data[semiCurValue].isClick = true
             self.regionSet[self.defaultValue].data[semiBeforeValue].isClick = false
             //            self.countryTableView.reloadData()
+            
+            
+            let regionCode = self.regionSet[self.defaultValue].data[semiCurValue].code
+            CountryService.shared.getCountryRequest(regionCode: regionCode) { data in
+                if let countrySet = data {
+                    self.countryDataset = countrySet
+                    self.countryTableView.reloadData()
+                }
+            }
         }
 
     }
@@ -127,23 +156,24 @@ extension RegionFilterViewController: UICollectionViewDelegateFlowLayout {
 extension RegionFilterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == countryTableView {
-            return 4
+            return countryDataset.count
         }
         return 6
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = countryTableView.dequeueReusableCell(withIdentifier: "CountryCell") as! CountryCellTableViewCell
-        return cell
+        
+        let country = self.countryDataset[indexPath.row]
+        cell.viewModel = country
+             
+             return cell
     }
 }
 
 extension RegionFilterViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        destination view controller
-        //        let dvc = storyboard?.instantiateViewController(withIdentifier: "CountryTableViewController")as! CountryTableViewController
-        //
-        //        navigationController?.pushViewController(dvc, animated: true)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//    }
 }
 
 extension RegionFilterViewController {
@@ -162,10 +192,10 @@ extension RegionFilterViewController {
         let asia = Region(region: Country(code: "020000", name: "아시아"),data: [wholeAsia, eastNorthAsia, eastSouthAsia, southAsia, westSouthAsia])
         
         let wholeNA = Country(code: "030000", name: "전체")
-        let northAmerica = Region(region: Country(code: "030000", name: "남아메리카"),data: [wholeNA])
+        let northAmerica = Region(region: Country(code: "030000", name: "북아메리카"),data: [wholeNA])
         
         let wholeSA = Country(code: "040000", name: "전체")
-        let southAmerica = Region(region: Country(code: "040000", name:"북아메리카"),data: [wholeSA])
+        let southAmerica = Region(region: Country(code: "040000", name: "남아메리카"),data: [wholeSA])
         
         let wholeOC = Country(code: "050000", name: "전체")
         let oceania = Region(region: Country(code: "050000", name: "오세아니아"),data: [wholeOC])

@@ -17,11 +17,12 @@
 		04D4374323B4B75C00574AF2 /* RegionFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D4374223B4B75C00574AF2 /* RegionFilter.storyboard */; };
 		04F3624B23B4F3BA005B56CB /* RegionFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */; };
 		04F3624D23B50939005B56CB /* SemiRegionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */; };
-		04F3624F23B51011005B56CB /* CountryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624E23B51011005B56CB /* CountryResult.swift */; };
+		04F3624F23B51011005B56CB /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3624E23B51011005B56CB /* CountryModel.swift */; };
 		050CCBC123B6374A0004D543 /* Estimate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050CCBC023B6374A0004D543 /* Estimate.storyboard */; };
 		050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CCBC223B637810004D543 /* EstimateViewController.swift */; };
 		05DDBE0823BA1C3300DCDBD5 /* EstimateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */; };
 		05DDBE0A23BA45E100DCDBD5 /* RegionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0923BA45E100DCDBD5 /* RegionModel.swift */; };
+		05DDBE0C23BB32C800DCDBD5 /* CountryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */; };
 		06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */; };
 		06C1C92E23B6AACF00DD4F9D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */; };
 		06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */; };
@@ -64,11 +65,12 @@
 		04D4374223B4B75C00574AF2 /* RegionFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegionFilter.storyboard; sourceTree = "<group>"; };
 		04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFilterViewController.swift; sourceTree = "<group>"; };
 		04F3624C23B50939005B56CB /* SemiRegionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiRegionCollectionViewCell.swift; sourceTree = "<group>"; };
-		04F3624E23B51011005B56CB /* CountryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryResult.swift; sourceTree = "<group>"; };
+		04F3624E23B51011005B56CB /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		050CCBC023B6374A0004D543 /* Estimate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Estimate.storyboard; sourceTree = "<group>"; };
 		050CCBC223B637810004D543 /* EstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
 		05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateService.swift; sourceTree = "<group>"; };
 		05DDBE0923BA45E100DCDBD5 /* RegionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionModel.swift; sourceTree = "<group>"; };
+		05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryService.swift; sourceTree = "<group>"; };
 		06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +137,7 @@
 		045A548E23B5D13600D2ADAD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				04F3624E23B51011005B56CB /* CountryResult.swift */,
+				04F3624E23B51011005B56CB /* CountryModel.swift */,
 				06C1C93A23B8875400DD4F9D /* SignUpModel.swift */,
 				06C1C93C23B8BB6500DD4F9D /* ResponseResult.swift */,
 				05DDBE0923BA45E100DCDBD5 /* RegionModel.swift */,
@@ -244,6 +246,7 @@
 				06CFDD7F23B1F37F0030BABB /* BaseAPI.swift */,
 				06C1C93823B7C55A00DD4F9D /* UserService.swift */,
 				05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */,
+				05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -447,12 +450,13 @@
 				05DDBE0A23BA45E100DCDBD5 /* RegionModel.swift in Sources */,
 				045A549323B5D75500D2ADAD /* CountryCellTableViewCell.swift in Sources */,
 				045A549423B5D75500D2ADAD /* RegionCollectionViewCell.swift in Sources */,
+				05DDBE0C23BB32C800DCDBD5 /* CountryService.swift in Sources */,
 				06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */,
 				06C1C94323B8F3CF00DD4F9D /* ServiceTestViewController.swift in Sources */,
 				06CFDD8C23B3937A0030BABB /* ChatListViewController.swift in Sources */,
 				0458B93E23B211B100CEBFDA /* MateCollectionViewCell.swift in Sources */,
 				04D4371D23B26B9F00574AF2 /* RecentCollectionViewCell.swift in Sources */,
-				04F3624F23B51011005B56CB /* CountryResult.swift in Sources */,
+				04F3624F23B51011005B56CB /* CountryModel.swift in Sources */,
 				06C1C92E23B6AACF00DD4F9D /* UIView+Extension.swift in Sources */,
 				0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */,
 				04F3624B23B4F3BA005B56CB /* RegionFilterViewController.swift in Sources */,
