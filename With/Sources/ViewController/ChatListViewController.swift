@@ -7,44 +7,62 @@
 //
 
 import UIKit
-
+import Firebase
 class ChatListViewController: UIViewController {
-    let dum1 = ChatList(title: "프랑스:맥주좋아하세여?", content: "맥주먹을사람~", userId: "남수", accept: true, badgeNum: 23, time: "13:03")
-    let dum2 = ChatList(title: "독일:맥주좋아하세여?", content: "세잔해~~~", userId: "남수", accept: false, badgeNum: 5, time: "13:04")
-    let dum3 = ChatList(title: "한국:치킨좋아하세여?", content: "두잔해~~", userId: "남수", accept: true, badgeNum: 11, time: "13:06")
-    let dum4 = ChatList(title: "위드:위드하세여?", content: "한잔해~", userId: "남수", accept: true, badgeNum: 27, time: "13:03")
-    let dum5 = ChatList(title: "프랑스:맥주좋아하세여?", content: "맥주먹을사람~", userId: "남수", accept: false, badgeNum: 100, time: "13:03")
-    var test: [ChatList] = []
+   let dateFommatter: DateFormatter = {
+       let formatter = DateFormatter()
+       formatter.locale = Locale(identifier: "ko_KR")
+       formatter.dateFormat = "hh:mm"
+       return formatter
+   }()
+   let fullDateFommatter: DateFormatter = {
+       let formatter = DateFormatter()
+       formatter.locale = Locale(identifier: "ko_KR")
+       formatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
+       return formatter
+   }()
+    var chatLists: [ChatList] = []
+    var ref: DatabaseReference!
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-         test = [dum1, dum2, dum3, dum4, dum5]
+        setFirebase()
+        firebaseEventObserver(userIdx: "\(UserInfo.shared.getUserIdx())")
     }
     override func viewWillDisappear(_ animated: Bool) {
         if let index = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: index, animated: true)
         }
     }
+    func distinguishGetOtherId(roomId: String) -> Int {
+        let sub = roomId.split(separator: "_")
+        
+        let otherId = sub.filter{ return $0 != "\(UserInfo.shared.getUserIdx())" }
+            .map{ Int($0) }
+        
+        print(otherId)
+        return otherId[0] ?? -1
+    }
 }
 
 extension ChatListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return test.count
+        return chatLists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatList", for: indexPath) as! ChatListTableViewCell
-        let data = test[indexPath.row]
-        cell.chatTitleLabel.text = data.title
-        cell.chatContentLabel.text = data.content
+        let data = chatLists[indexPath.row]
+        cell.chatTitleLabel.text = "\(data.boardIdx)"
+        cell.chatContentLabel.text = data.lastMsg
         cell.timeLabel.text = data.time
-        cell.badgeLabel.text = "\(data.badgeNum)"
-        cell.userIdLabel.text = data.userId
-        cell.accept = data.accept
+        cell.badgeLabel.text = "\(data.unSeenCount)"
+//        cell.userIdLabel.text = data.boardIdx
+//        cell.accept = data.
         
         return cell
     }
@@ -52,17 +70,20 @@ extension ChatListViewController: UITableViewDataSource {
 
 extension ChatListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chatRoom = chatLists[indexPath.row]
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Chat") as? ChatRoomViewController else { return }
         nextVC.modalPresentationStyle = .fullScreen
+        nextVC.roomId = "\(chatRoom.roomId)"
+        nextVC.unSeenCount = chatRoom.unSeenCount
+        nextVC.otherId = distinguishGetOtherId(roomId: chatRoom.roomId)
         self.present(nextVC, animated: true)
     }
 }
 
 struct ChatList {
-    var title: String
-    var content: String
-    var userId: String
-    var accept: Bool
-    var badgeNum: Int
+    var boardIdx: Int
+    var lastMsg: String
+    var unSeenCount: Int
     var time: String
+    var roomId: String
 }
