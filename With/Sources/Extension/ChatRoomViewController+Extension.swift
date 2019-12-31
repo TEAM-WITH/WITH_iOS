@@ -41,14 +41,14 @@ extension ChatRoomViewController {
                 }
                 
                 
-                if type != .mine || type == .otherComplete || type == .otherInvite {
-                    if self.userCompare() {
-                        let otherProfile = Chat(type: .otherProfile, userIdx: self.otherId, nickName: self.otherName)
-                        indexPath = IndexPath(row: self.chatList.count-1, section: 0)
-                        self.chatList.insert(otherProfile, at: indexPath.row)
-                        self.chatTableView.insertRows(at: [indexPath], with: .none)
-                    }
+            
+                if self.userCompare() {
+                    let otherProfile = Chat(type: .otherProfile, userIdx: self.otherId, nickName: self.otherName)
+                    indexPath = IndexPath(row: self.chatList.count-1, section: 0)
+                    self.chatList.insert(otherProfile, at: indexPath.row)
+                    self.chatTableView.insertRows(at: [indexPath], with: .none)
                 }
+                
                 
             }
             

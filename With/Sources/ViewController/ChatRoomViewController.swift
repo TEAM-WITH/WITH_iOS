@@ -100,7 +100,8 @@ class ChatRoomViewController: UIViewController {
         let cur = self.chatList[index]
         let before = self.chatList[index-1]
         
-        guard before.type != .otherProfile || cur.type != .otherProfile else { return false }
+        guard cur.type == .other || cur.type == .otherInvite || cur.type == .otherComplete else { return false }
+        guard UserInfo.shared.getUserIdx() != cur.userIdx else { return false }
         guard before.userIdx != cur.userIdx else { return false }
         
         return true
