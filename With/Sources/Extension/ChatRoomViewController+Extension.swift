@@ -123,15 +123,15 @@ extension ChatRoomViewController {
             "type": 4,
             "userIdx": user
             ]
-        ref.child("conversations").child("\(user)_\(other)").childByAutoId().setValue(createChatInfo)
+        ref.child("conversations").child(roomId).childByAutoId().setValue(createChatInfo)
         let createRoomInfo: Dictionary<String, Any> = [
             "boardIdx": 0,
             "lastMessage": "동행 성사 메시지입니다.",
             "lastTime": time,
             "unSeenCount": 0
         ]
-        ref.child("users").child("\(user)").child("\(user)_\(other)").setValue(createRoomInfo)
-        ref.child("users").child("\(other)").child("\(user)_\(other)").setValue(createRoomInfo) { err, dref in
+        ref.child("users").child("\(user)").child(roomId).setValue(createRoomInfo)
+        ref.child("users").child("\(other)").child(roomId).setValue(createRoomInfo) { err, dref in
             if err == nil  {
                 print("no err")
             }else {
