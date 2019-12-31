@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 class ViewController: UIViewController {
-    var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference()
     }
     @IBAction func nextVC(_ sender: Any) {
         let storyName = "LogIn"
@@ -24,11 +21,4 @@ class ViewController: UIViewController {
         self.present(nextVC, animated: true)
     }
 
-}
-
-extension ViewController {
-    
-    func setFirebase() {
-//        ref = Database.database().reference()
-    }
 }

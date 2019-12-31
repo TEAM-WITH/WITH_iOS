@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Firebase
 class ChatRoomViewController: UIViewController {
     
     @IBOutlet weak var chatViewBottomLayout: NSLayoutConstraint!
@@ -23,10 +24,29 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
     let dateFommatter: DateFormatter = {
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "hh:mm"
         return formatter
     }()
-    
+    let fullDateFommatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
+        return formatter
+    }()
+    let monthFommatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy년 MM월 dd일"
+        return formatter
+    }()
+    var ref: DatabaseReference!
+    var isInvite = false
+    var otherId = 11
+    var otherName = "위드위드"
+    var roomId = "12_11"
+    var unSeenCount = 0
+    var meetDateString = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.chatTableView.dataSource = self
@@ -36,92 +56,119 @@ class ChatRoomViewController: UIViewController {
         setNoticeView()
         initGestureRecognizer()
         registerForKeyboardNotifications()
-    
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
+        self.ref.removeAllObservers()
         unregisterForKeyboardNotifications()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        firebaseEventObserver(roomId: roomId)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        setFirebase()
     }
     @IBAction func cancelButtonClick(_ sender: Any) {
         self.dismiss(animated: true)
     }
     @IBAction func sendButtonClick(_ sender: Any) {
-        let text = self.chatTextView.text
-        //        self.socket.emit("test", text)
-        //        self.testList.append(Chat(type: .mine, message: text)
-        let date = Date()
-        let nowHour = dateFommatter.string(from: date)
-        self.chatList.append(Chat(type: .mine, message: text, date: nowHour))
-        self.updateChat(count: self.chatList.count) {
-            print("Send Message")
+        guard let text = self.chatTextView.text else { return }
+        sendChat(msg: text) { bool in
+            if bool {
+               print("메시지 전송 성공")
+            } else {
+                self.simpleAlert(title: "전송 실패", msg: "전송에 실패하였습니다.")
+            }
+            self.chatTextView.text = ""
         }
     }
     @IBAction func inviteButtonClick(_ sender: Any) {
-        let date = Date()
-        let ns = dateFommatter.string(from: date)
-//        userCompare()
-        let otherChat = Chat(type: .myInvite, message: "hi", date: ns)
-        self.chatList.append(otherChat)
-        self.updateChat(count: self.chatList.count) {
-            print("Send Message")
-        }
+        
+        let floatAlert = self.storyboard?.instantiateViewController(withIdentifier: "Invite") as! InviteViewController
+        floatAlert.roomId = self.roomId
+        floatAlert.otherId = self.otherId
+        floatAlert.unSeenCount = self.unSeenCount
+        
+        self.present(floatAlert, animated: true)
     }
     // MARK: - 다른유저가 입력할시 비교
-    func userCompare() {
+    func userCompare(userIdx: Int) {
         //다음셀의 타입이 mine이면 프로필삽입
+        guard self.chatList.count > 1 else { return }
         
-        let otherProfile = Chat(type: .otherProfile, nickName: "hihi")
-        let beforeChat = self.chatList[self.chatList.count - 1]
-        
-        if beforeChat.type != .mine {
-            return
-        }
-        
+        let index = self.chatList.count-1
+        let before = self.chatList[index-1]
+        guard before.type != .otherProfile else { return }
+        guard before.userIdx != userIdx else { return }
+        let otherProfile = Chat(type: .otherProfile, userIdx: otherId, nickName: otherName)
         self.chatList.append(otherProfile)
-        self.updateChat(count: self.chatList.count) {
-            print("create profile")
-        }
+        self.chatTableView.insertRows(at: [IndexPath(row: index-1, section: 0)], with: .none)
     }
+    //채팅의 모든 날짜비교
+//    func dateAllCompare() {
+//        guard !self.chatList.isEmpty else { return }
+//        for index in 1..<self.chatList.count {
+//            let before = self.chatList[index-1]
+//            let cur = self.chatList[index]
+//            guard before.date == cur.date else { continue }
+//            guard before.userIdx == cur.userIdx else { continue }
+//            self.chatList[index-1].hide = true
+//            self.chatList[index].hide = false
+//        }
+//    }
+    
     // MARK: - 유저의 채팅시간비교
-    func dateCompare(curIdx: Int) {
-        guard curIdx != 0 else { return }
-        let before = chatList[curIdx-1]
-        let cur = chatList[curIdx]
-        guard before.date == cur.date else { return }
-        let indexPath = IndexPath( row: curIdx-1, section: 0 )
+    func dateCompare() {
+        guard self.chatList.count > 1 else { return }
+        let index = self.chatList.count - 1
         
-        switch before.type {
-        case .other, .mine:
-            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatBubbleTableViewCell
-            cell.hide = true
-        case .myInvite:
-            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatMyInviteTableViewCell
-            cell.hide = true
-        case .otherInvite:
-            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatOtherInviteTableViewCell
-            cell.hide = true
-        case .complete:
-            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatCompleteTableViewCell
-            cell.hide = true
         
-        default:
-            return
+        for index in 1..<self.chatList.count {
+            let before = self.chatList[index-1]
+            let cur = self.chatList[index]
+            guard before.date == cur.date else { continue }
+            guard before.userIdx == cur.userIdx else { continue }
+            self.chatList[index-1].hide = true
+            self.chatList[index].hide = false
         }
-        chatList[curIdx].hide = false
-        chatList[curIdx-1].hide = true
         
-        return
+//        guard self.chatList.count > 1 else { return }
+//        let index = self.chatList.count-1
+//        let before = chatList[index-1]
+//        let cur = chatList[index]
+//        guard before.date == cur.date else { return }
+//        guard before.userIdx == cur.userIdx else { return }
+//        let indexPath = IndexPath( row: index, section: 0 )
+//
+//        switch before.type {
+//        case .other, .mine:
+//            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatBubbleTableViewCell
+//            cell.hide = true
+//        case .myInvite:
+//            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatMyInviteTableViewCell
+//            cell.hide = true
+//        case .otherInvite:
+//            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatOtherInviteTableViewCell
+//            cell.hide = true
+//        case .otherComplete:
+//            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatCompleteTableViewCell
+//            cell.hide = true
+//
+//        default:
+//            return
+//        }
+//        chatList[index].hide = false
+//        chatList[index-1].hide = true
+//
+//        return
     }
     // MARK: - Chat Update
-    func updateChat( count: Int, completion: @escaping () -> Void ) {
-        
-        let indexPath = IndexPath( row: count-1, section: 0 )
-        self.chatTableView.beginUpdates()
-        self.chatTableView.insertRows(at: [indexPath], with: .none)
-        self.chatTableView.endUpdates()
-        self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-        self.dateCompare(curIdx: count-1) 
-        completion()
-    }
+//    func updateChat() {
+//        //self.chatTableView.reloadData()
+//        guard self.chatList.count > 0 else { return }
+//        let indexPath = IndexPath( row: self.chatList.count-1, section: 0 )
+//        self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+//    }
     // MARK: - ChatView 설정
     func setChatView() {
         self.chatAreaView.layer.cornerRadius = 6
@@ -143,27 +190,47 @@ extension ChatRoomViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let chat = chatList[indexPath.row]
+        
         if chat.type == .date {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! ChatDateTableViewCell
             cell.dateLabel.text = chat.message
             return cell
         } else if chat.type == .otherProfile {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ChatProfileTableViewCell
-            cell.userIdLabel.text = chat.message
+            cell.userIdLabel.text = chat.nickName
             return cell
         } else if chat.type == .myInvite {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyInviteCell", for: indexPath) as! ChatMyInviteTableViewCell
             
             cell.timeLabel.text = chat.date
             cell.timeLabel.labelKern(kerningValue: -0.06)
+            cell.meetTimeLabel.text = chat.meetDate
+            cell.nameLabel.text = "김루희"
             cell.hide = chat.hide ?? false
             
             return cell
         } else if chat.type == .otherInvite {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OtherInviteCell", for: indexPath) as! ChatOtherInviteTableViewCell
+            cell.timeLabel.text = chat.date
+            cell.timeLabel.labelKern(kerningValue: -0.06)
+            cell.meetTimeLabel.text = chat.meetDate
+            self.meetDateString = chat.meetDate ?? ""
+            cell.nameLabel.text = otherName
+            cell.acceptButton.addTarget(self, action: #selector(acceptRequest), for: .touchUpInside)
+            cell.hide = chat.hide ?? false
             return cell
-        } else if chat.type == .complete {
+        } else if chat.type == .otherComplete {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteCell", for: indexPath) as! ChatCompleteTableViewCell
+            cell.timeLabel.text = chat.date
+            cell.timeLabel.labelKern(kerningValue: -0.06)
+            cell.meetTimeLabel.text = chat.meetDate
+            cell.nameLabel.text = otherName
+            if UserInfo.shared.getUserIdx() == chat.userIdx {
+                cell.youAndITypeLabel.text = "님의"
+            } else {
+                cell.youAndITypeLabel.text = "님이"
+            }
+            cell.hide = chat.hide ?? false
             return cell
         }
         let cellid = chat.type == .mine ? "MyChatCell" : "YourChatCell"
@@ -187,11 +254,11 @@ extension ChatRoomViewController: UITableViewDelegate {
         } else if chat.type == .date {
             return 55
         } else if chat.type == .myInvite {
-            return 177
+            return 203
         } else if chat.type == .otherInvite {
-            return 215
-        } else if chat.type == .complete {
-            return 177
+            return 245
+        } else if chat.type == .otherComplete {
+            return 203
         } else {
             let approximateWidthOfText = view.frame.width - 36 - 131
             let size = CGSize(width: approximateWidthOfText, height: 1200)
@@ -292,22 +359,4 @@ extension ChatRoomViewController {
         })
         
     }
-}
-
-struct Chat {
-    var type: ChatType
-    var nickName: String?
-    var message: String?
-    var date: String?
-    var hide: Bool = false
-}
-
-enum ChatType {
-    case mine
-    case other
-    case myInvite
-    case otherInvite
-    case complete
-    case otherProfile
-    case date
 }
