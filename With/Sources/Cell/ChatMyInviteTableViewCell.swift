@@ -28,7 +28,7 @@ class ChatMyInviteTableViewCell: UITableViewCell {
         meetTimeLabel.textAlignment = .center
         nameLabel.labelKern(kerningValue: -0.84)
         nameLabel.labelParagraphStyle(paragraphValue: 5.5)
-        nameLabel.textAlignment = .center
+        nameLabel.textAlignment = .right
         self.view.layer.borderWidth = 1
         self.view.layer.borderColor = UIColor.acceptBtColor.cgColor
         self.view.layer.cornerRadius = 6

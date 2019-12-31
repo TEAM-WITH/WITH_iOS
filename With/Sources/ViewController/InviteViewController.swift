@@ -12,8 +12,9 @@ class InviteViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var titleLabel: UILabel!
     var ref: DatabaseReference!
-    let user2 = "11"
-    let roomId = "12_11"
+    var otherId = 11
+    var roomId = "12_11"
+    var unSeenCount = 0
     let dateFommatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
@@ -28,21 +29,22 @@ class InviteViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTitleLabel(name: "김미정연주")
+        setTitleLabel(name: "김미정")
         let today = dateFommatter.string(from: Date())
         self.datePicker.minimumDate = dateFommatter.date(from: today)
         setFirebase()
     }
 
     func setTitleLabel(name: String) {
+        let count = name.count
         let attributedString = NSMutableAttributedString(string: "\(name)님과\nW!TH할래요?", attributes: [
           .font: UIFont(name: "AppleSDGothicNeo-Bold", size: 20.0)!,
           .foregroundColor: UIColor(white: 0.0, alpha: 1.0),
           .kern: -0.01
             ])
-        attributedString.addAttribute(.font, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!, range: NSRange(location: 6, length: 2))
-        attributedString.addAttribute(.foregroundColor, value: UIColor.mainPurple, range: NSRange(location: 8, length: 4))
-        attributedString.addAttribute(.font, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!, range: NSRange(location: 12, length: 4))
+        attributedString.addAttribute(.font, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!, range: NSRange(location: count+1, length: 2))
+        attributedString.addAttribute(.foregroundColor, value: UIColor.mainPurple, range: NSRange(location: count+3, length: 4))
+        attributedString.addAttribute(.font, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!, range: NSRange(location: count+7, length: 4))
         
         self.titleLabel.attributedText = attributedString
     }

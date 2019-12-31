@@ -397,15 +397,15 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김은별루희" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSZ-MU-miq">
-                                                            <rect key="frame" x="68.333333333333343" y="127" width="60.666666666666657" height="17"/>
+                                                            <rect key="frame" x="60.333333333333343" y="127" width="60.666666666666657" height="17"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.1019607843" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="님이" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyN-2w-blU">
-                                                            <rect key="frame" x="129" y="127" width="25" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="님과의" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyN-2w-blU">
+                                                            <rect key="frame" x="121" y="127" width="38" height="17"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="25" id="Arb-yo-lal"/>
+                                                                <constraint firstAttribute="width" constant="38" id="Arb-yo-lal"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -420,7 +420,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="UyN-2w-blU" secondAttribute="trailing" constant="72" id="54X-IQ-SaR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="UyN-2w-blU" secondAttribute="trailing" constant="67" id="54X-IQ-SaR"/>
                                                         <constraint firstItem="Qfm-dB-puA" firstAttribute="top" secondItem="YW2-US-Wvs" secondAttribute="top" id="84q-8e-tKJ"/>
                                                         <constraint firstItem="UyN-2w-blU" firstAttribute="top" secondItem="DVc-6W-do4" secondAttribute="bottom" constant="10" id="8Hg-6H-aKU"/>
                                                         <constraint firstItem="mSZ-MU-miq" firstAttribute="leading" relation="lessThanOrEqual" secondItem="YW2-US-Wvs" secondAttribute="leading" constant="72" id="LtC-DT-3eG"/>
@@ -496,7 +496,7 @@
                                                             <color key="textColor" red="0.19215686269999999" green="0.1019607843" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김은별루희" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRv-K7-Onf">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김은별루희" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRv-K7-Onf">
                                                             <rect key="frame" x="68.333333333333329" y="127" width="60.666666666666671" height="17"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.1019607843" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -511,7 +511,7 @@
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동행을 신청하셨습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJa-36-xHm">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동행을 수락하셨습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJa-36-xHm">
                                                             <rect key="frame" x="48.666666666666671" y="154" width="129" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -571,6 +571,7 @@
                                             <outlet property="nameLabel" destination="iRv-K7-Onf" id="SPD-OR-wSc"/>
                                             <outlet property="timeLabel" destination="WYN-Gl-HVt" id="Y59-9A-s4b"/>
                                             <outlet property="view" destination="ClV-LA-7Jc" id="xrq-Bg-ul8"/>
+                                            <outlet property="youAndITypeLabel" destination="UQF-nO-3O2" id="OLw-cY-hCd"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OtherInviteCell" rowHeight="245" id="1xP-jP-dkS" customClass="ChatOtherInviteTableViewCell" customModule="W_TH" customModuleProvider="target">

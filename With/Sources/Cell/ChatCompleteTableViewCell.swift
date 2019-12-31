@@ -15,6 +15,7 @@ class ChatCompleteTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var meetTimeLabel: UILabel!
     @IBOutlet weak var view: UIView!
+    @IBOutlet weak var youAndITypeLabel: UILabel!
     
     var hide = false {
         willSet {
@@ -25,12 +26,15 @@ class ChatCompleteTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        meetTimeLabel.labelKern(kerningValue: -0.84)
-        meetTimeLabel.labelParagraphStyle(paragraphValue: 5.5)
-        meetTimeLabel.textAlignment = .center
+        let labelSet = [meetTimeLabel, youAndITypeLabel]
+        for label in labelSet {
+            label?.labelKern(kerningValue: -0.84)
+            label?.labelParagraphStyle(paragraphValue: 5.5)
+            label?.textAlignment = .center
+        }
         nameLabel.labelKern(kerningValue: -0.84)
         nameLabel.labelParagraphStyle(paragraphValue: 5.5)
-        nameLabel.textAlignment = .center
+        nameLabel.textAlignment = .right
         self.view.layer.borderWidth = 1
         self.view.layer.borderColor = UIColor.acceptBtColor.cgColor
         self.view.layer.cornerRadius = 6
