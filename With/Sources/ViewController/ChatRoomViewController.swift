@@ -42,10 +42,10 @@ class ChatRoomViewController: UIViewController {
     }()
     var ref: DatabaseReference!
     var isInvite = false
-    var otherId = 11
+    var otherId = 13
     var otherName = "위드위드"
-    var roomId = "12_11"
-    var unSeenCount = 0
+    var roomId = "13_14"
+    var otherUnSeenCount = 0
     var meetDateString = ""
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,12 +61,15 @@ class ChatRoomViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.ref.removeAllObservers()
         unregisterForKeyboardNotifications()
+        removeUnSeenCount()
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         firebaseEventObserver(roomId: roomId)
     }
     override func viewWillAppear(_ animated: Bool) {
         setFirebase()
+        setOtherUnSeenCount()
     }
     @IBAction func cancelButtonClick(_ sender: Any) {
         self.dismiss(animated: true)
@@ -87,7 +90,7 @@ class ChatRoomViewController: UIViewController {
         let floatAlert = self.storyboard?.instantiateViewController(withIdentifier: "Invite") as! InviteViewController
         floatAlert.roomId = self.roomId
         floatAlert.otherId = self.otherId
-        floatAlert.unSeenCount = self.unSeenCount
+        floatAlert.unSeenCount = self.otherUnSeenCount
         
         self.present(floatAlert, animated: true)
     }

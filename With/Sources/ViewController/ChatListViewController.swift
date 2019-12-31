@@ -74,7 +74,7 @@ extension ChatListViewController: UITableViewDelegate {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Chat") as? ChatRoomViewController else { return }
         nextVC.modalPresentationStyle = .fullScreen
         nextVC.roomId = "\(chatRoom.roomId)"
-        nextVC.unSeenCount = chatRoom.unSeenCount
+        nextVC.otherUnSeenCount = chatRoom.unSeenCount
         nextVC.otherId = distinguishGetOtherId(roomId: chatRoom.roomId)
         self.present(nextVC, animated: true)
     }
