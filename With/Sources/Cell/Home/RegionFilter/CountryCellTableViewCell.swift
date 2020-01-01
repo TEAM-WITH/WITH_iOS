@@ -16,7 +16,7 @@ class CountryCellTableViewCell: UITableViewCell {
             self.countryTitle.text = newValue.regionName
             self.regionCode = newValue.regionCode
             do {
-                guard let imageURL = URL(string: newValue.regionImg) else { return }
+                guard let imageURL = URL(string: newValue.regionImgS) else { return }
                 self.countryImage.kf.setImage(with: imageURL,
                                               options: [
                                                 .transition(.fade(1)),
