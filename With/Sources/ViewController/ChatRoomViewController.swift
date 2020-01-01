@@ -34,12 +34,12 @@ class ChatRoomViewController: UIViewController {
         formatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
         return formatter
     }()
-    let monthFommatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateFormat = "yyyy년 MM월 dd일"
-        return formatter
-    }()
+//    let monthFommatter: DateFormatter = {
+//        let formatter = DateFormatter()
+//        formatter.locale = Locale(identifier: "ko_KR")
+//        formatter.dateFormat = "yyyy년 MM월 dd일"
+//        return formatter
+//    }()
     var ref: DatabaseReference!
     var isInvite = false
     var otherId = 13
@@ -92,7 +92,7 @@ class ChatRoomViewController: UIViewController {
         let floatAlert = self.storyboard?.instantiateViewController(withIdentifier: "Invite") as! InviteViewController
         floatAlert.roomId = self.roomId
         floatAlert.otherId = self.otherId
-        floatAlert.unSeenCount = self.otherUnSeenCount
+        floatAlert.otherUnSeenCount = self.otherUnSeenCount
         
         self.present(floatAlert, animated: true)
     }
@@ -255,12 +255,10 @@ extension ChatRoomViewController: UITableViewDataSource {
             cell.meetTimeLabel.text = chat.meetDate
             cell.nameLabel.text = otherName
             if UserInfo.shared.getUserIdx() == chat.userIdx {
-                print("님의")
                 cell.youAndITypeLabel.text = "님의"
                 cell.view.translatesAutoresizingMaskIntoConstraints = false
                 cell.view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 129).isActive = true
             } else {
-                print("님이")
                 cell.youAndITypeLabel.text = "님이"
                 cell.view.translatesAutoresizingMaskIntoConstraints = false
                 cell.view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true

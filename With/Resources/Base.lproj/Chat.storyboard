@@ -165,6 +165,7 @@
                                         <connections>
                                             <outlet property="acceptImage" destination="nyt-KF-xWh" id="qNs-vd-Eso"/>
                                             <outlet property="badgeLabel" destination="GpB-gm-nJb" id="eFR-KB-c9p"/>
+                                            <outlet property="badgeView" destination="Cgg-vM-QzS" id="mhB-Tb-QdF"/>
                                             <outlet property="chatContentLabel" destination="nS7-aj-mXN" id="TWV-bm-Xzg"/>
                                             <outlet property="chatTitleLabel" destination="dwW-fW-Vez" id="EwC-69-uUR"/>
                                             <outlet property="profileImage" destination="7o2-69-EnQ" id="8MP-MH-jKL"/>

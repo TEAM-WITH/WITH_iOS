@@ -14,7 +14,7 @@ class InviteViewController: UIViewController {
     var ref: DatabaseReference!
     var otherId = 11
     var roomId = "12_11"
-    var unSeenCount = 0
+    var otherUnSeenCount = 0
     let dateFommatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")

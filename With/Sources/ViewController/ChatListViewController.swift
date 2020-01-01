@@ -60,10 +60,7 @@ extension ChatListViewController: UITableViewDataSource {
         cell.chatTitleLabel.text = "\(data.boardIdx)"
         cell.chatContentLabel.text = data.lastMsg
         cell.timeLabel.text = data.time
-        cell.badgeLabel.text = "\(data.unSeenCount)"
-//        cell.userIdLabel.text = data.boardIdx
-//        cell.accept = data.
-        
+        cell.badgeCount = data.unSeenCount
         return cell
     }
 }

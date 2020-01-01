@@ -27,6 +27,7 @@ extension ChatRoomViewController {
                 var chat: Chat!
                 if type == .myInvite || type == .otherInvite || type == .otherComplete {
                     let meetDate = self.splitMsgString(msg: msg)
+                    print(meetDate)
                     chat = Chat(type: type, userIdx: userIdx, message: msg, date: date, meetDate: meetDate)
                 } else {
                     chat = Chat(type: type, userIdx: userIdx, message: msg, date: date)
@@ -75,10 +76,16 @@ extension ChatRoomViewController {
             "boardIdx": 0,
             "lastMessage": msg,
             "lastTime": time,
+            "unSeenCount": 0
+        ]
+        let createOtherRoomInfo: Dictionary<String, Any> = [
+            "boardIdx": 0,
+            "lastMessage": msg,
+            "lastTime": time,
             "unSeenCount": self.otherUnSeenCount
         ]
         ref.child("users").child("\(user)").child(roomId).setValue(createRoomInfo)
-        ref.child("users").child("\(otherId)").child(roomId).setValue(createRoomInfo) { err, dref in
+        ref.child("users").child("\(otherId)").child(roomId).setValue(createOtherRoomInfo) { err, dref in
             if err == nil  {
                 print("no err")
                 completion(true)
@@ -126,7 +133,7 @@ extension ChatRoomViewController {
         let user = UserInfo.shared.getUserIdx()
         let date = Date()
         let time = fullDateFommatter.string(from: date)
-        let msgTime = monthFommatter.string(from: date)
+//        let msgTime = monthFommatter.string(from: date)
         let createChatInfo: Dictionary<String, Any> = [
             "date": time,
             "msg": "동행 성사 메시지입니다.-\(self.meetDateString)",
@@ -141,10 +148,16 @@ extension ChatRoomViewController {
             "boardIdx": 0,
             "lastMessage": "동행 성사 메시지입니다.",
             "lastTime": time,
+            "unSeenCount": 0
+        ]
+        let createOtherRoomInfo: Dictionary<String, Any> = [
+            "boardIdx": 0,
+            "lastMessage": "동행 성사 메시지입니다.",
+            "lastTime": time,
             "unSeenCount": otherUnSeenCount
         ]
         ref.child("users").child("\(user)").child(roomId).setValue(createRoomInfo)
-        ref.child("users").child("\(otherId)").child(roomId).setValue(createRoomInfo) { err, dref in
+        ref.child("users").child("\(otherId)").child(roomId).setValue(createOtherRoomInfo) { err, dref in
             if err == nil  {
                 print("no err")
             }else {
