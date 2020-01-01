@@ -27,54 +27,31 @@ extension ChatRoomViewController {
                 var chat: Chat!
                 if type == .myInvite || type == .otherInvite || type == .otherComplete {
                     let meetDate = self.splitMsgString(msg: msg)
+                    print(meetDate)
                     chat = Chat(type: type, userIdx: userIdx, message: msg, date: date, meetDate: meetDate)
                 } else {
                     chat = Chat(type: type, userIdx: userIdx, message: msg, date: date)
                 }
-                print(type)
-                
-                
                 self.chatList.append(chat)
-                let indexPath = IndexPath(row: self.chatList.count-1, section: 0)
+                var indexPath = IndexPath(row: self.chatList.count-1, section: 0)
                 self.chatTableView.insertRows(at: [indexPath], with: .none)
                 self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-//                self.updateChat()
-                self.dateCompare()
-//                self.userCompare(userIdx: userIdx)
                 
+                if type != .mine || type != .myInvite || type != .date {
+                    self.dateCompare()
+                }
+                
+                
+            
+                if self.userCompare() {
+                    let otherProfile = Chat(type: .otherProfile, userIdx: self.otherId, nickName: self.otherName)
+                    indexPath = IndexPath(row: self.chatList.count-1, section: 0)
+                    self.chatList.insert(otherProfile, at: indexPath.row)
+                    self.chatTableView.insertRows(at: [indexPath], with: .none)
+                }
             }
             
         }
-        
-        //        self.ref.child("conversations").child(roomId).observe(.value) { (snapshot) in
-        //            self.chatList.removeAll()
-        //            for item in snapshot.children.allObjects as! [DataSnapshot] {
-        //                if let object = item.value as? [String: AnyObject] {
-        //                    guard let typeNum = object["type"] as? Int else { return }
-        //                    guard let dateString = object["date"] as? String else { return }
-        //                    guard let msg = object["msg"] as? String else { return }
-        //                    guard let userIdx = object["userIdx"] as? Int else { return }
-        ////                   print(object)
-        //                    let type = self.typeChange(useridx: userIdx, typeNum: typeNum, msg: msg)
-        //                    print(dateString)
-        //                    guard let tempDate = self.fullDateFommatter.date(from: dateString) else { return }
-        //                    print(tempDate)
-        //                    let date = self.dateFommatter.string(from: tempDate)
-        //                    var chat: Chat!
-        //                    if type == .myInvite || type == .otherInvite || type == .otherComplete {
-        //                        let meetDate = self.splitMsgString(msg: msg)
-        //                        chat = Chat(type: type, userIdx: userIdx, message: msg, date: date, meetDate: meetDate)
-        //                    } else {
-        //                        chat = Chat(type: type, userIdx: userIdx, message: msg, date: date)
-        //                    }
-        ////                    print(chat)
-        //                    self.chatList.append(chat)
-        //                }
-        //            }
-        //            self.dateAllCompare()
-        //            self.userCompare()
-        //            self.updateChat()
-        //        }
     }
     
     func splitMsgString(msg: String) -> String {
@@ -94,15 +71,21 @@ extension ChatRoomViewController {
             "userIdx": user
         ]
         ref.child("conversations").child(roomId).childByAutoId().setValue(createChatInfo)
-        self.unSeenCount += 1
+        self.otherUnSeenCount += 1
         let createRoomInfo: Dictionary<String, Any> = [
             "boardIdx": 0,
             "lastMessage": msg,
             "lastTime": time,
-            "unSeenCount": self.unSeenCount
+            "unSeenCount": 0
+        ]
+        let createOtherRoomInfo: Dictionary<String, Any> = [
+            "boardIdx": 0,
+            "lastMessage": msg,
+            "lastTime": time,
+            "unSeenCount": self.otherUnSeenCount
         ]
         ref.child("users").child("\(user)").child(roomId).setValue(createRoomInfo)
-        ref.child("users").child("\(otherId)").child(roomId).setValue(createRoomInfo) { err, dref in
+        ref.child("users").child("\(otherId)").child(roomId).setValue(createOtherRoomInfo) { err, dref in
             if err == nil  {
                 print("no err")
                 completion(true)
@@ -150,7 +133,7 @@ extension ChatRoomViewController {
         let user = UserInfo.shared.getUserIdx()
         let date = Date()
         let time = fullDateFommatter.string(from: date)
-        let msgTime = monthFommatter.string(from: date)
+//        let msgTime = monthFommatter.string(from: date)
         let createChatInfo: Dictionary<String, Any> = [
             "date": time,
             "msg": "동행 성사 메시지입니다.-\(self.meetDateString)",
@@ -160,19 +143,42 @@ extension ChatRoomViewController {
         // 날짜 받아서 수락완료누르기
         // 날짜 찍히는거 확인
         ref.child("conversations").child(roomId).childByAutoId().setValue(createChatInfo)
-        self.unSeenCount += 1
+        self.otherUnSeenCount += 1
         let createRoomInfo: Dictionary<String, Any> = [
             "boardIdx": 0,
             "lastMessage": "동행 성사 메시지입니다.",
             "lastTime": time,
-            "unSeenCount": unSeenCount
+            "unSeenCount": 0
+        ]
+        let createOtherRoomInfo: Dictionary<String, Any> = [
+            "boardIdx": 0,
+            "lastMessage": "동행 성사 메시지입니다.",
+            "lastTime": time,
+            "unSeenCount": otherUnSeenCount
         ]
         ref.child("users").child("\(user)").child(roomId).setValue(createRoomInfo)
-        ref.child("users").child("\(otherId)").child(roomId).setValue(createRoomInfo) { err, dref in
+        ref.child("users").child("\(otherId)").child(roomId).setValue(createOtherRoomInfo) { err, dref in
             if err == nil  {
                 print("no err")
             }else {
                 print("err")
+            }
+        }
+    }
+    // MARK: - 뱃지 지우기
+    func removeUnSeenCount() {
+        let user = UserInfo.shared.getUserIdx()
+        let resetCount: [String: Any] = ["unSeenCount": 0]
+        
+        ref.child("users").child("\(user)").child(roomId).updateChildValues(resetCount)
+        
+    }
+    // MARK: - 상대방 뱃지수 가져오기
+    func setOtherUnSeenCount() {
+        ref.child("users").child("\(otherId)").child(roomId).observe(.childChanged) { snapshot in
+            if let object = snapshot.value as? [String: AnyObject] {
+             guard let unSeenCount = object["unSeenCount"] as? Int else { return }
+                self.otherUnSeenCount = unSeenCount
             }
         }
     }

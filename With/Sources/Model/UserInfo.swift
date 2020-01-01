@@ -12,7 +12,7 @@ class UserInfo {
     static let shared = UserInfo()
     
     private var token: String = ""
-    private var userIdx: Int = 12
+    private var userIdx: Int = 14
     
     func setUserInfo(token: String, userIdx: Int) {
         self.token = token

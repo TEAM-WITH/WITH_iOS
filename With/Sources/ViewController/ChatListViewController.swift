@@ -60,10 +60,7 @@ extension ChatListViewController: UITableViewDataSource {
         cell.chatTitleLabel.text = "\(data.boardIdx)"
         cell.chatContentLabel.text = data.lastMsg
         cell.timeLabel.text = data.time
-        cell.badgeLabel.text = "\(data.unSeenCount)"
-//        cell.userIdLabel.text = data.boardIdx
-//        cell.accept = data.
-        
+        cell.badgeCount = data.unSeenCount
         return cell
     }
 }
@@ -74,7 +71,7 @@ extension ChatListViewController: UITableViewDelegate {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Chat") as? ChatRoomViewController else { return }
         nextVC.modalPresentationStyle = .fullScreen
         nextVC.roomId = "\(chatRoom.roomId)"
-        nextVC.unSeenCount = chatRoom.unSeenCount
+        nextVC.otherUnSeenCount = chatRoom.unSeenCount
         nextVC.otherId = distinguishGetOtherId(roomId: chatRoom.roomId)
         self.present(nextVC, animated: true)
     }

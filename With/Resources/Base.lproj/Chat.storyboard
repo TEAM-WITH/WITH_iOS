@@ -165,6 +165,7 @@
                                         <connections>
                                             <outlet property="acceptImage" destination="nyt-KF-xWh" id="qNs-vd-Eso"/>
                                             <outlet property="badgeLabel" destination="GpB-gm-nJb" id="eFR-KB-c9p"/>
+                                            <outlet property="badgeView" destination="Cgg-vM-QzS" id="mhB-Tb-QdF"/>
                                             <outlet property="chatContentLabel" destination="nS7-aj-mXN" id="TWV-bm-Xzg"/>
                                             <outlet property="chatTitleLabel" destination="dwW-fW-Vez" id="EwC-69-uUR"/>
                                             <outlet property="profileImage" destination="7o2-69-EnQ" id="8MP-MH-jKL"/>
@@ -205,7 +206,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Rs-fi-blv">
-                                <rect key="frame" x="0.0" y="186" width="375" height="527"/>
+                                <rect key="frame" x="0.0" y="186" width="375" height="512"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MyChat" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyChatCell" rowHeight="44" id="8EL-iv-HPn" customClass="ChatBubbleTableViewCell" customModule="W_TH" customModuleProvider="target">
@@ -870,7 +871,7 @@
                             <constraint firstItem="XNj-AD-ZvV" firstAttribute="trailing" secondItem="R0E-fc-pIb" secondAttribute="trailing" id="epz-TR-ejH"/>
                             <constraint firstItem="3Rs-fi-blv" firstAttribute="leading" secondItem="R0E-fc-pIb" secondAttribute="leading" id="huc-Xg-3wi"/>
                             <constraint firstItem="4xP-eM-Wz7" firstAttribute="leading" secondItem="9qV-vs-5Ry" secondAttribute="leading" symbolic="YES" id="l28-ct-B6o"/>
-                            <constraint firstAttribute="bottom" secondItem="3Rs-fi-blv" secondAttribute="bottom" constant="99" id="mg3-gZ-UuH"/>
+                            <constraint firstItem="R0E-fc-pIb" firstAttribute="bottom" secondItem="3Rs-fi-blv" secondAttribute="bottom" constant="80" id="mg3-gZ-UuH"/>
                             <constraint firstItem="95l-RX-bb8" firstAttribute="top" secondItem="4xP-eM-Wz7" secondAttribute="bottom" symbolic="YES" id="mrh-RO-DS1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R0E-fc-pIb"/>

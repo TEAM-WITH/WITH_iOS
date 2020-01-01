@@ -34,18 +34,18 @@ class ChatRoomViewController: UIViewController {
         formatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
         return formatter
     }()
-    let monthFommatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateFormat = "yyyy년 MM월 dd일"
-        return formatter
-    }()
+//    let monthFommatter: DateFormatter = {
+//        let formatter = DateFormatter()
+//        formatter.locale = Locale(identifier: "ko_KR")
+//        formatter.dateFormat = "yyyy년 MM월 dd일"
+//        return formatter
+//    }()
     var ref: DatabaseReference!
     var isInvite = false
-    var otherId = 11
+    var otherId = 13
     var otherName = "위드위드"
-    var roomId = "12_11"
-    var unSeenCount = 0
+    var roomId = "13_14"
+    var otherUnSeenCount = 0
     var meetDateString = ""
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,12 +61,15 @@ class ChatRoomViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.ref.removeAllObservers()
         unregisterForKeyboardNotifications()
+        removeUnSeenCount()
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         firebaseEventObserver(roomId: roomId)
     }
     override func viewWillAppear(_ animated: Bool) {
         setFirebase()
+        setOtherUnSeenCount()
     }
     @IBAction func cancelButtonClick(_ sender: Any) {
         self.dismiss(animated: true)
@@ -80,6 +83,8 @@ class ChatRoomViewController: UIViewController {
                 self.simpleAlert(title: "전송 실패", msg: "전송에 실패하였습니다.")
             }
             self.chatTextView.text = ""
+            self.dynamicChatTextView()
+            
         }
     }
     @IBAction func inviteButtonClick(_ sender: Any) {
@@ -87,22 +92,24 @@ class ChatRoomViewController: UIViewController {
         let floatAlert = self.storyboard?.instantiateViewController(withIdentifier: "Invite") as! InviteViewController
         floatAlert.roomId = self.roomId
         floatAlert.otherId = self.otherId
-        floatAlert.unSeenCount = self.unSeenCount
+        floatAlert.otherUnSeenCount = self.otherUnSeenCount
         
         self.present(floatAlert, animated: true)
     }
     // MARK: - 다른유저가 입력할시 비교
-    func userCompare(userIdx: Int) {
+    func userCompare() -> Bool {
         //다음셀의 타입이 mine이면 프로필삽입
-        guard self.chatList.count > 1 else { return }
+        guard self.chatList.count > 1 else { return false }
         
         let index = self.chatList.count-1
+        let cur = self.chatList[index]
         let before = self.chatList[index-1]
-        guard before.type != .otherProfile else { return }
-        guard before.userIdx != userIdx else { return }
-        let otherProfile = Chat(type: .otherProfile, userIdx: otherId, nickName: otherName)
-        self.chatList.append(otherProfile)
-        self.chatTableView.insertRows(at: [IndexPath(row: index-1, section: 0)], with: .none)
+        
+        guard cur.type == .other || cur.type == .otherInvite || cur.type == .otherComplete else { return false }
+        guard UserInfo.shared.getUserIdx() != cur.userIdx else { return false }
+        guard before.userIdx != cur.userIdx else { return false }
+        
+        return true
     }
     //채팅의 모든 날짜비교
 //    func dateAllCompare() {
@@ -121,17 +128,23 @@ class ChatRoomViewController: UIViewController {
     func dateCompare() {
         guard self.chatList.count > 1 else { return }
         let index = self.chatList.count - 1
-        
-        
-        for index in 1..<self.chatList.count {
-            let before = self.chatList[index-1]
-            let cur = self.chatList[index]
-            guard before.date == cur.date else { continue }
-            guard before.userIdx == cur.userIdx else { continue }
-            self.chatList[index-1].hide = true
-            self.chatList[index].hide = false
-        }
-        
+        let before = self.chatList[index-1]
+        let cur = self.chatList[index]
+        guard before.date == cur.date else { return }
+        guard before.userIdx == cur.userIdx else { return }
+        self.chatList[index-1].hide = true
+        self.chatList[index].hide = false
+        self.chatTableView.reloadData()
+//
+//        for index in 1..<self.chatList.count {
+//            let before = self.chatList[index-1]
+//            let cur = self.chatList[index]
+//            guard before.date == cur.date else { continue }
+//            guard before.userIdx == cur.userIdx else { continue }
+//            self.chatList[index-1].hide = true
+//            self.chatList[index].hide = false
+//        }
+//
 //        guard self.chatList.count > 1 else { return }
 //        let index = self.chatList.count-1
 //        let before = chatList[index-1]
@@ -182,6 +195,22 @@ class ChatRoomViewController: UIViewController {
         self.noticeDateLabel.labelKern(kerningValue: -0.06)
         self.noticeView.dropShadow()
     }
+    
+    func dynamicChatTextView() {
+        let size = CGSize(width: self.view.frame.width, height: .infinity)
+        var estimatedSize = self.chatTextView.sizeThatFits(size)
+        print(estimatedSize)
+        if estimatedSize.height > 75 {
+            return
+        } else if estimatedSize.height < 32 {
+            estimatedSize.height = 31
+        }
+        self.chatTextView.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = estimatedSize.height
+            }
+        }
+    }
 }
 
 extension ChatRoomViewController: UITableViewDataSource {
@@ -227,8 +256,12 @@ extension ChatRoomViewController: UITableViewDataSource {
             cell.nameLabel.text = otherName
             if UserInfo.shared.getUserIdx() == chat.userIdx {
                 cell.youAndITypeLabel.text = "님의"
+                cell.view.translatesAutoresizingMaskIntoConstraints = false
+                cell.view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 129).isActive = true
             } else {
                 cell.youAndITypeLabel.text = "님이"
+                cell.view.translatesAutoresizingMaskIntoConstraints = false
+                cell.view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
             }
             cell.hide = chat.hide ?? false
             return cell
@@ -272,19 +305,7 @@ extension ChatRoomViewController: UITableViewDelegate {
 // MARK: - TextView 동적 사이즈 변경
 extension ChatRoomViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        let size = CGSize(width: view.frame.width, height: .infinity)
-        var estimatedSize = textView.sizeThatFits(size)
-        print(estimatedSize)
-        if estimatedSize.height > 75 {
-            return
-        } else if estimatedSize.height < 32 {
-            estimatedSize.height = 31
-        }
-        textView.constraints.forEach { (constraint) in
-            if constraint.firstAttribute == .height {
-                constraint.constant = estimatedSize.height
-            }
-        }
+        dynamicChatTextView()
     }
 }
 
