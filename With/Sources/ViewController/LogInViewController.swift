@@ -10,12 +10,16 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    
+    
     @IBOutlet weak var idTextField: UITextField!
+    
     @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+       
     }
+   
     @IBAction func pressLogin(_ sender: Any) {
         guard let userId = idTextField.text else { return  }
         guard let password = passwordTextField.text else { return }

@@ -86,18 +86,18 @@
                         <viewLayoutGuide key="safeArea" id="b1o-4o-L7k"/>
                     </view>
                     <connections>
-                        <outlet property="idTextField" destination="Ya4-IE-8Gu" id="SGY-0l-qEG"/>
-                        <outlet property="passwordTextField" destination="Kul-wl-cRY" id="Wsk-Pw-qR9"/>
+                        <outlet property="idTextField" destination="Ya4-IE-8Gu" id="tAb-PR-nmj"/>
+                        <outlet property="passwordTextField" destination="Kul-wl-cRY" id="RrX-Wm-fJ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Fd-cU-gbU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-0.80000000000000004" y="8.8669950738916263"/>
         </scene>
-        <!--Log In View Controller-->
+        <!--SignUp-->
         <scene sceneID="xPy-aP-7Tj">
             <objects>
-                <viewController storyboardIdentifier="SignUpView" modalPresentationStyle="fullScreen" id="7Jv-BN-cfv" customClass="LogInViewController" customModule="W_TH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUp" title="SignUp" modalPresentationStyle="fullScreen" id="7Jv-BN-cfv" customClass="SignUpViewController" customModule="W_TH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Sv-hc-1AB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="990"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,7 +216,7 @@
                                                             <constraint firstAttribute="height" constant="37" id="vGQ-Ii-3HT"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartQuotesType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" smartDashesType="no" smartQuotesType="no"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -249,7 +249,7 @@
                                                             <constraint firstAttribute="width" constant="333" id="gdc-aH-p8r"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" smartQuotesType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" smartQuotesType="no"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -282,7 +282,7 @@
                                                             <constraint firstAttribute="height" constant="37" id="tPq-kZ-nhd"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -348,7 +348,7 @@
                                                             <constraint firstAttribute="height" constant="37" id="wni-cA-6qH"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -419,7 +419,7 @@
                                             <constraint firstItem="uQy-uD-Wv3" firstAttribute="leading" secondItem="bT1-ue-Ndj" secondAttribute="trailing" constant="20" id="7J0-7r-xgL"/>
                                             <constraint firstItem="aKu-T3-kTS" firstAttribute="leading" secondItem="cbb-c4-h9e" secondAttribute="leading" constant="32" id="7aP-rR-saf"/>
                                             <constraint firstItem="bT1-ue-Ndj" firstAttribute="leading" secondItem="cbb-c4-h9e" secondAttribute="leading" constant="110" id="BPH-hJ-3c0"/>
-                                            <constraint firstItem="jTz-Cd-i5a" firstAttribute="leading" secondItem="cbb-c4-h9e" secondAttribute="leading" constant="331" id="BmD-HN-Kd7"/>
+                                            <constraint firstItem="jTz-Cd-i5a" firstAttribute="leading" secondItem="aKu-T3-kTS" secondAttribute="leading" constant="299" id="BmD-HN-Kd7"/>
                                             <constraint firstItem="aKu-T3-kTS" firstAttribute="top" secondItem="cbb-c4-h9e" secondAttribute="top" constant="55" id="C0f-kW-qZ3"/>
                                             <constraint firstItem="eCc-nd-pbp" firstAttribute="leading" secondItem="fS7-T6-gfx" secondAttribute="leading" id="Dwd-zl-g7b"/>
                                             <constraint firstItem="fS7-T6-gfx" firstAttribute="top" secondItem="Vhk-gb-2oI" secondAttribute="bottom" constant="104" id="FH8-Z4-og5"/>
@@ -496,6 +496,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="x7T-7I-lOF"/>
                     <size key="freeformSize" width="375" height="990"/>
+                    <connections>
+                        <outlet property="birthTextField" destination="dGB-hE-JIX" id="zqt-XV-k2c"/>
+                        <outlet property="confirmPWTextField" destination="pw0-oP-ukp" id="Ugq-GT-1ZM"/>
+                        <outlet property="idTextField" destination="EgH-g7-BUB" id="cOw-sV-9et"/>
+                        <outlet property="nameTextField" destination="z1Z-h5-fCW" id="TBu-kx-JUc"/>
+                        <outlet property="passwordTextField" destination="JyP-iT-wvV" id="Fif-3q-2I4"/>
+                        <outlet property="scrollView" destination="eqc-AR-TEI" id="bXI-i1-zOF"/>
+                        <outlet property="topLayout" destination="C0f-kW-qZ3" id="EmA-Ng-hba"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lmg-hP-20E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
