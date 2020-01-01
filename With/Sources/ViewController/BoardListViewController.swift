@@ -15,7 +15,7 @@ class BoardListViewController: UIViewController {
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var tableView: UITableView!
     
-    var regionString: String = ""
+    var regionString: String = "전체"
     var regionCode = "010000"
     var dateString: String = "날짜"
     
@@ -24,7 +24,16 @@ class BoardListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        
+        setDefaultRequest()
+    }
+    
+    func setDefaultRequest() {
+        BoardService.shared.getBoardListRequest(code: regionCode) { data in
+            guard let list = data else { return }
+            self.boardList = list
+            self.tableView.reloadData()
+            
+        }
     }
     
     func setUI() {
@@ -42,9 +51,12 @@ class BoardListViewController: UIViewController {
         self.tableView.dataSource = self
     }
     @IBAction func goToRegionPick(_ sender: Any) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegionFilter") as! RegionFilterViewController
+        nextVC.delegate = self
+        self.present(nextVC, animated: true)
     }
     @IBAction func goToDatePick(_ sender: Any) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardDatePicker") as! BoardDatePickerViewController
+        let nextVC = UIStoryboard(name: "RegionFilter", bundle: nil).instantiateViewController(withIdentifier: "BoardDatePicker") as! BoardDatePickerViewController
         nextVC.delegate = self
         self.present(nextVC, animated: true)
     }
@@ -81,7 +93,7 @@ extension BoardListViewController: BoardPickDelegate {
             guard let list = data else { return }
             self.boardList = list
             self.tableView.reloadData()
-            
+        
         }
     }
 }
