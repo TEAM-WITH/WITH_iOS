@@ -73,6 +73,7 @@ extension ChatListViewController: UITableViewDelegate {
         nextVC.roomId = "\(chatRoom.roomId)"
         nextVC.otherUnSeenCount = chatRoom.unSeenCount
         nextVC.otherId = distinguishGetOtherId(roomId: chatRoom.roomId)
+        enterChatSetCount(roomId: chatRoom.roomId)
         self.present(nextVC, animated: true)
     }
 }

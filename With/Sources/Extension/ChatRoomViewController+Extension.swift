@@ -174,13 +174,21 @@ extension ChatRoomViewController {
     }
     // MARK: - 상대방 뱃지수 가져오기
     func setOtherUnSeenCount() {
+        // 처음 초기화
+        ref.child("users").child("\(otherId)").child(roomId).observe(.childAdded) { snapshot in
+            if snapshot.key == "unSeenCount" {
+                guard let unSeenCount = snapshot.value as? Int else { return }
+                self.otherUnSeenCount = unSeenCount
+                print("처음초기화ㅓ\(self.otherUnSeenCount)")
+            }
+        }
+        // 바뀌면 초기화
         ref.child("users").child("\(otherId)").child(roomId).observe(.childChanged) { snapshot in
             if snapshot.key == "unSeenCount" {
                 guard let unSeenCount = snapshot.value as? Int else { return }
                 self.otherUnSeenCount = unSeenCount
-                print(self.otherUnSeenCount)
+                print("업데이트: \(self.otherUnSeenCount)")
             }
-            
         }
     }
 }

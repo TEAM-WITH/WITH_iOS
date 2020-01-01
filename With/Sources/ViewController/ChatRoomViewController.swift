@@ -111,18 +111,6 @@ class ChatRoomViewController: UIViewController {
         
         return true
     }
-    //채팅의 모든 날짜비교
-//    func dateAllCompare() {
-//        guard !self.chatList.isEmpty else { return }
-//        for index in 1..<self.chatList.count {
-//            let before = self.chatList[index-1]
-//            let cur = self.chatList[index]
-//            guard before.date == cur.date else { continue }
-//            guard before.userIdx == cur.userIdx else { continue }
-//            self.chatList[index-1].hide = true
-//            self.chatList[index].hide = false
-//        }
-//    }
     
     // MARK: - 유저의 채팅시간비교
     func dateCompare() {
@@ -135,53 +123,7 @@ class ChatRoomViewController: UIViewController {
         self.chatList[index-1].hide = true
         self.chatList[index].hide = false
         self.chatTableView.reloadData()
-//
-//        for index in 1..<self.chatList.count {
-//            let before = self.chatList[index-1]
-//            let cur = self.chatList[index]
-//            guard before.date == cur.date else { continue }
-//            guard before.userIdx == cur.userIdx else { continue }
-//            self.chatList[index-1].hide = true
-//            self.chatList[index].hide = false
-//        }
-//
-//        guard self.chatList.count > 1 else { return }
-//        let index = self.chatList.count-1
-//        let before = chatList[index-1]
-//        let cur = chatList[index]
-//        guard before.date == cur.date else { return }
-//        guard before.userIdx == cur.userIdx else { return }
-//        let indexPath = IndexPath( row: index, section: 0 )
-//
-//        switch before.type {
-//        case .other, .mine:
-//            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatBubbleTableViewCell
-//            cell.hide = true
-//        case .myInvite:
-//            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatMyInviteTableViewCell
-//            cell.hide = true
-//        case .otherInvite:
-//            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatOtherInviteTableViewCell
-//            cell.hide = true
-//        case .otherComplete:
-//            let cell = self.chatTableView.cellForRow(at: indexPath) as! ChatCompleteTableViewCell
-//            cell.hide = true
-//
-//        default:
-//            return
-//        }
-//        chatList[index].hide = false
-//        chatList[index-1].hide = true
-//
-//        return
     }
-    // MARK: - Chat Update
-//    func updateChat() {
-//        //self.chatTableView.reloadData()
-//        guard self.chatList.count > 0 else { return }
-//        let indexPath = IndexPath( row: self.chatList.count-1, section: 0 )
-//        self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-//    }
     // MARK: - ChatView 설정
     func setChatView() {
         self.chatAreaView.layer.cornerRadius = 6
@@ -249,20 +191,14 @@ extension ChatRoomViewController: UITableViewDataSource {
             cell.hide = chat.hide ?? false
             return cell
         } else if chat.type == .otherComplete {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteCell", for: indexPath) as! ChatCompleteTableViewCell
+            let userIdx = UserInfo.shared.getUserIdx()
+            
+            let cellId = chat.userIdx == userIdx ? "CompleteMyCell" : "CompleteCell"
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ChatCompleteTableViewCell
             cell.timeLabel.text = chat.date
             cell.timeLabel.labelKern(kerningValue: -0.06)
             cell.meetTimeLabel.text = chat.meetDate
             cell.nameLabel.text = otherName
-            if UserInfo.shared.getUserIdx() == chat.userIdx {
-                cell.youAndITypeLabel.text = "님의"
-                cell.view.translatesAutoresizingMaskIntoConstraints = false
-                cell.view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 129).isActive = true
-            } else {
-                cell.youAndITypeLabel.text = "님이"
-                cell.view.translatesAutoresizingMaskIntoConstraints = false
-                cell.view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
-            }
             cell.hide = chat.hide ?? false
             return cell
         }

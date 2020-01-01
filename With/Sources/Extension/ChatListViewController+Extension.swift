@@ -35,5 +35,11 @@ extension ChatListViewController {
             }
         }
     
+    func enterChatSetCount(roomId: String) {
+        // 들어갈때 카운트 0초기화
+        let user = UserInfo.shared.getUserIdx()
+        let resetCount: [String: Any] = ["unSeenCount": 0]
+        ref.child("users").child("\(user)").child(roomId).updateChildValues(resetCount)
+    }
     
 }
