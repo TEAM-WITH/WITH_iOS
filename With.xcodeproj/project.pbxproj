@@ -21,6 +21,8 @@
 		050CCBC123B6374A0004D543 /* Estimate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050CCBC023B6374A0004D543 /* Estimate.storyboard */; };
 		050CCBC323B637810004D543 /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CCBC223B637810004D543 /* EstimateViewController.swift */; };
 		05719C8B23BC7E840041D322 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05719C8A23BC7E840041D322 /* SignUpViewController.swift */; };
+		05719C8D23BC89EF0041D322 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05719C8C23BC89EF0041D322 /* MyPage.storyboard */; };
+		05719C8F23BCC63F0041D322 /* MyPageModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05719C8E23BCC63F0041D322 /* MyPageModifyViewController.swift */; };
 		05DDBE0823BA1C3300DCDBD5 /* EstimateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */; };
 		05DDBE0A23BA45E100DCDBD5 /* RegionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0923BA45E100DCDBD5 /* RegionModel.swift */; };
 		05DDBE0C23BB32C800DCDBD5 /* CountryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */; };
@@ -84,6 +86,8 @@
 		050CCBC023B6374A0004D543 /* Estimate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Estimate.storyboard; sourceTree = "<group>"; };
 		050CCBC223B637810004D543 /* EstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
 		05719C8A23BC7E840041D322 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		05719C8C23BC89EF0041D322 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		05719C8E23BCC63F0041D322 /* MyPageModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModifyViewController.swift; sourceTree = "<group>"; };
 		05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateService.swift; sourceTree = "<group>"; };
 		05DDBE0923BA45E100DCDBD5 /* RegionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionModel.swift; sourceTree = "<group>"; };
 		05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryService.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				04D4374223B4B75C00574AF2 /* RegionFilter.storyboard */,
 				050CCBC023B6374A0004D543 /* Estimate.storyboard */,
 				05DDBE1523BB704500DCDBD5 /* LogIn.storyboard */,
+				05719C8C23BC89EF0041D322 /* MyPage.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */,
 				04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */,
 				050CCBC223B637810004D543 /* EstimateViewController.swift */,
+				05719C8E23BCC63F0041D322 /* MyPageModifyViewController.swift */,
 				06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */,
 				06C1C94223B8F3CF00DD4F9D /* ServiceTestViewController.swift */,
 				05DDBE1723BB711C00DCDBD5 /* LogInViewController.swift */,
@@ -407,6 +413,7 @@
 				0458B93823B1F96F00CEBFDA /* Home.storyboard in Resources */,
 				05DDBE1623BB704500DCDBD5 /* LogIn.storyboard in Resources */,
 				06CFDD6123B09C960030BABB /* Assets.xcassets in Resources */,
+				05719C8D23BC89EF0041D322 /* MyPage.storyboard in Resources */,
 				050CCBC123B6374A0004D543 /* Estimate.storyboard in Resources */,
 				06CFDD7123B1B9260030BABB /* Chat.storyboard in Resources */,
 				06CFDD5F23B09C930030BABB /* Main.storyboard in Resources */,
@@ -500,6 +507,7 @@
 				06CFDD9523B4673C0030BABB /* UITextView+Extension.swift in Sources */,
 				06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */,
 				05DDBE0A23BA45E100DCDBD5 /* RegionModel.swift in Sources */,
+				05719C8F23BCC63F0041D322 /* MyPageModifyViewController.swift in Sources */,
 				045A549323B5D75500D2ADAD /* CountryCellTableViewCell.swift in Sources */,
 				045A549423B5D75500D2ADAD /* RegionCollectionViewCell.swift in Sources */,
 				05DDBE0C23BB32C800DCDBD5 /* CountryService.swift in Sources */,

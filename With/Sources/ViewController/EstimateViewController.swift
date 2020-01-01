@@ -26,7 +26,7 @@ class EstimateViewController: UIViewController {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             withBtn.layer.cornerRadius = 10
-            sender.backgroundColor = UIColor.init(red: 49/255, green: 26/255, blue: 128/255, alpha: 1)
+            sender.backgroundColor = UIColor.mainPurple
         }else {
             withBtn.layer.cornerRadius = 10
             sender.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.3)

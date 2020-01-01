@@ -10,5 +10,5 @@ import UIKit
 struct CountryModel: Codable {
     var regionCode: String
     var regionName: String
-    var regionImg: String
+    var regionImgS: String
 }

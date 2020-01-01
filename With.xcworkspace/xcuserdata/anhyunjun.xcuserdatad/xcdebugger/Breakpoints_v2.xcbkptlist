@@ -30,9 +30,9 @@
             filePath = "With/Sources/ViewController/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "setCollection()"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "setRecentCollectionView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
