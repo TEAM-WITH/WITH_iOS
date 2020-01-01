@@ -17,5 +17,5 @@ struct BaseAPI {
     static let recentBoardURL = baseURL+"/home/boards/"
     static let recommendBoardURL = baseURL+"/home/recommendations"
     static let withMateURL = baseURL+"/home/mates"
-    
+    static let boardListURL = baseURL+"/board/region"
 }

@@ -39,6 +39,11 @@
 		06BBC31123BAA58F000DAE1C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC31023BAA58F000DAE1C /* UserInfo.swift */; };
 		06BBC31323BB557F000DAE1C /* ChatListViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC31223BB557F000DAE1C /* ChatListViewController+Extension.swift */; };
 		06BBC31523BC91F8000DAE1C /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC31423BC91F8000DAE1C /* BoardListViewController.swift */; };
+		06BBC31723BCFD97000DAE1C /* BoardListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC31623BCFD97000DAE1C /* BoardListTableViewCell.swift */; };
+		06BBC31923BD0637000DAE1C /* BoardResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC31823BD0637000DAE1C /* BoardResult.swift */; };
+		06BBC31B23BD06DF000DAE1C /* BoardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC31A23BD06DF000DAE1C /* BoardService.swift */; };
+		06BBC31D23BD1F85000DAE1C /* BoardDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC31C23BD1F85000DAE1C /* BoardDatePickerViewController.swift */; };
+		06BBC32323BD2E84000DAE1C /* BoardPickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC32223BD2E84000DAE1C /* BoardPickDelegate.swift */; };
 		06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */; };
 		06C1C92E23B6AACF00DD4F9D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */; };
 		06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */; };
@@ -103,6 +108,11 @@
 		06BBC31023BAA58F000DAE1C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		06BBC31223BB557F000DAE1C /* ChatListViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatListViewController+Extension.swift"; sourceTree = "<group>"; };
 		06BBC31423BC91F8000DAE1C /* BoardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardListViewController.swift; sourceTree = "<group>"; };
+		06BBC31623BCFD97000DAE1C /* BoardListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardListTableViewCell.swift; sourceTree = "<group>"; };
+		06BBC31823BD0637000DAE1C /* BoardResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardResult.swift; sourceTree = "<group>"; };
+		06BBC31A23BD06DF000DAE1C /* BoardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardService.swift; sourceTree = "<group>"; };
+		06BBC31C23BD1F85000DAE1C /* BoardDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDatePickerViewController.swift; sourceTree = "<group>"; };
+		06BBC32223BD2E84000DAE1C /* BoardPickDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPickDelegate.swift; sourceTree = "<group>"; };
 		06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		06C1C92D23B6AACF00DD4F9D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		06C1C93423B7A78A00DD4F9D /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +172,7 @@
 				06CFDDA023B5425D0030BABB /* ChatMyInviteTableViewCell.swift */,
 				06CFDDA223B542C10030BABB /* ChatCompleteTableViewCell.swift */,
 				06C1C92B23B6547C00DD4F9D /* ChatListTableViewCell.swift */,
+				06BBC31623BCFD97000DAE1C /* BoardListTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -179,6 +190,7 @@
 				06BBC30823BA0D93000DAE1C /* ChatModel.swift */,
 				06BBC31023BAA58F000DAE1C /* UserInfo.swift */,
 				06BBC30423B9C768000DAE1C /* LoginResult.swift */,
+				06BBC31823BD0637000DAE1C /* BoardResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +214,14 @@
 				045A549123B5D75400D2ADAD /* CountryCellTableViewCell.swift */,
 			);
 			path = RegionFilter;
+			sourceTree = "<group>";
+		};
+		06BBC32123BD2E64000DAE1C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				06BBC32223BD2E84000DAE1C /* BoardPickDelegate.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		06CFDD4B23B09C930030BABB = {
@@ -254,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				06CFDD5723B09C930030BABB /* AppDelegate.swift */,
+				06BBC32123BD2E64000DAE1C /* Protocol */,
 				06CFDD8823B37CB50030BABB /* Extension */,
 				06CFDD7B23B1F2BC0030BABB /* Socket */,
 				06CFDD7A23B1F2AF0030BABB /* Service */,
@@ -279,6 +300,7 @@
 				06C1C94223B8F3CF00DD4F9D /* ServiceTestViewController.swift */,
 				05DDBE1723BB711C00DCDBD5 /* LogInViewController.swift */,
 				05719C8A23BC7E840041D322 /* SignUpViewController.swift */,
+				06BBC31C23BD1F85000DAE1C /* BoardDatePickerViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -291,6 +313,7 @@
 				05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */,
 				05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */,
 				05DDBE1323BB6CE700DCDBD5 /* WithMateService.swift */,
+				06BBC31A23BD06DF000DAE1C /* BoardService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -503,11 +526,13 @@
 				06CFDDA323B542C10030BABB /* ChatCompleteTableViewCell.swift in Sources */,
 				06CFDD9523B4673C0030BABB /* UITextView+Extension.swift in Sources */,
 				06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */,
+				06BBC31923BD0637000DAE1C /* BoardResult.swift in Sources */,
 				05DDBE0A23BA45E100DCDBD5 /* RegionModel.swift in Sources */,
 				045A549323B5D75500D2ADAD /* CountryCellTableViewCell.swift in Sources */,
 				045A549423B5D75500D2ADAD /* RegionCollectionViewCell.swift in Sources */,
 				05DDBE0C23BB32C800DCDBD5 /* CountryService.swift in Sources */,
 				06C1C93523B7A78A00DD4F9D /* MyPageViewController.swift in Sources */,
+				06BBC31B23BD06DF000DAE1C /* BoardService.swift in Sources */,
 				05DDBE0E23BB694C00DCDBD5 /* WithMateModel.swift in Sources */,
 				06C1C94323B8F3CF00DD4F9D /* ServiceTestViewController.swift in Sources */,
 				06CFDD8C23B3937A0030BABB /* ChatListViewController.swift in Sources */,
@@ -521,13 +546,16 @@
 				06BBC31323BB557F000DAE1C /* ChatListViewController+Extension.swift in Sources */,
 				0458B93A23B1F9BC00CEBFDA /* HomeViewController.swift in Sources */,
 				04F3624B23B4F3BA005B56CB /* RegionFilterViewController.swift in Sources */,
+				06BBC31723BCFD97000DAE1C /* BoardListTableViewCell.swift in Sources */,
 				05DDBE1823BB711C00DCDBD5 /* LogInViewController.swift in Sources */,
 				06C1C92C23B6547C00DD4F9D /* ChatListTableViewCell.swift in Sources */,
 				06BBC30D23BA8CCE000DAE1C /* InviteViewController.swift in Sources */,
+				06BBC32323BD2E84000DAE1C /* BoardPickDelegate.swift in Sources */,
 				06CFDDA523B5454C0030BABB /* ChatOtherInviteTableViewCell.swift in Sources */,
 				05DDBE1223BB6AC500DCDBD5 /* RecentBoardModel.swift in Sources */,
 				06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */,
 				05DDBE1423BB6CE700DCDBD5 /* WithMateService.swift in Sources */,
+				06BBC31D23BD1F85000DAE1C /* BoardDatePickerViewController.swift in Sources */,
 				06CFDD9D23B5399E0030BABB /* UILabel+Extension.swift in Sources */,
 				06CFDD9B23B4CD9D0030BABB /* ChatProfileTableViewCell.swift in Sources */,
 				06CFDD8423B249450030BABB /* ChatBubbleTableViewCell.swift in Sources */,

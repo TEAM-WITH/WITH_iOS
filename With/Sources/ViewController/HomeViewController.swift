@@ -38,6 +38,14 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         setMateView()
         setRecentCollectionView()
     }
+    @IBAction func withMateButtonClick(_ sender: Any) {
+        //처음일시 지역필터화면
+        
+        //아니면 게시글화면
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardList") else { return }
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        
+    }
     func setMateView() {
         if self.mateList.isEmpty {
             self.withMateView.isHidden = true
