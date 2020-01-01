@@ -21,7 +21,7 @@ class ChatListTableViewCell: UITableViewCell {
     var accept = false {
         willSet {
             if newValue {
-                self.chatTitleLabel.textColor = UIColor.mainOrange
+                self.chatTitleLabel.textColor = UIColor.meetOtherColor
             } else {
                 self.chatTitleLabel.textColor = UIColor.black
             }

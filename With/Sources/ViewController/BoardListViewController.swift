@@ -24,6 +24,16 @@ class BoardListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        // 처음인 경우 지역설정
+        if UserInfo.shared.isNotDefaultRegion() {
+            let nextVC = UIStoryboard(name: "RegionFilter", bundle: nil).instantiateViewController(withIdentifier: "RegionFilter") as! RegionFilterViewController
+            nextVC.delegate = self
+            self.present(nextVC, animated: true)
+        } else {
+            self.regionCode = UserDefaults.standard.string(forKey: "regionCode") ?? "010000"
+            self.regionString = UserDefaults.standard.string(forKey: "regionName") ?? "전체"
+            self.regionButton.setTitle(regionString, for: .normal)
+        }
         setDefaultRequest()
     }
     
@@ -51,12 +61,12 @@ class BoardListViewController: UIViewController {
         self.tableView.dataSource = self
     }
     @IBAction func goToRegionPick(_ sender: Any) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegionFilter") as! RegionFilterViewController
+        let nextVC = UIStoryboard(name: "RegionFilter", bundle: nil).instantiateViewController(withIdentifier: "RegionFilter") as! RegionFilterViewController
         nextVC.delegate = self
         self.present(nextVC, animated: true)
     }
     @IBAction func goToDatePick(_ sender: Any) {
-        let nextVC = UIStoryboard(name: "RegionFilter", bundle: nil).instantiateViewController(withIdentifier: "BoardDatePicker") as! BoardDatePickerViewController
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardDatePicker") as! BoardDatePickerViewController
         nextVC.delegate = self
         self.present(nextVC, animated: true)
     }
@@ -94,6 +104,16 @@ extension BoardListViewController: BoardPickDelegate {
             self.boardList = list
             self.tableView.reloadData()
         
+        }
+    }
+    func getRegion(regionCode: String, regionName: String) {
+        self.regionCode = regionCode
+        self.regionButton.setTitle(regionName, for: .normal)
+        UserInfo.shared.setDefaultRegion(regionCode: regionCode, regionName: regionName)
+        BoardService.shared.getBoardListRequest(code: regionCode) { data in
+            guard let list = data else { return }
+            self.boardList = list
+            self.tableView.reloadData()
         }
     }
 }

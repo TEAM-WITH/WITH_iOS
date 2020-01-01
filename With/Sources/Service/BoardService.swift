@@ -16,7 +16,6 @@ struct BoardService {
     func getBoardListRequest(code: String, sdate: String = "0", edate: String = "0", word: String = "0", filter: Int = 0, completion: @escaping ([BoardResult]?) -> Void) {
         let token = UserInfo.shared.getUserToken()
         let url = BaseAPI.boardListURL+"/\(code)/startDates/\(sdate)/endDates/\(edate)/keywords/\(word)/filters/\(filter)"
-        print(url)
         let header:  HTTPHeaders = [
         "token": token
         ]
@@ -28,7 +27,6 @@ struct BoardService {
                     let decoder = JSONDecoder()
                     let object = try decoder.decode(ResponseResult<BoardResult>.self, from: data)
                     if object.success {
-                        print(object.data)
                         completion(object.data)
                     } else {
                         completion(nil)

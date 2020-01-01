@@ -26,4 +26,13 @@ class UserInfo {
     func getUserToken() -> String {
         return self.token
     }
+    
+    func setDefaultRegion(regionCode: String, regionName: String) {
+        UserDefaults.standard.set(regionCode, forKey: "regionCode")
+        UserDefaults.standard.set(regionName, forKey: "regionName")
+    }
+    
+    func isNotDefaultRegion() -> Bool {
+        return nil == UserDefaults.standard.value(forKey: "regionCode")
+    }
 }

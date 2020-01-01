@@ -9,6 +9,6 @@
 import Foundation
 @objc protocol BoardPickDelegate {
     @objc optional func getDate(sDate: String, eDate: String)
-    @objc optional func getRegion(regionCode: String)
+    @objc optional func getRegion(regionCode: String, regionName: String)
     @objc optional func getAllDate()
 }
