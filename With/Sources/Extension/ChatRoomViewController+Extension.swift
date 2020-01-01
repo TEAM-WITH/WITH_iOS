@@ -158,9 +158,9 @@ extension ChatRoomViewController {
         ]
         ref.child("users").child("\(user)").child(roomId).setValue(createRoomInfo)
         ref.child("users").child("\(otherId)").child(roomId).setValue(createOtherRoomInfo) { err, dref in
-            if err == nil  {
+            if err == nil {
                 print("no err")
-            }else {
+            } else {
                 print("err")
             }
         }
@@ -169,17 +169,18 @@ extension ChatRoomViewController {
     func removeUnSeenCount() {
         let user = UserInfo.shared.getUserIdx()
         let resetCount: [String: Any] = ["unSeenCount": 0]
-        
         ref.child("users").child("\(user)").child(roomId).updateChildValues(resetCount)
         
     }
     // MARK: - 상대방 뱃지수 가져오기
     func setOtherUnSeenCount() {
         ref.child("users").child("\(otherId)").child(roomId).observe(.childChanged) { snapshot in
-            if let object = snapshot.value as? [String: AnyObject] {
-             guard let unSeenCount = object["unSeenCount"] as? Int else { return }
+            if snapshot.key == "unSeenCount" {
+                guard let unSeenCount = snapshot.value as? Int else { return }
                 self.otherUnSeenCount = unSeenCount
+                print(self.otherUnSeenCount)
             }
+            
         }
     }
 }
