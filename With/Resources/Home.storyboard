@@ -498,26 +498,28 @@
                                 <rect key="frame" x="20" y="88" width="335" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="검색어를 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tHP-X2-Bpf">
-                                        <rect key="frame" x="40" y="3" width="282" height="34"/>
+                                        <rect key="frame" x="43" y="3" width="279" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="OOt-QH-p0f">
-                                        <rect key="frame" x="13" y="13" width="14" height="14"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSG-Gz-f4g">
+                                        <rect key="frame" x="13" y="10" width="20" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="14" id="dEa-GP-oR4"/>
-                                            <constraint firstAttribute="width" constant="14" id="jMj-Gm-LuB"/>
+                                            <constraint firstAttribute="height" constant="20" id="56o-8h-Eji"/>
+                                            <constraint firstAttribute="width" constant="20" id="JDp-eJ-ukb"/>
                                         </constraints>
-                                    </imageView>
+                                        <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <state key="normal" image="searchIcon"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="OOt-QH-p0f" firstAttribute="leading" secondItem="542-3i-7xl" secondAttribute="leading" constant="13" id="5fX-PF-tGV"/>
-                                    <constraint firstItem="OOt-QH-p0f" firstAttribute="centerY" secondItem="542-3i-7xl" secondAttribute="centerY" id="CvZ-6T-qfb"/>
+                                    <constraint firstItem="tHP-X2-Bpf" firstAttribute="leading" secondItem="VSG-Gz-f4g" secondAttribute="trailing" constant="10" id="OVQ-Td-XtI"/>
+                                    <constraint firstItem="VSG-Gz-f4g" firstAttribute="centerY" secondItem="542-3i-7xl" secondAttribute="centerY" id="iUn-Yj-djJ"/>
                                     <constraint firstAttribute="bottom" secondItem="tHP-X2-Bpf" secondAttribute="bottom" constant="3" id="n4k-fW-2Cl"/>
                                     <constraint firstAttribute="trailing" secondItem="tHP-X2-Bpf" secondAttribute="trailing" constant="13" id="s8q-3R-32r"/>
                                     <constraint firstItem="tHP-X2-Bpf" firstAttribute="top" secondItem="542-3i-7xl" secondAttribute="top" constant="3" id="tIi-Y3-ZOD"/>
-                                    <constraint firstItem="tHP-X2-Bpf" firstAttribute="leading" secondItem="OOt-QH-p0f" secondAttribute="trailing" constant="13" id="xOY-Lt-BQL"/>
+                                    <constraint firstItem="VSG-Gz-f4g" firstAttribute="leading" secondItem="542-3i-7xl" secondAttribute="leading" constant="13" id="wJz-ZO-wph"/>
                                     <constraint firstAttribute="height" constant="40" id="zlE-5y-o7Y"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -688,7 +690,17 @@
                                 <color key="onTintColor" red="0.19215686269999999" green="0.1019607843" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </switch>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8C-fP-O99">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aw7-GE-MCD">
+                                <rect key="frame" x="329" y="98" width="30" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="취소">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchCancel:" destination="Cm3-O3-wQq" eventType="touchUpInside" id="KCR-5z-dnk"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8C-fP-O99">
                                 <rect key="frame" x="0.0" y="143" width="375" height="669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 검색어" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sng-k3-gf2">
@@ -810,9 +822,11 @@
                             <constraint firstItem="btW-dR-qWS" firstAttribute="top" secondItem="HHj-If-SyO" secondAttribute="bottom" constant="29" id="N9q-Hw-1C0"/>
                             <constraint firstAttribute="bottom" secondItem="p8C-fP-O99" secondAttribute="bottom" id="NHi-Vy-etF"/>
                             <constraint firstItem="4XK-WM-JAX" firstAttribute="top" secondItem="btW-dR-qWS" secondAttribute="bottom" constant="15" id="OTh-Yd-S7J"/>
+                            <constraint firstItem="XqV-uq-haC" firstAttribute="trailing" secondItem="aw7-GE-MCD" secondAttribute="trailing" constant="16" id="QlP-ug-7gC"/>
                             <constraint firstItem="542-3i-7xl" firstAttribute="leading" secondItem="XqV-uq-haC" secondAttribute="leading" constant="20" id="ZsT-pK-JGr"/>
                             <constraint firstItem="XAd-Sl-DyW" firstAttribute="centerX" secondItem="GPY-le-X4S" secondAttribute="centerX" id="bFF-im-NK4"/>
                             <constraint firstItem="XqV-uq-haC" firstAttribute="trailing" secondItem="542-3i-7xl" secondAttribute="trailing" constant="20" id="g7Z-k3-aM5"/>
+                            <constraint firstItem="aw7-GE-MCD" firstAttribute="top" secondItem="Kb1-rW-Mkh" secondAttribute="top" constant="98" id="nfg-HB-ob0"/>
                             <constraint firstItem="GPY-le-X4S" firstAttribute="trailing" secondItem="542-3i-7xl" secondAttribute="trailing" id="ngC-ZF-xwl"/>
                             <constraint firstItem="K7H-3j-Eqy" firstAttribute="top" secondItem="542-3i-7xl" secondAttribute="bottom" constant="15" id="q1G-e7-Qco"/>
                             <constraint firstItem="542-3i-7xl" firstAttribute="top" secondItem="Kb1-rW-Mkh" secondAttribute="top" constant="88" id="ypI-Hg-89M"/>
@@ -822,8 +836,11 @@
                     <connections>
                         <outlet property="dateButton" destination="AVJ-0I-gAi" id="Ny1-J0-auJ"/>
                         <outlet property="regionButton" destination="K7H-3j-Eqy" id="CEI-U8-pTE"/>
+                        <outlet property="searchButton" destination="VSG-Gz-f4g" id="ivZ-K0-Chp"/>
+                        <outlet property="searchCancelButton" destination="aw7-GE-MCD" id="3Zd-lY-N30"/>
                         <outlet property="searchHistoryTableView" destination="S2i-Fp-zhJ" id="zIa-y2-pih"/>
                         <outlet property="searchTextField" destination="tHP-X2-Bpf" id="kaY-b3-ZTE"/>
+                        <outlet property="searchView" destination="p8C-fP-O99" id="dcp-e9-k8o"/>
                         <outlet property="switchButton" destination="XAd-Sl-DyW" id="ujw-VL-EZp"/>
                         <outlet property="tableView" destination="4XK-WM-JAX" id="z9A-XI-XzB"/>
                         <outlet property="topView" destination="HHj-If-SyO" id="bTT-dh-8da"/>

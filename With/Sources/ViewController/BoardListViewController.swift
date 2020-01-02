@@ -11,12 +11,15 @@ import FMDB
 
 class BoardListViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var regionButton: UIButton!
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchHistoryTableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchCancelButton: UIButton!
     
     var regionString: String = "전체"
     var regionCode = "010000"
@@ -73,6 +76,7 @@ class BoardListViewController: UIViewController {
         self.switchButton.transform = CGAffineTransform(scaleX: 0.65, y: 0.65)
         self.tableView.dataSource = self
         self.searchHistoryTableView.dataSource = self
+        self.searchTextField.delegate = self
     }
     @IBAction func goToRegionPick(_ sender: Any) {
         let nextVC = UIStoryboard(name: "RegionFilter", bundle: nil).instantiateViewController(withIdentifier: "RegionFilter") as! RegionFilterViewController
@@ -83,6 +87,9 @@ class BoardListViewController: UIViewController {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardDatePicker") as! BoardDatePickerViewController
         nextVC.delegate = self
         self.present(nextVC, animated: true)
+    }
+    @IBAction func searchCancel(_ sender: Any) {
+        setOriginViewAnim()
     }
 }
 
