@@ -125,9 +125,13 @@ extension BoardListViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         setSearchViewAnim()
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.searchBoard()
+        return true
+    }
 }
 
 struct SearchData {
-       var id: String
-       var item: String
-   }
+    var id: String
+    var item: String
+}
