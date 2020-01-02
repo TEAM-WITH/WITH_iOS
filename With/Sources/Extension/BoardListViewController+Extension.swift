@@ -54,7 +54,7 @@ extension BoardListViewController {
             let rs = try database.executeQuery("select item from history", values: nil)
             self.historyList.removeAll()
             while rs.next() {
-                if let item = rs.string(forColumn: "item"), let id: Int = rs.long(forColumn: "id") as! Int {
+                if let item = rs.string(forColumn: "item"), let id: Int = rs.long(forColumn: "id") {
                     let data = SearchData(id: Int(id) ?? 0, item: item)
                     self.historyList.append(data)
                 }
@@ -62,7 +62,6 @@ extension BoardListViewController {
         } catch {
             print("failed: \(error.localizedDescription)")
         }
-        print(historyList)
         database.close()
         self.searchHistoryTableView.reloadData()
     }

@@ -87,7 +87,7 @@ class BoardListViewController: UIViewController {
 }
 
 extension BoardListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         if tableView == self.tableView {
             return 1
         } else {
@@ -96,7 +96,6 @@ extension BoardListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if tableView == self.tableView {
             return self.boardList.count
         } else {

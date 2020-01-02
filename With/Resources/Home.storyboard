@@ -701,7 +701,7 @@
                                         <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S2i-Fp-zhJ">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S2i-Fp-zhJ">
                                         <rect key="frame" x="20" y="43" width="335" height="626"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
@@ -729,11 +729,21 @@
                                                                 <action selector="deleteButton:" destination="uEy-Cf-hcL" eventType="touchUpInside" id="viy-Wk-bPK"/>
                                                             </connections>
                                                         </button>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rin-gC-EtF">
+                                                            <rect key="frame" x="0.0" y="39" width="335" height="1"/>
+                                                            <color key="backgroundColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="lo5-BJ-7jf"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="vwl-ld-cms" secondAttribute="trailing" constant="20" symbolic="YES" id="0Cs-6c-BPj"/>
                                                         <constraint firstItem="bIg-UZ-7nj" firstAttribute="centerY" secondItem="Koj-7w-lQs" secondAttribute="centerY" id="17N-b9-k6J"/>
+                                                        <constraint firstItem="Rin-gC-EtF" firstAttribute="leading" secondItem="Koj-7w-lQs" secondAttribute="leading" id="1SJ-da-RTI"/>
                                                         <constraint firstItem="vwl-ld-cms" firstAttribute="centerY" secondItem="bIg-UZ-7nj" secondAttribute="centerY" id="6Pw-Hu-buo"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Rin-gC-EtF" secondAttribute="trailing" id="GJO-9I-daW"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Rin-gC-EtF" secondAttribute="bottom" id="JWX-sE-1Z0"/>
                                                         <constraint firstItem="bIg-UZ-7nj" firstAttribute="leading" secondItem="Koj-7w-lQs" secondAttribute="leading" id="YwR-lo-FX6"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
@@ -743,14 +753,14 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardDeleteCell" id="yhF-ca-925" customClass="BoardDeleteTableCell" customModule="W_TH" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="68" width="335" height="43.666667938232422"/>
+                                                <rect key="frame" x="0.0" y="68" width="335" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yhF-ca-925" id="1Bf-yN-G5m">
-                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.666667938232422"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRe-gk-rV8">
-                                                            <rect key="frame" x="0.0" y="8.3333333333333357" width="42" height="27"/>
+                                                            <rect key="frame" x="0.0" y="8.6666666666666643" width="42" height="27"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                             <state key="normal" title="전체삭제">
                                                                 <color key="titleColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
