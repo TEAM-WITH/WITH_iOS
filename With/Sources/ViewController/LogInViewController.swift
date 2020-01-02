@@ -51,8 +51,6 @@ class LogInViewController: UIViewController {
             }
         }
     }
-    @IBAction func pressSignUp(_ sender: Any) {
-    }
 }
 extension LogInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -25,4 +25,11 @@ extension UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true)
     }
+    
+    func simpleDismissAlert(title: String, msg: String, handler: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "예", style: .cancel, handler: handler)
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
+    }
 }

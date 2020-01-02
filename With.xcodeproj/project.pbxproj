@@ -312,7 +312,6 @@
 				06BBC30C23BA8CCE000DAE1C /* InviteViewController.swift */,
 				06CFDD5B23B09C930030BABB /* ViewController.swift */,
 				0458B93923B1F9BC00CEBFDA /* HomeViewController.swift */,
-				06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */,
 				06CFDD8B23B3937A0030BABB /* ChatListViewController.swift */,
 				04F3624A23B4F3BA005B56CB /* RegionFilterViewController.swift */,
 				050CCBC223B637810004D543 /* EstimateViewController.swift */,
@@ -322,6 +321,7 @@
 				05DDBE1723BB711C00DCDBD5 /* LogInViewController.swift */,
 				05719C8A23BC7E840041D322 /* SignUpViewController.swift */,
 				06BBC31C23BD1F85000DAE1C /* BoardDatePickerViewController.swift */,
+				06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */,
 				0517421123BDF64D001BA461 /* EstimateWiTHViewController.swift */,
 			);
 			path = ViewController;
