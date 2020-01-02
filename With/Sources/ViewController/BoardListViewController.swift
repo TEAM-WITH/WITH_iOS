@@ -24,10 +24,12 @@ class BoardListViewController: UIViewController {
     
     @IBOutlet weak var searchAreaRightLayout: NSLayoutConstraint!
     var regionString: String = "전체"
-    var regionCode = "010000"
+    var regionCode = "0"
     var dateString: String = "날짜"
-    
-    
+    var sDate = "0"
+    var eDate = "0"
+    var filterNum = 0
+    var word = "0"
     var boardList: [BoardResult] = []
     var historyList: [SearchData] = []
     
@@ -100,15 +102,34 @@ class BoardListViewController: UIViewController {
         self.searchTextField.resignFirstResponder()
     }
     @IBAction func searchButtonClick(_ sender: Any) {
-        if let string = self.searchTextField.text {
-            insertQuery(item: string)
+        if let word = self.searchTextField.text {
+            insertQuery(item: word)
             selectQuery()
-            //통신
-            //
-            //
-            //
-            //
+            self.word = word
+            BoardService.shared.getBoardListRequest(code: regionCode, sdate: sDate, edate: eDate, word: word, filter: filterNum ) { data in
+                guard let list = data else { return }
+                self.boardList = list
+                self.tableView.reloadData()
+            }
             
+        }
+    }
+    @IBAction func genderFilter(_ sender: UISwitch) {
+        if sender.isOn {
+            self.filterNum = 1
+        }else {
+            self.filterNum = 0
+        }
+        if self.searchTextField.text == "" {
+            word = "0"
+        }else {
+            word = self.searchTextField.text ?? "0"
+        }
+        
+        BoardService.shared.getBoardListRequest(code: regionCode, sdate: sDate, edate: eDate, word: word, filter: filterNum ) { data in
+            guard let list = data else { return }
+            self.boardList = list
+            self.tableView.reloadData()
         }
     }
 }
@@ -168,6 +189,8 @@ extension BoardListViewController: UITableViewDataSource {
 
 extension BoardListViewController: BoardPickDelegate {
     func getDate(sDate: String, eDate: String) {
+        self.sDate = sDate
+        self.eDate = eDate
         self.dateString = "\(sDate) ~ \(eDate)"
         self.dateButton.setTitle(dateString, for: .normal)
         BoardService.shared.getBoardListRequest(code: regionCode, sdate: sDate, edate: eDate) { data in
@@ -191,7 +214,7 @@ extension BoardListViewController: BoardPickDelegate {
         self.regionCode = regionCode
         self.regionButton.setTitle(regionName, for: .normal)
         UserInfo.shared.setDefaultRegion(regionCode: regionCode, regionName: regionName)
-        BoardService.shared.getBoardListRequest(code: regionCode) { data in
+        BoardService.shared.getBoardListRequest(code: regionCode, sdate: sDate, edate: eDate, filter: filterNum) { data in
             guard let list = data else { return }
             self.boardList = list
             self.tableView.reloadData()
