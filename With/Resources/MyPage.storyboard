@@ -44,7 +44,7 @@
                                     <action selector="pressModifyBtn:" destination="2Bq-EH-7Yb" eventType="touchUpInside" id="9Tp-08-Ndy"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="휴학하고 여행을 할래요 :)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vfg-9M-5E8">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ex) 휴학하고 여행을 할래요 :)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vfg-9M-5E8">
                                 <rect key="frame" x="20" y="122" width="335" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="335" id="Iki-bC-Pv8"/>
@@ -61,7 +61,7 @@
                                     <constraint firstAttribute="height" constant="79" id="yJa-uh-IXK"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badge" translatesAutoresizingMaskIntoConstraints="NO" id="DXh-qO-Rdk">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selfCertificationBadge" translatesAutoresizingMaskIntoConstraints="NO" id="DXh-qO-Rdk">
                                 <rect key="frame" x="197" y="241" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="dN9-Or-K9k"/>
@@ -150,7 +150,7 @@
                                     <constraint firstAttribute="height" constant="26" id="5Rh-o0-S8S"/>
                                     <constraint firstAttribute="width" constant="26" id="dm0-SV-PWQ"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="moreBtn"/>
+                                <state key="normal" title="Button" image="closeBtn"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lw3-x5-35P">
                                 <rect key="frame" x="328" y="434" width="26" height="26"/>
@@ -161,7 +161,7 @@
                                     <constraint firstAttribute="width" constant="26" id="kR8-Tf-pcE"/>
                                     <constraint firstAttribute="height" constant="26" id="rhc-ik-sDl"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="moreBtn"/>
+                                <state key="normal" title="Button" image="closeBtn"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAa-qm-SKD">
                                 <rect key="frame" x="328" y="495" width="26" height="26"/>
@@ -172,7 +172,7 @@
                                     <constraint firstAttribute="height" constant="26" id="jgT-oD-aZ3"/>
                                     <constraint firstAttribute="width" constant="26" id="vIs-AT-YlS"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="moreBtn"/>
+                                <state key="normal" title="Button" image="closeBtn"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WO1-Wh-HOd">
                                 <rect key="frame" x="0.0" y="430" width="375" height="46"/>
@@ -180,7 +180,6 @@
                                     <constraint firstAttribute="width" constant="375" id="SJA-M3-Jqs"/>
                                     <constraint firstAttribute="height" constant="46" id="emy-bn-J88"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOv-rR-2vQ">
                                 <rect key="frame" x="0.0" y="487" width="375" height="46"/>
@@ -188,7 +187,6 @@
                                     <constraint firstAttribute="height" constant="46" id="TsZ-cD-K6E"/>
                                     <constraint firstAttribute="width" constant="375" id="fpx-IY-Zz7"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHA-vy-0s8">
                                 <rect key="frame" x="0.0" y="364" width="375" height="46"/>
@@ -196,7 +194,6 @@
                                     <constraint firstAttribute="width" constant="375" id="emQ-RI-Uzc"/>
                                     <constraint firstAttribute="height" constant="46" id="fRJ-Mw-D8e"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -251,9 +248,11 @@
                         <viewLayoutGuide key="safeArea" id="vJn-Uc-WJM"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="juK-eZ-TWU" id="IeW-vo-OgJ"/>
                         <outlet property="commentTextField" destination="vfg-9M-5E8" id="6kn-ju-Ekk"/>
                         <outlet property="modifyBtn" destination="fhg-A2-xwi" id="ckq-QN-Lfi"/>
                         <outlet property="myPageLabel" destination="RrG-SE-k0g" id="Cf0-zv-eup"/>
+                        <outlet property="profileImage" destination="vqG-eG-bqi" id="CjK-bs-OQU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3u-q1-DoO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -269,6 +268,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YOP-6q-i98">
+                                <rect key="frame" x="0.0" y="88" width="375" height="249"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="PVl-39-vFJ"/>
+                                    <constraint firstAttribute="height" constant="249" id="flg-bf-rj1"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마이페이지" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ru-bI-Qiw">
                                 <rect key="frame" x="32" y="55" width="311" height="22"/>
                                 <constraints>
@@ -309,14 +315,6 @@
                                     <action selector="pressXButton:" destination="BPk-Hh-N3b" eventType="touchUpInside" id="tML-6W-16B"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5VF-w4-jmb">
-                                <rect key="frame" x="327" y="113" width="28" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="Rnv-7U-XTv"/>
-                                    <constraint firstAttribute="width" constant="28" id="W6M-9j-lDH"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="editimgBtn"/>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userImg" translatesAutoresizingMaskIntoConstraints="NO" id="mir-eb-WV7">
                                 <rect key="frame" x="148" y="180" width="79" height="79"/>
                                 <constraints>
@@ -351,7 +349,7 @@
                                     <constraint firstAttribute="height" constant="8" id="K1b-XG-1GM"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCz-D5-PfW">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ex) 휴학하고 여행을 할래요 :)" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCz-D5-PfW">
                                 <rect key="frame" x="20" y="122" width="335" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="335" id="tK4-u2-06W"/>
@@ -360,7 +358,21 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <connections>
+                                    <action selector="editBackgroundImg:" destination="BPk-Hh-N3b" eventType="editingDidEnd" id="XVn-qX-0xG"/>
+                                </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5VF-w4-jmb">
+                                <rect key="frame" x="327" y="110" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="Rnv-7U-XTv"/>
+                                    <constraint firstAttribute="width" constant="28" id="W6M-9j-lDH"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="editimgBtn"/>
+                                <connections>
+                                    <action selector="editBackgroundImg:" destination="BPk-Hh-N3b" eventType="touchUpInside" id="RWA-PC-pTl"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1Z-Zz-pf3">
                                 <rect key="frame" x="330" y="56" width="30" height="20"/>
                                 <constraints>
@@ -376,12 +388,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fed-VT-eMU">
-                                <rect key="frame" x="199" y="234" width="28" height="28"/>
+                                <rect key="frame" x="196" y="237" width="28" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="eHV-X7-NUM"/>
                                     <constraint firstAttribute="width" constant="28" id="hJa-QZ-eH2"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="editimgBtn"/>
+                                <connections>
+                                    <action selector="editProfileImg:" destination="BPk-Hh-N3b" eventType="touchUpInside" id="oxl-Ku-2qb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -393,29 +408,38 @@
                             <constraint firstItem="o1Z-Zz-pf3" firstAttribute="top" secondItem="eKK-uD-O6D" secondAttribute="top" constant="59" id="AHO-it-HF2"/>
                             <constraint firstItem="mxa-rY-amW" firstAttribute="top" secondItem="mxb-j5-pVb" secondAttribute="top" constant="8" id="BlJ-Qf-1yz"/>
                             <constraint firstItem="FTs-cS-zSm" firstAttribute="top" secondItem="FRx-ft-gtV" secondAttribute="bottom" constant="6" id="ELO-kl-3JR"/>
+                            <constraint firstAttribute="top" secondItem="YOP-6q-i98" secondAttribute="top" constant="-88" id="EUo-Sh-eVC"/>
                             <constraint firstAttribute="trailing" secondItem="6J9-ns-NBI" secondAttribute="trailing" id="IEQ-my-BxO"/>
                             <constraint firstItem="6J9-ns-NBI" firstAttribute="top" secondItem="mxa-rY-amW" secondAttribute="bottom" constant="8" symbolic="YES" id="JPS-77-IeU"/>
-                            <constraint firstItem="Fed-VT-eMU" firstAttribute="leading" secondItem="mxb-j5-pVb" secondAttribute="leading" constant="199" id="PRk-sg-tqA"/>
+                            <constraint firstItem="Fed-VT-eMU" firstAttribute="leading" secondItem="mxb-j5-pVb" secondAttribute="leading" constant="196" id="PRk-sg-tqA"/>
                             <constraint firstItem="mxa-rY-amW" firstAttribute="leading" secondItem="FCz-D5-PfW" secondAttribute="leading" id="RmH-Bf-Y9i"/>
                             <constraint firstAttribute="bottom" secondItem="6J9-ns-NBI" secondAttribute="bottom" id="a1h-ml-eyV"/>
                             <constraint firstItem="FTs-cS-zSm" firstAttribute="leading" secondItem="Cga-la-32o" secondAttribute="trailing" constant="8" id="eBS-iX-Fr6"/>
                             <constraint firstItem="FRx-ft-gtV" firstAttribute="top" secondItem="mir-eb-WV7" secondAttribute="bottom" constant="2" id="eGV-XO-ji5"/>
                             <constraint firstItem="mxb-j5-pVb" firstAttribute="trailing" secondItem="5VF-w4-jmb" secondAttribute="trailing" constant="20" id="ikv-f5-Gzm"/>
-                            <constraint firstItem="Fed-VT-eMU" firstAttribute="top" secondItem="FCz-D5-PfW" secondAttribute="bottom" constant="83" id="iuh-zk-u5r"/>
+                            <constraint firstItem="Fed-VT-eMU" firstAttribute="top" secondItem="FCz-D5-PfW" secondAttribute="bottom" constant="86" id="iuh-zk-u5r"/>
                             <constraint firstItem="FCz-D5-PfW" firstAttribute="leading" secondItem="eKK-uD-O6D" secondAttribute="leading" constant="20" id="jDw-ul-9hG"/>
                             <constraint firstItem="Cga-la-32o" firstAttribute="top" secondItem="FRx-ft-gtV" secondAttribute="bottom" constant="3" id="kbM-tN-wa2"/>
                             <constraint firstItem="Cga-la-32o" firstAttribute="leading" secondItem="mxb-j5-pVb" secondAttribute="leading" constant="136" id="l4E-WY-RkG"/>
                             <constraint firstItem="FCz-D5-PfW" firstAttribute="top" secondItem="mxa-rY-amW" secondAttribute="bottom" constant="42" id="pPp-hj-0Ve"/>
                             <constraint firstAttribute="trailing" secondItem="o1Z-Zz-pf3" secondAttribute="trailing" constant="16" id="tO7-Up-icW"/>
+                            <constraint firstItem="YOP-6q-i98" firstAttribute="trailing" secondItem="mxb-j5-pVb" secondAttribute="trailing" id="ul4-Nr-T2b"/>
                             <constraint firstItem="mir-eb-WV7" firstAttribute="leading" secondItem="mxb-j5-pVb" secondAttribute="leading" constant="148" id="vln-Bn-99o"/>
+                            <constraint firstItem="YOP-6q-i98" firstAttribute="leading" secondItem="mxb-j5-pVb" secondAttribute="leading" id="wWN-GO-y7f"/>
                             <constraint firstItem="mir-eb-WV7" firstAttribute="top" secondItem="FCz-D5-PfW" secondAttribute="bottom" constant="29" id="zCH-zC-iDr"/>
                             <constraint firstItem="6J9-ns-NBI" firstAttribute="leading" secondItem="eKK-uD-O6D" secondAttribute="leading" id="zL9-DQ-IW2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mxb-j5-pVb"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundImg" destination="YOP-6q-i98" id="dib-jB-ND5"/>
                         <outlet property="commentTextField" destination="FCz-D5-PfW" id="G79-RX-B3W"/>
+                        <outlet property="modifyBackgroundButton" destination="5VF-w4-jmb" id="P9L-H5-eFL"/>
+                        <outlet property="modifyProfileButton" destination="o1Z-Zz-pf3" id="C6a-x2-lgS"/>
+                        <outlet property="modifyProfileImageButton" destination="Fed-VT-eMU" id="Vjj-iS-pXk"/>
                         <outlet property="myPageLabel" destination="0ru-bI-Qiw" id="G9y-l2-RWZ"/>
+                        <outlet property="pressXButton" destination="mxa-rY-amW" id="Wo5-fz-yza"/>
+                        <outlet property="profileImg" destination="mir-eb-WV7" id="7po-VX-naI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vG3-uo-VNf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -424,13 +448,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="badge" width="24" height="24"/>
         <image name="cancelBtn" width="28" height="28"/>
+        <image name="closeBtn" width="44" height="44"/>
         <image name="editBtn" width="30" height="20"/>
         <image name="editimgBtn" width="28" height="28"/>
         <image name="img" width="375" height="249"/>
         <image name="like" width="48" height="8"/>
-        <image name="moreBtn" width="27" height="26"/>
+        <image name="selfCertificationBadge" width="22" height="25.666666030883789"/>
         <image name="userImg" width="81" height="81"/>
     </resources>
 </document>
