@@ -150,7 +150,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="eqc-AR-TEI">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqc-AR-TEI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="990"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbb-c4-h9e">
@@ -430,7 +430,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UqR-Ic-fjR">
                                                 <rect key="frame" x="148" y="204" width="79" height="79"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUserImg" translatesAutoresizingMaskIntoConstraints="NO" id="iTL-yh-BBm">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUserImg" translatesAutoresizingMaskIntoConstraints="NO" id="iTL-yh-BBm">
                                                         <rect key="frame" x="0.0" y="0.0" width="79" height="79"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="79" id="9t7-OX-6da"/>
@@ -622,14 +622,90 @@
             </objects>
             <point key="canvasLocation" x="717.60000000000002" y="7.389162561576355"/>
         </scene>
+        <!--Complete Sign Up View Controller-->
+        <scene sceneID="5db-gY-i5q">
+            <objects>
+                <viewController storyboardIdentifier="CompleteSignUp" id="lAr-8M-p4U" customClass="CompleteSignUpViewController" customModule="W_TH" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ktI-aN-VMP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qms-38-FtH">
+                                <rect key="frame" x="40" y="249" width="295" height="368"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illust" translatesAutoresizingMaskIntoConstraints="NO" id="Zhd-SL-aNg">
+                                        <rect key="frame" x="31" y="30" width="235" height="178"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="235" id="JPo-Ij-crn"/>
+                                            <constraint firstAttribute="height" constant="178" id="kLG-Bu-80D"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가입이 완료되었습니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fw-7K-feP">
+                                        <rect key="frame" x="47" y="248" width="205" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="BPK-Pt-wet"/>
+                                            <constraint firstAttribute="width" constant="205" id="Xxv-qm-z2X"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84D-Dc-24D">
+                                        <rect key="frame" x="62" y="295" width="172" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="43" id="Znh-au-13W"/>
+                                            <constraint firstAttribute="width" constant="172" id="aZc-BC-4ao"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SafeandSimple" translatesAutoresizingMaskIntoConstraints="NO" id="LAL-tE-AW7">
+                                        <rect key="frame" x="62" y="295" width="172" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="172" id="rb6-KQ-SxO"/>
+                                            <constraint firstAttribute="height" constant="43" id="u2i-SK-PGT"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="368" id="0j3-aD-OCG"/>
+                                    <constraint firstItem="LAL-tE-AW7" firstAttribute="top" secondItem="8fw-7K-feP" secondAttribute="bottom" constant="20" id="5WK-Yg-EYv"/>
+                                    <constraint firstItem="Zhd-SL-aNg" firstAttribute="top" secondItem="Qms-38-FtH" secondAttribute="top" constant="30" id="8T6-Qw-Mcu"/>
+                                    <constraint firstItem="8fw-7K-feP" firstAttribute="leading" secondItem="Qms-38-FtH" secondAttribute="leading" constant="47" id="Qdc-6i-NCy"/>
+                                    <constraint firstItem="84D-Dc-24D" firstAttribute="top" secondItem="8fw-7K-feP" secondAttribute="bottom" constant="20" id="Xsb-Ld-sx3"/>
+                                    <constraint firstItem="8fw-7K-feP" firstAttribute="top" secondItem="Zhd-SL-aNg" secondAttribute="bottom" constant="40" id="kwl-Ie-qiE"/>
+                                    <constraint firstAttribute="width" constant="295" id="wxw-BB-NKR"/>
+                                    <constraint firstItem="Zhd-SL-aNg" firstAttribute="leading" secondItem="Qms-38-FtH" secondAttribute="leading" constant="31" id="yLr-ef-eb2"/>
+                                    <constraint firstItem="84D-Dc-24D" firstAttribute="leading" secondItem="Qms-38-FtH" secondAttribute="leading" constant="62" id="z1r-s6-39P"/>
+                                    <constraint firstItem="LAL-tE-AW7" firstAttribute="leading" secondItem="Qms-38-FtH" secondAttribute="leading" constant="62" id="zyK-FQ-x8S"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.015686274509803921" green="0.015686274509803921" blue="0.058823529411764705" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qms-38-FtH" firstAttribute="leading" secondItem="FsO-MS-vZf" secondAttribute="leading" constant="40" id="aaW-6m-zta"/>
+                            <constraint firstItem="Qms-38-FtH" firstAttribute="top" secondItem="FsO-MS-vZf" secondAttribute="top" constant="205" id="m4p-hl-jxE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FsO-MS-vZf"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LmI-57-Noz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aim-gg-Vgd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1481" y="-2"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CancelButtonSizesmall" width="28" height="28"/>
+        <image name="SafeandSimple" width="346" height="86"/>
         <image name="SignupCameraIMGpurple" width="24" height="24"/>
         <image name="defaultUserImg" width="79" height="79"/>
         <image name="email" width="32" height="15"/>
         <image name="gender" width="21" height="15"/>
         <image name="girlRadioBtn" width="16" height="16"/>
+        <image name="illust" width="235" height="178"/>
         <image name="namenamename" width="21" height="15"/>
         <image name="password" width="42" height="15"/>
         <image name="passwordConfirm" width="66" height="15"/>

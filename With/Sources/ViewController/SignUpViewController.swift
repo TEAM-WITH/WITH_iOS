@@ -40,7 +40,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         setBorderWidth()
         setUI()
-       
+        
+         self.defaultProfileImg.layer.cornerRadius = self.defaultProfileImg.frame.size.width / 2;
     }
     
     @IBAction func changeProfileImg(_ sender: Any) {
@@ -68,7 +69,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     @IBAction func pressSignUpBtn(_ sender: Any) {
-        nulltest()
+        nilTest()
+        
     }
     
     @IBAction func pressGirlBtn(_ sender: Any) {
@@ -142,11 +144,16 @@ extension SignUpViewController: UITextFieldDelegate {
 
 
 extension SignUpViewController {
-    @objc func nulltest() {
-        if (idTextField.text == "" || nameTextField.text == "" || passwordTextField.text == "" || confirmPWTextField.text == "" || emailTextField.text == "" || birthTextField.text == "" || (!girlButton.isSelected && !boyButton.isSelected)) {
-            
-            self.simpleAlert(title: "회원가입 실패", msg: "빈 칸을 확인해주세요")
-        }else {} // 멀티파트 회원가입 통신
+    func nilTest() {
+//        if (idTextField.text == "" || nameTextField.text == "" || passwordTextField.text == "" || confirmPWTextField.text == "" || emailTextField.text == "" || birthTextField.text == "" || (!girlButton.isSelected && !boyButton.isSelected)) {
+//
+//            self.simpleAlert(title: "회원가입 실패", msg: "빈 칸을 확인해주세요")
+//        }else {
+            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CompleteSignUp") else {return}
+            nextVC.modalPresentationStyle = .overFullScreen
+//        nextVC.present
+            self.present(nextVC, animated: true)
+//        } // 멀티파트 회원가입 통신
     }
 }
 

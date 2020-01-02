@@ -23,6 +23,8 @@
 		0517420E23BDD018001BA461 /* MyPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517420D23BDD018001BA461 /* MyPageService.swift */; };
 		0517421023BDD0FC001BA461 /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517420F23BDD0FC001BA461 /* MyPageModel.swift */; };
 		0517421223BDF64D001BA461 /* EstimateWiTHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517421123BDF64D001BA461 /* EstimateWiTHViewController.swift */; };
+		0517421423BE77D6001BA461 /* CompleteSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517421323BE77D6001BA461 /* CompleteSignUpViewController.swift */; };
+		0517421623BE822D001BA461 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517421523BE822D001BA461 /* SplashViewController.swift */; };
 		05719C8B23BC7E840041D322 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05719C8A23BC7E840041D322 /* SignUpViewController.swift */; };
 		05719C8D23BC89EF0041D322 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05719C8C23BC89EF0041D322 /* MyPage.storyboard */; };
 		05719C8F23BCC63F0041D322 /* MyPageModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05719C8E23BCC63F0041D322 /* MyPageModifyViewController.swift */; };
@@ -100,6 +102,8 @@
 		0517420D23BDD018001BA461 /* MyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageService.swift; sourceTree = "<group>"; };
 		0517420F23BDD0FC001BA461 /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
 		0517421123BDF64D001BA461 /* EstimateWiTHViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateWiTHViewController.swift; sourceTree = "<group>"; };
+		0517421323BE77D6001BA461 /* CompleteSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignUpViewController.swift; sourceTree = "<group>"; };
+		0517421523BE822D001BA461 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		05719C8A23BC7E840041D322 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		05719C8C23BC89EF0041D322 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		05719C8E23BCC63F0041D322 /* MyPageModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModifyViewController.swift; sourceTree = "<group>"; };
@@ -323,6 +327,8 @@
 				06BBC31C23BD1F85000DAE1C /* BoardDatePickerViewController.swift */,
 				06CFDD8123B1F6F00030BABB /* ChatRoomViewController.swift */,
 				0517421123BDF64D001BA461 /* EstimateWiTHViewController.swift */,
+				0517421323BE77D6001BA461 /* CompleteSignUpViewController.swift */,
+				0517421523BE822D001BA461 /* SplashViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -550,6 +556,7 @@
 				06CFDD9923B4CD920030BABB /* ChatDateTableViewCell.swift in Sources */,
 				06C1C93D23B8BB6500DD4F9D /* ResponseResult.swift in Sources */,
 				06CFDDA323B542C10030BABB /* ChatCompleteTableViewCell.swift in Sources */,
+				0517421623BE822D001BA461 /* SplashViewController.swift in Sources */,
 				06CFDD9523B4673C0030BABB /* UITextView+Extension.swift in Sources */,
 				0517421223BDF64D001BA461 /* EstimateWiTHViewController.swift in Sources */,
 				06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */,
@@ -586,6 +593,7 @@
 				06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */,
 				05DDBE1423BB6CE700DCDBD5 /* WithMateService.swift in Sources */,
 				06BBC31D23BD1F85000DAE1C /* BoardDatePickerViewController.swift in Sources */,
+				0517421423BE77D6001BA461 /* CompleteSignUpViewController.swift in Sources */,
 				06CFDD9D23B5399E0030BABB /* UILabel+Extension.swift in Sources */,
 				06BBC32723BD662B000DAE1C /* BoardSearchTableViewCell.swift in Sources */,
 				06CFDD9B23B4CD9D0030BABB /* ChatProfileTableViewCell.swift in Sources */,
