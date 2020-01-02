@@ -19,6 +19,7 @@ class RegionFilterViewController: UIViewController {
     var semiBeforeValue = 0
     var semiCurValue = 0
     var countryDataset: [CountryModel] = []
+    var delegate: BoardPickDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         setRegionName()
@@ -36,6 +37,9 @@ class RegionFilterViewController: UIViewController {
         self.semiRegionCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
         
         setDefaultCountry(regionCode: regionSet[0].region.code)
+    }
+    @IBAction func pressXButton(_ sender: Any) {
+        self.dismiss(animated: true)
     }
     
     func setDefaultCountry(regionCode: String) {
@@ -55,7 +59,7 @@ extension RegionFilterViewController: UICollectionViewDataSource {
         } else if collectionView == semiRegionCollectionView {
             return regionSet[defaultValue].data.count
         }
-        return 3
+        return 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -171,9 +175,12 @@ extension RegionFilterViewController: UITableViewDataSource {
 }
 
 extension RegionFilterViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let regionCode = self.countryDataset[indexPath.row].regionCode
+        let regionName = self.countryDataset[indexPath.row].regionName
+        self.delegate?.getRegion?(regionCode: regionCode, regionName: regionName)
+        self.dismiss(animated: true)
+    }
 }
 
 extension RegionFilterViewController {

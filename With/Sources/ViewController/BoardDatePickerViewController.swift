@@ -35,4 +35,7 @@ class BoardDatePickerViewController: UIViewController {
         delegate.getDate?(sDate: sDate, eDate: eDate)
         self.dismiss(animated: true)
     }
+    @IBAction func pressXButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
