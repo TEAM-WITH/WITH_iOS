@@ -705,7 +705,7 @@
                                         <rect key="frame" x="20" y="43" width="335" height="626"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BoardSearchCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="40" id="fLo-QW-Jgd" customClass="BoardSearchTableViewCell" customModule="W_TH" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardSearchCell" rowHeight="40" id="fLo-QW-Jgd" customClass="BoardSearchTableViewCell" customModule="W_TH" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="335" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fLo-QW-Jgd" id="Koj-7w-lQs">
@@ -742,7 +742,7 @@
                                                     <outlet property="historyLabel" destination="bIg-UZ-7nj" id="aRa-gg-kFs"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BoardDeleteCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yhF-ca-925" customClass="BoardDeleteTableCell" customModule="W_TH" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardDeleteCell" id="yhF-ca-925" customClass="BoardDeleteTableCell" customModule="W_TH" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="68" width="335" height="43.666667938232422"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yhF-ca-925" id="1Bf-yN-G5m">
@@ -813,6 +813,7 @@
                         <outlet property="dateButton" destination="AVJ-0I-gAi" id="Ny1-J0-auJ"/>
                         <outlet property="regionButton" destination="K7H-3j-Eqy" id="CEI-U8-pTE"/>
                         <outlet property="searchHistoryTableView" destination="S2i-Fp-zhJ" id="zIa-y2-pih"/>
+                        <outlet property="searchTextField" destination="tHP-X2-Bpf" id="kaY-b3-ZTE"/>
                         <outlet property="switchButton" destination="XAd-Sl-DyW" id="ujw-VL-EZp"/>
                         <outlet property="tableView" destination="4XK-WM-JAX" id="z9A-XI-XzB"/>
                         <outlet property="topView" destination="HHj-If-SyO" id="bTT-dh-8da"/>

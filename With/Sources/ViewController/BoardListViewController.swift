@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FMDB
 
 class BoardListViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
@@ -15,6 +16,7 @@ class BoardListViewController: UIViewController {
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchHistoryTableView: UITableView!
+    @IBOutlet weak var searchTextField: UITextField!
     
     var regionString: String = "전체"
     var regionCode = "010000"
@@ -22,7 +24,11 @@ class BoardListViewController: UIViewController {
     
     
     var boardList: [BoardResult] = []
-    var historyList: [String] = []
+    var historyList: [SearchData] = []
+    
+    var fileURL: URL!
+    var database: FMDatabase!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -37,6 +43,11 @@ class BoardListViewController: UIViewController {
             self.regionButton.setTitle(regionString, for: .normal)
         }
         setDefaultRequest()
+        
+        setDB()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        selectQuery()
     }
     
     func setDefaultRequest() {
@@ -76,6 +87,14 @@ class BoardListViewController: UIViewController {
 }
 
 extension BoardListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        if tableView == self.tableView {
+            return 1
+        } else {
+            return 2
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView == self.tableView {
@@ -97,8 +116,13 @@ extension BoardListViewController: UITableViewDataSource {
         } else {
             if indexPath.section == 0 {
                 //히스토리
+                 let cell = tableView.dequeueReusableCell(withIdentifier: "BoardSearchCell", for: indexPath) as! BoardSearchTableViewCell
+                cell.historyLabel.text = self.historyList[indexPath.row].item
+                return cell
             } else {
-                //전체삭제
+                 let cell = tableView.dequeueReusableCell(withIdentifier: "BoardDeleteCell", for: indexPath) as! BoardDeleteTableCell
+                return cell
+                
             }
         }
     }
