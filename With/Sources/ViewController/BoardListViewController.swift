@@ -51,10 +51,15 @@ class BoardListViewController: UIViewController {
         }
         setDefaultRequest()
         
+               
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         setDB()
         selectQuery()
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: index, animated: true)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -85,6 +90,7 @@ class BoardListViewController: UIViewController {
         self.tableView.dataSource = self
         self.searchHistoryTableView.dataSource = self
         self.searchTextField.delegate = self
+        self.tableView.delegate = self
     }
     @IBAction func goToRegionPick(_ sender: Any) {
         let nextVC = UIStoryboard(name: "RegionFilter", bundle: nil).instantiateViewController(withIdentifier: "RegionFilter") as! RegionFilterViewController
@@ -187,6 +193,15 @@ extension BoardListViewController: UITableViewDataSource {
     }
 }
 
+extension BoardListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! BoardListTableViewCell
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardDetail") as! BoardDetailViewController
+        nextVC.boardIdx = cell.boardIdx
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+}
+
 extension BoardListViewController: BoardPickDelegate {
     func getDate(sDate: String, eDate: String) {
         self.sDate = sDate
@@ -197,7 +212,6 @@ extension BoardListViewController: BoardPickDelegate {
             guard let list = data else { return }
             self.boardList = list
             self.tableView.reloadData()
-            
         }
     }
     func getAllDate() {

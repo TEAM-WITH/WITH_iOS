@@ -41,7 +41,31 @@ struct BoardService {
         }
     }
     
-//    func getBoardDetailRequest(boardIdx: Int, completion: @escaping () -> Void) {
-//
-//    }
+    func getBoardDetailRequest(boardIdx: Int, completion: @escaping (BoardDetail?) -> Void) {
+        let token = UserInfo.shared.getUserToken()
+        let url = BaseAPI.boardDetailURL+"/\(boardIdx)"
+               let header:  HTTPHeaders = [
+               "token": token
+               ]
+
+               Alamofire.request(url, method: .get, parameters: .none, encoding: JSONEncoding.default, headers: header).responseJSON { response in
+                   switch response.result {
+                   case.success:
+                       guard let data = response.data else { return }
+                       do {
+                           let decoder = JSONDecoder()
+                           let object = try decoder.decode(ResponseSimpleResult<BoardDetail>.self, from: data)
+                           if object.success {
+                            completion(object.data)
+                           } else {
+                               completion(nil)
+                           }
+                       } catch(let err) {
+                           print(err.localizedDescription)
+                       }
+                   case.failure:
+                       completion(nil)
+                   }
+               }
+    }
 }

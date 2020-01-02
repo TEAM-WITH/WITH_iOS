@@ -14,7 +14,7 @@ extension BoardListViewController {
         self.view.setNeedsLayout()
         self.searchCancelButton.isHidden = true
         self.searchButton.isEnabled = false
-        
+        self.searchView.isHidden = true
         UIView.animate(withDuration: 0.3) {
             self.searchAreaRightLayout.constant = 20
             self.topView.alpha = 1
@@ -30,6 +30,7 @@ extension BoardListViewController {
         self.view.setNeedsLayout()
         self.searchButton.isEnabled = true
         self.searchCancelButton.isHidden = false
+        self.searchView.isHidden = false
         UIView.animate(withDuration: 0.3) {
             self.searchAreaRightLayout.constant = 70
             self.topView.alpha = 0

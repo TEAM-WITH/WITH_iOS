@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabbar.viewControllers = controllerArray.map { UINavigationController.init(rootViewController: $0)}
         controllerArray.map { $0.navigationController?.isNavigationBarHidden = true }
-//        window?.rootViewController = tabbar
+        window?.rootViewController = tabbar
         return true
     }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

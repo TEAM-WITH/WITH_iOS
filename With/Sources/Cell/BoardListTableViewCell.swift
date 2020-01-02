@@ -32,6 +32,7 @@ class BoardListTableViewCell: UITableViewCell {
             regionLabel.text = newValue.regionName
             do {
                 guard let imgURL = URL(string: newValue.userImg) else { return }
+                self.profileImg.kf.indicatorType = .activity
                 profileImg.kf.setImage(with: imgURL, options: [.transition(.fade(0.5)), .cacheOriginalImage])
             } catch (let err) {
                 print(err.localizedDescription)
@@ -40,6 +41,7 @@ class BoardListTableViewCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.profileImg.layer.cornerRadius = self.profileImg.frame.width/2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

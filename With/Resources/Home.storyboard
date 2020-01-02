@@ -459,7 +459,7 @@
         <!--Board Detail View Controller-->
         <scene sceneID="giR-Oi-E8J">
             <objects>
-                <viewController storyboardIdentifier="BoardDetail" id="jWN-qW-0fS" customClass="BoardDetailViewController" customModule="W_TH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BoardDetail" modalPresentationStyle="fullScreen" id="jWN-qW-0fS" customClass="BoardDetailViewController" customModule="W_TH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZ4-xy-pby">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -535,7 +535,7 @@
                                     <constraint firstAttribute="height" constant="27" id="lzc-Cg-beA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="0.6588235294117647" green="0.6588235294117647" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9e-cE-LUY">
@@ -550,7 +550,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAT-Xe-EcW">
                                 <rect key="frame" x="15.999999999999996" y="466" width="39.666666666666657" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.6588235294117647" green="0.6588235294117647" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날씨" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIp-oQ-idO">
@@ -565,7 +565,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kq-rX-7Jv">
                                 <rect key="frame" x="161" y="466" width="140.66666666666663" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.6588235294" green="0.6588235294" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미적용" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccV-3G-q9E">
@@ -574,7 +574,7 @@
                                     <constraint firstAttribute="width" constant="42" id="bXx-ee-NEv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" red="0.6588235294" green="0.6588235294" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBI-ys-lEf">
@@ -649,6 +649,7 @@
                         <viewLayoutGuide key="safeArea" id="zqg-oQ-Eg8"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundImg" destination="d26-Ld-ObM" id="lqK-DZ-3PJ"/>
                         <outlet property="badgeImg" destination="C9F-gu-Ne3" id="nXe-pz-PaQ"/>
                         <outlet property="contentTextView" destination="Vgr-cd-N1q" id="p35-fZ-cXW"/>
                         <outlet property="dateLabel" destination="2kq-rX-7Jv" id="hYH-7S-eLC"/>
@@ -785,9 +786,10 @@
                                     <action selector="goToDatePick:" destination="Cm3-O3-wQq" eventType="touchUpInside" id="xmX-ZS-QUq"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4XK-WM-JAX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4XK-WM-JAX">
                                 <rect key="frame" x="0.0" y="254" width="375" height="524"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="tintColor" red="0.19215686269999999" green="0.1019607843" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardListCell" rowHeight="90" id="jSU-RJ-2xo" customClass="BoardListTableViewCell" customModule="W_TH" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
@@ -1158,14 +1160,14 @@
                                             <action selector="saveButton:" destination="3GK-N0-O7x" eventType="touchUpInside" id="WwZ-Fa-JYg"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancelBtn" translatesAutoresizingMaskIntoConstraints="NO" id="oLJ-rw-ZJw">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CancelButtonSizeMedium" translatesAutoresizingMaskIntoConstraints="NO" id="oLJ-rw-ZJw">
                                         <rect key="frame" x="222.00000000000003" y="20" width="28" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="iZO-I1-38q"/>
                                             <constraint firstAttribute="height" constant="28" id="vYp-kR-l39"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRa-h1-XJj">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRa-h1-XJj">
                                         <rect key="frame" x="218.00000000000003" y="16" width="36" height="36"/>
                                         <connections>
                                             <action selector="pressXButton:" destination="3GK-N0-O7x" eventType="touchUpInside" id="Bvq-hx-H8m"/>
@@ -1221,7 +1223,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cancelBtn" width="28" height="28"/>
+        <image name="CancelButtonSizeMedium" width="28" height="28"/>
         <image name="findmateBtn" width="311" height="40"/>
         <image name="homeImg" width="375" height="357"/>
         <image name="recentsearchDeleteBtn" width="11.666666984558105" height="11.666666984558105"/>

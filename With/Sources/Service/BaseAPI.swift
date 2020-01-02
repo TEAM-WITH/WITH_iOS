@@ -19,4 +19,5 @@ struct BaseAPI {
     static let withMateURL = baseURL+"/home/mates"
     static let boardListURL = baseURL+"/board/region"
     static let myPageURL = baseURL+"/mypage"
+    static let boardDetailURL = baseURL+"/board"
 }
