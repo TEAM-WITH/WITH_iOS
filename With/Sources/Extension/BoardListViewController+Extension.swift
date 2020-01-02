@@ -9,35 +9,33 @@
 import Foundation
 import FMDB
 extension BoardListViewController {
-    struct SearchData {
-        var id: Int
-        var item: String
-    }
+   
     func setOriginViewAnim() {
         self.view.setNeedsLayout()
-        UIView.animate(withDuration: 0.5) {
+        self.searchCancelButton.isHidden = true
+        self.searchButton.isEnabled = false
+        
+        UIView.animate(withDuration: 0.3) {
+            self.searchAreaRightLayout.constant = 20
             self.topView.alpha = 1
             self.searchView.alpha = 0
-            
-            let searchPos = self.view.frame.width - 40
-            self.searchButton.transform = CGAffineTransform(translationX: searchPos, y: 0)
-            self.searchView.transform = CGAffineTransform(scaleX: 1, y: 0.1)
-            self.searchCancelButton.isHidden = true
-//            self.searchTextField
+            self.searchButton.transform = .identity
+            self.searchTextField.transform = .identity
             self.view.layoutIfNeeded()
         }
-        
-        
     }
     
+    //검색시 애니메이션
     func setSearchViewAnim() {
         self.view.setNeedsLayout()
-        UIView.animate(withDuration: 0.5) {
+        self.searchButton.isEnabled = true
+        self.searchCancelButton.isHidden = false
+        UIView.animate(withDuration: 0.3) {
+            self.searchAreaRightLayout.constant = 70
             self.topView.alpha = 0
             self.searchView.alpha = 1
-            self.searchButton.transform = .identity
-            self.searchView.transform = CGAffineTransform(scaleX: 1, y: 1)
-            self.searchCancelButton.isHidden = false
+            self.searchButton.transform = CGAffineTransform(translationX: 230, y: 0)
+            self.searchTextField.transform = CGAffineTransform(translationX: -30, y: 0)
             self.view.layoutIfNeeded()
         }
     }
@@ -55,10 +53,16 @@ extension BoardListViewController {
             return
         }
         do {
-            try database.executeUpdate("create table if not exists history(id INTEGER PRIMARY KEY, item TEXT)", values: nil)
-            try database.executeUpdate("insert into history (item) values (?)", values: [item])
+            try database.executeUpdate("create table if not exists history(id integer, item TEXT)", values: nil)
+            if UserDefaults.standard.string(forKey: "dbId") == nil {
+                UserDefaults.standard.set("0", forKey: "dbId")
+                try database.executeUpdate("insert into history (id, item) values (?, ?)", values: ["0", item])
+            }else {
+                let dbId = UserDefaults.standard.integer(forKey: "dbId")
+                UserDefaults.standard.set("\(dbId+1)", forKey: "dbId")
+                try database.executeUpdate("insert into history (id, item) values (?, ?)", values: [dbId, item])
+            }
             
-          
         } catch {
             print("failed: \(error.localizedDescription)")
         }
@@ -72,11 +76,11 @@ extension BoardListViewController {
             return
         }
         do {
-            let rs = try database.executeQuery("select item from history", values: nil)
+            let rs = try database.executeQuery("select id, item from history", values: nil)
             self.historyList.removeAll()
             while rs.next() {
-                if let item = rs.string(forColumn: "item"), let id: Int = rs.long(forColumn: "id") {
-                    let data = SearchData(id: Int(id) ?? 0, item: item)
+                if let item = rs.string(forColumn: "item"), let id = rs.string(forColumn: "id") {
+                    let data = SearchData(id: id, item: item)
                     self.historyList.append(data)
                 }
             }
@@ -84,6 +88,7 @@ extension BoardListViewController {
             print("failed: \(error.localizedDescription)")
         }
         database.close()
+        self.historyList.reverse()
         self.searchHistoryTableView.reloadData()
     }
     
@@ -94,6 +99,7 @@ extension BoardListViewController {
         }
         do {
             try database.executeUpdate("drop table history", values: nil)
+            self.historyList.removeAll()
         } catch {
             print("failed: \(error.localizedDescription)")
         }
@@ -116,8 +122,11 @@ extension BoardListViewController {
 
 extension BoardListViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == self.searchTextField {
-            setSearchViewAnim()
-        }
+        setSearchViewAnim()
     }
 }
+
+struct SearchData {
+       var id: String
+       var item: String
+   }

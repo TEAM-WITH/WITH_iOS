@@ -20,7 +20,9 @@ class BoardListViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchCancelButton: UIButton!
+    @IBOutlet weak var searchAreaView: UIView!
     
+    @IBOutlet weak var searchAreaRightLayout: NSLayoutConstraint!
     var regionString: String = "전체"
     var regionCode = "010000"
     var dateString: String = "날짜"
@@ -47,10 +49,14 @@ class BoardListViewController: UIViewController {
         }
         setDefaultRequest()
         
-        setDB()
     }
     override func viewWillAppear(_ animated: Bool) {
+        setDB()
         selectQuery()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.database.close()
     }
     
     func setDefaultRequest() {
@@ -90,6 +96,20 @@ class BoardListViewController: UIViewController {
     }
     @IBAction func searchCancel(_ sender: Any) {
         setOriginViewAnim()
+        self.searchTextField.endEditing(true)
+        self.searchTextField.resignFirstResponder()
+    }
+    @IBAction func searchButtonClick(_ sender: Any) {
+        if let string = self.searchTextField.text {
+            insertQuery(item: string)
+            selectQuery()
+            //통신
+            //
+            //
+            //
+            //
+            
+        }
     }
 }
 
@@ -123,14 +143,26 @@ extension BoardListViewController: UITableViewDataSource {
             if indexPath.section == 0 {
                 //히스토리
                  let cell = tableView.dequeueReusableCell(withIdentifier: "BoardSearchCell", for: indexPath) as! BoardSearchTableViewCell
-                cell.historyLabel.text = self.historyList[indexPath.row].item
+                cell.data = self.historyList[indexPath.row]
+                cell.deleteButton.addTarget(self, action: #selector(oneDeleteItem(sender:)), for: .touchUpInside)
                 return cell
             } else {
                  let cell = tableView.dequeueReusableCell(withIdentifier: "BoardDeleteCell", for: indexPath) as! BoardDeleteTableCell
+                cell.allDeleteButton.addTarget(self, action: #selector(allDeleteItem), for: .touchUpInside)
                 return cell
                 
             }
         }
+    }
+    
+    @objc func allDeleteItem() {
+        self.deleteAllQuery()
+        selectQuery()
+    }
+    
+    @objc func oneDeleteItem(sender: UIButton) {
+        deleteQuery(id: "\(sender.tag)")
+        selectQuery()
     }
 }
 
