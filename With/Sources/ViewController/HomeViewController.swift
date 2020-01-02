@@ -33,6 +33,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         setCollection()
         eventPageControl.numberOfPages = 3
         mateList.append(dummy)
+
     }
     override func viewWillAppear(_ animated: Bool) {
         setMateView()
@@ -61,16 +62,21 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     func setRecentCollectionView() {
         if self.mateList.count > 4 {
             self.recentCollectionViewHeight = 375
-            recentLabel.isHighlighted = true
+            
         } else if self.mateList.count > 2 {
             self.recentCollectionViewHeight = 245
-            recentLabel.isHighlighted = true
+            
         } else if !self.mateList.isEmpty {
             self.recentCollectionViewHeight = 115
-            recentLabel.isHidden = false
-    
         }
-    self.recentCollectonView.translatesAutoresizingMaskIntoConstraints = false
+        
+        if self.mateList.isEmpty {
+            recentLabel.isHidden = false
+        }else {
+            recentLabel.isHidden = true
+        }
+        
+        self.recentCollectonView.translatesAutoresizingMaskIntoConstraints = false
         self.recentCollectonView.heightAnchor.constraint(equalToConstant: recentCollectionViewHeight).isActive = true
         self.view.layoutIfNeeded()
     }
@@ -102,7 +108,8 @@ extension HomeViewController: UICollectionViewDataSource {
             return 6
         } else if collectionView == recentCollectonView {
     
-              return mateList.count
+//              return mateList.count
+            return 4
         }
         return 0
     }

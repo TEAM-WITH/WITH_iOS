@@ -48,10 +48,10 @@ struct UserService {
                         guard let object = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else { return }
                         guard let success = object["success"] as? Bool else { return }
                         if success {
-                            print("성공")
+//                            print("성공")
                             completion(true)
                         }else {
-                            print("통신성공 회원가입실패")
+//                            print("통신성공 회원가입실패")
                             completion(false)
                         }
                     } catch(let err) {

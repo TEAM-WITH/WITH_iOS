@@ -42,8 +42,6 @@ class ChatListViewController: UIViewController {
         
         let otherId = sub.filter{ return $0 != "\(UserInfo.shared.getUserIdx())" }
             .map{ Int($0) }
-        
-        print(otherId)
         return otherId[0] ?? -1
     }
 }

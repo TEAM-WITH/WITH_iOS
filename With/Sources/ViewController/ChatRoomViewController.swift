@@ -141,7 +141,6 @@ class ChatRoomViewController: UIViewController {
     func dynamicChatTextView() {
         let size = CGSize(width: self.view.frame.width, height: .infinity)
         var estimatedSize = self.chatTextView.sizeThatFits(size)
-        print(estimatedSize)
         if estimatedSize.height > 75 {
             return
         } else if estimatedSize.height < 32 {
