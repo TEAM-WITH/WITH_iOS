@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var withMateView: UIView!
     @IBOutlet weak var recommendTopLayout: NSLayoutConstraint!
     
+    @IBOutlet weak var homeImg: UIImageView!
     @IBOutlet weak var recentLabel: UILabel!
     let dummy = Mate(img: UIImage(), userName: "hihi")
     var mateList: [Mate] = []
@@ -33,6 +34,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         setCollection()
         eventPageControl.numberOfPages = 3
         mateList.append(dummy)
+        setDefaultRequest()
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -91,6 +93,14 @@ extension HomeViewController {
         self.mateCollectionView.dataSource = self
         self.recommendCollectionView.dataSource = self
         self.recentCollectonView.dataSource = self
+    }
+    
+    func setDefaultRequest() {
+        HomeService.shared.getMainImageRequest { data in
+            guard let imgString = data?.regionImgH else {return}
+            let imgURL = URL(string: imgString)
+            self.homeImg.kf.setImage(with: imgURL, options: [.transition(.fade(0.3)), .cacheOriginalImage])
+        }
     }
 }
 // 개수에 관한 collection

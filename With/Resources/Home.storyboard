@@ -444,6 +444,7 @@
                     <connections>
                         <outlet property="eventPageControl" destination="jer-8Y-Ugz" id="hbO-gJ-SES"/>
                         <outlet property="eventScrollView" destination="Rak-kA-OBf" id="2Od-MF-I0M"/>
+                        <outlet property="homeImg" destination="Phn-VJ-Sdt" id="oVT-4e-F21"/>
                         <outlet property="mateCollectionView" destination="4cZ-nP-gjD" id="4qZ-yI-RrG"/>
                         <outlet property="recentCollectonView" destination="uC2-V7-eUI" id="oSw-VY-zbO"/>
                         <outlet property="recentLabel" destination="QYu-ae-dGm" id="C5W-v6-Hde"/>
