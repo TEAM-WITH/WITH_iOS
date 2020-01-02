@@ -19,6 +19,7 @@ struct BoardService {
         let header:  HTTPHeaders = [
         "token": token
         ]
+
         Alamofire.request(url, method: .get, parameters: .none, encoding: JSONEncoding.default, headers: header).responseJSON { response in
             switch response.result {
             case.success:
@@ -38,6 +39,9 @@ struct BoardService {
                 completion(nil)
             }
         }
-        
     }
+    
+//    func getBoardDetailRequest(boardIdx: Int, completion: @escaping () -> Void) {
+//
+//    }
 }

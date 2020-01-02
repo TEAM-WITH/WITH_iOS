@@ -17,7 +17,7 @@ extension ChatListViewController {
                 self.chatLists.removeAll()
                 for item in snapshot.children.allObjects as! [DataSnapshot] {
                     if let object = item.value as? [String: AnyObject] {
-                        print(object)
+//                        print(object)
                         guard let boardIdx = object["boardIdx"] as? Int else { return }
                         guard let lastMsg = object["lastMessage"] as? String else { return }
                         guard let lastTime = object["lastTime"] as? String else { return }

@@ -35,6 +35,7 @@
 		05DDBE1423BB6CE700DCDBD5 /* WithMateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE1323BB6CE700DCDBD5 /* WithMateService.swift */; };
 		05DDBE1623BB704500DCDBD5 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DDBE1523BB704500DCDBD5 /* LogIn.storyboard */; };
 		05DDBE1823BB711C00DCDBD5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE1723BB711C00DCDBD5 /* LogInViewController.swift */; };
+		0653C07323BE23BE003ABB80 /* BoardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0653C07223BE23BE003ABB80 /* BoardDetailViewController.swift */; };
 		06BBC30523B9C768000DAE1C /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30423B9C768000DAE1C /* LoginResult.swift */; };
 		06BBC30723B9EADC000DAE1C /* ChatRoomViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */; };
 		06BBC30923BA0D93000DAE1C /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30823BA0D93000DAE1C /* ChatModel.swift */; };
@@ -111,6 +112,7 @@
 		05DDBE1323BB6CE700DCDBD5 /* WithMateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithMateService.swift; sourceTree = "<group>"; };
 		05DDBE1523BB704500DCDBD5 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		05DDBE1723BB711C00DCDBD5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		0653C07223BE23BE003ABB80 /* BoardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDetailViewController.swift; sourceTree = "<group>"; };
 		06BBC30423B9C768000DAE1C /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatRoomViewController+Extension.swift"; sourceTree = "<group>"; };
 		06BBC30823BA0D93000DAE1C /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		06CFDD6D23B09D2D0030BABB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0653C07223BE23BE003ABB80 /* BoardDetailViewController.swift */,
 				06BBC31423BC91F8000DAE1C /* BoardListViewController.swift */,
 				06BBC30C23BA8CCE000DAE1C /* InviteViewController.swift */,
 				06CFDD5B23B09C930030BABB /* ViewController.swift */,
@@ -587,6 +590,7 @@
 				06BBC32723BD662B000DAE1C /* BoardSearchTableViewCell.swift in Sources */,
 				06CFDD9B23B4CD9D0030BABB /* ChatProfileTableViewCell.swift in Sources */,
 				06CFDD8423B249450030BABB /* ChatBubbleTableViewCell.swift in Sources */,
+				0653C07323BE23BE003ABB80 /* BoardDetailViewController.swift in Sources */,
 				06CFDD8223B1F6F00030BABB /* ChatRoomViewController.swift in Sources */,
 				04F3624D23B50939005B56CB /* SemiRegionCollectionViewCell.swift in Sources */,
 				0458B94023B2403400CEBFDA /* RecommendCollectionViewCell.swift in Sources */,
@@ -744,7 +748,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "With/W!th.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7Z2CV7TB8R;
 				INFOPLIST_FILE = With/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -765,7 +769,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "With/W!th.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7Z2CV7TB8R;
 				INFOPLIST_FILE = With/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (

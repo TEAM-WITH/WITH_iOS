@@ -85,8 +85,6 @@ extension RegionFilterViewController: UICollectionViewDelegate {
         
         
         if collectionView == self.regionCollectionView {
-            print("click")
-            
             
             semiBeforeValue = 0
             self.regionSet[indexPath.item].region.isClick = true
