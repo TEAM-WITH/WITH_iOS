@@ -22,4 +22,7 @@ struct BaseAPI {
     static let myPageURL = baseURL+"/mypage"
     static let boardDetailURL = baseURL+"/board"
     static let homeImgURL = homeURL+"/bgImg"
+    static let chatListURL = baseURL+"/chat"
+    static let homeRecommendURL = homeURL+"/recommendations"
+    
 }

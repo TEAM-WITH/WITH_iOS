@@ -26,7 +26,33 @@ struct HomeService {
                     let decoder = JSONDecoder()
                     let object = try decoder.decode(ResponseSimpleResult<HomeImg>.self, from: data)
                     if object.success {
-                        print(object.data)
+                        completion(object.data)
+                    } else {
+                        completion(nil)
+                    }
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case.failure:
+                completion(nil)
+            }
+        }
+    }
+    
+    func getMainMateRequest(completion: @escaping ([ChatListResult]?) -> Void) {
+        let url = BaseAPI.chatListURL
+        let token = UserInfo.shared.getUserToken()
+        let header: HTTPHeaders = [
+            "token": token
+        ]
+        Alamofire.request(url, method: .get, parameters: .none, encoding: JSONEncoding.default, headers: header).responseJSON { response in
+            switch response.result {
+            case.success:
+                guard let data = response.data else { return }
+                do {
+                    let decoder = JSONDecoder()
+                    let object = try decoder.decode(ResponseResult<ChatListResult>.self, from: data)
+                    if object.success {
                         completion(object.data)
                     } else {
                         completion(nil)
@@ -40,4 +66,32 @@ struct HomeService {
         }
     }
 
+    func getMainRecommendRequest(regionCode: String, completion: @escaping ([HomeRecommendTrip]?) -> Void) {
+        let url = BaseAPI.homeRecommendURL+"/\(regionCode)"
+        let header: HTTPHeaders = [
+            "Content-Type": "application/json"
+        ]
+        print(url)
+        Alamofire.request(url, method: .get, parameters: .none, encoding: JSONEncoding.default, headers: header).responseJSON { response in
+            switch response.result {
+            case.success:
+                guard let data = response.data else { return }
+                print(data)
+                do {
+                    let decoder = JSONDecoder()
+                    let object = try decoder.decode(ResponseResult<HomeRecommendTrip>.self, from: data)
+                    if object.success {
+                        print(object.data)
+                        completion(object.data)
+                    } else {
+                        completion(nil)
+                    }
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case.failure:
+                completion(nil)
+            }
+        }
+    }
 }

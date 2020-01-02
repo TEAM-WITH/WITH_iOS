@@ -11,10 +11,14 @@ import UIKit
 class MateCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mateImage: UIImageView!
     @IBOutlet weak var mateLabel: UILabel!
-   /* var viewModel: abcResult! {
-        willSet{
-            self.mateImage = viewModel.image
-            self.mateLabel.text = String
+
+    var viewModel: ChatListResult! {
+        willSet {
+            self.mateLabel.text = newValue.name
+            
+            let imgURL = URL(string: newValue.userImg)
+            self.mateImage.kf.indicatorType = .activity
+            self.mateImage.kf.setImage(with: imgURL, options: [.transition(.fade(0.3)), .cacheOriginalImage])
         }
-    }*/
+    }
 }

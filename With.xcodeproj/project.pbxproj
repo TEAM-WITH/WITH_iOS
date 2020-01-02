@@ -39,6 +39,7 @@
 		0653C07523BE2F0B003ABB80 /* BoardDetailResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0653C07423BE2F0B003ABB80 /* BoardDetailResult.swift */; };
 		0653C07723BE66A6003ABB80 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0653C07623BE66A6003ABB80 /* HomeService.swift */; };
 		0653C07923BE6E6A003ABB80 /* HomeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0653C07823BE6E6A003ABB80 /* HomeResult.swift */; };
+		0653C07B23BE8F91003ABB80 /* ChatResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0653C07A23BE8F91003ABB80 /* ChatResult.swift */; };
 		06BBC30523B9C768000DAE1C /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30423B9C768000DAE1C /* LoginResult.swift */; };
 		06BBC30723B9EADC000DAE1C /* ChatRoomViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */; };
 		06BBC30923BA0D93000DAE1C /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30823BA0D93000DAE1C /* ChatModel.swift */; };
@@ -119,6 +120,7 @@
 		0653C07423BE2F0B003ABB80 /* BoardDetailResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDetailResult.swift; sourceTree = "<group>"; };
 		0653C07623BE66A6003ABB80 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		0653C07823BE6E6A003ABB80 /* HomeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResult.swift; sourceTree = "<group>"; };
+		0653C07A23BE8F91003ABB80 /* ChatResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResult.swift; sourceTree = "<group>"; };
 		06BBC30423B9C768000DAE1C /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatRoomViewController+Extension.swift"; sourceTree = "<group>"; };
 		06BBC30823BA0D93000DAE1C /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				06BBC31823BD0637000DAE1C /* BoardResult.swift */,
 				0653C07423BE2F0B003ABB80 /* BoardDetailResult.swift */,
 				0653C07823BE6E6A003ABB80 /* HomeResult.swift */,
+				0653C07A23BE8F91003ABB80 /* ChatResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				0517421023BDD0FC001BA461 /* MyPageModel.swift in Sources */,
 				0653C07923BE6E6A003ABB80 /* HomeResult.swift in Sources */,
 				05DDBE1223BB6AC500DCDBD5 /* RecentBoardModel.swift in Sources */,
+				0653C07B23BE8F91003ABB80 /* ChatResult.swift in Sources */,
 				06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */,
 				05DDBE1423BB6CE700DCDBD5 /* WithMateService.swift in Sources */,
 				06BBC31D23BD1F85000DAE1C /* BoardDatePickerViewController.swift in Sources */,

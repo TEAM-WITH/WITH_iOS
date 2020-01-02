@@ -24,6 +24,14 @@ struct Chat {
     var meetDate: String?
 }
 
+struct ChatList {
+    var boardIdx: Int
+    var lastMsg: String
+    var unSeenCount: Int
+    var time: String
+    var roomId: String
+}
+
 enum ChatType: Int {
     case mine = 0
     case other = 1

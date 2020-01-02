@@ -12,3 +12,11 @@ import Foundation
 struct HomeImg: Codable {
     var regionImgH: String
 }
+
+struct HomeRecommendTrip: Codable {
+    var regionCode: String
+    var regionName: String
+    var regionNameEng: String
+    var count: Int
+    var regionImgS: String
+}

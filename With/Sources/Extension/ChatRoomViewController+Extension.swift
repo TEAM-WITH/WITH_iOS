@@ -179,7 +179,6 @@ extension ChatRoomViewController {
             if snapshot.key == "unSeenCount" {
                 guard let unSeenCount = snapshot.value as? Int else { return }
                 self.otherUnSeenCount = unSeenCount
-                print("처음초기화ㅓ\(self.otherUnSeenCount)")
             }
         }
         // 바뀌면 초기화
@@ -187,7 +186,6 @@ extension ChatRoomViewController {
             if snapshot.key == "unSeenCount" {
                 guard let unSeenCount = snapshot.value as? Int else { return }
                 self.otherUnSeenCount = unSeenCount
-                print("업데이트: \(self.otherUnSeenCount)")
             }
         }
     }
