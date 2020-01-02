@@ -150,7 +150,7 @@
                                     <constraint firstAttribute="height" constant="26" id="5Rh-o0-S8S"/>
                                     <constraint firstAttribute="width" constant="26" id="dm0-SV-PWQ"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="closeBtn"/>
+                                <state key="normal" title="Button" image="labellabellabel"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lw3-x5-35P">
                                 <rect key="frame" x="328" y="434" width="26" height="26"/>
@@ -161,7 +161,7 @@
                                     <constraint firstAttribute="width" constant="26" id="kR8-Tf-pcE"/>
                                     <constraint firstAttribute="height" constant="26" id="rhc-ik-sDl"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="closeBtn"/>
+                                <state key="normal" title="Button" image="labellabellabel"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAa-qm-SKD">
                                 <rect key="frame" x="328" y="495" width="26" height="26"/>
@@ -172,7 +172,7 @@
                                     <constraint firstAttribute="height" constant="26" id="jgT-oD-aZ3"/>
                                     <constraint firstAttribute="width" constant="26" id="vIs-AT-YlS"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="closeBtn"/>
+                                <state key="normal" title="Button" image="labellabellabel"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WO1-Wh-HOd">
                                 <rect key="frame" x="0.0" y="430" width="375" height="46"/>
@@ -387,13 +387,13 @@
                                     <action selector="saveButton:" destination="BPk-Hh-N3b" eventType="touchUpInside" id="qMP-u4-Pom"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fed-VT-eMU">
-                                <rect key="frame" x="196" y="237" width="28" height="28"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fed-VT-eMU">
+                                <rect key="frame" x="149" y="181" width="75" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="eHV-X7-NUM"/>
-                                    <constraint firstAttribute="width" constant="28" id="hJa-QZ-eH2"/>
+                                    <constraint firstAttribute="height" constant="75" id="eHV-X7-NUM"/>
+                                    <constraint firstAttribute="width" constant="75" id="hJa-QZ-eH2"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="editimgBtn"/>
+                                <state key="normal" image="editimgBtn"/>
                                 <connections>
                                     <action selector="editProfileImg:" destination="BPk-Hh-N3b" eventType="touchUpInside" id="oxl-Ku-2qb"/>
                                 </connections>
@@ -411,13 +411,13 @@
                             <constraint firstAttribute="top" secondItem="YOP-6q-i98" secondAttribute="top" constant="-88" id="EUo-Sh-eVC"/>
                             <constraint firstAttribute="trailing" secondItem="6J9-ns-NBI" secondAttribute="trailing" id="IEQ-my-BxO"/>
                             <constraint firstItem="6J9-ns-NBI" firstAttribute="top" secondItem="mxa-rY-amW" secondAttribute="bottom" constant="8" symbolic="YES" id="JPS-77-IeU"/>
-                            <constraint firstItem="Fed-VT-eMU" firstAttribute="leading" secondItem="mxb-j5-pVb" secondAttribute="leading" constant="196" id="PRk-sg-tqA"/>
+                            <constraint firstItem="Fed-VT-eMU" firstAttribute="leading" secondItem="mxb-j5-pVb" secondAttribute="leading" constant="149" id="PRk-sg-tqA"/>
                             <constraint firstItem="mxa-rY-amW" firstAttribute="leading" secondItem="FCz-D5-PfW" secondAttribute="leading" id="RmH-Bf-Y9i"/>
                             <constraint firstAttribute="bottom" secondItem="6J9-ns-NBI" secondAttribute="bottom" id="a1h-ml-eyV"/>
                             <constraint firstItem="FTs-cS-zSm" firstAttribute="leading" secondItem="Cga-la-32o" secondAttribute="trailing" constant="8" id="eBS-iX-Fr6"/>
                             <constraint firstItem="FRx-ft-gtV" firstAttribute="top" secondItem="mir-eb-WV7" secondAttribute="bottom" constant="2" id="eGV-XO-ji5"/>
                             <constraint firstItem="mxb-j5-pVb" firstAttribute="trailing" secondItem="5VF-w4-jmb" secondAttribute="trailing" constant="20" id="ikv-f5-Gzm"/>
-                            <constraint firstItem="Fed-VT-eMU" firstAttribute="top" secondItem="FCz-D5-PfW" secondAttribute="bottom" constant="86" id="iuh-zk-u5r"/>
+                            <constraint firstItem="Fed-VT-eMU" firstAttribute="top" secondItem="FCz-D5-PfW" secondAttribute="bottom" constant="30" id="iuh-zk-u5r"/>
                             <constraint firstItem="FCz-D5-PfW" firstAttribute="leading" secondItem="eKK-uD-O6D" secondAttribute="leading" constant="20" id="jDw-ul-9hG"/>
                             <constraint firstItem="Cga-la-32o" firstAttribute="top" secondItem="FRx-ft-gtV" secondAttribute="bottom" constant="3" id="kbM-tN-wa2"/>
                             <constraint firstItem="Cga-la-32o" firstAttribute="leading" secondItem="mxb-j5-pVb" secondAttribute="leading" constant="136" id="l4E-WY-RkG"/>
@@ -449,10 +449,10 @@
     </scenes>
     <resources>
         <image name="cancelBtn" width="28" height="28"/>
-        <image name="closeBtn" width="44" height="44"/>
         <image name="editBtn" width="30" height="20"/>
         <image name="editimgBtn" width="28" height="28"/>
         <image name="img" width="375" height="249"/>
+        <image name="labellabellabel" width="44" height="44"/>
         <image name="like" width="48" height="8"/>
         <image name="selfCertificationBadge" width="22" height="25.666666030883789"/>
         <image name="userImg" width="81" height="81"/>

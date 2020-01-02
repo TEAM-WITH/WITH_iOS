@@ -16,6 +16,8 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
     override func viewDidLoad() {
+
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
         super.viewDidLoad()
     }
     @IBAction func goToModify(_ sender: Any) {
