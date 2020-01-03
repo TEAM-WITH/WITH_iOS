@@ -812,9 +812,7 @@
                                                 <action selector="cancelButtonClick:" destination="IDh-F4-IaN" id="tes-hq-4Sv"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="alarm" id="s5h-FY-i9B">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="alarm" id="s5h-FY-i9B"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -840,8 +838,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.02.02 ~ 2020.02.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkW-ZD-Ea0">
-                                        <rect key="frame" x="150" y="20.666666666666671" width="142" height="18"/>
+                                        <rect key="frame" x="150" y="20.666666666666671" width="160" height="18"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="qSw-t0-wJ7"/>
                                             <constraint firstAttribute="height" constant="18" id="u2W-96-hLP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -861,7 +860,7 @@
                                             <constraint firstAttribute="width" constant="24" id="7wT-hQ-uRd"/>
                                             <constraint firstAttribute="height" constant="24" id="dQL-g7-M9W"/>
                                         </constraints>
-                                        <state key="normal" image="moreBtn"/>
+                                        <state key="normal" image="CirclePurpleNextButton"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -887,9 +886,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-AD-ZvV">
                                 <rect key="frame" x="0.0" y="713" width="375" height="65"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kNZ-0S-rlj">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChatWithButton" translatesAutoresizingMaskIntoConstraints="NO" id="kNZ-0S-rlj">
                                         <rect key="frame" x="16" y="15" width="28" height="28"/>
-                                        <color key="backgroundColor" red="0.99215686270000003" green="0.62352941179999999" blue="0.031372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="1NU-Lf-crX"/>
                                             <constraint firstAttribute="height" constant="28" id="OPI-P0-T6m"/>
@@ -898,7 +897,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWV-HS-lOL">
                                         <rect key="frame" x="56" y="9" width="309" height="41"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ik-wG-7JU">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChatSendButton" translatesAutoresizingMaskIntoConstraints="NO" id="9ik-wG-7JU">
                                                 <rect key="frame" x="270" y="6" width="28" height="28"/>
                                                 <color key="backgroundColor" red="0.95802479979999999" green="0.92167274239999997" blue="0.73912067510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
@@ -934,7 +933,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4Z-JR-9I0">
-                                        <rect key="frame" x="16" y="15" width="28" height="28"/>
+                                        <rect key="frame" x="11" y="10" width="38" height="38"/>
                                         <connections>
                                             <action selector="inviteButtonClick:" destination="IDh-F4-IaN" eventType="touchUpInside" id="JTK-e9-kca"/>
                                         </connections>
@@ -950,12 +949,12 @@
                                     <constraint firstAttribute="trailing" secondItem="rlI-br-lSw" secondAttribute="trailing" constant="70" id="XW8-ru-rZN"/>
                                     <constraint firstItem="y4Z-JR-9I0" firstAttribute="centerX" secondItem="kNZ-0S-rlj" secondAttribute="centerX" id="dmO-nW-IAP"/>
                                     <constraint firstItem="y4Z-JR-9I0" firstAttribute="centerY" secondItem="kNZ-0S-rlj" secondAttribute="centerY" id="h5X-a2-Fck"/>
-                                    <constraint firstItem="y4Z-JR-9I0" firstAttribute="height" secondItem="kNZ-0S-rlj" secondAttribute="height" id="iEB-dl-SMG"/>
+                                    <constraint firstItem="y4Z-JR-9I0" firstAttribute="height" secondItem="kNZ-0S-rlj" secondAttribute="height" constant="10" id="iEB-dl-SMG"/>
                                     <constraint firstItem="kNZ-0S-rlj" firstAttribute="centerY" secondItem="jD7-Lb-gpy" secondAttribute="centerY" id="lJ7-I1-LcQ"/>
                                     <constraint firstItem="kNZ-0S-rlj" firstAttribute="leading" secondItem="XNj-AD-ZvV" secondAttribute="leading" constant="16" id="pya-2s-MpZ"/>
                                     <constraint firstItem="MWV-HS-lOL" firstAttribute="leading" secondItem="kNZ-0S-rlj" secondAttribute="trailing" constant="12" id="saf-zB-gre"/>
                                     <constraint firstItem="MWV-HS-lOL" firstAttribute="top" secondItem="rlI-br-lSw" secondAttribute="top" constant="-5" id="zRN-qj-SXt"/>
-                                    <constraint firstItem="y4Z-JR-9I0" firstAttribute="width" secondItem="kNZ-0S-rlj" secondAttribute="width" id="zgU-yL-vkB"/>
+                                    <constraint firstItem="y4Z-JR-9I0" firstAttribute="width" secondItem="kNZ-0S-rlj" secondAttribute="width" constant="10" id="zgU-yL-vkB"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -979,9 +978,11 @@
                     </view>
                     <connections>
                         <outlet property="chatAreaView" destination="MWV-HS-lOL" id="d9I-u7-K8r"/>
+                        <outlet property="chatInviteImg" destination="kNZ-0S-rlj" id="hG8-Gb-l5Z"/>
                         <outlet property="chatTableView" destination="3Rs-fi-blv" id="TvQ-fe-nym"/>
                         <outlet property="chatTextView" destination="rlI-br-lSw" id="T6s-I2-3R3"/>
                         <outlet property="chatViewBottomLayout" destination="TCl-eL-OLF" id="Zh0-lz-HOc"/>
+                        <outlet property="inviteButton" destination="y4Z-JR-9I0" id="ZnF-RI-qf1"/>
                         <outlet property="noticeDateLabel" destination="HkW-ZD-Ea0" id="qaU-ot-nbJ"/>
                         <outlet property="noticeImage" destination="jNr-nq-rLT" id="2pu-DD-AD5"/>
                         <outlet property="noticeRegionLabel" destination="03R-Vb-9rS" id="L59-pa-tBB"/>
@@ -1070,6 +1071,17 @@
                                             <action selector="inviteButtonClick:" destination="nKN-vG-2vM" eventType="touchUpInside" id="na5-Ab-h1k"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gp9-Go-rMr">
+                                        <rect key="frame" x="220.00000000000003" y="20" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="PAN-sS-RH6"/>
+                                            <constraint firstAttribute="height" constant="30" id="gmG-GB-Et8"/>
+                                        </constraints>
+                                        <state key="normal" image="CancelButtonSizeMedium"/>
+                                        <connections>
+                                            <action selector="closeButton:" destination="nKN-vG-2vM" eventType="touchUpInside" id="3fh-z4-xTc"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -1088,9 +1100,11 @@
                                     <constraint firstItem="a4c-vu-dfK" firstAttribute="top" secondItem="uKs-0b-QMY" secondAttribute="bottom" constant="30" id="eus-zt-SdV"/>
                                     <constraint firstItem="Shu-UY-pRk" firstAttribute="centerY" secondItem="a4c-vu-dfK" secondAttribute="centerY" id="i6I-aE-RpH"/>
                                     <constraint firstItem="Shu-UY-pRk" firstAttribute="leading" secondItem="a4c-vu-dfK" secondAttribute="trailing" constant="20" id="jdV-nP-wLR"/>
+                                    <constraint firstAttribute="trailing" secondItem="gp9-Go-rMr" secondAttribute="trailing" constant="16" id="jxv-MN-xni"/>
                                     <constraint firstAttribute="height" constant="429" id="mvq-HP-1jw"/>
                                     <constraint firstAttribute="trailing" secondItem="uKs-0b-QMY" secondAttribute="trailing" constant="30" id="rqp-ee-jNL"/>
                                     <constraint firstItem="89Z-tA-fHY" firstAttribute="top" secondItem="a4c-vu-dfK" secondAttribute="bottom" constant="20" id="yE9-O9-XQV"/>
+                                    <constraint firstItem="gp9-Go-rMr" firstAttribute="top" secondItem="dkg-Jo-m3E" secondAttribute="top" constant="20" id="yHQ-Fl-CwP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1116,9 +1130,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CancelButtonSizeMedium" width="28" height="28"/>
+        <image name="ChatSendButton" width="28" height="28"/>
+        <image name="ChatWithButton" width="28" height="28"/>
+        <image name="CirclePurpleNextButton" width="28" height="28"/>
         <image name="alarm" width="24" height="24"/>
         <image name="illust" width="235" height="178"/>
         <image name="illust2" width="226" height="90"/>
-        <image name="moreBtn" width="44" height="44"/>
     </resources>
 </document>

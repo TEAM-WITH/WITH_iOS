@@ -74,12 +74,14 @@ extension ChatRoomViewController {
         self.otherUnSeenCount += 1
         let createRoomInfo: Dictionary<String, Any> = [
             "boardIdx": 0,
+            "inviteFlag": inviteFlag,
             "lastMessage": msg,
             "lastTime": time,
             "unSeenCount": 0
         ]
         let createOtherRoomInfo: Dictionary<String, Any> = [
             "boardIdx": 0,
+            "inviteFlag": 0,
             "lastMessage": msg,
             "lastTime": time,
             "unSeenCount": self.otherUnSeenCount
@@ -144,14 +146,17 @@ extension ChatRoomViewController {
         // 날짜 찍히는거 확인
         ref.child("conversations").child(roomId).childByAutoId().setValue(createChatInfo)
         self.otherUnSeenCount += 1
+        self.inviteFlag += 1
         let createRoomInfo: Dictionary<String, Any> = [
             "boardIdx": 0,
+            "inviteFlag": inviteFlag,
             "lastMessage": "동행 성사 메시지입니다.",
             "lastTime": time,
             "unSeenCount": 0
         ]
         let createOtherRoomInfo: Dictionary<String, Any> = [
             "boardIdx": 0,
+            "inviteFlag": 0,
             "lastMessage": "동행 성사 메시지입니다.",
             "lastTime": time,
             "unSeenCount": otherUnSeenCount
@@ -186,6 +191,20 @@ extension ChatRoomViewController {
             if snapshot.key == "unSeenCount" {
                 guard let unSeenCount = snapshot.value as? Int else { return }
                 self.otherUnSeenCount = unSeenCount
+            }
+        }
+    }
+    
+    func inviteFlagObserve() {
+        let userId = UserInfo.shared.getUserIdx()
+        ref.child("users").child("\(userId)").child(roomId).observe(.childChanged) { snapshot in
+            if snapshot.key == "inviteFlag" {
+                guard let inviteFlag = snapshot.value as? Int else { return }
+                self.inviteFlag = inviteFlag
+                
+                if inviteFlag > 0 {
+                    self.inviteButton.isHidden = true
+                    self.chatInviteImg.image = UIImage(named: "")
             }
         }
     }

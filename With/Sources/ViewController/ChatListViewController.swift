@@ -22,6 +22,7 @@ class ChatListViewController: UIViewController {
        return formatter
    }()
     var chatLists: [ChatList] = []
+    var chatInfoList: [ChatListResult] = []
     var ref: DatabaseReference!
     
     @IBOutlet weak var tableView: UITableView!
@@ -34,6 +35,7 @@ class ChatListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setFirebase()
         firebaseEventObserver(userIdx: "\(UserInfo.shared.getUserIdx())")
+        chatListRequest()
     }
     override func viewWillDisappear(_ animated: Bool) {
         if let index = tableView.indexPathForSelectedRow {
@@ -47,6 +49,13 @@ class ChatListViewController: UIViewController {
         let otherId = sub.filter{ return $0 != "\(UserInfo.shared.getUserIdx())" }
             .map{ Int($0) }
         return otherId[0] ?? -1
+    }
+    func chatListRequest() {
+        ChatService.shared.getChatListRequest { data in
+            if let infos = data {
+                self.chatInfoList = infos
+            }
+        }
     }
 }
 
@@ -70,11 +79,13 @@ extension ChatListViewController: UITableViewDataSource {
 extension ChatListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chatRoom = chatLists[indexPath.row]
+        let chatInfo = chatInfoList[indexPath.row]
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Chat") as? ChatRoomViewController else { return }
         nextVC.modalPresentationStyle = .fullScreen
-        nextVC.roomId = "\(chatRoom.roomId)"
+        nextVC.roomId = chatInfo.roomId
         nextVC.otherUnSeenCount = chatRoom.unSeenCount
-        nextVC.otherId = distinguishGetOtherId(roomId: chatRoom.roomId)
+        nextVC.otherId = chatInfo.userIdx
+        nextVC.roomInfo = chatInfo
         enterChatSetCount(roomId: chatRoom.roomId)
         self.present(nextVC, animated: true)
     }

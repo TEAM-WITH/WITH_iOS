@@ -28,13 +28,11 @@
 		05719C8B23BC7E840041D322 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05719C8A23BC7E840041D322 /* SignUpViewController.swift */; };
 		05719C8D23BC89EF0041D322 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05719C8C23BC89EF0041D322 /* MyPage.storyboard */; };
 		05719C8F23BCC63F0041D322 /* MyPageModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05719C8E23BCC63F0041D322 /* MyPageModifyViewController.swift */; };
-		05DDBE0823BA1C3300DCDBD5 /* EstimateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */; };
 		05DDBE0A23BA45E100DCDBD5 /* RegionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0923BA45E100DCDBD5 /* RegionModel.swift */; };
 		05DDBE0C23BB32C800DCDBD5 /* CountryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */; };
 		05DDBE0E23BB694C00DCDBD5 /* WithMateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0D23BB694C00DCDBD5 /* WithMateModel.swift */; };
 		05DDBE1023BB6A3000DCDBD5 /* RecommenBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0F23BB6A3000DCDBD5 /* RecommenBoardModel.swift */; };
 		05DDBE1223BB6AC500DCDBD5 /* RecentBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE1123BB6AC500DCDBD5 /* RecentBoardModel.swift */; };
-		05DDBE1423BB6CE700DCDBD5 /* WithMateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE1323BB6CE700DCDBD5 /* WithMateService.swift */; };
 		05DDBE1623BB704500DCDBD5 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DDBE1523BB704500DCDBD5 /* LogIn.storyboard */; };
 		05DDBE1823BB711C00DCDBD5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE1723BB711C00DCDBD5 /* LogInViewController.swift */; };
 		0653C07323BE23BE003ABB80 /* BoardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0653C07223BE23BE003ABB80 /* BoardDetailViewController.swift */; };
@@ -42,6 +40,7 @@
 		0653C07723BE66A6003ABB80 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0653C07623BE66A6003ABB80 /* HomeService.swift */; };
 		0653C07923BE6E6A003ABB80 /* HomeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0653C07823BE6E6A003ABB80 /* HomeResult.swift */; };
 		0653C07B23BE8F91003ABB80 /* ChatResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0653C07A23BE8F91003ABB80 /* ChatResult.swift */; };
+		06A68F4123BF5A7D000B5640 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A68F4023BF5A7D000B5640 /* ChatService.swift */; };
 		06BBC30523B9C768000DAE1C /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30423B9C768000DAE1C /* LoginResult.swift */; };
 		06BBC30723B9EADC000DAE1C /* ChatRoomViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */; };
 		06BBC30923BA0D93000DAE1C /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC30823BA0D93000DAE1C /* ChatModel.swift */; };
@@ -111,13 +110,11 @@
 		05719C8A23BC7E840041D322 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		05719C8C23BC89EF0041D322 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		05719C8E23BCC63F0041D322 /* MyPageModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModifyViewController.swift; sourceTree = "<group>"; };
-		05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateService.swift; sourceTree = "<group>"; };
 		05DDBE0923BA45E100DCDBD5 /* RegionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionModel.swift; sourceTree = "<group>"; };
 		05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryService.swift; sourceTree = "<group>"; };
 		05DDBE0D23BB694C00DCDBD5 /* WithMateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithMateModel.swift; sourceTree = "<group>"; };
 		05DDBE0F23BB6A3000DCDBD5 /* RecommenBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommenBoardModel.swift; sourceTree = "<group>"; };
 		05DDBE1123BB6AC500DCDBD5 /* RecentBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentBoardModel.swift; sourceTree = "<group>"; };
-		05DDBE1323BB6CE700DCDBD5 /* WithMateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithMateService.swift; sourceTree = "<group>"; };
 		05DDBE1523BB704500DCDBD5 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		05DDBE1723BB711C00DCDBD5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		0653C07223BE23BE003ABB80 /* BoardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDetailViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +122,7 @@
 		0653C07623BE66A6003ABB80 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		0653C07823BE6E6A003ABB80 /* HomeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResult.swift; sourceTree = "<group>"; };
 		0653C07A23BE8F91003ABB80 /* ChatResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResult.swift; sourceTree = "<group>"; };
+		06A68F4023BF5A7D000B5640 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		06BBC30423B9C768000DAE1C /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		06BBC30623B9EADC000DAE1C /* ChatRoomViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatRoomViewController+Extension.swift"; sourceTree = "<group>"; };
 		06BBC30823BA0D93000DAE1C /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
@@ -349,12 +347,11 @@
 			children = (
 				06CFDD7F23B1F37F0030BABB /* BaseAPI.swift */,
 				06C1C93823B7C55A00DD4F9D /* UserService.swift */,
-				05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */,
 				05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */,
-				05DDBE1323BB6CE700DCDBD5 /* WithMateService.swift */,
 				06BBC31A23BD06DF000DAE1C /* BoardService.swift */,
 				0517420D23BDD018001BA461 /* MyPageService.swift */,
 				0653C07623BE66A6003ABB80 /* HomeService.swift */,
+				06A68F4023BF5A7D000B5640 /* ChatService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -559,7 +556,6 @@
 				06CFDD5C23B09C930030BABB /* ViewController.swift in Sources */,
 				06CFDDA123B5425D0030BABB /* ChatMyInviteTableViewCell.swift in Sources */,
 				06CFDD5823B09C930030BABB /* AppDelegate.swift in Sources */,
-				05DDBE0823BA1C3300DCDBD5 /* EstimateService.swift in Sources */,
 				06BBC32523BD5F95000DAE1C /* BoardListViewController+Extension.swift in Sources */,
 				06BBC31523BC91F8000DAE1C /* BoardListViewController.swift in Sources */,
 				06BBC30523B9C768000DAE1C /* LoginResult.swift in Sources */,
@@ -572,6 +568,7 @@
 				06CFDD9523B4673C0030BABB /* UITextView+Extension.swift in Sources */,
 				0517421223BDF64D001BA461 /* EstimateWiTHViewController.swift in Sources */,
 				06CFDD8A23B37CCC0030BABB /* UIColor+Extension.swift in Sources */,
+				06A68F4123BF5A7D000B5640 /* ChatService.swift in Sources */,
 				06BBC31923BD0637000DAE1C /* BoardResult.swift in Sources */,
 				05DDBE0A23BA45E100DCDBD5 /* RegionModel.swift in Sources */,
 				05719C8F23BCC63F0041D322 /* MyPageModifyViewController.swift in Sources */,
@@ -607,7 +604,6 @@
 				05DDBE1223BB6AC500DCDBD5 /* RecentBoardModel.swift in Sources */,
 				0653C07B23BE8F91003ABB80 /* ChatResult.swift in Sources */,
 				06CFDD8023B1F37F0030BABB /* BaseAPI.swift in Sources */,
-				05DDBE1423BB6CE700DCDBD5 /* WithMateService.swift in Sources */,
 				06BBC31D23BD1F85000DAE1C /* BoardDatePickerViewController.swift in Sources */,
 				0517421423BE77D6001BA461 /* CompleteSignUpViewController.swift in Sources */,
 				06CFDD9D23B5399E0030BABB /* UILabel+Extension.swift in Sources */,
