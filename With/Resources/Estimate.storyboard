@@ -139,6 +139,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pressfunBtn:" destination="DLO-aB-duS" eventType="touchUpInside" id="PkL-3F-hwA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rc-hg-5sa">
                                 <rect key="frame" x="44" y="604.33333333333337" width="287" height="59"/>
@@ -156,6 +159,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="presssosoBtn:" destination="DLO-aB-duS" eventType="touchUpInside" id="rFh-Qb-rJT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미정님" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJb-qM-fXV">
                                 <rect key="frame" x="44" y="160" width="78" height="31.333333333333343"/>

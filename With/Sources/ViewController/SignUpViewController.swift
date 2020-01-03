@@ -8,15 +8,29 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    @IBOutlet weak var defaultProfileImg: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var topLayout: NSLayoutConstraint!
     @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var nameView: UIView!
+    @IBOutlet weak var birthView: UIView!
+    @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmpwView: UIView!
     @IBOutlet weak var confirmPWTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var birthTextField: UITextField!
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var girlButton: UIButton!
+    @IBOutlet weak var boyButton: UIButton!
+    @IBOutlet weak var girlPurpleImg: UIImageView!
+    @IBOutlet weak var boyPurpleImg: UIImageView!
+    
+    @IBOutlet weak var signUpButton: UIButton!
     var keyboardHeight: CGFloat = 0
     var passPos: CGPoint!
     var confirmPwPos: CGPoint!
@@ -24,90 +38,86 @@ class SignUpViewController: UIViewController {
     var birthPos: CGPoint!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.idTextField.delegate = self
-        self.passwordTextField.delegate = self
-        self.confirmPWTextField.delegate = self
-        self.nameTextField.delegate = self
-        self.birthTextField.delegate = self
-     //   initGestureRecognizer()
-       // registerForKeyboardNotifications()
-        passPos = CGPoint(x: 0, y: 109)
-        confirmPwPos = CGPoint(x: 0, y: 218)
-        namePos = CGPoint(x: 0, y: 327)
-        birthPos = CGPoint(x: 0, y: 470)
+        setBorderWidth()
+        setUI()
         
+         self.defaultProfileImg.layer.cornerRadius = self.defaultProfileImg.frame.size.width / 2;
     }
-    override func viewWillDisappear(_ animated: Bool) {
-         //  unregisterForKeyboardNotifications()
-       }
+    
+    @IBAction func changeProfileImg(_ sender: Any) {
+        let profilePicker = UIImagePickerController()
+             profilePicker.delegate = self
+        profilePicker.sourceType = .photoLibrary
+             self.present(profilePicker, animated: true, completion: nil)
+               }
+        func imagePickerController (_ picker: UIImagePickerController,
+                                    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                
+                self.defaultProfileImg.image = image
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        func imagePickerControllerDidCancel (_ picker: UIImagePickerController) {
+            self.dismiss(animated: true, completion: nil)
+}
+
     @IBAction func pressXButton(_ sender: Any) {
         self.confirmAlert(title: "회원가입을 종료하시겠습니까?", msg: "지금까지 입력한 정보들은 저장되지 않습니다.") { (action) in
             self.dismiss(animated: true)
         }
     }
+    @IBAction func pressSignUpBtn(_ sender: Any) {
+        nilTest()
+        
+    }
+    
+    @IBAction func pressGirlBtn(_ sender: Any) {
+        girlButton.isSelected = true
+        boyButton.isSelected = false
+        self.girlPurpleImg.isHidden = false
+        self.boyPurpleImg.isHidden = true
+    }
+    @IBAction func pressBoyBtn(_ sender: Any) {
+        boyButton.isSelected = true
+        girlButton.isSelected = false
+        self.boyPurpleImg.isHidden = false
+        self.girlPurpleImg.isHidden = true
+    }
+    func setBorderWidth() {
+        
+        self.nameView.layer.borderWidth = 1
+        self.nameView.layer.borderColor = UIColor.mainPurple.cgColor
+        self.birthView.layer.borderWidth = 1
+        self.birthView.layer.borderColor = UIColor.mainPurple.cgColor
+        self.passwordView.layer.borderWidth = 1
+        self.passwordView.layer.borderColor = UIColor.mainPurple.cgColor
+        self.confirmpwView.layer.borderWidth = 1
+        self.confirmpwView.layer.borderColor = UIColor.mainPurple.cgColor
+        self.emailView.layer.borderWidth = 1
+        self.emailView.layer.borderColor = UIColor.mainPurple.cgColor
+        self.emailView.layer.borderWidth = 1
+        self.emailView.layer.borderColor = UIColor.mainPurple.cgColor
+    }
+    
+    func setUI() {
+        self.idTextField.delegate = self
+        self.passwordTextField.delegate = self
+        self.confirmPWTextField.delegate = self
+        self.nameTextField.delegate = self
+        self.birthTextField.delegate = self
+        
+        passPos = CGPoint(x: 0, y: 109)
+        confirmPwPos = CGPoint(x: 0, y: 218)
+        namePos = CGPoint(x: 0, y: 327)
+        birthPos = CGPoint(x: 0, y: 470)
+        self.girlPurpleImg.isHidden = true
+        self.boyPurpleImg.isHidden = true
+        // self.button
+    }
     
 }
-//
-//extension SignUpViewController {
-//    func initGestureRecognizer() {
-//        let textFieldTap = UITapGestureRecognizer(target: self, action: #selector(handleTapTextField(_:)))
-//        view.addGestureRecognizer(textFieldTap)
-//    }
-//
-//    // 다른 위치 탭했을 때 키보드 없어지는 코드
-//    @objc func handleTapTextField(_ sender: UITapGestureRecognizer) {
-//        self.view.endEditing(true)
-//    }
-//
-//    // observer생성
-//    func registerForKeyboardNotifications() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-//    //observer해제
-//    func unregisterForKeyboardNotifications() {
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-//
-//    // keyboard가 보여질 때 어떤 동작을 수행
-//    @objc func keyboardWillShow(_ notification: NSNotification) {
-//
-//        //키보드의 동작시간 얻기
-//        guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double else { return }
-//
-//        //키보드의 애니메이션종류 얻기
-//        guard let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else { return }
-//
-//        //키보드의 크기 얻기
-//        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-//        //iOS11이상부터는 노치가 존재하기때문에 safeArea값을 고려
-//        if #available(iOS 11.0, *) {
-//            keyboardHeight = keyboardFrame.cgRectValue.height - self.view.safeAreaInsets.bottom
-//        } else {
-//            keyboardHeight = keyboardFrame.cgRectValue.height
-//        }
-//        self.topLayout.constant = -self.keyboardHeight/2
-////        self.scrollView.contentInset = UIEdgeInsets(top: keyboardHeight + 55, left: 0, bottom: keyboardHeight + 55, right: 0)
-//        self.view.setNeedsLayout()
-//        UIView.animate(withDuration: duration, delay: 0.0, options: .init(rawValue: curve), animations: {
-//            //animation처럼 보이게하기
-//            self.view.layoutIfNeeded()
-//        })
-//    }
-//    // keyboard가 사라질 때 어떤 동작을 수행
-//    @objc func keyboardWillHide(_ notification: NSNotification) {
-//        guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double else {return}
-//        guard let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else {return}
-//        // 원래대로 돌아가도록
-//        self.topLayout.constant = 55
-////        self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//        self.view.setNeedsLayout()
-//        UIView.animate(withDuration: duration, delay: 0.0, options: .init(rawValue: curve), animations: {
-//            self.view.layoutIfNeeded()
-//        })
-//    }
-//}
 
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -131,3 +141,23 @@ extension SignUpViewController: UITextFieldDelegate {
         return true
     }
 }
+
+
+extension SignUpViewController {
+    func nilTest() {
+//        if (idTextField.text == "" || nameTextField.text == "" || passwordTextField.text == "" || confirmPWTextField.text == "" || emailTextField.text == "" || birthTextField.text == "" || (!girlButton.isSelected && !boyButton.isSelected)) {
+//
+//            self.simpleAlert(title: "회원가입 실패", msg: "빈 칸을 확인해주세요")
+//        }else {
+            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CompleteSignUp") else {return}
+            nextVC.modalPresentationStyle = .overFullScreen
+//        nextVC.present
+            self.present(nextVC, animated: true)
+//        } // 멀티파트 회원가입 통신
+    }
+}
+
+
+// 종료하면 dissmiss
+
+// 검은색 위에 흰색 얹고
