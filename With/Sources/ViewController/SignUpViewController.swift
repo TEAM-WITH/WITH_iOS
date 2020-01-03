@@ -9,26 +9,27 @@
 import UIKit
 
 class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    @IBOutlet weak var signUpSuccessView: UIView!
     
     @IBOutlet weak var defaultProfileImg: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var topLayout: NSLayoutConstraint!
-    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var birthView: UIView!
     @IBOutlet weak var passwordView: UIView!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmpwView: UIView!
-    @IBOutlet weak var confirmPWTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var birthTextField: UITextField!
-    
+    @IBOutlet weak var confirmpwView: UIView!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var passwordConfirmTextField: UITextField!
+    
+//    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var girlButton: UIButton!
     @IBOutlet weak var boyButton: UIButton!
     @IBOutlet weak var girlPurpleImg: UIImageView!
     @IBOutlet weak var boyPurpleImg: UIImageView!
+    @IBOutlet weak var userRealImg: UIImageView!
     
     @IBOutlet weak var signUpButton: UIButton!
     var keyboardHeight: CGFloat = 0
@@ -41,7 +42,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         setBorderWidth()
         setUI()
         
-         self.defaultProfileImg.layer.cornerRadius = self.defaultProfileImg.frame.size.width / 2;
+         self.defaultProfileImg.layer.cornerRadius = self.defaultProfileImg.frame.size.width / 2
     }
     
     @IBAction func changeProfileImg(_ sender: Any) {
@@ -54,7 +55,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                                     didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 
-                self.defaultProfileImg.image = image
+                self.userRealImg.image = image
             }
             self.dismiss(animated: true, completion: nil)
         }
@@ -102,9 +103,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func setUI() {
-        self.idTextField.delegate = self
-        self.passwordTextField.delegate = self
-        self.confirmPWTextField.delegate = self
+        self.nameTextField.delegate = self
+        self.birthTextField.delegate = self
+        self.emailTextField.delegate = self
         self.nameTextField.delegate = self
         self.birthTextField.delegate = self
         
@@ -121,15 +122,15 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
 
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == idTextField {
+        if textField == nameTextField {
             textField.resignFirstResponder()
             scrollView.setContentOffset(passPos, animated: true)
-            passwordTextField.becomeFirstResponder()
-        } else if textField == passwordTextField {
+            birthTextField.becomeFirstResponder()
+        } else if textField == birthTextField {
             textField.resignFirstResponder()
             scrollView.setContentOffset(confirmPwPos, animated: true)
-            confirmPWTextField.becomeFirstResponder()
-        } else if textField == confirmPWTextField {
+            emailTextField.becomeFirstResponder()
+        } else if textField == emailTextField {
             textField.resignFirstResponder()
             scrollView.setContentOffset(namePos, animated: true)
             nameTextField.becomeFirstResponder()
@@ -145,18 +146,46 @@ extension SignUpViewController: UITextFieldDelegate {
 
 extension SignUpViewController {
     func nilTest() {
-//        if (idTextField.text == "" || nameTextField.text == "" || passwordTextField.text == "" || confirmPWTextField.text == "" || emailTextField.text == "" || birthTextField.text == "" || (!girlButton.isSelected && !boyButton.isSelected)) {
-//
-//            self.simpleAlert(title: "회원가입 실패", msg: "빈 칸을 확인해주세요")
-//        }else {
-            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CompleteSignUp") else {return}
-            nextVC.modalPresentationStyle = .overFullScreen
-//        nextVC.present
-            self.present(nextVC, animated: true)
-//        } // 멀티파트 회원가입 통신
+        guard let name = nameTextField.text else { return }
+        guard let birth = birthTextField.text else { return }
+        guard let email = emailTextField.text else { return }
+        guard let pw = passwordTextField.text else { return }
+        guard let confirmPw = passwordConfirmTextField.text else { return }
+        let userImg = userRealImg.image?.jpegData(compressionQuality: 1.0)
+        
+        if (name == "" || pw == "" || confirmPw == "" || email == "" || birth == ""  || (!girlButton.isSelected && !boyButton.isSelected)) {
+
+            self.simpleAlert(title: "회원가입 실패", msg: "빈 칸을 확인해주세요")
+        }else {
+            var gender = 0
+            if girlButton.isSelected {
+                gender = -1
+            } else if boyButton.isSelected {
+                gender = 1
+            }
+            let userModel = SignUpModel(userId: email, password: pw, name: name, birth: birth, gender: gender, userImg: userImg)
+            UserService.shared.postSignUpRequest(userData: userModel) { data in
+            
+                if data {
+                    self.signUpSuccessView.isHidden = false
+                   UIView.animate(withDuration: 0.4, animations: {
+                            self.signUpSuccessView.alpha = 1
+                    }) { _ in
+                        UIView.animate(withDuration: 0.5, delay: 0.5, animations: {
+                            self.signUpSuccessView.alpha = 0
+                        }) { _ in
+                            self.dismiss(animated: true)
+                        }
+                        
+                    }
+                } else {
+                    self.simpleAlert(title: "회원가입 실패", msg: "다시 한번 시도해주세요")
+                }
+            }
+        }
+ 
     }
 }
-
 
 // 종료하면 dissmiss
 

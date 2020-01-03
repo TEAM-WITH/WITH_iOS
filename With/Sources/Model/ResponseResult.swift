@@ -19,3 +19,8 @@ struct ResponseSimpleResult<T: Codable>: Codable {
     var message: String
     var data: T?
 }
+
+struct ResponseTempResult: Codable {
+    var success: Bool
+    var message: String
+}
