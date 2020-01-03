@@ -11,6 +11,11 @@ import UIKit
 class MateCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mateImage: UIImageView!
     @IBOutlet weak var mateLabel: UILabel!
+    
+    override func awakeFromNib() {
+          self.mateImage.layer.cornerRadius = self.mateImage.frame.width/2
+      }
+      
 
     var viewModel: ChatListResult! {
         willSet {

@@ -202,15 +202,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancelBtn" translatesAutoresizingMaskIntoConstraints="NO" id="j9w-oa-IkR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CancelButtonSizeMedium" translatesAutoresizingMaskIntoConstraints="NO" id="j9w-oa-IkR">
                                 <rect key="frame" x="333" y="58" width="28" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="JjR-GT-iqY"/>
                                     <constraint firstAttribute="width" constant="28" id="rw7-bu-1xK"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7h-Bk-1Kh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7h-Bk-1Kh">
                                 <rect key="frame" x="326" y="51" width="42" height="42"/>
+                                <state key="normal" image="CancelButtonSizeMedium"/>
                                 <connections>
                                     <action selector="pressXButton:" destination="9ab-JT-j4N" eventType="touchUpInside" id="6IQ-dn-2hY"/>
                                 </connections>
@@ -256,7 +257,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CancelButtonSizeMedium" width="28" height="28"/>
         <image name="background" width="375" height="376"/>
-        <image name="cancelBtn" width="28" height="28"/>
     </resources>
 </document>

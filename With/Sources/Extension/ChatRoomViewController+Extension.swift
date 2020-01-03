@@ -205,6 +205,7 @@ extension ChatRoomViewController {
                 if inviteFlag > 0 {
                     self.inviteButton.isHidden = true
                     self.chatInviteImg.image = UIImage(named: "")
+                }
             }
         }
     }

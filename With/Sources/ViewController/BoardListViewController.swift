@@ -60,6 +60,7 @@ class BoardListViewController: UIViewController {
         if let index = self.tableView.indexPathForSelectedRow {
             self.tableView.deselectRow(at: index, animated: true)
         }
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -93,6 +94,11 @@ class BoardListViewController: UIViewController {
         self.tableView.delegate = self
         self.searchHistoryTableView.delegate = self
     }
+    @IBAction func boardWrite(_ sender: Any) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardWrite") as! BoardWriteViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     @IBAction func goToRegionPick(_ sender: Any) {
         let nextVC = UIStoryboard(name: "RegionFilter", bundle: nil).instantiateViewController(withIdentifier: "RegionFilter") as! RegionFilterViewController
         nextVC.delegate = self

@@ -24,5 +24,6 @@ struct BaseAPI {
     static let homeImgURL = homeURL+"/bgImg"
     static let chatListURL = baseURL+"/chat"
     static let homeRecommendURL = homeURL+"/recommendations"
+    static let homeRecentURL = homeURL+"/boards"
     
 }
