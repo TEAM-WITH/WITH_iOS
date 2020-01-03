@@ -19,6 +19,10 @@ class EstimateWiTHViewController: UIViewController {
         if sender.isSelected {
             withBtn.layer.cornerRadius = 10
             sender.backgroundColor = UIColor.mainPurple
+            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Home") else {return}
+                            nextVC.modalPresentationStyle = .overFullScreen
+            self.present(nextVC, animated: true)
+            
         }else {
             withBtn.layer.cornerRadius = 10
             sender.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.3)

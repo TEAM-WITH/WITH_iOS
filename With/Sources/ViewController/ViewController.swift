@@ -13,8 +13,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     @IBAction func nextVC(_ sender: Any) {
-        let storyName = "MyPage"
-        let vcName = "MyPage"
+        let storyName = "Estimate"
+        let vcName = "Estimate"
         let testStoryBoard = UIStoryboard(name: storyName, bundle: nil)
         let nextVC = testStoryBoard.instantiateViewController(withIdentifier: vcName)
         nextVC.modalPresentationStyle = .fullScreen

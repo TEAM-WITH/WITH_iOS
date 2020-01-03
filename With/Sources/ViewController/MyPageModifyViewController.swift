@@ -38,6 +38,7 @@ class MyPageModifyViewController: UIViewController, UIImagePickerControllerDeleg
         profileImg.image = defaultProfileImg
         backgroundImg.image = defaultBackgroundImg
         commentTextField.text = defaultProfileText
+         self.profileImg.layer.cornerRadius = self.profileImg.frame.size.width / 2;
         
     }
     @IBAction func pressXButton(_ sender: Any) {
