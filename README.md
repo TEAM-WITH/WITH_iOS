@@ -1,62 +1,105 @@
 # WITH
 
 __2019.12.21 ~ 2020.01.03__
+✈️🚅🛳🏎🏄🍺🍷🧃🍧☀️🌈🌍🌃🌌🛤📕📗💜🇬🇧🚞🇫🇷🇷🇺
 
-### iOS
+### 💜iOS💜
 
-* 김남수
-* 권준
+* 김남수 [Repo](https://github.com/namsoo5)😄
+* 권준 [Repo](https://github.com/junnegeem)😁
 
 </br>
 
 ## Work Flow
 
 <div>
-<img src="./READMEImg/workFlow_main.png" width="350" height="400">
-<img src="./READMEImg/workFlow_post.png" width="350" height="400">
-<img src="./READMEImg/workFlow_chat.png" width="350" height="400">
+<img src="./READMEImg/1.png" width="350" height="400">
+<img src="./READMEImg/2.png" width="350" height="400">
+<img src="./READMEImg/3.png" width="350" height="400">
+<img src="./READMEImg/4.png" width="350" height="400">
 </div>
 
 </br>
 
 ## 개발 환경 및 라이브러리
 
-* Alamofire
-* SwiftLint
-* Kingfisher
-*  Firebase
-
-
+* Alamofire - 4.8.2
+* SwiftLint - 0.38.0
+* Kingfisher - 5.0
+* FMDB - 2.7.5
+* Firebase
 
 </br>
 
 ## 기능
 
-* 홈
-  * 메인화면
-  * 게시글 필터화면
-  * 후기글 작성화면
-  
-* 채팅
+### 로그인화면❌✅
+| 분류 | 기능 | 구현 | 비고 |
+|----|----|----|----|
+|회원가입|기본 정보를 입력 디자인|✅||
+|회원가입|앨범에 있는 사진 첨부|✅||
+|회원가입|Multi-Part 서버통신|✅||
+|로그인|서버통신을 통한 유저식별|✅||
 
-  * 채팅방 레이아웃
+### 홈화면
+|메인|동행 확정된 사람 통신|✅||
+|메인|추천 여행지 통신|✅||
+|메인|최근 게시물 디자인|✅| 통신❌|
+|메인|이벤트 게시물|✅||
+|게시글|처음 사용시 지역선택화면 이동|✅||
+|게시글|지역별 리스트 통신|✅||
+|게시글|지역 필터별 통신|✅|국가, 날짜, 성별|
+|게시글|게시글 작성 디자인|✅| 통신❌|
+|게시글|상세 게시글 통신|✅||
+|게시글|상세 게시글에서 채팅창 입장하기|❌||
 
-  * 채팅목록
+### 채팅화면
+|채팅목록|채팅 목록 통신|✅||
+|채팅목록|채팅 목록 파이어베이스 통신|✅||
+|채팅방|채팅방 파이어베이스 통신|✅||
+|채팅방|채팅방 사용자와 상대방 구별|✅||
+|채팅방|채팅방 타입별 셀 구분|✅|상대말, 유저말, 동행수락, 동행신청|
+|채팅방|채팅방 동행신청 제한|✅|1번만 신청가능|
+|채팅방|채팅방 상대방 신청제한|❌||
+|채팅방|채팅방 신고기능|❌||
 
-
-
+### 마이페이지
+|마이페이지|프로필 통신 |✅||
+|마이페이지|프로필 수정 |✅|통신❌|
 
 </br>
 
 ## 실행 화면
 
 <div>
-<img src="./READMEImg/mainHome.png" width="200" height="350">
-<img src="./READMEImg/regionFilter.png" width="200" height="350">
-<img src="./READMEImg/review.png" width="200" height="350">
+<img src="./READMEImg/스플레시.png" width="200" height="400">
+<img src="./READMEImg/로그인 iOS.png" width="200" height="400">
+<img src="./READMEImg/회원가입_iOS_스크롤.png" width="200" height="400">
 </div>
 
+</br>
 
+<div>
+<img src="./READMEImg/HOME_iOS.png" width="200" height="400">
+<img src="./READMEImg/필터_대륙_iOS.png" width="200" height="400">
+<img src="./READMEImg/게시글 상세_blank.png" width="200" height="400">
+</div>
+
+</br>
+
+<div>
+<img src="./READMEImg/채팅창_입력.png" width="200" height="400">
+<img src="./READMEImg/채팅창_동행 제안_글쓴사람_초대장팝업.png" width="200" height="400">
+<img src="./READMEImg/채팅목록 – 1.png" width="200" height="400">
+</div>
+
+</br>
+
+<div>
+<img src="./READMEImg/게시글 상세_읽는 사람.png" width="200" height="400">
+<img src="./READMEImg/검색결과_지역-날짜검색전.png" width="200" height="400">
+<img src="./READMEImg/검색결과_검색입력ing_검색기록있는경우.png" width="200" height="400">
+</div>
 
 </br>
 

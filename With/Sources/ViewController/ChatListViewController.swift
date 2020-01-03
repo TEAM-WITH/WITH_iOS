@@ -86,6 +86,7 @@ extension ChatListViewController: UITableViewDelegate {
         nextVC.otherUnSeenCount = chatRoom.unSeenCount
         nextVC.otherId = chatInfo.userIdx
         nextVC.roomInfo = chatInfo
+        nextVC.inviteFlag = chatRoom.inviteFlag
         enterChatSetCount(roomId: chatRoom.roomId)
         self.present(nextVC, animated: true)
     }
