@@ -50,6 +50,7 @@ class ChatRoomViewController: UIViewController {
     var otherUnSeenCount = 0
     var meetDateString = ""
     var inviteFlag = -1
+    var boardIdx = 0
     var roomInfo: ChatListResult!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,11 @@ class ChatRoomViewController: UIViewController {
         setNoticeView()
         initGestureRecognizer()
         registerForKeyboardNotifications()
+        
+        if inviteFlag > 0 {
+            self.inviteButton.isHidden = true
+            self.chatInviteImg.image = UIImage(named: "withBtn")
+        }
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,6 +80,7 @@ class ChatRoomViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setFirebase()
         setOtherUnSeenCount()
+        inviteFlagObserve()
     }
     @IBAction func cancelButtonClick(_ sender: Any) {
         self.dismiss(animated: true)
@@ -97,7 +104,8 @@ class ChatRoomViewController: UIViewController {
         floatAlert.roomId = self.roomId
         floatAlert.otherId = self.otherId
         floatAlert.otherUnSeenCount = self.otherUnSeenCount
-        
+        floatAlert.boardIdx = self.boardIdx
+        floatAlert.otherName = self.roomInfo.name
         self.present(floatAlert, animated: true)
     }
     // MARK: - 다른유저가 입력할시 비교
@@ -172,7 +180,6 @@ extension ChatRoomViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let chat = chatList[indexPath.row]
-        
         if chat.type == .date {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! ChatDateTableViewCell
             cell.dateLabel.text = chat.message
@@ -180,6 +187,7 @@ extension ChatRoomViewController: UITableViewDataSource {
         } else if chat.type == .otherProfile {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ChatProfileTableViewCell
             cell.userIdLabel.text = chat.nickName
+            cell.imgURL = roomInfo.userImg
             return cell
         } else if chat.type == .myInvite {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyInviteCell", for: indexPath) as! ChatMyInviteTableViewCell

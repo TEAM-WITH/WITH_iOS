@@ -12,9 +12,11 @@ class InviteViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var titleLabel: UILabel!
     var ref: DatabaseReference!
-    var otherId = 11
-    var roomId = "12_11"
+    var otherId = 0
+    var roomId = ""
     var otherUnSeenCount = 0
+    var boardIdx = 0
+    var otherName = ""
     let dateFommatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
@@ -29,7 +31,7 @@ class InviteViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTitleLabel(name: "김미정")
+        setTitleLabel(name: otherName)
         let today = dateFommatter.string(from: Date())
         self.datePicker.minimumDate = dateFommatter.date(from: today)
         setFirebase()

@@ -73,14 +73,14 @@ extension ChatRoomViewController {
         ref.child("conversations").child(roomId).childByAutoId().setValue(createChatInfo)
         self.otherUnSeenCount += 1
         let createRoomInfo: Dictionary<String, Any> = [
-            "boardIdx": 0,
+            "boardIdx": boardIdx,
             "inviteFlag": inviteFlag,
             "lastMessage": msg,
             "lastTime": time,
             "unSeenCount": 0
         ]
         let createOtherRoomInfo: Dictionary<String, Any> = [
-            "boardIdx": 0,
+            "boardIdx": boardIdx,
             "inviteFlag": 0,
             "lastMessage": msg,
             "lastTime": time,
@@ -148,14 +148,14 @@ extension ChatRoomViewController {
         self.otherUnSeenCount += 1
         self.inviteFlag += 1
         let createRoomInfo: Dictionary<String, Any> = [
-            "boardIdx": 0,
+            "boardIdx": boardIdx,
             "inviteFlag": inviteFlag,
             "lastMessage": "동행 성사 메시지입니다.",
             "lastTime": time,
             "unSeenCount": 0
         ]
         let createOtherRoomInfo: Dictionary<String, Any> = [
-            "boardIdx": 0,
+            "boardIdx": boardIdx,
             "inviteFlag": 0,
             "lastMessage": "동행 성사 메시지입니다.",
             "lastTime": time,
@@ -204,7 +204,7 @@ extension ChatRoomViewController {
                 
                 if inviteFlag > 0 {
                     self.inviteButton.isHidden = true
-                    self.chatInviteImg.image = UIImage(named: "")
+                    self.chatInviteImg.image = UIImage(named: "withBtn")
                 }
             }
         }

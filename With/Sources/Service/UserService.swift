@@ -28,7 +28,6 @@ struct UserService {
             "gender": "\(userData.gender)"
         ]
       
-        print(userData)
         Alamofire.upload(multipartFormData: { multipartFormData in
             
             for (key, value) in body {

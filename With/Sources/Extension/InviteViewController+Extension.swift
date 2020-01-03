@@ -28,14 +28,15 @@ extension InviteViewController {
         ref.child("conversations").child(roomId).childByAutoId().setValue(createChatInfo)
         self.otherUnSeenCount += 1
         let createRoomInfo: Dictionary<String, Any> = [
-            "boardIdx": 0,
+            "boardIdx": boardIdx,
             "inviteFlag": 1,
             "lastMessage": msg,
             "lastTime": curTime,
             "unSeenCount": 0
         ]
         let createOtherRoomInfo: Dictionary<String, Any> = [
-            "boardIdx": 0,
+            "boardIdx": boardIdx,
+            "inviteFlag": 0,
             "lastMessage": msg,
             "lastTime": curTime,
             "unSeenCount": self.otherUnSeenCount
