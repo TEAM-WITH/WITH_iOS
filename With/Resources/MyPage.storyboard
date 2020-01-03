@@ -11,7 +11,7 @@
         <!--My Page View Controller-->
         <scene sceneID="nxt-sk-GEK">
             <objects>
-                <viewController storyboardIdentifier="MyPage" id="eeF-bK-hRK" customClass="MyPageViewController" customModule="W_TH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MyPage" storyboardIdentifier="MyPage" id="eeF-bK-hRK" customClass="MyPageViewController" customModule="W_TH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GTU-B7-rwK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

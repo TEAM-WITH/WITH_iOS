@@ -20,3 +20,11 @@ struct HomeRecommendTrip: Codable {
     var count: Int
     var regionImgS: String
 }
+
+struct HomeRecent: Codable {
+    var boardIdx: Int
+    var name: String
+    var userImg: String
+    var regionName: String
+    var title: String
+}

@@ -11,8 +11,8 @@ class UserInfo {
     private init() {}
     static let shared = UserInfo()
     
-    private var token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4Ijo4MSwibmFtZSI6IuqwleuvvOyerCIsImdlbmRlciI6LTEsImlhdCI6MTU3Nzk2MDEwNywiZXhwIjoxNTc4MDQ2NTA3LCJpc3MiOiJ3aXRoRGV2In0.UexfeVArrFqHqkls2y5YGzXffuzMtYTpriN7JeiV9oY"
-    private var userIdx: Int = 81//14
+    private var token: String = ""
+    private var userIdx: Int = -1
     
     func setUserInfo(token: String, userIdx: Int) {
         self.token = token

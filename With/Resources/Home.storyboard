@@ -9,7 +9,27 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--ChatList-->
+        <scene sceneID="u2F-8H-LPd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" referencedIdentifier="ChatList" id="22I-KB-dM0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Iuh-zV-ImL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IIW-xF-Irw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71" y="-590"/>
+        </scene>
+        <!--MyPage-->
+        <scene sceneID="Pve-nt-zCa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyPage" referencedIdentifier="MyPage" id="gES-ht-rmS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="nzk-lI-wWU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M3N-Rf-ZIe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-626" y="-572"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="b5M-Ur-bD4">
             <objects>
                 <viewController storyboardIdentifier="Home" id="Rlx-nK-KgK" customClass="HomeViewController" customModule="W_TH" customModuleProvider="target" sceneMemberID="viewController">
@@ -440,11 +460,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sPE-R7-zin"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="15N-kB-y0b"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="eventPageControl" destination="jer-8Y-Ugz" id="hbO-gJ-SES"/>
                         <outlet property="eventScrollView" destination="Rak-kA-OBf" id="2Od-MF-I0M"/>
                         <outlet property="homeImg" destination="Phn-VJ-Sdt" id="oVT-4e-F21"/>
+                        <outlet property="mainScrollView" destination="Oh0-Ht-Y68" id="9kM-EP-0hA"/>
                         <outlet property="mateCollectionView" destination="4cZ-nP-gjD" id="4qZ-yI-RrG"/>
                         <outlet property="recentCollectonView" destination="uC2-V7-eUI" id="oSw-VY-zbO"/>
                         <outlet property="recentLabel" destination="QYu-ae-dGm" id="C5W-v6-Hde"/>
@@ -455,7 +477,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtc-vn-SZW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-504.80000000000001" y="-46.551724137931039"/>
+            <point key="canvasLocation" x="437.60000000000002" y="-46.551724137931039"/>
         </scene>
         <!--Board Detail View Controller-->
         <scene sceneID="giR-Oi-E8J">
@@ -666,7 +688,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TyM-JL-hby" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="176.80000000000001" y="429.31034482758622"/>
+            <point key="canvasLocation" x="1119.2" y="429.31034482758622"/>
         </scene>
         <!--Board List View Controller-->
         <scene sceneID="Z3j-1T-8PL">
@@ -1092,7 +1114,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyq-jL-TGx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="uEy-Cf-hcL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="181.59999999999999" y="-271.18226600985224"/>
+            <point key="canvasLocation" x="1124" y="-271.18226600985224"/>
         </scene>
         <!--Board Date Picker View Controller-->
         <scene sceneID="OAI-1c-Q4z">
@@ -1224,7 +1246,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Knk-hm-CYF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="-281"/>
+            <point key="canvasLocation" x="1792.8" y="-281.5270935960591"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="xcc-fy-TTo">
+            <objects>
+                <tabBarController storyboardIdentifier="Tabbar" automaticallyAdjustsScrollViewInsets="NO" id="Z3f-zt-QW5" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HeU-jq-8KS">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Rlx-nK-KgK" kind="relationship" relationship="viewControllers" id="sKK-lp-QOl"/>
+                        <segue destination="22I-KB-dM0" kind="relationship" relationship="viewControllers" id="7Mp-k3-fhM"/>
+                        <segue destination="gES-ht-rmS" kind="relationship" relationship="viewControllers" id="3jQ-WZ-aew"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CxN-OP-qkQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-356" y="-184"/>
         </scene>
         <!--Board Write View Controller-->
         <scene sceneID="YDj-qv-JWU">
