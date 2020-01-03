@@ -11,6 +11,7 @@ import Alamofire
 import Firebase
 class ChatRoomViewController: UIViewController {
     
+    @IBOutlet weak var chatInviteImg: UIImageView!
     @IBOutlet weak var chatViewBottomLayout: NSLayoutConstraint!
     @IBOutlet weak var noticeView: UIView!
     @IBOutlet weak var noticeImage: UIImageView!
@@ -19,6 +20,7 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet weak var noticeDateLabel: UILabel!
     @IBOutlet weak var chatAreaView: UIView!
     @IBOutlet weak var chatTextView: UITextView!
+    @IBOutlet weak var inviteButton: UIButton!
     var chatList: [Chat] = []
     var keyboardHeight: CGFloat = 0
     @IBOutlet weak var chatTableView: UITableView!
@@ -42,11 +44,13 @@ class ChatRoomViewController: UIViewController {
 //    }()
     var ref: DatabaseReference!
     var isInvite = false
-    var otherId = 13
-    var otherName = "위드위드"
-    var roomId = "13_14"
+    var otherId = 0
+    var otherName = ""
+    var roomId = ""
     var otherUnSeenCount = 0
     var meetDateString = ""
+    var inviteFlag = -1
+    var roomInfo: ChatListResult!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.chatTableView.dataSource = self
@@ -136,6 +140,14 @@ class ChatRoomViewController: UIViewController {
     func setNoticeView() {
         self.noticeDateLabel.labelKern(kerningValue: -0.06)
         self.noticeView.dropShadow()
+        let imgURL = URL(string: roomInfo.writerImg)
+        self.noticeImage.kf.setImage(with: imgURL, options: [.transition(.fade(0.3))])
+        self.noticeRegionLabel.text = roomInfo.regionName
+        self.noticeTitleLabel.text = roomInfo.title
+        let date = "\(roomInfo.startDate) ~ \(roomInfo.endDate)"
+        self.noticeDateLabel.text = date
+        
+        
     }
     
     func dynamicChatTextView() {

@@ -22,10 +22,11 @@ extension ChatListViewController {
                         guard let lastMsg = object["lastMessage"] as? String else { return }
                         guard let lastTime = object["lastTime"] as? String else { return }
                         guard let unSeenCount = object["unSeenCount"] as? Int else { return }
+                        guard let inviteFlag = object["inviteFlag"] as? Int else { return }
                         guard let fullDate = self.fullDateFommatter.date(from: lastTime) else { return }
                         let time = self.dateFommatter.string(from: fullDate)
                         let roomId = item.key
-                        let chatRoom = ChatList(boardIdx: boardIdx, lastMsg: lastMsg, unSeenCount: unSeenCount, time: time, roomId: roomId)
+                        let chatRoom = ChatList(boardIdx: boardIdx, lastMsg: lastMsg, unSeenCount: unSeenCount, time: time, roomId: roomId, inviteFlag: inviteFlag)
                         self.chatLists.append(chatRoom)
                        
                         

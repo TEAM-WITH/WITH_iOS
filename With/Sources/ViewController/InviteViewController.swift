@@ -58,4 +58,7 @@ class InviteViewController: UIViewController {
             }
         }
     }
+    @IBAction func closeButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
