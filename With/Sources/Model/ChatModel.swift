@@ -30,6 +30,7 @@ struct ChatList {
     var unSeenCount: Int
     var time: String
     var roomId: String
+    var inviteFlag: Int
 }
 
 enum ChatType: Int {

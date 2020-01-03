@@ -29,6 +29,7 @@ extension InviteViewController {
         self.otherUnSeenCount += 1
         let createRoomInfo: Dictionary<String, Any> = [
             "boardIdx": 0,
+            "inviteFlag": 1,
             "lastMessage": msg,
             "lastTime": curTime,
             "unSeenCount": 0
