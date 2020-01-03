@@ -71,12 +71,10 @@ struct HomeService {
         let header: HTTPHeaders = [
             "Content-Type": "application/json"
         ]
-        print(url)
         Alamofire.request(url, method: .get, parameters: .none, encoding: JSONEncoding.default, headers: header).responseJSON { response in
             switch response.result {
             case.success:
                 guard let data = response.data else { return }
-                print(data)
                 do {
                     let decoder = JSONDecoder()
                     let object = try decoder.decode(ResponseResult<HomeRecommendTrip>.self, from: data)

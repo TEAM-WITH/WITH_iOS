@@ -22,11 +22,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var recentLabel: UILabel!
     var mateList: [ChatListResult] = []
     var recommendList: [HomeRecommendTrip] = []
+    var recentLsit: [HomeRecent] = []
     let originRecommendTopValue: CGFloat = 254
     var recentCollectionViewHeight: CGFloat = 0
     var regionCode = "0"
     
-   
+    @IBOutlet weak var mainScrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollection()
@@ -34,8 +36,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         setDefaultRequest()
-        setMateView()
-        setRecentCollectionView()
     }
     @IBAction func withMateButtonClick(_ sender: Any) {
         //처음일시 지역필터화면
@@ -58,17 +58,18 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     }
 //375, 115, 15
     func setRecentCollectionView() {
-        if self.mateList.count > 4 {
+        if self.recentLsit.count > 4 {
             self.recentCollectionViewHeight = 375
-            
-        } else if self.mateList.count > 2 {
+            self.mainScrollView.contentSize = CGSize(width: self.view.frame.width, height: 1500)
+        } else if self.recentLsit.count > 2 {
             self.recentCollectionViewHeight = 245
-            
-        } else if !self.mateList.isEmpty {
+            self.mainScrollView.contentSize = CGSize(width: self.view.frame.width, height: 1385)
+        } else if self.recentLsit.count >= 0 {
             self.recentCollectionViewHeight = 115
+            self.mainScrollView.contentSize = CGSize(width: self.view.frame.width, height: 1270)
         }
         
-        if self.mateList.isEmpty {
+        if self.recentLsit.isEmpty {
             recentLabel.isHidden = false
         }else {
             recentLabel.isHidden = true
@@ -98,12 +99,14 @@ extension HomeViewController {
             let imgURL = URL(string: imgString)
             self.homeImg.kf.indicatorType = .activity
             self.homeImg.kf.setImage(with: imgURL, options: [.transition(.fade(0.3)), .cacheOriginalImage])
+            
         }
         
         HomeService.shared.getMainMateRequest { data in
             if let mateData = data {
                 self.mateList = mateData
                 self.mateCollectionView.reloadData()
+                self.setMateView()
             }
         }
         
@@ -111,6 +114,7 @@ extension HomeViewController {
             if let recommendData = data {
                 self.recommendList = recommendData
                 self.recommendCollectionView.reloadData()
+                self.setRecentCollectionView()
             }
             
         }
@@ -124,7 +128,7 @@ extension HomeViewController: UICollectionViewDataSource {
         } else if collectionView == recommendCollectionView {
             return recommendList.count
         } else if collectionView == recentCollectonView {
-            return 4
+            return recentLsit.count
         }
         return 0
     }

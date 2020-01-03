@@ -84,8 +84,6 @@ struct UserService {
                     
                     let object = try decoder.decode(LoginResult.self, from: data)
                     if object.success {
-                        
-                        
                         guard let token = object.data?.token else { return }
                         guard let userIdx = object.data?.userIdx else { return }
                         UserInfo.shared.setUserInfo(token: token, userIdx: userIdx)

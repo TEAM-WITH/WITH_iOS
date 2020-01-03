@@ -41,7 +41,7 @@
         <!--Chat List View Controller-->
         <scene sceneID="DRB-PD-UOj">
             <objects>
-                <viewController storyboardIdentifier="ChatList" id="EkW-3L-VBb" customClass="ChatListViewController" customModule="W_TH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ChatList" storyboardIdentifier="ChatList" id="EkW-3L-VBb" customClass="ChatListViewController" customModule="W_TH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e3U-R4-7gR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1117,8 +1117,8 @@
     </scenes>
     <resources>
         <image name="alarm" width="24" height="24"/>
-        <image name="illust" width="226" height="90"/>
+        <image name="illust" width="235" height="178"/>
         <image name="illust2" width="226" height="90"/>
-        <image name="moreBtn" width="28" height="28"/>
+        <image name="moreBtn" width="44" height="44"/>
     </resources>
 </document>

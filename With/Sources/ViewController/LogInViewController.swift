@@ -29,23 +29,25 @@ class LogInViewController: UIViewController {
     @IBAction func pressLogin(_ sender: Any) {
         guard let userId = idTextField.text else { return  }
         guard let password = passwordTextField.text else { return }
+        
         UserService.shared.postLoginRequest(userId: userId, pw: password) { completionData in
             guard let state = completionData?.success else { return }
             guard let msg = completionData?.message else { return }
             
             if state {
-           let storyName = "Home"
-           let vcName = "Home"
-           let testStoryBoard = UIStoryboard(name: storyName, bundle: nil)
-           let nextVC = testStoryBoard.instantiateViewController(withIdentifier: vcName)
-           nextVC.modalPresentationStyle = .fullScreen
-           self.present(nextVC, animated: true)
-             print("login Success")
                 
-                //상겅찰;
+                let storyName = "Home"
+                let vcName = "Tabbar"
+                let testStoryBoard = UIStoryboard(name: storyName, bundle: nil)
+                let nextVC = testStoryBoard.instantiateViewController(withIdentifier: vcName)
+                nextVC.modalPresentationStyle = .fullScreen
+                self.present(nextVC, animated: true)
+                print("login Success")
+                
+                
             } else {
                 self.simpleAlert(title: "로그인 실패", msg: msg)
-              
+                
             }
         }
     }
