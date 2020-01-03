@@ -20,38 +20,38 @@ struct UserService {
               "Content-Type": "multipart/form-data"
           ]
         
-        let body: Parameters = [
+        let body: [String: String] = [
             "userId": userData.userId,
             "password": userData.password,
             "name": userData.name ?? "",
             "birth": userData.birth ?? "",
-            "gender": userData.gender
+            "gender": "\(userData.gender)"
         ]
       
+        print(userData)
         Alamofire.upload(multipartFormData: { multipartFormData in
             
             for (key, value) in body {
-                if value is String {
-                    multipartFormData.append((value as! String).data(using: .utf8)!, withName: key)
-                }else if value is Int{
-                }
-                if let data = userData.userImg {
-                    multipartFormData.append(data, withName: "Img", mimeType: "image/jpg")
-                }
+                
+                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+            }
+            if let data = userData.userImg {
+                multipartFormData.append(data, withName: "Img", mimeType: "image/jpg")
             }
         }, usingThreshold: UInt64.init(), to: url, method: .post, headers: header) { result in
             switch result {
             case .success(let upload, _, _):
                 upload.responseJSON { response in
+                  
                     do {
                         guard let data = response.data else { return }
-                        guard let object = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else { return }
-                        guard let success = object["success"] as? Bool else { return }
-                        if success {
-//                            print("성공")
+                        
+                        let decoder = JSONDecoder()
+                        let object = try decoder.decode(ResponseTempResult.self, from: data)
+                        
+                        if object.success {
                             completion(true)
                         }else {
-//                            print("통신성공 회원가입실패")
                             completion(false)
                         }
                     } catch(let err) {
@@ -59,7 +59,6 @@ struct UserService {
                     }
                 }
             case .failure(_):
-                print("fail")
                 completion(false)
             }
         }
