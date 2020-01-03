@@ -10,6 +10,12 @@ import Foundation
 
 struct ResponseResult<T: Codable>: Codable {
     var success: Bool
-    var message: String
+    var message: String?
     var data: [T]?
+}
+
+struct ResponseSimpleResult<T: Codable>: Codable {
+    var success: Bool
+    var message: String
+    var data: T?
 }

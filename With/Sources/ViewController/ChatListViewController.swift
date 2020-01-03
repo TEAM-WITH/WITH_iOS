@@ -29,6 +29,9 @@ class ChatListViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
         setFirebase()
         firebaseEventObserver(userIdx: "\(UserInfo.shared.getUserIdx())")
     }
@@ -36,6 +39,7 @@ class ChatListViewController: UIViewController {
         if let index = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: index, animated: true)
         }
+        ref.removeAllObservers()
     }
     func distinguishGetOtherId(roomId: String) -> Int {
         let sub = roomId.split(separator: "_")
@@ -76,10 +80,4 @@ extension ChatListViewController: UITableViewDelegate {
     }
 }
 
-struct ChatList {
-    var boardIdx: Int
-    var lastMsg: String
-    var unSeenCount: Int
-    var time: String
-    var roomId: String
-}
+

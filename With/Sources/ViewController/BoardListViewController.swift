@@ -51,10 +51,15 @@ class BoardListViewController: UIViewController {
         }
         setDefaultRequest()
         
+               
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         setDB()
         selectQuery()
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: index, animated: true)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -85,6 +90,8 @@ class BoardListViewController: UIViewController {
         self.tableView.dataSource = self
         self.searchHistoryTableView.dataSource = self
         self.searchTextField.delegate = self
+        self.tableView.delegate = self
+        self.searchHistoryTableView.delegate = self
     }
     @IBAction func goToRegionPick(_ sender: Any) {
         let nextVC = UIStoryboard(name: "RegionFilter", bundle: nil).instantiateViewController(withIdentifier: "RegionFilter") as! RegionFilterViewController
@@ -102,17 +109,7 @@ class BoardListViewController: UIViewController {
         self.searchTextField.resignFirstResponder()
     }
     @IBAction func searchButtonClick(_ sender: Any) {
-        if let word = self.searchTextField.text {
-            insertQuery(item: word)
-            selectQuery()
-            self.word = word
-            BoardService.shared.getBoardListRequest(code: regionCode, sdate: sDate, edate: eDate, word: word, filter: filterNum ) { data in
-                guard let list = data else { return }
-                self.boardList = list
-                self.tableView.reloadData()
-            }
-            
-        }
+        searchBoard()
     }
     @IBAction func genderFilter(_ sender: UISwitch) {
         if sender.isOn {
@@ -130,6 +127,21 @@ class BoardListViewController: UIViewController {
             guard let list = data else { return }
             self.boardList = list
             self.tableView.reloadData()
+        }
+    }
+    
+    func searchBoard() {
+        if let word = self.searchTextField.text {
+            insertQuery(item: word)
+            selectQuery()
+            self.word = word
+            BoardService.shared.getBoardListRequest(code: regionCode, sdate: sDate, edate: eDate, word: word, filter: filterNum ) { data in
+                guard let list = data else { return }
+                self.boardList = list
+                self.tableView.reloadData()
+            }
+            self.setOriginViewAnim()
+            self.searchTextField.resignFirstResponder()
         }
     }
 }
@@ -187,6 +199,24 @@ extension BoardListViewController: UITableViewDataSource {
     }
 }
 
+extension BoardListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == self.tableView {
+            let cell = tableView.cellForRow(at: indexPath) as! BoardListTableViewCell
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardDetail") as! BoardDetailViewController
+            nextVC.boardIdx = cell.boardIdx
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        } else {
+            if indexPath.section == 0 {
+                let cell = tableView.cellForRow(at: indexPath) as! BoardSearchTableViewCell
+                self.searchTextField.text = cell.data.item
+                self.searchTextField.resignFirstResponder()
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
+    }
+}
+
 extension BoardListViewController: BoardPickDelegate {
     func getDate(sDate: String, eDate: String) {
         self.sDate = sDate
@@ -197,7 +227,6 @@ extension BoardListViewController: BoardPickDelegate {
             guard let list = data else { return }
             self.boardList = list
             self.tableView.reloadData()
-            
         }
     }
     func getAllDate() {

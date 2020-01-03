@@ -18,24 +18,22 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var withMateView: UIView!
     @IBOutlet weak var recommendTopLayout: NSLayoutConstraint!
     
+    @IBOutlet weak var homeImg: UIImageView!
     @IBOutlet weak var recentLabel: UILabel!
-    let dummy = Mate(img: UIImage(), userName: "hihi")
-    var mateList: [Mate] = []
+    var mateList: [ChatListResult] = []
+    var recommendList: [HomeRecommendTrip] = []
     let originRecommendTopValue: CGFloat = 254
     var recentCollectionViewHeight: CGFloat = 0
-    // 임의데이터실험 나중에삭제해두댐
-    struct Mate {
-        var img: UIImage
-        var userName: String
-    }
+    var regionCode = "0"
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollection()
         eventPageControl.numberOfPages = 3
-        mateList.append(dummy)
-
     }
     override func viewWillAppear(_ animated: Bool) {
+        setDefaultRequest()
         setMateView()
         setRecentCollectionView()
     }
@@ -92,23 +90,40 @@ extension HomeViewController {
         self.recommendCollectionView.dataSource = self
         self.recentCollectonView.dataSource = self
     }
+    
+    // MARK: - 홈 기본설정 통신
+    func setDefaultRequest() {
+        HomeService.shared.getMainImageRequest { data in
+            guard let imgString = data?.regionImgH else {return}
+            let imgURL = URL(string: imgString)
+            self.homeImg.kf.indicatorType = .activity
+            self.homeImg.kf.setImage(with: imgURL, options: [.transition(.fade(0.3)), .cacheOriginalImage])
+        }
+        
+        HomeService.shared.getMainMateRequest { data in
+            if let mateData = data {
+                self.mateList = mateData
+                self.mateCollectionView.reloadData()
+            }
+        }
+        
+        HomeService.shared.getMainRecommendRequest(regionCode: regionCode) { data in
+            if let recommendData = data {
+                self.recommendList = recommendData
+                self.recommendCollectionView.reloadData()
+            }
+            
+        }
+    }
 }
 // 개수에 관한 collection
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //    return mateImage.count
         if collectionView == mateCollectionView {
-            //            var count = mateArray.count
-            //            if count > 6 {
-            //                count = 6
-            //            }
-            //            return count
-            return 6
+            return mateList.count
         } else if collectionView == recommendCollectionView {
-            return 6
+            return recommendList.count
         } else if collectionView == recentCollectonView {
-    
-//              return mateList.count
             return 4
         }
         return 0
@@ -117,9 +132,11 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == mateCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MateCell", for: indexPath) as! MateCollectionViewCell
+            cell.viewModel = mateList[indexPath.item]
             return cell
         } else if collectionView == recommendCollectionView {
             let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendCell", for: indexPath) as! RecommendCollectionViewCell
+            cell.viewModel = recommendList[indexPath.item]
             return cell
         } else if collectionView == recentCollectonView {
             let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentCell", for: indexPath) as! RecentCollectionViewCell

@@ -16,6 +16,7 @@ class CountryCellTableViewCell: UITableViewCell {
             self.countryTitle.text = newValue.regionName
             self.regionCode = newValue.regionCode
             do {
+                self.countryImage.kf.indicatorType = .activity
                 guard let imageURL = URL(string: newValue.regionImgS) else { return }
                 self.countryImage.kf.setImage(with: imageURL,
                                               options: [
