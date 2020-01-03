@@ -11,8 +11,8 @@
       "scale" : "2x"
     },
     {
-      "filename" : "chatIconempty@3x.png",
       "idiom" : "universal",
+      "filename" : "chatIconempty@3x.png",
       "scale" : "3x"
     }
   ],
