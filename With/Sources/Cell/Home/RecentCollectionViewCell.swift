@@ -14,4 +14,20 @@ class RecentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var recentNameLabel: UILabel!
     @IBOutlet weak var recentCountryboxColor: UIView!
     @IBOutlet weak var recentCountryLabel: UILabel!
+    
+ 
+    @IBOutlet weak var recentContentView: UIView!
+    override func awakeFromNib() {
+        self.recentProImage.layer.cornerRadius = self.recentProImage.frame.width/2
+    
+          self.recentContentView.layer.cornerRadius = 5
+         self.recentContentView.layer.borderWidth = 1
+        self.recentContentView.layer.borderColor = UIColor.lightGray.cgColor
+  
+    
+        
+    }
+    
+    
+    
 }

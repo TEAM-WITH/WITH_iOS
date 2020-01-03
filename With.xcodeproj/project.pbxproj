@@ -352,11 +352,11 @@
 			children = (
 				06CFDD7F23B1F37F0030BABB /* BaseAPI.swift */,
 				06C1C93823B7C55A00DD4F9D /* UserService.swift */,
-				05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */,
 				05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */,
 				05DDBE1323BB6CE700DCDBD5 /* WithMateService.swift */,
 				06BBC31A23BD06DF000DAE1C /* BoardService.swift */,
 				0517420D23BDD018001BA461 /* MyPageService.swift */,
+				05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */,
 				0653C07623BE66A6003ABB80 /* HomeService.swift */,
 			);
 			path = Service;
