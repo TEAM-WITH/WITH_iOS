@@ -247,6 +247,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vJn-Uc-WJM"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kpj-QX-5aL"/>
                     <connections>
                         <outlet property="backgroundImage" destination="juK-eZ-TWU" id="IeW-vo-OgJ"/>
                         <outlet property="commentTextField" destination="vfg-9M-5E8" id="6kn-ju-Ekk"/>
@@ -258,7 +259,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3u-q1-DoO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2Bq-EH-7Yb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3431.1999999999998" y="99.753694581280797"/>
+            <point key="canvasLocation" x="-2488.8000000000002" y="99.753694581280797"/>
         </scene>
         <!--My Page Modify View Controller-->
         <scene sceneID="EhE-tt-gki">
@@ -444,7 +445,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vG3-uo-VNf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2757.5999999999999" y="99.753694581280797"/>
+            <point key="canvasLocation" x="-1815.2" y="99.753694581280797"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sar-v3-Xrb">
+            <objects>
+                <navigationController restorationIdentifier="TabMyPage" storyboardIdentifier="TabMyPage" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ndt-6f-AiE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QNf-ZP-rsW">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WYL-aY-qcx">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="eeF-bK-hRK" kind="relationship" relationship="rootViewController" id="iD0-75-O0H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="skY-Zo-KYF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3431.1999999999998" y="99.753694581280797"/>
         </scene>
     </scenes>
     <resources>

@@ -21,9 +21,9 @@ class RecentCollectionViewCell: UICollectionViewCell {
         self.recentProImage.layer.cornerRadius = self.recentProImage.frame.width/2
     
           self.recentContentView.layer.cornerRadius = 5
-         self.recentContentView.layer.borderWidth = 1
+        self.recentContentView.layer.borderWidth = 1
         self.recentContentView.layer.borderColor = UIColor.lightGray.cgColor
-  
+        
     
         
     }

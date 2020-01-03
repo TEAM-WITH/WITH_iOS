@@ -46,6 +46,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         recentList.append(dum1)
         recentList.append(dum2)
         recentList.append(dum3)
+        
+        self.tabBarController?.tabBar.items![0].image = UIImage(named: "tabbarhomefill")
+        self.tabBarController?.tabBar.items![1].image = UIImage(named: "chaticonempty")
+
+        self.tabBarController?.tabBar.items![2].image = UIImage(named: "tabbarpersonempty")
+        self.tabBarController?.tabBar.selectedImageTintColor = UIColor.mainPurple
+        self.tabBarController?.tabBar.selectedImageTintColor = UIColor.black
+        
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         setDefaultRequest()
@@ -54,7 +64,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         
         let storyBoard = UIStoryboard(name: "Home", bundle: nil)
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "BoardList")
-        //        self.navigationController
+        self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     func setMateView() {

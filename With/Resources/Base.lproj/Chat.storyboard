@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CAd-x0-7gd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-335" y="100"/>
+            <point key="canvasLocation" x="-820" y="133"/>
         </scene>
         <!--Chat List View Controller-->
         <scene sceneID="DRB-PD-UOj">
@@ -195,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AdO-tx-tyk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="344.80000000000001" y="103.44827586206897"/>
+            <point key="canvasLocation" x="1287.2" y="103.44827586206897"/>
         </scene>
         <!--Chat Room View Controller-->
         <scene sceneID="1yc-XG-Vwy">
@@ -992,7 +992,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFr-lE-D5s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="107.88177339901478"/>
+            <point key="canvasLocation" x="1986.4000000000001" y="107.88177339901478"/>
         </scene>
         <!--Invite View Controller-->
         <scene sceneID="uli-Mo-Uua">
@@ -1126,7 +1126,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1BF-9a-m6r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1728.8" y="109.35960591133005"/>
+            <point key="canvasLocation" x="2671.1999999999998" y="109.35960591133005"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KcH-9u-6es">
+            <objects>
+                <navigationController restorationIdentifier="TabChat" storyboardIdentifier="TabChat" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="lTO-0i-Jcu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="shA-yq-GOm">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EkW-3L-VBb" kind="relationship" relationship="rootViewController" id="zya-gb-IDC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bNx-mE-jZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="344.80000000000001" y="103.44827586206897"/>
         </scene>
     </scenes>
     <resources>
