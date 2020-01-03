@@ -1,19 +1,19 @@
 {
   "images" : [
     {
+      "filename" : "editBtn.png",
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "editBtn.png"
+      "scale" : "1x"
     },
     {
       "filename" : "editBtn@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "idiom" : "universal"
     },
     {
-      "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "editBtn@3x.png"
+      "filename" : "editBtn@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

@@ -35,6 +35,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         application.registerForRemoteNotifications()
+       /*
+        let tabbar = UITabBarController()
+        let mainVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "Home")
+        let chatVC = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatList")
+        let mypageVC = UIStoryboard(name: "MyPage", bundle: nil).instantiateViewController(withIdentifier: "MyPage")
+        //        let myPageVC = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "Chat")
+        mainVC.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
+        chatVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 2)
+        mypageVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 3)
+        
+        let controllerArray = [mainVC, chatVC, mypageVC]
+        
+        tabbar.viewControllers = controllerArray.map { UINavigationController.init(rootViewController: $0)}
+        controllerArray.map { $0.navigationController?.isNavigationBarHidden = true }
+        window?.rootViewController = tabbar
+ */
         return true
     }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

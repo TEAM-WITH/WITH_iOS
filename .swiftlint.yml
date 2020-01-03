@@ -5,9 +5,8 @@ disable_rules:
     - identifier_name    # 이름 최소 글자수
     - nesting    # deep level
     - function_parameter_count
-    
-opt_in_rules: # some rules are only opt-in 기본룰 아닌것 활성화
     - empty_count
+opt_in_rules: # some rules are only opt-in 기본룰 아닌것 활성화
     - colon    # 콜론 옆에 여백이 무조건 있어야함
     - comma    # 콤마 옆에 공백
     

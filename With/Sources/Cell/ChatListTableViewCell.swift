@@ -10,6 +10,7 @@ import UIKit
 
 class ChatListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var badgeView: UIView!
     @IBOutlet weak var badgeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var userIdLabel: UILabel!
@@ -20,11 +21,21 @@ class ChatListTableViewCell: UITableViewCell {
     var accept = false {
         willSet {
             if newValue {
-                self.chatTitleLabel.textColor = UIColor.mainOrange
+                self.chatTitleLabel.textColor = UIColor.meetOtherColor
             } else {
                 self.chatTitleLabel.textColor = UIColor.black
             }
             self.acceptImage.isHidden = newValue
+        }
+    }
+    var badgeCount = 0 {
+        willSet {
+            if newValue == 0 {
+                self.badgeView.isHidden = true
+            } else {
+                self.badgeLabel.text = "\(newValue)"
+                self.badgeView.isHidden = false
+            }
         }
     }
     override func awakeFromNib() {
