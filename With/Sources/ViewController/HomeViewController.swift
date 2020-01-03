@@ -112,7 +112,7 @@ extension HomeViewController {
                 self.recommendList = recommendData
                 self.recommendCollectionView.reloadData()
             }
-            
+
         }
     }
 }

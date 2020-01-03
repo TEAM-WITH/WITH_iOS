@@ -28,6 +28,7 @@
 		05719C8B23BC7E840041D322 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05719C8A23BC7E840041D322 /* SignUpViewController.swift */; };
 		05719C8D23BC89EF0041D322 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05719C8C23BC89EF0041D322 /* MyPage.storyboard */; };
 		05719C8F23BCC63F0041D322 /* MyPageModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05719C8E23BCC63F0041D322 /* MyPageModifyViewController.swift */; };
+		05C37C9223BF2C0200F44DE1 /* BoardWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37C9123BF2C0200F44DE1 /* BoardWriteViewController.swift */; };
 		05DDBE0823BA1C3300DCDBD5 /* EstimateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */; };
 		05DDBE0A23BA45E100DCDBD5 /* RegionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0923BA45E100DCDBD5 /* RegionModel.swift */; };
 		05DDBE0C23BB32C800DCDBD5 /* CountryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */; };
@@ -111,6 +112,7 @@
 		05719C8A23BC7E840041D322 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		05719C8C23BC89EF0041D322 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		05719C8E23BCC63F0041D322 /* MyPageModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModifyViewController.swift; sourceTree = "<group>"; };
+		05C37C9123BF2C0200F44DE1 /* BoardWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardWriteViewController.swift; sourceTree = "<group>"; };
 		05DDBE0723BA1C3300DCDBD5 /* EstimateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateService.swift; sourceTree = "<group>"; };
 		05DDBE0923BA45E100DCDBD5 /* RegionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionModel.swift; sourceTree = "<group>"; };
 		05DDBE0B23BB32C800DCDBD5 /* CountryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryService.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			children = (
 				0653C07223BE23BE003ABB80 /* BoardDetailViewController.swift */,
 				06BBC31423BC91F8000DAE1C /* BoardListViewController.swift */,
+				05C37C9123BF2C0200F44DE1 /* BoardWriteViewController.swift */,
 				06BBC30C23BA8CCE000DAE1C /* InviteViewController.swift */,
 				06CFDD5B23B09C930030BABB /* ViewController.swift */,
 				0458B93923B1F9BC00CEBFDA /* HomeViewController.swift */,
@@ -602,6 +605,7 @@
 				06BBC30D23BA8CCE000DAE1C /* InviteViewController.swift in Sources */,
 				06BBC32323BD2E84000DAE1C /* BoardPickDelegate.swift in Sources */,
 				06CFDDA523B5454C0030BABB /* ChatOtherInviteTableViewCell.swift in Sources */,
+				05C37C9223BF2C0200F44DE1 /* BoardWriteViewController.swift in Sources */,
 				0517421023BDD0FC001BA461 /* MyPageModel.swift in Sources */,
 				0653C07923BE6E6A003ABB80 /* HomeResult.swift in Sources */,
 				05DDBE1223BB6AC500DCDBD5 /* RecentBoardModel.swift in Sources */,
