@@ -23,8 +23,6 @@ class LogInViewController: UIViewController {
         self.idTextField.delegate = self
         self.passwordTextField.delegate = self
         
-        self.view.transform = CGAffineTransform(translationX: 0, y: 30)
-        self.view.transform.isIdentity
     }
 //    if textfield 에 뭐가 적혀있으면 둘다에 그럼 보라색이 켜지고 pressbutton able
    
