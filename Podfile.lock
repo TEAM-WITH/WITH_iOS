@@ -96,13 +96,13 @@ PODS:
     - Kingfisher/Core (= 5.12.0)
   - Kingfisher/Core (5.12.0)
   - leveldb-library (1.22)
+  - lottie-ios (3.1.5)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Protobuf (3.11.2)
-  - SnapKit (5.0.1)
   - SwiftLint (0.38.0)
 
 DEPENDENCIES:
@@ -114,7 +114,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FMDB (~> 2.7.5)
   - Kingfisher (~> 5.0)
-  - SnapKit (~> 5.0.0)
+  - lottie-ios (~> 3.1.5)
   - SwiftLint (~> 0.38.0)
 
 SPEC REPOS:
@@ -139,9 +139,9 @@ SPEC REPOS:
     - GTMSessionFetcher
     - Kingfisher
     - leveldb-library
+    - lottie-ios
     - nanopb
     - Protobuf
-    - SnapKit
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -165,11 +165,11 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  lottie-ios: 32bf84389337d86fbc8b12266e88452e0abf1dee
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: dd1aaea7140debfe4dd0683fb8ef208e527ae153
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
 
-PODFILE CHECKSUM: 0b4ff6483a2283c2b18f81e48f5cb8241829a7fd
+PODFILE CHECKSUM: ac8881d8aa20fbaba489a3eae3cf98a1ef7658af
 
 COCOAPODS: 1.8.4

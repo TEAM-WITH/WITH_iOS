@@ -29,7 +29,7 @@ struct ChatList {
     var lastMsg: String
     var unSeenCount: Int
     var time: String
-    var roomId: String
+//    var roomId: String
     var inviteFlag: Int
 }
 

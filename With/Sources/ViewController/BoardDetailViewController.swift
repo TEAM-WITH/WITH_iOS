@@ -22,6 +22,7 @@ class BoardDetailViewController: UIViewController {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var userInfo: UILabel!
     var boardIdx: Int!
+    var boardInfo: BoardDetail?
     override func viewDidLoad() {
         super.viewDidLoad()
         getSetBoardInfo()
@@ -70,11 +71,12 @@ class BoardDetailViewController: UIViewController {
                 }
                 self.badgeImg.image = UIImage(named: imgName)
             }
-                
+            self.boardInfo = data
             do {
                 guard let imgURL = URL(string: data?.userImg ?? "") else { return }
                 self.profileImg.kf.indicatorType = .activity
                 self.profileImg.kf.setImage(with: imgURL, placeholder: UIImage(named: "defaultUserImg"), options: [ .transition(.fade(0.3)), .cacheOriginalImage])
+                
             } catch {
                 print(error.localizedDescription)
             }
@@ -86,5 +88,48 @@ class BoardDetailViewController: UIViewController {
     @IBAction func backButton(_ sender: Any) {
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func goToChat(_ sender: Any) {
+        guard let receiverIdx = boardInfo?.userIdx else {return}
+        guard let boardIdx = boardInfo?.boardIdx else {return}
+        
+        let senderIdx = UserInfo.shared.getUserIdx()
+        let roomId = "\(boardIdx)_\(receiverIdx)_\(senderIdx)"
+        print(("***\(roomId)"))
+    
+        ChatService.shared.postCreatChatRoomService(userIdx: "\(receiverIdx)", boardIdx: "\(boardIdx)", roomId: "\(roomId)") { data in
+            if let realData = data {
+            
+                guard let nextVC = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "Chat") as? ChatRoomViewController else { return }
+                nextVC.modalPresentationStyle = .fullScreen
+                nextVC.roomId = roomId
+                nextVC.otherUnSeenCount = 0
+                nextVC.otherId = receiverIdx
+                
+                
+//                if let info = self.boardInfo {
+                guard let regionName = self.boardInfo?.regionName else {return}
+                guard let title = self.boardInfo?.title else { return }
+                guard let sDate = self.boardInfo?.startDate else { return }
+                guard let eDate = self.boardInfo?.endDate else { return }
+                guard let userImg = self.boardInfo?.userImg else {return}
+                guard let name = self.boardInfo?.name else {return}
+                guard let boardIdx = self.boardInfo?.boardIdx else {return}
+//                    nextVC.regionName  = info.regionName
+//                    nextVC.noticeTitle = info.title
+                    let date = "\(sDate) ~ \(eDate)"
+                
+                    nextVC.date = date
+                    nextVC.imgUrl = userImg
+                    nextVC.otherName = name
+                    nextVC.boardIdx = boardIdx
+//                }
+                self.present(nextVC, animated: true)
+                    
+               
+            } else {
+                    self.simpleAlert(title: "오류 발생", msg: "알 수 없는 오류가 발생하였습니다.")
+            }
+        }
     }
 }

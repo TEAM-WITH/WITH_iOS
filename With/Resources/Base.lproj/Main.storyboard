@@ -16,17 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djr-5U-kMU">
-                                <rect key="frame" x="156" y="426" width="51" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="nextVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ilI-81-3dS"/>
-                                </connections>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashImg" translatesAutoresizingMaskIntoConstraints="NO" id="feS-Ke-crM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="feS-Ke-crM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="0yi-GG-12T"/>
+                            <constraint firstAttribute="trailing" secondItem="feS-Ke-crM" secondAttribute="trailing" id="oun-z1-8Qg"/>
+                            <constraint firstItem="feS-Ke-crM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tDC-q6-Rou"/>
+                            <constraint firstAttribute="bottom" secondItem="feS-Ke-crM" secondAttribute="bottom" id="ynQ-fr-xO5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -35,4 +35,7 @@
             <point key="canvasLocation" x="139" y="102"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splashImg" width="375" height="812"/>
+    </resources>
 </document>

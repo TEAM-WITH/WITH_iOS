@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Lottie
 class ChatListViewController: UIViewController {
    let dateFommatter: DateFormatter = {
        let formatter = DateFormatter()
@@ -24,6 +25,7 @@ class ChatListViewController: UIViewController {
     var chatLists: [ChatList] = []
     var chatInfoList: [ChatListResult] = []
     var ref: DatabaseReference!
+    @IBOutlet weak var lottieLoading: AnimationView!
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -31,34 +33,46 @@ class ChatListViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        
+//        setFirebase()
+//        firebaseEventObserver()
+//        chatListRequest()
     }
     override func viewWillAppear(_ animated: Bool) {
+
         setFirebase()
-        firebaseEventObserver(userIdx: "\(UserInfo.shared.getUserIdx())")
+        firebaseEventObserver()
         chatListRequest()
     }
+
     override func viewWillDisappear(_ animated: Bool) {
         if let index = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: index, animated: true)
         }
-        ref.removeAllObservers()
     }
-    func distinguishGetOtherId(roomId: String) -> Int {
-        let sub = roomId.split(separator: "_")
-        
-        let otherId = sub.filter{ return $0 != "\(UserInfo.shared.getUserIdx())" }
-            .map{ Int($0) }
-        return otherId[0] ?? -1
-    }
+   
     func chatListRequest() {
         ChatService.shared.getChatListRequest { data in
             if let infos = data {
                 self.chatInfoList = infos
+                self.lottieLoading.stop()
+                self.lottieLoading.isHidden = true
+//                var tempList: [ChatList] = []
+//                for list in self.chatLists {
+//                    for info in infos {
+//                        if list.boardIdx == info.boardIdx {
+//                            tempList.append(list)
+//                        }
+//                    }
+//                }
+//                self.chatLists = tempList
+//                self.tableView.reloadData()
             }
+         
         }
     }
 }
-
+// 영현 115 하담 122
 extension ChatListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatLists.count
@@ -67,27 +81,46 @@ extension ChatListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatList", for: indexPath) as! ChatListTableViewCell
-        let data = chatLists[indexPath.row]
-        cell.chatTitleLabel.text = "\(data.boardIdx)"
-        cell.chatContentLabel.text = data.lastMsg
-        cell.timeLabel.text = data.time
-        cell.badgeCount = data.unSeenCount
+        cell.serverModel = chatInfoList[indexPath.row]
+        cell.firebaseMdoel =  chatLists[indexPath.row]
+//        cell.chatTitleLabel.text = self.chatInfoList[indexPath.row].title
+//        cell.chatContentLabel.text = data.lastMsg
+//        cell.timeLabel.text = data.time
+//        cell.badgeCount = data.unSeenCount
+        
+//        cell.roomId = chatLists[indexPath.row].roomId
+//        cell.url = self.chatInfoList[indexPath.row].userImg
         return cell
     }
 }
 
 extension ChatListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chatRoom = chatLists[indexPath.row]
+        let cell = tableView.cellForRow(at: indexPath) as! ChatListTableViewCell
+        
+        guard let fire = cell.firebaseMdoel else { return }
+        guard let server = cell.serverModel else {return}
+        
+        let roomid = server.roomId
+//        let chatRoom = roomid
         let chatInfo = chatInfoList[indexPath.row]
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Chat") as? ChatRoomViewController else { return }
         nextVC.modalPresentationStyle = .fullScreen
-        nextVC.roomId = chatInfo.roomId
-        nextVC.otherUnSeenCount = chatRoom.unSeenCount
-        nextVC.otherId = chatInfo.userIdx
+        nextVC.roomId = roomid
+        print(roomid)
+        nextVC.otherUnSeenCount = fire.unSeenCount
+        nextVC.otherId = server.userIdx
         nextVC.roomInfo = chatInfo
-        nextVC.inviteFlag = chatRoom.inviteFlag
-        enterChatSetCount(roomId: chatRoom.roomId)
+        nextVC.regionName = server.regionName!
+        nextVC.inviteFlag = fire.inviteFlag
+        nextVC.noticeTitle = server.title
+        nextVC.otherName = server.name
+        nextVC.imgUrl = server.writerImg
+        nextVC.boardIdx = server.boardIdx
+        let date = "\(server.startDate) ~ \(server.endDate)"
+        nextVC.date = date
+        enterChatSetCount(roomId: "\(roomid)")
+        
         self.present(nextVC, animated: true)
     }
 }

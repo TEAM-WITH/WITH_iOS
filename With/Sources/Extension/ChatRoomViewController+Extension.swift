@@ -15,6 +15,7 @@ extension ChatRoomViewController {
     }
     func firebaseEventObserver(roomId: String) {
         self.ref.child("conversations").child(roomId).observe(.childAdded) { snapshot in
+
             if let object = snapshot.value as? [String: AnyObject] {
                 guard let typeNum = object["type"] as? Int else { return }
                 guard let dateString = object["date"] as? String else { return }
@@ -27,7 +28,7 @@ extension ChatRoomViewController {
                 var chat: Chat!
                 if type == .myInvite || type == .otherInvite || type == .otherComplete {
                     let meetDate = self.splitMsgString(msg: msg)
-                    print(meetDate)
+                    
                     chat = Chat(type: type, userIdx: userIdx, message: msg, date: date, meetDate: meetDate)
                 } else {
                     chat = Chat(type: type, userIdx: userIdx, message: msg, date: date)
@@ -61,15 +62,17 @@ extension ChatRoomViewController {
     }
     
     // MARK: - 파베 메시지보내기
-    func sendChat(msg: String, completion: @escaping (Bool) -> Void) {
+    func sendChat(room: String, msg: String, completion: @escaping (Bool) -> Void) {
         let user = UserInfo.shared.getUserIdx()
         let time = fullDateFommatter.string(from: Date())
+        
         let createChatInfo: Dictionary<String, Any> = [
             "date": time,
             "msg": msg,
             "type": 0,
             "userIdx": user
         ]
+    
         ref.child("conversations").child(roomId).childByAutoId().setValue(createChatInfo)
         self.otherUnSeenCount += 1
         let createRoomInfo: Dictionary<String, Any> = [
@@ -81,14 +84,15 @@ extension ChatRoomViewController {
         ]
         let createOtherRoomInfo: Dictionary<String, Any> = [
             "boardIdx": boardIdx,
-            "inviteFlag": 0,
+            "inviteFlag": inviteFlag,
             "lastMessage": msg,
             "lastTime": time,
             "unSeenCount": self.otherUnSeenCount
         ]
         ref.child("users").child("\(user)").child(roomId).setValue(createRoomInfo)
         ref.child("users").child("\(otherId)").child(roomId).setValue(createOtherRoomInfo) { err, dref in
-            if err == nil  {
+            if err == nil {
+                print(("***\(self.roomId)"))
                 print("no err")
                 completion(true)
             } else {
@@ -156,7 +160,7 @@ extension ChatRoomViewController {
         ]
         let createOtherRoomInfo: Dictionary<String, Any> = [
             "boardIdx": boardIdx,
-            "inviteFlag": 0,
+            "inviteFlag": inviteFlag ,
             "lastMessage": "동행 성사 메시지입니다.",
             "lastTime": time,
             "unSeenCount": otherUnSeenCount

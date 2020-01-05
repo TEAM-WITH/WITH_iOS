@@ -447,26 +447,6 @@
             </objects>
             <point key="canvasLocation" x="-1815.2" y="99.753694581280797"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="sar-v3-Xrb">
-            <objects>
-                <navigationController restorationIdentifier="TabMyPage" storyboardIdentifier="TabMyPage" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ndt-6f-AiE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QNf-ZP-rsW">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WYL-aY-qcx">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="eeF-bK-hRK" kind="relationship" relationship="rootViewController" id="iD0-75-O0H"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="skY-Zo-KYF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3431.1999999999998" y="99.753694581280797"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Boardlikelevel3" width="52" height="14.333333015441895"/>

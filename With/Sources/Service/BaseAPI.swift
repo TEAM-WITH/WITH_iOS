@@ -9,7 +9,7 @@
 import Foundation
 
 struct BaseAPI {
-    static let baseURL = "http://18.222.189.150:3000"
+    static let baseURL = "http://13.209.245.213:3000"
     static let homeURL = baseURL+"/home"
     static let socketURL = ""
     static let signUpURL = baseURL+"/auth/signup"

@@ -8,7 +8,7 @@
 
 import UIKit
 import FMDB
-
+import Lottie
 class BoardListViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var searchView: UIView!
@@ -21,6 +21,7 @@ class BoardListViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchCancelButton: UIButton!
     @IBOutlet weak var searchAreaView: UIView!
+    @IBOutlet weak var lottieLoading: AnimationView!
     
     @IBOutlet weak var searchAreaRightLayout: NSLayoutConstraint!
     var regionString: String = "전체"
@@ -69,10 +70,16 @@ class BoardListViewController: UIViewController {
     
     func setDefaultRequest() {
         BoardService.shared.getBoardListRequest(code: regionCode) { data in
-            guard let list = data else { return }
-            self.boardList = list
-            self.tableView.reloadData()
-            
+            if data == nil {
+                self.lottieLoading.stop()
+                self.lottieLoading.isHidden = true
+                self.simpleAlert(title: "Error", msg: "해당 데이터가 없습니다.")
+            } else {
+                self.boardList = data!
+                self.tableView.reloadData()
+                self.lottieLoading.stop()
+                self.lottieLoading.isHidden = true
+            }
         }
     }
     
@@ -93,6 +100,9 @@ class BoardListViewController: UIViewController {
         self.searchTextField.delegate = self
         self.tableView.delegate = self
         self.searchHistoryTableView.delegate = self
+        self.lottieLoading.animation = Animation.named("loadingAnim")
+        self.lottieLoading.loopMode = .loop
+        self.lottieLoading.play()
     }
     @IBAction func boardWrite(_ sender: Any) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardWrite") as! BoardWriteViewController
@@ -133,6 +143,7 @@ class BoardListViewController: UIViewController {
             guard let list = data else { return }
             self.boardList = list
             self.tableView.reloadData()
+            
         }
     }
     
@@ -142,12 +153,19 @@ class BoardListViewController: UIViewController {
             selectQuery()
             self.word = word
             BoardService.shared.getBoardListRequest(code: regionCode, sdate: sDate, edate: eDate, word: word, filter: filterNum ) { data in
+                if data == nil {
+                    self.lottieLoading.stop()
+                    self.lottieLoading.isHidden = true
+                    self.simpleAlert(title: "Error", msg: "해당 데이터가 없습니다.")
+                }
                 guard let list = data else { return }
                 self.boardList = list
                 self.tableView.reloadData()
             }
             self.setOriginViewAnim()
             self.searchTextField.resignFirstResponder()
+            self.lottieLoading.stop()
+            self.lottieLoading.isHidden = true
         }
     }
 }
@@ -229,30 +247,58 @@ extension BoardListViewController: BoardPickDelegate {
         self.eDate = eDate
         self.dateString = "\(sDate) ~ \(eDate)"
         self.dateButton.setTitle(dateString, for: .normal)
+        self.lottieLoading.animation = Animation.named("loadingAnim")
+        self.lottieLoading.loopMode = .loop
+        self.lottieLoading.play()
         BoardService.shared.getBoardListRequest(code: regionCode, sdate: sDate, edate: eDate) { data in
+            if data == nil {
+                self.lottieLoading.stop()
+                self.lottieLoading.isHidden = true
+                self.simpleAlert(title: "Error", msg: "해당 데이터가 없습니다.")
+            }
             guard let list = data else { return }
             self.boardList = list
             self.tableView.reloadData()
+            self.lottieLoading.stop()
+            self.lottieLoading.isHidden = true
         }
     }
     func getAllDate() {
         self.dateString = "날짜"
         self.dateButton.setTitle(dateString, for: .normal)
+        self.lottieLoading.animation = Animation.named("loadingAnim")
+        self.lottieLoading.loopMode = .loop
+        self.lottieLoading.play()
         BoardService.shared.getBoardListRequest(code: regionCode) { data in
+            if data == nil {
+                self.lottieLoading.stop()
+                self.lottieLoading.isHidden = true
+                self.simpleAlert(title: "Error", msg: "해당 데이터가 없습니다.")
+            }
             guard let list = data else { return }
             self.boardList = list
             self.tableView.reloadData()
+            self.lottieLoading.stop()
+            self.lottieLoading.isHidden = true
         
         }
     }
     func getRegion(regionCode: String, regionName: String) {
         self.regionCode = regionCode
         self.regionButton.setTitle(regionName, for: .normal)
+        self.lottieLoading.animation = Animation.named("loadingAnim")
+        self.lottieLoading.loopMode = .loop
+        self.lottieLoading.play()
         UserInfo.shared.setDefaultRegion(regionCode: regionCode, regionName: regionName)
         BoardService.shared.getBoardListRequest(code: regionCode, sdate: sDate, edate: eDate, filter: filterNum) { data in
+            if data == nil {
+                self.simpleAlert(title: "Error", msg: "해당 데이터가 없습니다.")
+            }
             guard let list = data else { return }
             self.boardList = list
             self.tableView.reloadData()
+            self.lottieLoading.stop()
+            self.lottieLoading.isHidden = true
         }
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Lottie
 class HomeViewController: UIViewController, UIScrollViewDelegate {
     //     var mateArray = []
     @IBOutlet weak var mateCollectionView: UICollectionView!
@@ -17,18 +17,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var eventPageControl: UIPageControl!
     @IBOutlet weak var withMateView: UIView!
     @IBOutlet weak var recommendTopLayout: NSLayoutConstraint!
-    @IBOutlet weak var recentBoardImg: UIImageView!
-    
-    
+
     @IBOutlet weak var homeImg: UIImageView!
     @IBOutlet weak var recentLabel: UILabel!
     var mateList: [ChatListResult] = []
     var recommendList: [HomeRecommendTrip] = []
     var recentList: [HomeRecent] = []
-    let dum = HomeRecent(boardIdx: 1, name: "권준", userImg: "userImg", regionName: "프랑스", title: "에펠탑 앞 맥주 마실사람")
-    let dum1 = HomeRecent(boardIdx: 2, name: "김은별", userImg: "userImg", regionName: "아랍에미리트", title: "낙타타고 사막 거니실 분??")
-    let dum2 = HomeRecent(boardIdx: 3, name: "박형모", userImg: "userImg", regionName: "미국", title: "뉴욕에서 새해 맞을사람~~")
-    let dum3 = HomeRecent(boardIdx: 4, name: "김남수", userImg: "userImg", regionName: "뉴질랜드", title: "퀸즈랜드 맥주 마실분~~")
     
     let originRecommendTopValue: CGFloat = 254
     var recentCollectionViewHeight: CGFloat = 0
@@ -39,25 +33,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //  self.mateimagimage.layer.cornerRadius = self.mateimagimage.frame.width/2
         setCollection()
         eventPageControl.numberOfPages = 3
-        recentList.append(dum)
-        recentList.append(dum1)
-        recentList.append(dum2)
-        recentList.append(dum3)
-        
-        self.tabBarController?.tabBar.items![0].image = UIImage(named: "tabbarhomefill")
-        self.tabBarController?.tabBar.items![1].image = UIImage(named: "chaticonempty")
-
-        self.tabBarController?.tabBar.items![2].image = UIImage(named: "tabbarpersonempty")
-        self.tabBarController?.tabBar.selectedImageTintColor = UIColor.mainPurple
-        self.tabBarController?.tabBar.selectedImageTintColor = UIColor.black
-        
-        
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        
+        if let code = UserDefaults.standard.string(forKey: "regionCode") {
+            self.regionCode = code
+        }
+        
         setDefaultRequest()
     }
     @IBAction func withMateButtonClick(_ sender: Any) {
@@ -136,17 +121,16 @@ extension HomeViewController {
             if let recommendData = data {
                 self.recommendList = recommendData
                 self.recommendCollectionView.reloadData()
-                self.setRecentCollectionView()
             }
             
         }
-        //        HomeService.shared.getMainRecentRequest(boardIdx: boardIdx) { data in
-        //            if let recentData = data {
-        //                self.recentList = recommendData
-        //                self.recentCollectonView.reloadData()
-        //                self.recentCollectonView()
-        //            }
-        //        }
+        HomeService.shared.getMainRecentRequest(boardIdx: boardIdx) { data in
+            if let recentData = data {
+                self.recentList = recentData
+                self.recentCollectonView.reloadData()
+                self.setRecentCollectionView()
+            }
+        }
     }
 }
 // 개수에 관한 collection
@@ -176,6 +160,7 @@ extension HomeViewController: UICollectionViewDataSource {
             return cell
         } else if collectionView == recentCollectonView {
             let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentCell", for: indexPath) as! RecentCollectionViewCell
+            cell.viewModel = recentList[indexPath.row]
             return cell
         }
         return UICollectionViewCell()

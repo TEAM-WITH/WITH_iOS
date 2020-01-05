@@ -9,12 +9,12 @@ target 'With' do
     pod 'Alamofire', '~> 4.8.2'
     pod 'SwiftLint', '~> 0.38.0'
     pod 'Kingfisher', '~> 5.0'
-    pod 'SnapKit', '~> 5.0.0'
     pod 'FMDB', '~> 2.7.5'
     pod 'Firebase/Analytics'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
+    pod 'lottie-ios', '~> 3.1.5'
 
 end

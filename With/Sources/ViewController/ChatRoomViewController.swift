@@ -46,12 +46,16 @@ class ChatRoomViewController: UIViewController {
     var isInvite = false
     var otherId = 0
     var otherName = ""
-    var roomId = ""
+    var roomId = "0"
     var otherUnSeenCount = 0
     var meetDateString = ""
-    var inviteFlag = -1
+    var inviteFlag = 0
     var boardIdx = 0
     var roomInfo: ChatListResult!
+    var regionName = ""
+    var noticeTitle = ""
+    var date = ""
+    var imgUrl = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.chatTableView.dataSource = self
@@ -61,33 +65,33 @@ class ChatRoomViewController: UIViewController {
         setNoticeView()
         initGestureRecognizer()
         registerForKeyboardNotifications()
+        setFirebase()
+        setOtherUnSeenCount()
+        inviteFlagObserve()
+        firebaseEventObserver(roomId: roomId)
         
         if inviteFlag > 0 {
             self.inviteButton.isHidden = true
             self.chatInviteImg.image = UIImage(named: "withBtn")
         }
         
+        self.noticeImage.layer.cornerRadius = self.noticeImage.frame.width/2
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
-        self.ref.removeAllObservers()
         unregisterForKeyboardNotifications()
         removeUnSeenCount()
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        firebaseEventObserver(roomId: roomId)
-    }
     override func viewWillAppear(_ animated: Bool) {
-        setFirebase()
-        setOtherUnSeenCount()
-        inviteFlagObserve()
+      
     }
     @IBAction func cancelButtonClick(_ sender: Any) {
         self.dismiss(animated: true)
     }
     @IBAction func sendButtonClick(_ sender: Any) {
         guard let text = self.chatTextView.text else { return }
-        sendChat(msg: text) { bool in
+        sendChat(room: self.roomId, msg: text) { bool in
             if bool {
                print("메시지 전송 성공")
             } else {
@@ -148,13 +152,11 @@ class ChatRoomViewController: UIViewController {
     func setNoticeView() {
         self.noticeDateLabel.labelKern(kerningValue: -0.06)
         self.noticeView.dropShadow()
-        let imgURL = URL(string: roomInfo.writerImg)
-        self.noticeImage.kf.setImage(with: imgURL, options: [.transition(.fade(0.3))])
-        self.noticeRegionLabel.text = roomInfo.regionName
-        self.noticeTitleLabel.text = roomInfo.title
-        let date = "\(roomInfo.startDate) ~ \(roomInfo.endDate)"
+        self.noticeRegionLabel.text = regionName
+        self.noticeTitleLabel.text = noticeTitle
         self.noticeDateLabel.text = date
-        
+        guard let url = URL(string: imgUrl) else { return }
+        self.noticeImage.kf.setImage(with: url, options: [.transition(.fade(0.3))])
         
     }
     
@@ -186,8 +188,8 @@ extension ChatRoomViewController: UITableViewDataSource {
             return cell
         } else if chat.type == .otherProfile {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ChatProfileTableViewCell
-            cell.userIdLabel.text = chat.nickName
-            cell.imgURL = roomInfo.userImg
+            cell.userIdLabel.text = otherName
+            cell.imgURL = imgUrl
             return cell
         } else if chat.type == .myInvite {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyInviteCell", for: indexPath) as! ChatMyInviteTableViewCell
@@ -195,7 +197,7 @@ extension ChatRoomViewController: UITableViewDataSource {
             cell.timeLabel.text = chat.date
             cell.timeLabel.labelKern(kerningValue: -0.06)
             cell.meetTimeLabel.text = chat.meetDate
-            cell.nameLabel.text = "김루희"
+            cell.nameLabel.text = otherName
             cell.hide = chat.hide ?? false
             
             return cell

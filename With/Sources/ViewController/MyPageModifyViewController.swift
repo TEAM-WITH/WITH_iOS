@@ -38,13 +38,11 @@ class MyPageModifyViewController: UIViewController, UIImagePickerControllerDeleg
         profileImg.image = defaultProfileImg
         backgroundImg.image = defaultBackgroundImg
         commentTextField.text = defaultProfileText
-         self.profileImg.layer.cornerRadius = self.profileImg.frame.size.width / 2;
+         self.profileImg.layer.cornerRadius = self.profileImg.frame.size.width / 2
         
     }
     @IBAction func pressXButton(_ sender: Any) {
         delegate?.cancelModify()
-        myPageLabel.isHidden = false
-        modifyProfileButton.isHidden = false
         self.dismiss(animated: true)
         
     }
@@ -82,7 +80,7 @@ class MyPageModifyViewController: UIViewController, UIImagePickerControllerDeleg
     func imagePickerController (_ picker: UIImagePickerController,
                                 didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            if count == 1{
+            if count == 1 {
             self.backgroundImg.image = image
             }else if count == 2 {
             self.profileImg.image = image

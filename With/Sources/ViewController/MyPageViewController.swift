@@ -29,9 +29,13 @@ class MyPageViewController: UIViewController {
         myPageLabel.isHidden = true
         modifyBtn.isHidden = true
         nextVC.delegate = self
-        nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalPresentationStyle = .overFullScreen
         nextVC.modalTransitionStyle = .crossDissolve
         present(nextVC, animated: true)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        myPageLabel.isHidden = false
+        modifyBtn.isHidden = false
     }
 }
 

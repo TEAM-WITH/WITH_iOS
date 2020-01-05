@@ -18,6 +18,37 @@ class ChatListTableViewCell: UITableViewCell {
     @IBOutlet weak var chatTitleLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var acceptImage: UIImageView!
+    var serverModel: ChatListResult! {
+        willSet {
+            
+            self.userIdLabel.text = newValue.name
+            let imgURL = URL(string: newValue.writerImg)
+            self.profileImage.kf.setImage(with: imgURL)
+            self.roomId = newValue.roomId
+            self.chatTitleLabel.text = newValue.title
+        }
+    }
+    var firebaseMdoel: ChatList! {
+        willSet {
+            if newValue.unSeenCount == 0 {
+                self.badgeView.isHidden = true
+            } else {
+                self.badgeLabel.text = "\(newValue.unSeenCount)"
+                self.badgeView.isHidden = false
+            }
+//            self.badgeLabel.text = "\(newValue.unSeenCount)"
+            self.timeLabel.text = newValue.time
+            self.chatContentLabel.text = newValue.lastMsg
+            
+        }
+    }
+    var roomId = ""
+    var url = "" {
+        willSet {
+            let imgURL = URL(string: newValue)
+            self.profileImage.kf.setImage(with: imgURL, options: [.transition(.fade(0.2)), .cacheOriginalImage])
+        }
+    }
     var accept = false {
         willSet {
             if newValue {
@@ -28,20 +59,12 @@ class ChatListTableViewCell: UITableViewCell {
             self.acceptImage.isHidden = newValue
         }
     }
-    var badgeCount = 0 {
-        willSet {
-            if newValue == 0 {
-                self.badgeView.isHidden = true
-            } else {
-                self.badgeLabel.text = "\(newValue)"
-                self.badgeView.isHidden = false
-            }
-        }
-    }
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         self.timeLabel.textColor = UIColor.acceptBtColor
         self.timeLabel.labelKern(kerningValue: -0.06)
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.width/2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -176,6 +176,7 @@ extension RegionFilterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let regionCode = self.countryDataset[indexPath.row].regionCode
         let regionName = self.countryDataset[indexPath.row].regionName
+        UserDefaults.standard.set(regionCode, forKey: "regionCode")
         self.delegate?.getRegion?(regionCode: regionCode, regionName: regionName)
         self.dismiss(animated: true)
     }
