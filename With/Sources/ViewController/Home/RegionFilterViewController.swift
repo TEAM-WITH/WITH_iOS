@@ -24,9 +24,6 @@ class RegionFilterViewController: UIViewController {
         super.viewDidLoad()
         setRegionName()
         
-        //        setCountryData()
-        //        countryTableView.reloadData()
-        
         self.countryTableView.dataSource = self
         self.countryTableView.delegate = self
         self.regionCollectionView.dataSource = self

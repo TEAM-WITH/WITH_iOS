@@ -19,7 +19,7 @@ struct Chat {
     var userIdx: Int
     var nickName: String?
     var message: String?
-    var date: String? 
+    var date: String?
     var hide: Bool = false
     var meetDate: String?
 }

@@ -186,7 +186,3 @@ extension SignUpViewController {
  
     }
 }
-
-// 종료하면 dissmiss
-
-// 검은색 위에 흰색 얹고

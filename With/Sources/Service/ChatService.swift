@@ -34,6 +34,7 @@ struct ChatService {
                     }
                 } catch(let err) {
                     print(err.localizedDescription)
+                    completion(nil)
                 }
             case.failure:
                 completion(nil)
